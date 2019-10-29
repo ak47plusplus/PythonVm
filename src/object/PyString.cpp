@@ -18,3 +18,12 @@ PyString::PyString(const char * str, const int length)
     m_value = new char[length];
     memcpy(m_value, str);
 }
+
+PyString(const PyString &rhs)
+{
+  // TODO
+}
+PyString &operator=(const PyString &rhs)
+{
+   // TODO
+}
