@@ -37,7 +37,8 @@ void ArrayList<T>::insert(int index, T t)
 template<typename T>
 T ArrayList<T>::get(int index)
 {
- // TODO
+  // check idx TODO
+  return m_data[index];
 }
 template<typename T>
 void ArrayList<T>::set(int index, T t)
@@ -73,7 +74,7 @@ int ArrayList<T>::capacity()
 template<typename T>
 T ArrayList<T>::pop()
 {
-    return m_data[--_size];
+    return m_data[--m_size];
 }
 template<typename T>
 bool ArrayList<T>::isEmpty()
