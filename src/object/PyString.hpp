@@ -11,7 +11,7 @@ class PyString : public PyObject {
 public:
   PyString(const char * str);
   PyString(const char * str, const int length);
-  PyString(const PyString &rhs);
+  PyString(const PyString& rhs);
   PyString& operator=(const PyString& rhs);
 
   const char *value() { return this->m_value;}
