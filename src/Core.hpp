@@ -7,7 +7,8 @@
 #define VM_VERSION 2.7
 
 /*
- * Succedaneum of throw() in cpp11 and higher cplusplus version.
+ * no exception definations of different cpp version.
+ * My inspiration from MSVC source code.
  */
 #if __cplusplus < 201103L
     #define NOEXCEPT throw()
