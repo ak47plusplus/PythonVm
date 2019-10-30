@@ -30,7 +30,7 @@ ArrayList<T>::ArrayList(const ArrayList& rhs)
 
 // Operator= implementation.
 template<typename T>
-ArrayList& ArrayList<T>::operator=(const ArrayList& rhs)
+ArrayList<T>& ArrayList<T>::operator=(const ArrayList<T>& rhs)
 {
     if(m_data != nullptr)
         delete[] m_data;

@@ -1,5 +1,5 @@
-#ifndef PY_OBJECT_HPP
-#define PY_OBJECT_HPP
+#ifndef PY_STRING_HPP
+#define PY_STRING_HPP
 
 #include "PyObject.hpp"
 
@@ -8,6 +8,7 @@
  *  @Created by GuoXiang 2019/10/29
  */
 class PyString : public PyObject {
+
 public:
   PyString(const char * str);
   PyString(const char * str, const int length);

@@ -1,6 +1,6 @@
 #include "BinaryFileParser.hpp"
 
-BinaryFileParser::BinaryFileParser(FileInputStream *fileInputStream)
+BinaryFileParser::BinaryFileParser(FileInputStream *fileInputStream) NOEXCEPT
 {
     this->m_FileStream = fileInputStream;
 }

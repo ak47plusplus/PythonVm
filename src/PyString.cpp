@@ -16,7 +16,7 @@ PyString::PyString(const char * str, const int length)
 {
     m_length = length;
     m_value = new char[length];
-    memcpy(m_value, str);
+    memcpy(m_value, str, (size_t) m_length);
 }
 
 PyString::PyString(const PyString& rhs)
@@ -24,13 +24,13 @@ PyString::PyString(const PyString& rhs)
     delete[] m_value;
     m_length = rhs.m_length;
     m_value = new char[m_length];
-    memcpy(this->m_value,rhs.m_value);
+    memcpy(this->m_value,rhs.m_value, (size_t)m_length);
 }
 PyString& PyString::operator=(const PyString &rhs)
 {
   delete[] m_value;
   m_length = rhs.m_length;
   m_value = new char[m_length];
-  memcpy(this->m_value,rhs.m_value);
+  memcpy(this->m_value,rhs.m_value, (size_t)m_length);
   return *this;
 }
