@@ -6,7 +6,7 @@
 
 #include "NonCopyable.hpp"
 
-class InputStream : public NonCopyable {
+class InputStream : public fromboost::NonCopyable {
 public:
     InputStream(const char * filename);
     ~InputStream();
