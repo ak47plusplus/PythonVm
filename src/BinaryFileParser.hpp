@@ -13,6 +13,8 @@ public:
     ~BinaryFileParser();
     CodeObject* parse();
 private:
+    CodeObject *get_code_object();
+private:
     // not owned the target object, do not delete at ~BinaryFileParser()
     FileInputStream* m_FileStream;
 };
