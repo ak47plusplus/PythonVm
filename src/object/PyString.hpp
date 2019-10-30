@@ -1,4 +1,4 @@
-##ifndef PY_OBJECT_HPP
+#ifndef PY_OBJECT_HPP
 #define PY_OBJECT_HPP
 
 #include "PyObject.hpp"
@@ -12,7 +12,7 @@ public:
   PyString(const char * str);
   PyString(const char * str, const int length);
   PyString(const PyString &rhs);
-  PyString &operator=(const PyString &rhs);
+  PyString& operator=(const PyString& rhs);
 
   const char *value() { return this->m_value;}
   int length() {return this->m_length;}
