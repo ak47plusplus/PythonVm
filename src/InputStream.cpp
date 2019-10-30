@@ -6,6 +6,11 @@ InputStream::InputStream(const char *filename)
     m_in.open(filename, std::ios::in | std::ios::out);
 }
 
+InputStream* InputStream::operator&()
+{
+  return std::addressof(*this);
+}
+
 int InputStream::read_int()
 {
     char* arr = new char[4];
