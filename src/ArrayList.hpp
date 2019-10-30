@@ -10,6 +10,7 @@ class ArrayList {
 public:
     explicit ArrayList(int initial_cap = 16);
     ArrayList(const ArrayList& rhs);
+    ~ArrayList();
     ArrayList& operator=(const ArrayList& rhs);
     T& operator[](int index);// Returns a Reference to the element at position n in the vector container.
     void add(T t);

@@ -110,18 +110,29 @@ int ArrayList<T>::size()
 {
     return this->m_size;
 }
+
 template<typename T>
 int ArrayList<T>::capacity()
 {
    return this->m_capacity;
 }
+
 template<typename T>
 T ArrayList<T>::pop()
 {
     return m_data[--m_size];
 }
+
 template<typename T>
 bool ArrayList<T>::isEmpty()
 {
     return this->m_size == 0;
+}
+
+template<typename T>
+ArrayList<T>::~ArrayList()
+{
+    if (m_data != nullptr) {
+      delete[] m_data;
+    }
 }
