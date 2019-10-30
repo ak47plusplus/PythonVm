@@ -1,6 +1,7 @@
 #include "ArrayList.hpp"
 #include <cstdio>
 #include <exception>
+#include <stdexcept>
 
 template<typename T>
 ArrayList<T>::ArrayList(int initial_cap)

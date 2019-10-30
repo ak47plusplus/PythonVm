@@ -1,4 +1,4 @@
-#include "PyString.h"
+#include "PyString.hpp"
 #include <cstring>
 #include <cstdlib>
 
@@ -19,14 +19,14 @@ PyString::PyString(const char * str, const int length)
     memcpy(m_value, str);
 }
 
-PyString(const PyString& rhs)
+PyString::PyString(const PyString& rhs)
 {
     delete[] m_value;
     m_length = rhs.m_length;
     m_value = new char[m_length];
     memcpy(this->m_value,rhs.m_value);
 }
-PyString& operator=(const PyString &rhs)
+PyString& PyString::operator=(const PyString &rhs)
 {
   delete[] m_value;
   m_length = rhs.m_length;
