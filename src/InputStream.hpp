@@ -10,10 +10,12 @@ class InputStream : public fromboost::NonCopyable {
 public:
     InputStream(const char * filename);
     ~InputStream();
+    InputStream* operator&();
+    void close();
+    char read();
     int read_int();
 private:
     std::ifstream m_in;
 };
-
 
 #endif

@@ -8,7 +8,20 @@ InputStream::InputStream(const char *filename)
 
 InputStream* InputStream::operator&()
 {
-  return std::addressof(*this);
+    return std::addressof(*this);
+}
+
+void InputStream::close()
+{
+    if(m_in.is_open())
+        m_in.close();
+}
+
+char InputStream::read()
+{
+    char c;
+    m_in.get(c);
+    return c;
 }
 
 int InputStream::read_int()
