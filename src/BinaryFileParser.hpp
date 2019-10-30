@@ -9,10 +9,11 @@
 
 class BinaryFileParser : public fromboost::NonCopyable {
 public:
-    explicit BinaryFileParser(FileInputStream *FileInputStream) NOEXCEPT;
+    explicit BinaryFileParser(FileInputStream *fileInputStream) NOEXCEPT;
     ~BinaryFileParser();
     CodeObject* parse();
 private:
+    // not owned the target object, do not delete at ~BinaryFileParser()
     FileInputStream* m_FileStream;
 };
 

@@ -1,9 +1,11 @@
 #ifndef CODE_OBJECT_HPP
 #define CODE_OBJECT_HPP
 
-class CodeObject {
+#include "PyObject.hpp"
+
+class CodeObject : public PyObject {
 public:
-    
+
 
 private:
 
