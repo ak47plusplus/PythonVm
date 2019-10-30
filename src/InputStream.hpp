@@ -8,7 +8,7 @@
 
 class InputStream : public fromboost::NonCopyable {
 public:
-    InputStream(const char * filename);
+    explicit InputStream(const char * filename);
     ~InputStream();
     InputStream* operator&();
     void close();
