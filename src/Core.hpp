@@ -9,7 +9,11 @@
 /*
  * Succedaneum of throw() in cpp11 and higher cplusplus version.
  */
-#define NOEXCEPT noexcept
+#if __cplusplus < 201103L
+    #define NOEXCEPT throw()
+#else
+    #define NOEXCEPT noexcept
+#endif
 
 /*
  * A macron of disable move constructor and operator=
