@@ -17,7 +17,8 @@
 #endif
 
 /*
- * A macron of disable move constructor and operator=
+ * A macron of disable move constructor and operator=.
+ * My inspiration from Apache Caffe source code.
  */
 #define DISABLE_COPY(_Ty) \
     private:  \
