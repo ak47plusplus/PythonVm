@@ -17,23 +17,38 @@ ArrayList<T>::ArrayList(int initial_cap)
 template<typename T>
 ArrayList<T>::ArrayList(const ArrayList& rhs)
 {
-
+    if(m_data != nullptr)
+        delete[] m_data;
+    m_size = rhs.m_size;
+    m_capacity = rhs.m_capacity;
+    m_data = new T[m_capacity];
+    for (size_t i = 0; i < m_capacity; i++) {
+        m_data[i] = rhs.m_data[i];
+    }
 }
 
 // Operator= implementation.
 template<typename T>
 ArrayList& ArrayList<T>::operator=(const ArrayList& rhs)
 {
-
+    if(m_data != nullptr)
+        delete[] m_data;
+    m_size = rhs.m_size;
+    m_capacity = rhs.m_capacity;
+    m_data = new T[m_capacity];
+    for (size_t i = 0; i < m_capacity; i++) {
+        m_data[i] = rhs.m_data[i];
+    }
+    return *this;
 }
 
-// Returns a Reference instead of a Copy to the element at position n in the vector container.
+// Returns a Reference instead of a Copy to the element at position index in the ArrayList container.
 // so we can have the usage like: list[0] = 3
 // like std::vector, the operator[] wont do the range check.
 template<typename T>
 T& ArrayList<T>::operator[](int index)
 {
-
+    return m_data[index];
 }
 
 template<typename T>
