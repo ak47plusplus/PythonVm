@@ -20,7 +20,6 @@ CodeObject::CodeObject(
   m_ByteCodes(byteCodes),
   m_Consts(consts),m_Names(names),m_Varnames(varnames),m_Freevars(freevars),m_Cellvars(cellvars),
   m_FileName(fileName), m_CoName(coName),m_Lineno(lineno),m_Notable(notable)
-  NOEXCEPT
 {
 
 }

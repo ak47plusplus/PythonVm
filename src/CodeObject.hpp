@@ -22,7 +22,7 @@ public:
       PyString *fileName,
       PyString *coName,
       int lineno,
-      PyString *notable) NOEXCEPT;
+      PyString *notable);
       ~CodeObject();
 
 private:
