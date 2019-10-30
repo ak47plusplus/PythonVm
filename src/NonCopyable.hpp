@@ -1,7 +1,9 @@
 #ifndef NONCIOYABLE_HPP
 #define NONCIOYABLE_HPP
 
-namespace fromboost {
+#include "Core.hpp"
+
+FROM_BOOST_BEGIN
 
 // like boost::noncopyable.
 // disable copy constructor and operator=
@@ -15,6 +17,6 @@ protected:
 };
 
 
-} // endof namespace fromboost
+FROM_BOOST_END // endof namespace fromboost
 
 #endif
