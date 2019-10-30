@@ -1,4 +1,4 @@
-#include <InputStream.hpp>
+#include "InputStream.hpp"
 
 InputStream::InputStream(const char *filename)
 {

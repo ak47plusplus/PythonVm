@@ -4,7 +4,7 @@
 #include <iostream>
 #include <fstream>
 
-##include "NonCopyable.hpp"
+#include "NonCopyable.hpp"
 
 class InputStream : public NonCopyable {
 public:
