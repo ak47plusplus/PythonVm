@@ -1,30 +1,30 @@
-#include "InputStream.hpp"
+#include "FileInputStream.hpp"
 #include <memory> // for std::unique_ptr
 
-InputStream::InputStream(const char *filename)
+FileInputStream::FileInputStream(const char *filename)
 {
     m_in.open(filename, std::ios::in | std::ios::out);
 }
 
-InputStream* InputStream::operator&()
+FileInputStream* FileInputStream::operator&()
 {
     return std::addressof(*this);
 }
 
-void InputStream::close()
+void FileInputStream::close()
 {
     if(m_in.is_open())
         m_in.close();
 }
 
-char InputStream::read()
+char FileInputStream::read()
 {
     char c;
     m_in.get(c);
     return c;
 }
 
-int InputStream::read_int()
+int FileInputStream::read_int()
 {
     char* arr = new char[4];
     std::unique_ptr<char> arr_ptr(arr, [](char *p) {delete[] p;});
@@ -36,7 +36,7 @@ int InputStream::read_int()
     return arr[3] << 24 | arr[2] << 16 | arr[1] << 8 | arr[0];
 }
 
-InputStream::~InputStream()
+FileInputStream::~FileInputStream()
 {
     if (m_in.is_open())
         m_in.close();
