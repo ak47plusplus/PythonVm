@@ -1,9 +1,9 @@
 #include "InputStream.hpp"
-##include <memory> // for std::unique_ptr
+#include <memory> // for std::unique_ptr
 
 InputStream::InputStream(const char *filename)
 {
-    m_in.open(filename, std::ios::in | std:ios::out);
+    m_in.open(filename, std::ios::in | std::ios::out);
 }
 
 int InputStream::read_int()
