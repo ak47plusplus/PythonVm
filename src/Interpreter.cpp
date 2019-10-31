@@ -2,6 +2,7 @@
 #include <mutex>
 
 Interpreter* Interpreter::m_Instance = nullptr;
+std::mutex Interpreter::m_Mutex;
 
 Interpreter *Interpreter::get_instance()
 {
