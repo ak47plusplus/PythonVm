@@ -1,5 +1,6 @@
 #include "BinaryFileParser.hpp"
-#include <cstdio> // meed to delete
+#include <cstdio>
+#include "Logger.hpp"
 
 BinaryFileParser::BinaryFileParser(FileInputStream *fileInputStream) NOEXCEPT
 {
@@ -34,6 +35,7 @@ CodeObject *BinaryFileParser::get_code_object()
     int nLocals = m_FileStream->read_int();
     int stackSize = m_FileStream->read_int();
     int flags = m_FileStream->read_int();
-
+    LOG(INFO) << "argCount: " << argCount << "nLocals: " << nLocals
+        << "stackSize: " << stackSize << "flags: " << flags;
     return nullptr;
 }
