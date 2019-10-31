@@ -41,7 +41,7 @@ public:
     static const unsigned char END_FINALLY = 88;
     static const unsigned char BUILD_CLASS = 89;
 
-    // TODO: This is a separator
+    // TODO: This is a separator not a byte code.
     static const unsigned char HAVE_ARGUMENT = 90; /* Opcodes from here have an argument: */
 
     static const unsigned char STORE_NAME = 90; /* Index in name list */
