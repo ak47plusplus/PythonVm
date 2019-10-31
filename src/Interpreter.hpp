@@ -2,10 +2,10 @@
 #define INTERPRETER_HPP
 
 #include <mutex>
+#include "Core.hpp"
 #include "CodeObject.hpp"
-#include "NonCopyable.hpp"
 
-class Interpreter : public fromboost::NonCopyable {
+class Interpreter {
 
   enum Status {
       IS_OK,
@@ -15,6 +15,8 @@ class Interpreter : public fromboost::NonCopyable {
       IS_RETURN,
       IS_YIELD,
   };
+
+DISABLE_COPY
 
 // public methods
 public:
