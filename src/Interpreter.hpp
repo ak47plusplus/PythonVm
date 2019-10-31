@@ -16,7 +16,7 @@ class Interpreter {
       IS_YIELD,
   };
 
-DISABLE_COPY
+DISABLE_COPY(Interpreter)
 
 // public methods
 public:
