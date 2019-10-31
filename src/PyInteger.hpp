@@ -11,6 +11,10 @@ class PyInteger : public PyObject {
 public:
   PyInteger(int x) : m_value(x){}
   int value() {return this->m_value;}
+
+  // tmp: Inherited from PyObject
+  virtual void print();
+  virtual PyObject* add(PyObject *rhs);
 private:
   int m_value;
 };
