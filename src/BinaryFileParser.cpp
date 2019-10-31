@@ -13,15 +13,12 @@ BinaryFileParser::~BinaryFileParser()
 
 CodeObject* BinaryFileParser::parse()
 {
-    // 1. 读取魔数
     int magicNumber = m_FileStream->read_int();
     printf("magic nuber: 0x%x\n", magicNumber);
 
-    // 2. 读取更新时间
     int updateDate = m_FileStream->read_int();
     printf("update date: 0x%x\n", updateDate);
 
-    // 3. object type
     char objectType = m_FileStream->read();
     if (objectType == 'c') {
         CodeObject* result = this->get_code_object();
@@ -33,5 +30,10 @@ CodeObject* BinaryFileParser::parse()
 
 CodeObject *BinaryFileParser::get_code_object()
 {
+    int argCount = m_FileStream->read_int();
+    int nLocals = m_FileStream->read_int();
+    int stackSize = m_FileStream->read_int();
+    int flags = m_FileStream->read_int();
+
     return nullptr;
 }
