@@ -15,7 +15,7 @@ CodeObject* BinaryFileParser::parse()
 {
     // 1. 读取魔数
     int magicNumber = m_FileStream->read_int();
-    printf("magic nuber: %d\n", magicNumber);
+    printf("magic nuber: 0x%x\n", magicNumber);
 
     // 2. 读取更新时间
     int updateDate = m_FileStream->read_int();

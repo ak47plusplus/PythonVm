@@ -7,7 +7,7 @@
  * Main method and the boostrap.
  */
 int main(int argc, char const *argv[]) {
-    FileInputStream _stream("./test.txt");
+    FileInputStream _stream("./test.pyc");
     auto parser = std::make_shared<BinaryFileParser>(&_stream);
     parser->parse();
     return 0;
