@@ -4,7 +4,7 @@
 /*
  * The defination of python vm version.
  */
-#define VM_VERSION 2.7
+#define VM_VERSION "2.7.15"
 
 /*
  * no exception definations of different cpp version.

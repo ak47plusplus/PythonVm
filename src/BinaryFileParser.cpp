@@ -25,7 +25,7 @@ CodeObject* BinaryFileParser::parse()
     char objectType = m_FileStream->read();
     if (objectType == 'c') {
         CodeObject* result = this->get_code_object();
-        printf("Parser Ok@\n");
+        printf("Parser Ok!\n");
         return result;
     }
     return nullptr;
