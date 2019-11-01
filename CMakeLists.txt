@@ -7,7 +7,6 @@ project (tinyPython)
 set(SOURCES
     src/Main.cpp
     src/3rd/easylogging++/easylogging++.cpp
-    src/ArrayList.cpp
     src/BinaryFileParser.cpp
     src/CodeObject.cpp
     src/FileInputStream.cpp
