@@ -14,10 +14,10 @@ BinaryFileParser::~BinaryFileParser(){}
 CodeObject* BinaryFileParser::parse()
 {
     int magicNumber = m_Stream->read_int();
-    printf("magic nuber: 0x%x\n", magicNumber);
+    LOG(INFO) << "magic number: " << magicNumber;
 
     int updateDate = m_Stream->read_int();
-    printf("update date: 0x%x\n", updateDate);
+    LOG(INFO) << "update date: " << updateDate;
 
     char objectType = m_Stream->read();
     if (objectType == 'c') {
