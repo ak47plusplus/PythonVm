@@ -6,6 +6,10 @@
 
 class PyString;
 
+/*
+ * @brief 每一个.pyc文件对应的结构
+ * @Created by GuoXiang 2019/11/1
+ */
 class CodeObject : public PyObject {
 public:
     explicit CodeObject(
