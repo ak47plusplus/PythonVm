@@ -5,6 +5,7 @@
 #include "Interpreter.hpp"
 #include "ByteCode.hpp"
 #include "PyString.hpp"
+#include "PyInteger.hpp"
 
 
 Interpreter* Interpreter::m_Instance = nullptr;
