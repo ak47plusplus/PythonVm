@@ -68,26 +68,26 @@ PyString *BinaryFileParser::get_string()
     char *strArr = new char[strLen];
     std::shared_ptr<char> charGuard(strArr, [](char *p){delete[] p;});
     for(int i = 0; i < strLen; i++) {
-        strArr[i] = m_Stream->read();
+        strArr[i] = this->m_Stream->read();
     }
     return new PyString(strArr,strLen);
 }
 
 ArrayList<PyObject*> *BinaryFileParser::get_tuple()
 {
-    int length = m_Stream->read_int();
+    int length = this->m_Stream->read_int();
     PyString *str;
     ArrayList<PyObject *> *list = new ArrayList<PyObject*>(length);
     for(int i = 0; i < length; i++)
     {
-        char objType = m_Stream->read();
+        char objType = this->m_Stream->read();
         switch (objType) {
             case 'c':
                 LOG(DEBUG) << "this is a code object.";
                 list->add(this->get_code_object()); // 为c带表内嵌一个CodeObject.
                 break;
             case 'i':
-                list->add(new PyInteger(this->read_int()));
+                list->add(new PyInteger(this->m_Stream->read_int()));
                 break;
             case 'N':
                 list->add(NULL); // not nullptr. TODO
@@ -101,7 +101,7 @@ ArrayList<PyObject*> *BinaryFileParser::get_tuple()
                 list->add(get_string());
                 break;
             case 'R':
-                list.add(this->m_StringTable.get(m_Stream->read_int()));
+                list->add(this->m_StringTable.get(this->m_Stream->read_int()));
                 break;
         }
     }
