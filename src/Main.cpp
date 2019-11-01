@@ -4,6 +4,8 @@
 #include <exception>
 
 #include "Logger.hpp"
+#include "CodeObject.hpp"
+#include "Interpreter.hpp"
 #include "FileInputStream.hpp"
 #include "BinaryFileParser.hpp"
 
@@ -20,7 +22,8 @@ int main(int argc, char const *argv[]) {
     try {
         FileInputStream _stream(argv[1]);
         auto parser = std::make_shared<BinaryFileParser>(&_stream);
-        parser->parse();
+        CodeObject *main_code = parser->parse();
+        Interpreter::get_instance().run(main_code);
     } catch(std::exception &ex) {
         std::cout << "Error: " << ex.what() << std::endl;
         exit(EXIT_FAILURE);

@@ -20,25 +20,16 @@ class Interpreter {
 
 DISABLE_COPY(Interpreter)
 
-// public methods
 public:
     static Interpreter *get_instance();
     void run(CodeObject* codes);
-
-// private methods
 private:
     Interpreter() = default;
-
-// public fields
-public:
-
-// private fields
 private:
     static Interpreter *m_Instance;
     static std::mutex m_Mutex;
-
-    ArrayList<PyObject*>* m_Stack;    // 运行时栈
-    ArrayList<PyObject*>* m_Consts;
+    ArrayList<PyObject*>* m_Stack;    // 运行时栈 解释具体的CodeObject时进行创建，解释完毕直接销毁
+    ArrayList<PyObject*>* m_Consts;   // 指向当前执行的CodeObject的常量表.
 
 };
 
