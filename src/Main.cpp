@@ -1,6 +1,8 @@
-#include <iostream>
 #include <memory>
 #include <stdlib.h>
+#include <iostream>
+#include <exception>
+
 #include "Logger.hpp"
 #include "FileInputStream.hpp"
 #include "BinaryFileParser.hpp"
