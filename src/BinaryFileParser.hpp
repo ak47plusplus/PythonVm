@@ -3,6 +3,7 @@
 
 #include "Core.hpp"
 #include "PyString.hpp"
+#include "PyInteger.hpp"
 #include "CodeObject.hpp"
 #include "ArrayList.hpp"
 #include "NonCopyable.hpp"

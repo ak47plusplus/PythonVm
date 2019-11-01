@@ -67,7 +67,7 @@ PyString *BinaryFileParser::get_string()
     int strLen = m_Stream->read_int();
     char *strArr = new char[strLen];
     std::shared_ptr<char> charGuard(strArr, [](char *p){delete[] p;});
-    for(int i = 0; i < strlen; i++) {
+    for(int i = 0; i < strLen; i++) {
         strArr[i] = m_Stream->read();
     }
     return new PyString(strArr,strLen);
