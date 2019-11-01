@@ -5,6 +5,7 @@ project (tinyPython)
 
 # Create a sources variable with a link to all cpp files to compile
 set(SOURCES
+    src/3rd/easylogging++/easylogging++.cpp
     src/ArrayList.cpp
     src/BinaryFileParser.cpp
     src/CodeObject.cpp
