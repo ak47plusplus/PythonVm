@@ -23,7 +23,7 @@ int main(int argc, char const *argv[]) {
         FileInputStream _stream(argv[1]);
         auto parser = std::make_shared<BinaryFileParser>(&_stream);
         CodeObject *main_code = parser->parse();
-        Interpreter::get_instance().run(main_code);
+        Interpreter::get_instance()->run(main_code);
     } catch(std::exception &ex) {
         std::cout << "Error: " << ex.what() << std::endl;
         exit(EXIT_FAILURE);
