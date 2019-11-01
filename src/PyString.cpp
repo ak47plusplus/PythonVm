@@ -34,3 +34,10 @@ PyString& PyString::operator=(const PyString &rhs)
   memcpy(this->m_value,rhs.m_value, (size_t)m_length);
   return *this;
 }
+
+PyString::~PyString()
+{
+    if (m_value != nullptr) {
+        delete[] m_value; 
+    }
+}

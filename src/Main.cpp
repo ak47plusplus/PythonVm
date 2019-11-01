@@ -18,7 +18,7 @@ int main(int argc, char const *argv[]) {
     START_EASYLOGGINGPP(argc, argv);
 
     try {
-        FileInputStream _stream("test.pyc");
+        FileInputStream _stream(argv[1]);
         auto parser = std::make_shared<BinaryFileParser>(&_stream);
         parser->parse();
     } catch(std::exception &ex) {

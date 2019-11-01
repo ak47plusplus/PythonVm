@@ -23,3 +23,25 @@ CodeObject::CodeObject(
 {
 
 }
+
+CodeObject::~CodeObject()
+{
+    if(m_ByteCodes != nullptr)
+        delete m_ByteCodes;
+    if(m_Consts != nullptr)
+        delete m_Consts;
+    if(m_Names != nullptr)
+        delete m_Names;
+    if(m_Varnames != nullptr)
+        delete m_Varnames;
+    if(m_Freevars != nullptr)
+        delete m_Freevars;
+    if(m_Cellvars != nullptr)
+        delete m_Cellvars;
+    if(m_FileName != nullptr)
+        delete m_FileName;
+    if(m_CoName != nullptr)
+        delete m_CoName;
+    if(m_Notable != nullptr)
+        delete m_Notable;
+}
