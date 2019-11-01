@@ -3,8 +3,8 @@
 
 class PyObject {
 public:
-    virtual void print() = 0;
-    virtual PyObject* add(PyObject *rhs) = 0;
+    virtual void print() {}
+    virtual PyObject* add(PyObject *rhs) {}
 };
 
 #endif
