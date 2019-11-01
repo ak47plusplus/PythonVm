@@ -109,7 +109,7 @@ template<typename T>
 T ArrayList<T>::get(int index)
 {
   if (index >= m_size) {
-      throw std::out_of_range();
+      throw std::out_of_range("index out of bounds.");
   }
   return m_data[index];
 }
