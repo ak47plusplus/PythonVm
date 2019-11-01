@@ -5,6 +5,7 @@ project (tinyPython)
 
 # Create a sources variable with a link to all cpp files to compile
 set(SOURCES
+    src/Main.cpp
     src/3rd/easylogging++/easylogging++.cpp
     src/ArrayList.cpp
     src/BinaryFileParser.cpp
@@ -13,7 +14,6 @@ set(SOURCES
     src/Interpreter.cpp
     src/PyInteger.cpp
     src/PyString.cpp
-    src/Main.cpp
 )
 
 # Add an executable with the above sources
