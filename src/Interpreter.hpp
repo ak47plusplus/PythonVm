@@ -2,8 +2,10 @@
 #define INTERPRETER_HPP
 
 #include <mutex>
+
 #include "Core.hpp"
 #include "CodeObject.hpp"
+#include "ArrayList.hpp"
 
 class Interpreter {
 
