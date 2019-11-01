@@ -25,7 +25,7 @@ public:
       PyString *notable);
       ~CodeObject();
 
-private:
+public:
     int m_ArgCount;                     /* 参数个数 */
     int m_Nlocals;                      /* 局部变量个数 */
     int m_StackSize;                    /* 当前段code使用的操作数栈的深度的最大值 */

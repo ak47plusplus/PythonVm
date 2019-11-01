@@ -35,8 +35,8 @@ private:
     static Interpreter *m_Instance;
     static std::mutex m_Mutex;
 
-    ArrayList<HiObject*>* m_Stack;    // 运行时栈
-    ArrayList<HiObject*>* m_Consts;
+    ArrayList<PyObject*>* m_Stack;    // 运行时栈
+    ArrayList<PyObject*>* m_Consts;
 
 };
 
