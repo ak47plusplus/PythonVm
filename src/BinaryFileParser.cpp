@@ -75,10 +75,45 @@ PyString *BinaryFileParser::get_string()
 
 ArrayList<PyObject*> *BinaryFileParser::get_tuple()
 {
-
+    int length = m_Stream->read_int();
+    PyString *str;
+    ArrayList<PyObject *> *list = new ArrayList<PyObject*>(length);
+    for(int i = 0; i < length; i++)
+    {
+        char objType = m_Stream->read();
+        switch (objType) {
+            case 'c':
+                LOG(DEBUG) << "this is a code object.";
+                list->add(this->get_code_object()); // 为c带表内嵌一个CodeObject.
+                break;
+            case 'i':
+                list->add(new PyInteger(this->read_int()));
+                break;
+            case 'N':
+                list->add(NULL); // not nullptr. TODO
+                break;
+            case 't':
+                str = this->get_string();
+                list->add(str);
+                this->m_StringTable.add(str);
+                break;
+            case 's':
+                list->add(get_string());
+                break;
+            case 'R':
+                list.add(this->m_StringTable.get(m_Stream->read_int()));
+                break;
+        }
+    }
+    return list;
 }
 ArrayList<PyObject*> *BinaryFileParser::get_consts()
 {
+    if(m_Stream->read() == '(')
+    {
+        return this->get_tuple();
+    }
+    m_Stream->unread();
     return nullptr;
 }
 ArrayList<PyObject*> *BinaryFileParser::get_names()

@@ -31,6 +31,11 @@ char FileInputStream::read()
     return c;
 }
 
+void FileInputStream::unread()
+{
+    // TODO
+}
+
 int FileInputStream::read_int()
 {
     char* arr = new char[4];

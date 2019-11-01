@@ -6,6 +6,10 @@
 
 #include "NonCopyable.hpp"
 
+/*
+ * @brief A file stream with a buffer.
+ * @Created by GuoXiang 2019/10/20
+ */
 class FileInputStream : public fromboost::NonCopyable {
 public:
     explicit FileInputStream(const char * filename);
@@ -13,6 +17,7 @@ public:
     FileInputStream* operator&();
     void close();
     char read();
+    void unread();
     int read_int();
 private:
     std::ifstream m_in;

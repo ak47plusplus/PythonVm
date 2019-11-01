@@ -2,6 +2,7 @@
 #define BINARY_FILE_PARSER_HPP
 
 #include "Core.hpp"
+#include "PyString.hpp"
 #include "CodeObject.hpp"
 #include "ArrayList.hpp"
 #include "NonCopyable.hpp"
@@ -30,6 +31,7 @@ private:
 private:
     // not owned the target object, do not delete at ~BinaryFileParser()
     FileInputStream* m_Stream;
+    ArrayList<PyString*> m_StringTable;
 };
 
 #endif
