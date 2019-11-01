@@ -44,7 +44,6 @@ void FileInputStream::unread()
 
 int FileInputStream::read_int()
 {
-
     char a = this->read() & 0xff;
     char b = this->read() & 0xff;
     char c = this->read() & 0xff;
