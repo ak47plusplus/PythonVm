@@ -15,6 +15,12 @@ public:
   // tmp: Inherited from PyObject
   virtual void print();
   virtual PyObject* add(PyObject *rhs);
+  virtual PyObject* greater(PyObject *rhs);
+  virtual PyObject* less(PyObject *rhs);
+  virtual PyObject* equal(PyObject *rhs);
+  virtual PyObject* not_equal(PyObject *rhs);
+  virtual PyObject* ge(PyObject *rhs);
+  virtual PyObject* le(PyObject *rhs);
 private:
   int m_value;
 };
