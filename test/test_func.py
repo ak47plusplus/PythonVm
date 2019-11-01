@@ -1,4 +1,4 @@
-def sayHello(arg):
+def sayHello():
     print("hello")
 
 sayHello()
