@@ -1,0 +1,3 @@
+/opt/PythonVm/build/CMakeFiles/rebuild_cache.dir
+/opt/PythonVm/build/CMakeFiles/tinyPython.dir
+/opt/PythonVm/build/CMakeFiles/edit_cache.dir
