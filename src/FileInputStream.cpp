@@ -14,8 +14,8 @@ FileInputStream::FileInputStream(const char *filename)
         throw std::runtime_error("file not exist!");
     }
     //
-    memset(std::addressof(this->m_LastBuffer, 0, BUFFER_SIZE));
-    memset(std::addressof(this->m_Buffer, 0, BUFFER_SIZE));
+    memset(std::addressof(this->m_LastBuffer), 0, BUFFER_SIZE);
+    memset(std::addressof(this->m_Buffer), 0, BUFFER_SIZE);
     this->m_Index = 0;
     // read to buffer.
 }

@@ -4,7 +4,8 @@
 #include "PyObject.hpp"
 #include "ArrayList.hpp"
 
-class PyString;
+##include "PyString.hpp"
+// class PyString; 无法调用delete
 
 /*
  * @brief 每一个.pyc文件对应的结构

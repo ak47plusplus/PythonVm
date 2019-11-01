@@ -3,6 +3,7 @@
 
 class PyObject {
 public:
+    virtual ~PyObject() {}
     virtual void print() {}
     virtual PyObject* add(PyObject *rhs) {}
 };
