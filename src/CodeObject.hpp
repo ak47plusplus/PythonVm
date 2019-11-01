@@ -4,7 +4,7 @@
 #include "PyObject.hpp"
 #include "ArrayList.hpp"
 
-##include "PyString.hpp"
+#include "PyString.hpp"
 // class PyString; 无法调用delete
 
 /*
