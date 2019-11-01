@@ -1,27 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
 
-# Set the project name
+# 设置项目的名称
 project (tinyPython)
-
-# Create a sources variable with a link to all cpp files to compile
-set(SOURCES
-    src/Main.cpp
-    src/3rd/easylogging++/easylogging++.cpp
-    src/BinaryFileParser.cpp
-    src/CodeObject.cpp
-    src/FileInputStream.cpp
-    src/Interpreter.cpp
-    src/PyInteger.cpp
-    src/PyString.cpp
-)
-
-# Set the directories that should be included in the build command for this target
-# when running g++ these will be included as -I/directory/path/
-target_include_directories(${PROJECT_NAME}
-    PRIVATE
-        ${PROJECT_SOURCE_DIR}/src
-        ${PROJECT_SOURCE_DIR}/src/3rd/easylogging++
-)
 
 # 检查c++编译器标志，设置c++11支持变量
 include(CheckCXXCompilerFlag)
@@ -37,5 +17,26 @@ else()
 message(STATUS "The compiler ${CMAKE_CXX_COMPILER} has no C++11 support. Please use a different C++ compiler.")
 endif()
 
-# Add an executable with the above sources
+# 创建一个源文件变量以用于链接所有的cpp文件用于编译
+set(SOURCES
+    src/Main.cpp
+    src/3rd/easylogging++/easylogging++.cpp
+    src/BinaryFileParser.cpp
+    src/CodeObject.cpp
+    src/FileInputStream.cpp
+    src/Interpreter.cpp
+    src/PyInteger.cpp
+    src/PyString.cpp
+)
+
+# 添加一个可执行文件
 add_executable(${PROJECT_NAME} ${SOURCES})
+
+# 添加头文件目录
+# Set the directories that should be included in the build command for this target
+# when running g++ these will be included as -I/directory/path/
+target_include_directories(${PROJECT_NAME}
+    PRIVATE
+        ${PROJECT_SOURCE_DIR}/src
+        ${PROJECT_SOURCE_DIR}/src/3rd/easylogging++
+)
