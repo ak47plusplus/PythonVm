@@ -4,6 +4,7 @@
 #include <iostream>
 #include <exception>
 
+#include "Vm.hpp"
 #include "Logger.hpp"
 #include "CodeObject.hpp"
 #include "Interpreter.hpp"
@@ -19,6 +20,8 @@ INITIALIZE_EASYLOGGINGPP
 int main(int argc, char const *argv[]) {
     // init the easylogging++
     START_EASYLOGGINGPP(argc, argv);
+
+    VM::init();
 
     try {
         FileInputStream _stream(argv[1]);

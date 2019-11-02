@@ -87,6 +87,7 @@ public:
 
     static const unsigned char CALL_FUNCTION_VAR = 140;
 
+    // for ByteCode::COMPARE_OP
     enum COMPARE {
         LESS = 0,
         LESS_EQUAL,

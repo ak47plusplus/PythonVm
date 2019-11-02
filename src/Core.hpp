@@ -93,6 +93,4 @@
 #define FROM_BOOST_BEGIN namespace fromboost {
 #define FROM_BOOST_END }
 
-
-
 #endif // endif CORE_HPP

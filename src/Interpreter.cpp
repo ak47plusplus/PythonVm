@@ -3,9 +3,13 @@
 #include <iostream>
 
 #include "Interpreter.hpp"
+#include "Panic.hpp"
 #include "ByteCode.hpp"
 #include "PyString.hpp"
 #include "PyInteger.hpp"
+
+#define PUSH(v) m_Stack->add((v))
+#define POP()   m_Stack->pop()
 
 
 Interpreter* Interpreter::m_Instance = nullptr;
@@ -60,9 +64,38 @@ void Interpreter::run(CodeObject *codes)
                 w = m_Stack->pop();
                 m_Stack->add(w->add(v));
                 break;
-            case ByteCode::RETURN_VALUE:
+            case ByteCode::RETURN_VALUE:  // 83
                 m_Stack->pop(); // ? just pop ?
                 break;
+            case ByteCode::COMPARE_OP:
+                w = POP();
+                v = POP();
+                // COMPARE_OP是带有参数的操作码
+                switch (opArg) {
+                    case ByteCode::GREATER:
+                        PUSH(v->greater(w));
+                        break;
+                    case ByteCode::LESS:
+                        PUSH(v->less(w));
+                        break;
+                    case ByteCode::EQUAL:
+                        PUSH(v->equal(w));
+                        break;
+                    case ByteCode::NOT_EQUAL:
+                        PUSH(v->not_equal(w));
+                        break;
+                    case ByteCode::GREATER_EQUAL:
+                        PUSH(v->ge(w));
+                        break;
+                    case ByteCode::LESS_EQUAL:
+                        PUSH(v->le(w));
+                        break;
+                    default:
+                        __panic("Unrecognized compare op arg: %d\n", opArg);
+                }
+                break;
+            default:
+                __panic("Unsupported opCode: %c \n", opCode);
         }
     }
     delete m_Stack;
