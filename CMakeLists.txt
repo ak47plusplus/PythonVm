@@ -25,8 +25,14 @@ set(SOURCES
     src/CodeObject.cpp
     src/FileInputStream.cpp
     src/Interpreter.cpp
+    src/PyObject.cpp
     src/PyInteger.cpp
+    src/PyDouble.cpp
     src/PyString.cpp
+    src/PyList.cpp
+    src/PyDict.cpp
+    src/Klass.cpp
+    src/VM.cpp
 )
 
 # 添加一个可执行文件
@@ -38,5 +44,6 @@ add_executable(${PROJECT_NAME} ${SOURCES})
 target_include_directories(${PROJECT_NAME}
     PRIVATE
         ${PROJECT_SOURCE_DIR}/src
+        ${PROJECT_SOURCE_DIR}/src/arch
         ${PROJECT_SOURCE_DIR}/src/3rd/easylogging++
 )
