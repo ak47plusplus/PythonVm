@@ -1,7 +1,42 @@
 #ifndef PY_INTEGER_HPP
 #define PY_INTEGER_HPP
 
+#include "Klass.hpp"
 #include "PyObject.hpp"
+
+#include <mutex>
+
+
+/**
+ *  @brief The Python Integer Class and Integer Object.
+ *  @Created by GuoXiang 2019/10/29
+ */
+
+class IntegerKlass : public Klass {
+public:
+    static IntegerKlass get_instance();
+
+    virtual void print(PyObject *x);
+
+    virtual PyObject* add(PyObject *lhs, PyObject *rhs);
+    virtual PyObject* sub(PyObject *lhs, PyObject *rhs);
+    virtual PyObject* mul(PyObject *lhs, PyObject *rhs);
+    virtual PyObject* div(PyObject *lhs, PyObject *rhs);
+    virtual PyObject* mod(PyObject *lhs, PyObject *rhs);
+
+
+    virtual PyObject* greater(PyObject *lhs, PyObject *rhs);
+    virtual PyObject* less(PyObject *lhs, PyObject *rhs);
+    virtual PyObject* equal(PyObject *lhs, PyObject *rhs);
+    virtual PyObject* not_equal(PyObject *lhs, PyObject *rhs);
+    virtual PyObject* ge(PyObject *lhs, PyObject *rhs);
+    virtual PyObject* le(PyObject *lhs, PyObject *rhs);
+
+private:
+    IntegerKlass();
+    static IntegerKlass *m_Instance;
+    static std::mutex    m_Mutex;
+}
 
 /**
  *  @brief The Python Integer.
@@ -12,15 +47,6 @@ public:
   PyInteger(int x) : m_value(x){}
   int value() {return this->m_value;}
 
-  // tmp: Inherited from PyObject
-  virtual void print();
-  virtual PyObject* add(PyObject *rhs);
-  virtual PyObject* greater(PyObject *rhs);
-  virtual PyObject* less(PyObject *rhs);
-  virtual PyObject* equal(PyObject *rhs);
-  virtual PyObject* not_equal(PyObject *rhs);
-  virtual PyObject* ge(PyObject *rhs);
-  virtual PyObject* le(PyObject *rhs);
 private:
   int m_value;
 };

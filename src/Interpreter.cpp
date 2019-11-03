@@ -94,6 +94,14 @@ void Interpreter::run(CodeObject *codes)
                         __panic("Unrecognized compare op arg: %d\n", opArg);
                 }
                 break;
+            case ByteCode::JUMP_FORWARD:
+                pc += opArg;
+                break;
+            case ByteCode::POP_JUMP_IF_FALSE:
+                v = POP();
+                if(VM::PyFalse == v)
+                    pc = opArg;
+                break;
             default:
                 __panic("Unsupported opCode: %c \n", opCode);
         }
