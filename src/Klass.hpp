@@ -9,7 +9,8 @@ class PyDict;
 
 class Klass {
 public:
-    Klass(){};
+    Klass();
+    ~Klass();
     void set_name(PyString *name) {this->m_Name = name;}
     PyString *name()              { return this->m_Name;}
 
