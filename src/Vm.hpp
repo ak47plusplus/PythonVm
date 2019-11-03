@@ -10,6 +10,8 @@ class VM {
 public:
     static void init() NOEXCEPT;
     static void destroy() NOEXCEPT;
+private:
+
 public:
     static PyInteger *PyTrue;
     static PyInteger *PyFalse;

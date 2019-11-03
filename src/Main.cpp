@@ -4,7 +4,7 @@
 #include <iostream>
 #include <exception>
 
-#include "Vm.hpp"
+#include "VM.hpp"
 #include "Logger.hpp"
 #include "CodeObject.hpp"
 #include "Interpreter.hpp"
