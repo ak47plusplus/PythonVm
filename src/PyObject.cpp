@@ -1,11 +1,12 @@
 #include "PyObject.hpp"
+#include "Klass.hpp"
 
 void PyObject::print()
 {
     this->m_Klass->print(this);
 }
 
-PyObject *PyObject::add(PyObject *rhs);
+PyObject *PyObject::add(PyObject *rhs)
 {
     return this->m_Klass->add(this, rhs);
 }

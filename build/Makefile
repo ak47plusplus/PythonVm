@@ -258,6 +258,33 @@ src/Interpreter.cpp.s:
 	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/Interpreter.cpp.s
 .PHONY : src/Interpreter.cpp.s
 
+src/Klass.o: src/Klass.cpp.o
+
+.PHONY : src/Klass.o
+
+# target to build an object file
+src/Klass.cpp.o:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/Klass.cpp.o
+.PHONY : src/Klass.cpp.o
+
+src/Klass.i: src/Klass.cpp.i
+
+.PHONY : src/Klass.i
+
+# target to preprocess a source file
+src/Klass.cpp.i:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/Klass.cpp.i
+.PHONY : src/Klass.cpp.i
+
+src/Klass.s: src/Klass.cpp.s
+
+.PHONY : src/Klass.s
+
+# target to generate assembly for a file
+src/Klass.cpp.s:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/Klass.cpp.s
+.PHONY : src/Klass.cpp.s
+
 src/Main.o: src/Main.cpp.o
 
 .PHONY : src/Main.o
@@ -284,6 +311,60 @@ src/Main.s: src/Main.cpp.s
 src/Main.cpp.s:
 	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/Main.cpp.s
 .PHONY : src/Main.cpp.s
+
+src/PyDict.o: src/PyDict.cpp.o
+
+.PHONY : src/PyDict.o
+
+# target to build an object file
+src/PyDict.cpp.o:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/PyDict.cpp.o
+.PHONY : src/PyDict.cpp.o
+
+src/PyDict.i: src/PyDict.cpp.i
+
+.PHONY : src/PyDict.i
+
+# target to preprocess a source file
+src/PyDict.cpp.i:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/PyDict.cpp.i
+.PHONY : src/PyDict.cpp.i
+
+src/PyDict.s: src/PyDict.cpp.s
+
+.PHONY : src/PyDict.s
+
+# target to generate assembly for a file
+src/PyDict.cpp.s:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/PyDict.cpp.s
+.PHONY : src/PyDict.cpp.s
+
+src/PyDouble.o: src/PyDouble.cpp.o
+
+.PHONY : src/PyDouble.o
+
+# target to build an object file
+src/PyDouble.cpp.o:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/PyDouble.cpp.o
+.PHONY : src/PyDouble.cpp.o
+
+src/PyDouble.i: src/PyDouble.cpp.i
+
+.PHONY : src/PyDouble.i
+
+# target to preprocess a source file
+src/PyDouble.cpp.i:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/PyDouble.cpp.i
+.PHONY : src/PyDouble.cpp.i
+
+src/PyDouble.s: src/PyDouble.cpp.s
+
+.PHONY : src/PyDouble.s
+
+# target to generate assembly for a file
+src/PyDouble.cpp.s:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/PyDouble.cpp.s
+.PHONY : src/PyDouble.cpp.s
 
 src/PyInteger.o: src/PyInteger.cpp.o
 
@@ -312,6 +393,60 @@ src/PyInteger.cpp.s:
 	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/PyInteger.cpp.s
 .PHONY : src/PyInteger.cpp.s
 
+src/PyList.o: src/PyList.cpp.o
+
+.PHONY : src/PyList.o
+
+# target to build an object file
+src/PyList.cpp.o:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/PyList.cpp.o
+.PHONY : src/PyList.cpp.o
+
+src/PyList.i: src/PyList.cpp.i
+
+.PHONY : src/PyList.i
+
+# target to preprocess a source file
+src/PyList.cpp.i:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/PyList.cpp.i
+.PHONY : src/PyList.cpp.i
+
+src/PyList.s: src/PyList.cpp.s
+
+.PHONY : src/PyList.s
+
+# target to generate assembly for a file
+src/PyList.cpp.s:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/PyList.cpp.s
+.PHONY : src/PyList.cpp.s
+
+src/PyObject.o: src/PyObject.cpp.o
+
+.PHONY : src/PyObject.o
+
+# target to build an object file
+src/PyObject.cpp.o:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/PyObject.cpp.o
+.PHONY : src/PyObject.cpp.o
+
+src/PyObject.i: src/PyObject.cpp.i
+
+.PHONY : src/PyObject.i
+
+# target to preprocess a source file
+src/PyObject.cpp.i:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/PyObject.cpp.i
+.PHONY : src/PyObject.cpp.i
+
+src/PyObject.s: src/PyObject.cpp.s
+
+.PHONY : src/PyObject.s
+
+# target to generate assembly for a file
+src/PyObject.cpp.s:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/PyObject.cpp.s
+.PHONY : src/PyObject.cpp.s
+
 src/PyString.o: src/PyString.cpp.o
 
 .PHONY : src/PyString.o
@@ -339,6 +474,33 @@ src/PyString.cpp.s:
 	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/PyString.cpp.s
 .PHONY : src/PyString.cpp.s
 
+src/VM.o: src/VM.cpp.o
+
+.PHONY : src/VM.o
+
+# target to build an object file
+src/VM.cpp.o:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/VM.cpp.o
+.PHONY : src/VM.cpp.o
+
+src/VM.i: src/VM.cpp.i
+
+.PHONY : src/VM.i
+
+# target to preprocess a source file
+src/VM.cpp.i:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/VM.cpp.i
+.PHONY : src/VM.cpp.i
+
+src/VM.s: src/VM.cpp.s
+
+.PHONY : src/VM.s
+
+# target to generate assembly for a file
+src/VM.cpp.s:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/VM.cpp.s
+.PHONY : src/VM.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -363,15 +525,33 @@ help:
 	@echo "... src/Interpreter.o"
 	@echo "... src/Interpreter.i"
 	@echo "... src/Interpreter.s"
+	@echo "... src/Klass.o"
+	@echo "... src/Klass.i"
+	@echo "... src/Klass.s"
 	@echo "... src/Main.o"
 	@echo "... src/Main.i"
 	@echo "... src/Main.s"
+	@echo "... src/PyDict.o"
+	@echo "... src/PyDict.i"
+	@echo "... src/PyDict.s"
+	@echo "... src/PyDouble.o"
+	@echo "... src/PyDouble.i"
+	@echo "... src/PyDouble.s"
 	@echo "... src/PyInteger.o"
 	@echo "... src/PyInteger.i"
 	@echo "... src/PyInteger.s"
+	@echo "... src/PyList.o"
+	@echo "... src/PyList.i"
+	@echo "... src/PyList.s"
+	@echo "... src/PyObject.o"
+	@echo "... src/PyObject.i"
+	@echo "... src/PyObject.s"
 	@echo "... src/PyString.o"
 	@echo "... src/PyString.i"
 	@echo "... src/PyString.s"
+	@echo "... src/VM.o"
+	@echo "... src/VM.i"
+	@echo "... src/VM.s"
 .PHONY : help
 
 

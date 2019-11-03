@@ -3,6 +3,7 @@
 #include <iostream>
 
 #include "Interpreter.hpp"
+#include "VM.hpp"
 #include "Panic.hpp"
 #include "ByteCode.hpp"
 #include "PyString.hpp"

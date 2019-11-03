@@ -14,7 +14,7 @@
 
 class IntegerKlass : public Klass {
 public:
-    static IntegerKlass get_instance();
+    static IntegerKlass *get_instance();
 
     virtual void print(PyObject *x);
 
@@ -36,7 +36,7 @@ private:
     IntegerKlass();
     static IntegerKlass *m_Instance;
     static std::mutex    m_Mutex;
-}
+};
 
 /**
  *  @brief The Python Integer.

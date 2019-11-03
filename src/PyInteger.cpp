@@ -22,7 +22,7 @@ IntegerKlass* IntegerKlass::get_instance()
 }
 
 
-void print(PyObject *x)
+void IntegerKlass::print(PyObject *x)
 {
     assert(x->klass() == static_cast<Klass*>(this));
     printf("%d", dynamic_cast<PyInteger*>(x)->value());
@@ -79,7 +79,7 @@ PyObject* IntegerKlass::greater(PyObject *lhs, PyObject *rhs)
     assert(lhs->klass() == static_cast<Klass*>(this));
     assert(rhs->klass() == static_cast<Klass*>(this));
 
-    if(dynamic_cast<PyInteger*>(lhs)->value() > dynamic_cast<PyInteger*>(rhs))
+    if(dynamic_cast<PyInteger*>(lhs)->value() > dynamic_cast<PyInteger*>(rhs)->value())
     {
         return VM::PyTrue;
     } else {
@@ -92,7 +92,7 @@ PyObject* IntegerKlass::less(PyObject *lhs, PyObject *rhs)
     assert(lhs->klass() == static_cast<Klass*>(this));
     assert(rhs->klass() == static_cast<Klass*>(this));
 
-    if(dynamic_cast<PyInteger*>(lhs)->value() < dynamic_cast<PyInteger*>(rhs))
+    if(dynamic_cast<PyInteger*>(lhs)->value() < dynamic_cast<PyInteger*>(rhs)->value())
     {
         return VM::PyTrue;
     } else {
@@ -105,7 +105,7 @@ PyObject* IntegerKlass::equal(PyObject *lhs, PyObject *rhs)
     assert(lhs->klass() == static_cast<Klass*>(this));
     assert(rhs->klass() == static_cast<Klass*>(this));
 
-    if(dynamic_cast<PyInteger*>(lhs)->value() == dynamic_cast<PyInteger*>(rhs))
+    if(dynamic_cast<PyInteger*>(lhs)->value() == dynamic_cast<PyInteger*>(rhs)->value())
     {
         return VM::PyTrue;
     } else {
@@ -119,7 +119,7 @@ PyObject* IntegerKlass::not_equal(PyObject *lhs, PyObject *rhs)
     assert(lhs->klass() == static_cast<Klass*>(this));
     assert(rhs->klass() == static_cast<Klass*>(this));
 
-    if(dynamic_cast<PyInteger*>(lhs)->value() != dynamic_cast<PyInteger*>(rhs))
+    if(dynamic_cast<PyInteger*>(lhs)->value() != dynamic_cast<PyInteger*>(rhs)->value())
     {
         return VM::PyTrue;
     } else {
@@ -133,7 +133,7 @@ PyObject* IntegerKlass::ge(PyObject *lhs, PyObject *rhs)
     assert(lhs->klass() == static_cast<Klass*>(this));
     assert(rhs->klass() == static_cast<Klass*>(this));
 
-    if(dynamic_cast<PyInteger*>(lhs)->value() >= dynamic_cast<PyInteger*>(rhs))
+    if(dynamic_cast<PyInteger*>(lhs)->value() >= dynamic_cast<PyInteger*>(rhs)->value())
     {
         return VM::PyTrue;
     } else {
@@ -147,7 +147,7 @@ PyObject* IntegerKlass::le(PyObject *lhs, PyObject *rhs)
     assert(lhs->klass() == static_cast<Klass*>(this));
     assert(rhs->klass() == static_cast<Klass*>(this));
 
-    if(dynamic_cast<PyInteger*>(lhs)->value() <= dynamic_cast<PyInteger*>(rhs))
+    if(dynamic_cast<PyInteger*>(lhs)->value() <= dynamic_cast<PyInteger*>(rhs)->value())
     {
         return VM::PyTrue;
     } else {

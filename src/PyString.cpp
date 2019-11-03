@@ -1,4 +1,5 @@
 #include "PyString.hpp"
+#include "PyInteger.cpp"
 #include "VM.hpp"
 
 #include <string.h>
@@ -65,7 +66,7 @@ PyObject* StringKlass::equal(PyObject *lhs, PyObject *rhs)
     for(int i = 0; i < pLhs->length(); ++i)
     {
         if(pLhs->value()[i] != pRhs->value()[i])
-            return VM:::PyFalse;
+            return VM::PyFalse;
     }
     return VM::PyTrue;
 }
