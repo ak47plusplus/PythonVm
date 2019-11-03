@@ -90,7 +90,6 @@ CMakeFiles/tinyPython.dir/src/PyObject.cpp.o: ../src/PyObject.hpp
 
 CMakeFiles/tinyPython.dir/src/PyString.cpp.o: ../src/Core.hpp
 CMakeFiles/tinyPython.dir/src/PyString.cpp.o: ../src/Klass.hpp
-CMakeFiles/tinyPython.dir/src/PyString.cpp.o: ../src/PyInteger.cpp
 CMakeFiles/tinyPython.dir/src/PyString.cpp.o: ../src/PyInteger.hpp
 CMakeFiles/tinyPython.dir/src/PyString.cpp.o: ../src/PyObject.hpp
 CMakeFiles/tinyPython.dir/src/PyString.cpp.o: ../src/PyString.cpp

@@ -91,7 +91,6 @@ CMakeFiles/tinyPython.dir/src/PyObject.cpp.o
 CMakeFiles/tinyPython.dir/src/PyString.cpp.o
  /opt/PythonVm/src/Core.hpp
  /opt/PythonVm/src/Klass.hpp
- /opt/PythonVm/src/PyInteger.cpp
  /opt/PythonVm/src/PyInteger.hpp
  /opt/PythonVm/src/PyObject.hpp
  /opt/PythonVm/src/PyString.cpp

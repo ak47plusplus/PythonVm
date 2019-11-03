@@ -355,8 +355,8 @@ Klass.hpp
 /opt/PythonVm/src/PyString.cpp
 PyString.hpp
 /opt/PythonVm/src/PyString.hpp
-PyInteger.cpp
-/opt/PythonVm/src/PyInteger.cpp
+PyInteger.hpp
+/opt/PythonVm/src/PyInteger.hpp
 VM.hpp
 /opt/PythonVm/src/VM.hpp
 string.h

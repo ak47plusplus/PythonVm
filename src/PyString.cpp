@@ -1,5 +1,5 @@
 #include "PyString.hpp"
-#include "PyInteger.cpp"
+#include "PyInteger.hpp"
 #include "VM.hpp"
 
 #include <string.h>
