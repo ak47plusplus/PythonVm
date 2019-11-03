@@ -1,4 +1,4 @@
-#include "VM.cpp"
+#include "VM.hpp"
 #include "PyObject.hpp"
 #include "PyInteger.hpp"
 #include "PyString.hpp"
