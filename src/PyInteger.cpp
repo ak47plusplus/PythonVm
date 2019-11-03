@@ -14,7 +14,9 @@ IntegerKlass* IntegerKlass::get_instance()
     if(nullptr == IntegerKlass::m_Instance)
     {
         std::lock_guard<std::mutex> lock(IntegerKlass::m_Mutex);
-        IntegerKlass::m_Instance = new IntegerKlass();
+            if(nullptr == IntegerKlass::m_Instance) {
+                  IntegerKlass::m_Instance = new IntegerKlass();
+            }
     }
     return IntegerKlass::m_Instance;
 }
