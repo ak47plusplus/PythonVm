@@ -6,6 +6,7 @@
 
 #include "VM.hpp"
 #include "Logger.hpp"
+#include "LoggerConfig.hpp"
 #include "CodeObject.hpp"
 #include "Interpreter.hpp"
 #include "FileInputStream.hpp"
@@ -18,9 +19,9 @@ INITIALIZE_EASYLOGGINGPP
  * Main method and the boostrap.
  */
 int main(int argc, char const *argv[]) {
-    // init the easylogging++
     START_EASYLOGGINGPP(argc, argv);
 
+    LoggerConfig::init();
     VM::init();
 
     try {
