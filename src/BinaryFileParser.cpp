@@ -15,10 +15,10 @@ BinaryFileParser::~BinaryFileParser(){}
 CodeObject* BinaryFileParser::parse()
 {
     int magicNumber = m_Stream->read_int();
-    m_Logger->info("magic number: %x", magicNumber);
+    m_Logger->info("magic number: %x \n", magicNumber);
 
     int updateDate = m_Stream->read_int();
-    m_Logger->info("update date: %x", updateDate);
+    m_Logger->info("update date: %x \n", updateDate);
 
     char objectType = m_Stream->read();
     if (objectType == 'c') {
