@@ -185,6 +185,8 @@ NonCopyable.hpp
 /opt/PythonVm/src/NonCopyable.hpp
 FileInputStream.hpp
 /opt/PythonVm/src/FileInputStream.hpp
+Logger.hpp
+/opt/PythonVm/src/Logger.hpp
 
 /opt/PythonVm/src/ByteCode.hpp
 
@@ -268,6 +270,14 @@ PyString.hpp
 3rd/easylogging++/easylogging++.hpp
 /opt/PythonVm/src/3rd/easylogging++/easylogging++.hpp
 
+/opt/PythonVm/src/LoggerConfig.cpp
+LoggerConfig.hpp
+/opt/PythonVm/src/LoggerConfig.hpp
+3rd/easylogging++/easylogging++.hpp
+/opt/PythonVm/src/3rd/easylogging++/easylogging++.hpp
+
+/opt/PythonVm/src/LoggerConfig.hpp
+
 /opt/PythonVm/src/Main.cpp
 memory
 -
@@ -283,6 +293,8 @@ VM.hpp
 /opt/PythonVm/src/VM.hpp
 Logger.hpp
 /opt/PythonVm/src/Logger.hpp
+LoggerConfig.hpp
+/opt/PythonVm/src/LoggerConfig.hpp
 CodeObject.hpp
 /opt/PythonVm/src/CodeObject.hpp
 Interpreter.hpp

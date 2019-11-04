@@ -285,6 +285,33 @@ src/Klass.cpp.s:
 	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/Klass.cpp.s
 .PHONY : src/Klass.cpp.s
 
+src/LoggerConfig.o: src/LoggerConfig.cpp.o
+
+.PHONY : src/LoggerConfig.o
+
+# target to build an object file
+src/LoggerConfig.cpp.o:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/LoggerConfig.cpp.o
+.PHONY : src/LoggerConfig.cpp.o
+
+src/LoggerConfig.i: src/LoggerConfig.cpp.i
+
+.PHONY : src/LoggerConfig.i
+
+# target to preprocess a source file
+src/LoggerConfig.cpp.i:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/LoggerConfig.cpp.i
+.PHONY : src/LoggerConfig.cpp.i
+
+src/LoggerConfig.s: src/LoggerConfig.cpp.s
+
+.PHONY : src/LoggerConfig.s
+
+# target to generate assembly for a file
+src/LoggerConfig.cpp.s:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/LoggerConfig.cpp.s
+.PHONY : src/LoggerConfig.cpp.s
+
 src/Main.o: src/Main.cpp.o
 
 .PHONY : src/Main.o
@@ -528,6 +555,9 @@ help:
 	@echo "... src/Klass.o"
 	@echo "... src/Klass.i"
 	@echo "... src/Klass.s"
+	@echo "... src/LoggerConfig.o"
+	@echo "... src/LoggerConfig.i"
+	@echo "... src/LoggerConfig.s"
 	@echo "... src/Main.o"
 	@echo "... src/Main.i"
 	@echo "... src/Main.s"

@@ -48,6 +48,10 @@ CMakeFiles/tinyPython.dir/src/Klass.cpp.o: ../src/Klass.hpp
 CMakeFiles/tinyPython.dir/src/Klass.cpp.o: ../src/PyObject.hpp
 CMakeFiles/tinyPython.dir/src/Klass.cpp.o: ../src/PyString.hpp
 
+CMakeFiles/tinyPython.dir/src/LoggerConfig.cpp.o: ../src/3rd/easylogging++/easylogging++.hpp
+CMakeFiles/tinyPython.dir/src/LoggerConfig.cpp.o: ../src/LoggerConfig.cpp
+CMakeFiles/tinyPython.dir/src/LoggerConfig.cpp.o: ../src/LoggerConfig.hpp
+
 CMakeFiles/tinyPython.dir/src/Main.cpp.o: ../src/3rd/easylogging++/easylogging++.hpp
 CMakeFiles/tinyPython.dir/src/Main.cpp.o: ../src/ArrayList.hpp
 CMakeFiles/tinyPython.dir/src/Main.cpp.o: ../src/BinaryFileParser.hpp
@@ -57,6 +61,7 @@ CMakeFiles/tinyPython.dir/src/Main.cpp.o: ../src/FileInputStream.hpp
 CMakeFiles/tinyPython.dir/src/Main.cpp.o: ../src/Interpreter.hpp
 CMakeFiles/tinyPython.dir/src/Main.cpp.o: ../src/Klass.hpp
 CMakeFiles/tinyPython.dir/src/Main.cpp.o: ../src/Logger.hpp
+CMakeFiles/tinyPython.dir/src/Main.cpp.o: ../src/LoggerConfig.hpp
 CMakeFiles/tinyPython.dir/src/Main.cpp.o: ../src/Main.cpp
 CMakeFiles/tinyPython.dir/src/Main.cpp.o: ../src/NonCopyable.hpp
 CMakeFiles/tinyPython.dir/src/Main.cpp.o: ../src/PyInteger.hpp

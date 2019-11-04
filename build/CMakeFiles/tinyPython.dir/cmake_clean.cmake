@@ -13,6 +13,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/tinyPython.dir/src/PyDict.cpp.o"
   "CMakeFiles/tinyPython.dir/src/Klass.cpp.o"
   "CMakeFiles/tinyPython.dir/src/VM.cpp.o"
+  "CMakeFiles/tinyPython.dir/src/LoggerConfig.cpp.o"
   "tinyPython.pdb"
   "tinyPython"
 )
