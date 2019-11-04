@@ -22,8 +22,9 @@ public:
     int     read_int();
     double  read_double();
 private:
-    char m_Buffer[BUFFER_LEN];
-    unsigned int m_Index;
+    char          m_Buffer[BUFFER_LEN];
+    unsigned int  m_Index;
+    std::ifstream m_In;
 };
 
 #endif
