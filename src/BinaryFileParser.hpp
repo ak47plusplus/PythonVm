@@ -32,7 +32,6 @@ private:
     PyString *get_string();
     ArrayList<PyObject*> *get_tuple();
 private:
-    el::Logger *m_Logger;
     // not owned the target object, do not delete at ~BinaryFileParser()
     FileInputStream* m_Stream;
     ArrayList<PyString*> m_StringTable;

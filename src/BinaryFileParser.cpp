@@ -7,7 +7,6 @@
 BinaryFileParser::BinaryFileParser(FileInputStream *fileInputStream) NOEXCEPT
 {
     this->m_Stream = fileInputStream;
-    this->m_Logger = el::Loggers::getLogger("default");
 }
 
 BinaryFileParser::~BinaryFileParser(){}
@@ -15,10 +14,10 @@ BinaryFileParser::~BinaryFileParser(){}
 CodeObject* BinaryFileParser::parse()
 {
     int magicNumber = m_Stream->read_int();
-    m_Logger->info("magic number: %x \n", magicNumber);
+    printf("magic number: %x \n", magicNumber);
 
     int updateDate = m_Stream->read_int();
-    m_Logger->info("update date: %x \n", updateDate);
+    printf("update date: %x \n", updateDate);
 
     char objectType = m_Stream->read();
     if (objectType == 'c') {
@@ -35,8 +34,8 @@ CodeObject *BinaryFileParser::get_code_object()
     int nLocals = m_Stream->read_int();
     int stackSize = m_Stream->read_int();
     int flags = m_Stream->read_int();
-    LOG(INFO) << "argCount: " << argCount << "nLocals: " << nLocals
-        << "stackSize: " << stackSize << "flags: " << flags;
+    LOG(INFO) << "argCount: " << argCount << ", nLocals: " << nLocals
+        << ", stackSize: " << stackSize << ", flags: " << flags;
 
     PyString *byteCodes = this->get_byte_codes();
     ArrayList<PyObject*> *consts = this->get_consts();
