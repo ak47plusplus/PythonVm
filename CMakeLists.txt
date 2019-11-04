@@ -33,6 +33,7 @@ set(SOURCES
     src/PyDict.cpp
     src/Klass.cpp
     src/VM.cpp
+    src/LoggerConfig.cpp
 )
 
 # 添加一个可执行文件
