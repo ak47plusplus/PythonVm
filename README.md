@@ -5,11 +5,8 @@
 $ sudo apt-get install build-essential  <br/>
 $ sudo apt-get install cmake            <br/>
 2.编译
-cd PythonVm
-mkdir build
-cd build
-cmake ..
-make
+chmod 755 build.sh <br/>
+./build.sh         <br/>
 
 ### 运行项目
 官方的CPython包含编译器+虚拟机,本项目暂时不包含编译器，
