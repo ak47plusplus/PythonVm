@@ -38,8 +38,9 @@ CodeObject *BinaryFileParser::get_code_object()
         << ", stackSize: " << stackSize << ", flags: " << flags;
 
     PyString *byteCodes = this->get_byte_codes();
-    printf("read byte codes ...");
+    printf("read byte codes ,length=%d\n", byteCodes->length());
     byteCodes->print();
+	printf("\nread byte code end...\n");
     
     ArrayList<PyObject*> *consts = this->get_consts();
     ArrayList<PyObject*> *names = this->get_names();
