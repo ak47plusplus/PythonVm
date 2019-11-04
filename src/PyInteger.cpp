@@ -4,7 +4,10 @@
 #include <stdio.h>
 #include <assert.h>
 
-IntegerKlass::IntegerKlass(){}
+IntegerKlass::IntegerKlass()
+{
+
+}
 
 IntegerKlass* IntegerKlass::m_Instance = nullptr;
 std::mutex IntegerKlass::m_Mutex;
@@ -153,4 +156,10 @@ PyObject* IntegerKlass::le(PyObject *lhs, PyObject *rhs)
     } else {
         return VM::PyFalse;
     }
+}
+
+PyInteger::PyInteger(int x)
+{
+    m_Value = x;
+    set_klass(IntegerKlass::get_instance());
 }

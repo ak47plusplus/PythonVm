@@ -44,11 +44,11 @@ private:
  */
 class PyInteger : public PyObject {
 public:
-  PyInteger(int x) : m_value(x){}
-  int value() {return this->m_value;}
+  PyInteger(int x);
+  int value() {return this->m_Value;}
 
 private:
-  int m_value;
+  int m_Value;
 };
 
 #endif
