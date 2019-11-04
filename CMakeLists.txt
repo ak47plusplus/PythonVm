@@ -3,6 +3,12 @@ cmake_minimum_required(VERSION 3.5)
 # 设置项目的名称
 project (tinyPython)
 
+# 启动gdb
+SET(CMAKE_BUILD_TYPE "Debug")
+SET(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -g2 -ggdb")
+SET(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall")
+
+
 # 检查c++编译器标志，设置c++11支持变量
 include(CheckCXXCompilerFlag)
 CHECK_CXX_COMPILER_FLAG("-std=c++11" COMPILER_SUPPORTS_CXX11)
