@@ -14,8 +14,3 @@ void LoggerConfig::init()
     defaultConf.setGlobally(el::ConfigurationType::Format, "%date %msg");
     el::Loggers::reconfigureLogger("default", defaultConf);
 }
-
-void LoggerConfig::register_format_specifier(char *fmtSp, (void *)(*func)(void))
-{
-    el::Helpers::installCustomFormatSpecifier(el::CustomFormatSpecifier(fmtSp, func));
-}
