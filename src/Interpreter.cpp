@@ -34,7 +34,7 @@ void Interpreter::run(CodeObject *codes)
     m_Stack = new ArrayList<PyObject*>(codes->m_StackSize);
     m_Consts = codes->m_Consts;
 
-    // 循环读取并解析字节码
+    // 循环读取并解析字节码 opCode占一个字节 如果有参数 参数占2字节
     while (pc < codeLength) {
         unsigned char opCode = codes->m_ByteCodes->value()[pc++];
         printf("start to parse opcode: %c \n", opCode);
@@ -44,7 +44,8 @@ void Interpreter::run(CodeObject *codes)
 
         int opArg = -1;
         if (hasArgument) {
-            // TODO.
+            int lowBit = (codes->m_ByteCodes->value()[pc++] & 0xff);
+            opArg = ((codes->m_ByteCodes->value()[pc++] & 0xff) << 8) | lowBit;
         }
 
         PyInteger *lhs, *rhs;
@@ -52,10 +53,10 @@ void Interpreter::run(CodeObject *codes)
 
         switch (opCode) {
             case ByteCode::LOAD_CONST:
-                m_Stack->add(m_Consts->get(opArg));
+                PUSH(m_Consts->get(opArg));
                 break;
             case ByteCode::PRINT_ITEM:
-                v = m_Stack->pop();
+                v = POP();
                 v->print();
                 break;
             case ByteCode::PRINT_NEWLINE:
@@ -63,12 +64,12 @@ void Interpreter::run(CodeObject *codes)
                 std::fflush(stdout);
                 break;
             case ByteCode::BINARY_ADD:
-                v = m_Stack->pop();
-                w = m_Stack->pop();
-                m_Stack->add(w->add(v));
+                v = POP();
+                w = POP();
+                PUSH(w->add(v));
                 break;
             case ByteCode::RETURN_VALUE:  // 83
-                m_Stack->pop(); // ? just pop ?
+                POP(); // ? just pop ?
                 break;
             case ByteCode::COMPARE_OP:
                 w = POP();
