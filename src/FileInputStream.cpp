@@ -1,4 +1,5 @@
 #include "FileInputStream.hpp"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <memory>
@@ -9,7 +10,7 @@
 
 FileInputStream::FileInputStream(const char *filename)
 {
-    m_In.open(filename, std::ios::in | std::ios::out);
+    m_In.open(filename, std::ios_base::in| std::ios_base::binary);
     if(!m_In) {
         throw std::runtime_error("file not exist!");
     }
