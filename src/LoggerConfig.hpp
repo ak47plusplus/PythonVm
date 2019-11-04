@@ -4,6 +4,7 @@
 class LoggerConfig {
 public:
     static void init();
+    static void register_format_specifier(char *fmtSp, (void *)(*func)(void));
 };
 
 #endif

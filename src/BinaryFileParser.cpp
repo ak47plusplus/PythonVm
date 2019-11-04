@@ -7,6 +7,7 @@
 BinaryFileParser::BinaryFileParser(FileInputStream *fileInputStream) NOEXCEPT
 {
     this->m_Stream = fileInputStream;
+    this->m_Logger = el::Loggers::getLogger("default");
 }
 
 BinaryFileParser::~BinaryFileParser(){}
@@ -14,10 +15,10 @@ BinaryFileParser::~BinaryFileParser(){}
 CodeObject* BinaryFileParser::parse()
 {
     int magicNumber = m_Stream->read_int();
-    LOG(INFO) << "magic number: " << magicNumber;
+    m_Logger->info("magic number: %x", magicNumber);
 
     int updateDate = m_Stream->read_int();
-    LOG(INFO) << "update date: " << updateDate;
+    m_Logger->info("update date: %x", updateDate);
 
     char objectType = m_Stream->read();
     if (objectType == 'c') {
