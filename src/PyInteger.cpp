@@ -1,5 +1,8 @@
 #include "PyInteger.hpp"
+#include "PyDouble.hpp"
+#include "PyString.hpp"
 #include "VM.hpp"
+#include "Panic.hpp"
 
 #include <stdio.h>
 #include <assert.h>
@@ -30,13 +33,24 @@ void IntegerKlass::print(PyObject *x)
 
 PyObject* IntegerKlass::add(PyObject *lhs, PyObject *rhs)
 {
-    // 这里要判断 rhs是否是integer或者double 支持加double和integer,int+double自动提升类型.
-    // 至于其他的class不支持 ,只有c++这种bitch才支持operator这种东西.
     assert(lhs && lhs->klass() == static_cast<Klass*>(this));
-    assert(rhs && rhs->klass() == static_cast<Klass*>(this));
-    int x = dynamic_cast<PyInteger*>(lhs)->value();
-    int y = dynamic_cast<PyInteger*>(rhs)->value();
-    return new PyInteger(x + y);
+    Klass * rKlass = rhs->klass();
+    if(rKlass == nullptr)
+    {
+        __panic("rhs klass nullptr !");
+    } else if( rKlass == IntegerKlass::get_instance())
+    {
+        PyInteger *l = dynamic_cast<PyInteger*>(lhs);
+        PyInteger *r = dynamic_cast<PyInteger*>(rhs);
+        return new PyInteger(l->value() * r->value());
+    } else if( rKlass == DoubleKlass::get_instance())
+    {
+        PyInteger *l = dynamic_cast<PyInteger*>(lhs);
+        PyDouble  *r = dynamic_cast<PyDouble*>(rhs);
+        return new PyDouble(l->value() * r->value());
+    } else {
+        _panic("TypeError: Unsupported operand type(s) for +: 'int' and '?'\n");
+    }
 }
 
 PyObject* IntegerKlass::sub(PyObject *lhs, PyObject *rhs)

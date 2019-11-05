@@ -8,17 +8,16 @@
 
 
 /**
- *  @brief The Python Integer Class and Integer Object.
- *  @Created by GuoXiang 2019/10/29
+ * <li> PyInteger的所有逻辑运算和算术运算符都支持和PyDouble进行且提升运算级 </li>
+ * <li> PyInteger的+运算不能和字符串进行 </li>
+ * <li> PyInteger的*运算可以和字符串进行表示翻倍 "aa"*3 = "aaaaaa"</li>
  */
-
 class IntegerKlass : public Klass {
 public:
     static IntegerKlass *get_instance();
 
     virtual void print(PyObject *x);
 
-    // TODO integer的以下运算都必须支持和double进行.
     virtual PyObject* add(PyObject *lhs, PyObject *rhs);
     virtual PyObject* sub(PyObject *lhs, PyObject *rhs);
     virtual PyObject* mul(PyObject *lhs, PyObject *rhs);
