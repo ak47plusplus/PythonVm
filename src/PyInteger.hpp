@@ -21,7 +21,7 @@ public:
     virtual PyObject* add(PyObject *lhs, PyObject *rhs);
     virtual PyObject* sub(PyObject *lhs, PyObject *rhs);
     virtual PyObject* mul(PyObject *lhs, PyObject *rhs);
-    // python的除法比较坑爹 两个整数无论是否除尽都是浮点数
+    // python的除法比较坑爹，不是做整除,且两个整数无论是否除尽都是浮点数 3/1 = 3.0  3/2 = 1.5
     virtual PyObject* div(PyObject *lhs, PyObject *rhs);
     virtual PyObject* mod(PyObject *lhs, PyObject *rhs);
 
