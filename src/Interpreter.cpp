@@ -63,10 +63,15 @@ void Interpreter::run(CodeObject *codes)
                 std::cout << '\n';
                 std::fflush(stdout);
                 break;
-            case ByteCode::BINARY_ADD:
+            case ByteCode::BINARY_ADD:      // 23
                 v = POP();
                 w = POP();
                 PUSH(w->add(v));
+                break;
+            case ByteCode::BINARY_SUBTRACT: // 24
+                v = POP();
+                w = POP();
+                PUSH(w->sub(v));
                 break;
             case ByteCode::RETURN_VALUE:  // 83
                 POP(); // ? just pop ?
