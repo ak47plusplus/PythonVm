@@ -96,7 +96,7 @@ PyObject* IntegerKlass::mul(PyObject *lhs, PyObject *rhs)
     } else if( rKlass == StringKlass::get_instance()) {
         PyInteger *l = dynamic_cast<PyInteger*>(lhs);
         PyString *r  = dynamic_cast<PyString*>(rhs);
-        return nullptr;
+        return PyString::times(r,l->value());
     } else{
         __panic("TypeError: Unsupported operand type(s) for +: 'int' and '?'\n");
     }
