@@ -5,7 +5,7 @@
 
 #define __panic(format, ...)                    \
       do {                                      \
-          fprintf(stderr,format,__VA_ARGS__);   \
+          fprintf(stderr,format,##__VA_ARGS__);   \
           abort();                              \
       } while(0)
 
