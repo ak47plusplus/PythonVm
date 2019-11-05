@@ -18,21 +18,38 @@ public:
 
     virtual void print(PyObject *x);
 
-    // python的str不能和int或double相操作
-    // 即便是这里设计成可以操作，但是编译器不支持还是白搭，所以不支持省时省力.
+    // python的str不能和int或double相操作 即便是这里设计成可以操作，但是编译器不支持还是白搭，所以不支持省时省力.
     virtual PyObject* add(PyObject *lhs, PyObject *rhs);
-    // not supported: virtual PyObject* sub(PyObject *lhs, PyObject *rhs);
-    // not supported: virtual PyObject* mul(PyObject *lhs, PyObject *rhs);
-    // not supported: virtual PyObject* div(PyObject *lhs, PyObject *rhs);
-    // not supported: virtual PyObject* mod(PyObject *lhs, PyObject *rhs);
 
+    // python的str不支持减法
+    // virtual PyObject* sub(PyObject *lhs, PyObject *rhs);
 
-    // not supported: virtual PyObject* greater(PyObject *lhs, PyObject *rhs);
+    // TODO 字符串不能乘以字符串 但是能乘以int 自动翻倍字符串...
+    virtual PyObject* mul(PyObject *lhs, PyObject *rhs);
+
+    // python的str不支持除法
+    // virtual PyObject* div(PyObject *lhs, PyObject *rhs);
+
+    // python的str不支持mod
+    // virtual PyObject* mod(PyObject *lhs, PyObject *rhs);
+
+    // greater 只支持str和str比较
+    virtual PyObject* greater(PyObject *lhs, PyObject *rhs);
+
+    // less 只支持str和str比较
     virtual PyObject* less(PyObject *lhs, PyObject *rhs);
+
+    // equal 支持str和任意类型比较
     virtual PyObject* equal(PyObject *lhs, PyObject *rhs);
-    // not supported: virtual PyObject* not_equal(PyObject *lhs, PyObject *rhs);
-    // not supported: virtual PyObject* ge(PyObject *lhs, PyObject *rhs);
-    // not supported: virtual PyObject* le(PyObject *lhs, PyObject *rhs);
+
+    // not equal 支持str和任意类型比较
+    virtual PyObject* not_equal(PyObject *lhs, PyObject *rhs);
+
+    // ge 只支持str和str比较
+    virtual PyObject* ge(PyObject *lhs, PyObject *rhs);
+
+    // le 只支持str和str比较
+    virtual PyObject* le(PyObject *lhs, PyObject *rhs);
 
 private:
     StringKlass();
