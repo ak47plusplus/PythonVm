@@ -109,43 +109,43 @@ PyObject* StringKlass::le(PyObject *lhs, PyObject *rhs)
 // do not contain the '\0'
 PyString::PyString(const char * str)
 {
-    m_length = strlen(str);
-    m_value = new char[m_length];
-    strcpy(m_value, str);
+    m_Length = strlen(str);
+    m_Value = new char[m_Length];
+    strcpy(m_Value, str);
     set_klass(StringKlass::get_instance());
 }
 
 // here the '\0' is a valid char use memcpy instead of strcpy
 PyString::PyString(const char * str, const int length)
 {
-    m_length = length;
-    m_value = new char[length];
-    memcpy(m_value, str, (size_t) m_length);
+    m_Length = length;
+    m_Value = new char[length];
+    memcpy(m_Value, str, (size_t) m_Length);
     set_klass(StringKlass::get_instance());
 }
 
 PyString::PyString(const PyString& rhs)
 {
-    delete[] m_value;
-    m_length = rhs.m_length;
-    m_value = new char[m_length];
-    memcpy(this->m_value,rhs.m_value, (size_t)m_length);
+    delete[] m_Value;
+    m_Length = rhs.m_Length;
+    m_Value = new char[m_Length];
+    memcpy(this->m_Value,rhs.m_Value, (size_t)m_Length);
     set_klass(StringKlass::get_instance());
 }
 
 PyString& PyString::operator=(const PyString &rhs)
 {
-    delete[] m_value;
-    m_length = rhs.m_length;
-    m_value = new char[m_length];
-    memcpy(this->m_value,rhs.m_value, (size_t)m_length);
+    delete[] m_Value;
+    m_Length = rhs.m_Length;
+    m_Value = new char[m_Length];
+    memcpy(this->m_Value,rhs.m_Value, (size_t)m_Length);
     return *this;
 }
 
 PyString::~PyString()
 {
-    if (m_value != nullptr) {
-        delete[] m_value;
+    if (m_Value != nullptr) {
+        delete[] m_Value;
     }
 }
 

@@ -65,14 +65,14 @@ public:
     PyString(const PyString& rhs);
     ~PyString();
     PyString& operator=(const PyString& rhs);
-    const char *value() { return this->m_value;}
-    int length()        {return this->m_length;}
+    const char *value() { return this->m_Value;}
+    int length()   const     {return this->m_Length;}
 public:
     static PyString* times(const PyString *rawStr, int times);
 
 private:
-    char * m_value;
-    int    m_length;
+    char * m_Value;
+    int    m_Length;
 };
 
 #endif
