@@ -93,7 +93,11 @@ PyObject* IntegerKlass::mul(PyObject *lhs, PyObject *rhs)
         PyInteger *l = dynamic_cast<PyInteger*>(lhs);
         PyDouble  *r = dynamic_cast<PyDouble*>(rhs);
         return new PyDouble(l->value() * r->value());
-    } else {
+    } else if( rKlass == StringKlass::get_instance()) {
+        PyInteger *l = dynamic_cast<PyInteger*>(lhs);
+        PyString *r  = dynamic_cast<PyString*>(rhs);
+        return nullptr;
+    } else{
         __panic("TypeError: Unsupported operand type(s) for +: 'int' and '?'\n");
     }
 }
@@ -120,7 +124,7 @@ PyObject* IntegerKlass::div(PyObject *lhs, PyObject *rhs)
         PyInteger *l = dynamic_cast<PyInteger*>(lhs);
         PyDouble  *r = dynamic_cast<PyDouble*>(rhs);
         if(r->value() == 0) {
-            // __panic("div by zero !"); 除数为浮点数0 结果为Infinity 
+            // __panic("div by zero !"); 除数为浮点数0 结果为Infinity
         }
         return new PyDouble(l->value() / r->value());
     } else {

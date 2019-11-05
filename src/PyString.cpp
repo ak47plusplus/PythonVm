@@ -135,11 +135,11 @@ PyString::PyString(const PyString& rhs)
 
 PyString& PyString::operator=(const PyString &rhs)
 {
-  delete[] m_value;
-  m_length = rhs.m_length;
-  m_value = new char[m_length];
-  memcpy(this->m_value,rhs.m_value, (size_t)m_length);
-  return *this;
+    delete[] m_value;
+    m_length = rhs.m_length;
+    m_value = new char[m_length];
+    memcpy(this->m_value,rhs.m_value, (size_t)m_length);
+    return *this;
 }
 
 PyString::~PyString()
@@ -147,4 +147,18 @@ PyString::~PyString()
     if (m_value != nullptr) {
         delete[] m_value;
     }
+}
+
+PyString* PyString::times(const PyString* rawStr, int times)
+{
+    if (times <= 0) {
+        return new PyString("", 0); // 空字符串
+    }
+    int oldLen = rawStr->length();
+    int newLen = oldLen * times;
+    char tmp[newLen];
+    memcpy(tmp, rawStr->value(), oldLen);
+    memcpy(tmp + oldLen, rawStr->value(), oldLen);
+    memcpy(tmp + oldLen + oldLen, rawStr->value(), oldLen);
+    return new PyString(tmp, newLen);
 }

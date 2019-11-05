@@ -60,13 +60,15 @@ private:
 class PyString : public PyObject {
 
 public:
-  PyString(const char * str);
-  PyString(const char * str, const int length);
-  PyString(const PyString& rhs);
-  ~PyString();
-  PyString& operator=(const PyString& rhs);
-  const char *value() { return this->m_value;}
-  int length()        {return this->m_length;}
+    PyString(const char * str);
+    PyString(const char * str, const int length);
+    PyString(const PyString& rhs);
+    ~PyString();
+    PyString& operator=(const PyString& rhs);
+    const char *value() { return this->m_value;}
+    int length()        {return this->m_length;}
+public:
+    static PyString* times(const PyString *rawStr, int times);
 
 private:
     char * m_value;
