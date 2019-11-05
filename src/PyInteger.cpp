@@ -137,7 +137,7 @@ PyObject* IntegerKlass::mod(PyObject *lhs, PyObject *rhs)
     {
         PyInteger *l = dynamic_cast<PyInteger*>(lhs);
         PyDouble  *r = dynamic_cast<PyDouble*>(rhs);
-        return new PyDouble(l->value() % r->value());
+        return new PyDouble(((double)(l->value())) % r->value());
     } else {
         __panic("TypeError: Unsupported operand type(s) for +: 'int' and '?'\n");
     }
