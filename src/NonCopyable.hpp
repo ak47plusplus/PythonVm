@@ -6,7 +6,6 @@
 FROM_BOOST_BEGIN
 
 // like boost::noncopyable.
-// disable copy constructor and operator=
 class NonCopyable {
 protected:
   NonCopyable(const NonCopyable&) = delete;
