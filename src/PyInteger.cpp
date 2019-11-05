@@ -49,7 +49,7 @@ PyObject* IntegerKlass::add(PyObject *lhs, PyObject *rhs)
         PyDouble  *r = dynamic_cast<PyDouble*>(rhs);
         return new PyDouble(l->value() * r->value());
     } else {
-        _panic("TypeError: Unsupported operand type(s) for +: 'int' and '?'\n");
+        __panic("TypeError: Unsupported operand type(s) for +: 'int' and '?'\n");
     }
 }
 
