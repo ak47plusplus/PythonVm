@@ -119,7 +119,7 @@ PyObject* IntegerKlass::div(PyObject *lhs, PyObject *rhs)
     {
         PyInteger *l = dynamic_cast<PyInteger*>(lhs);
         PyDouble  *r = dynamic_cast<PyDouble*>(rhs);
-        if(r->value() == 0d) {
+        if(r->value() == 0) {
             __panic("div by zero !");
         }
         return new PyDouble(l->value() / r->value());
