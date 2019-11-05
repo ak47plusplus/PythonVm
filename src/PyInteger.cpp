@@ -120,7 +120,7 @@ PyObject* IntegerKlass::div(PyObject *lhs, PyObject *rhs)
         PyInteger *l = dynamic_cast<PyInteger*>(lhs);
         PyDouble  *r = dynamic_cast<PyDouble*>(rhs);
         if(r->value() == 0) {
-            __panic("div by zero !");
+            // __panic("div by zero !"); 除数为浮点数0 结果为Infinity 
         }
         return new PyDouble(l->value() / r->value());
     } else {
