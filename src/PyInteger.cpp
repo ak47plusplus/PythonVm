@@ -42,6 +42,50 @@ PyObject* IntegerKlass::add(PyObject *lhs, PyObject *rhs)
     {
         PyInteger *l = dynamic_cast<PyInteger*>(lhs);
         PyInteger *r = dynamic_cast<PyInteger*>(rhs);
+        return new PyInteger(l->value() + r->value());
+    } else if( rKlass == DoubleKlass::get_instance())
+    {
+        PyInteger *l = dynamic_cast<PyInteger*>(lhs);
+        PyDouble  *r = dynamic_cast<PyDouble*>(rhs);
+        return new PyDouble(l->value() + r->value());
+    } else {
+        __panic("TypeError: Unsupported operand type(s) for +: 'int' and '?'\n");
+    }
+}
+
+PyObject* IntegerKlass::sub(PyObject *lhs, PyObject *rhs)
+{
+    assert(lhs && lhs->klass() == static_cast<Klass*>(this));
+    Klass * rKlass = rhs->klass();
+    if(rKlass == nullptr)
+    {
+        __panic("rhs klass nullptr !");
+    } else if( rKlass == IntegerKlass::get_instance())
+    {
+        PyInteger *l = dynamic_cast<PyInteger*>(lhs);
+        PyInteger *r = dynamic_cast<PyInteger*>(rhs);
+        return new PyInteger(l->value() - r->value());
+    } else if( rKlass == DoubleKlass::get_instance())
+    {
+        PyInteger *l = dynamic_cast<PyInteger*>(lhs);
+        PyDouble  *r = dynamic_cast<PyDouble*>(rhs);
+        return new PyDouble(l->value() - r->value());
+    } else {
+        __panic("TypeError: Unsupported operand type(s) for +: 'int' and '?'\n");
+    }
+}
+
+PyObject* IntegerKlass::mul(PyObject *lhs, PyObject *rhs)
+{
+    assert(lhs && lhs->klass() == static_cast<Klass*>(this));
+    Klass * rKlass = rhs->klass();
+    if(rKlass == nullptr)
+    {
+        __panic("rhs klass nullptr !");
+    } else if( rKlass == IntegerKlass::get_instance())
+    {
+        PyInteger *l = dynamic_cast<PyInteger*>(lhs);
+        PyInteger *r = dynamic_cast<PyInteger*>(rhs);
         return new PyInteger(l->value() * r->value());
     } else if( rKlass == DoubleKlass::get_instance())
     {
@@ -53,40 +97,50 @@ PyObject* IntegerKlass::add(PyObject *lhs, PyObject *rhs)
     }
 }
 
-PyObject* IntegerKlass::sub(PyObject *lhs, PyObject *rhs)
-{
-    assert(lhs && lhs->klass() == static_cast<Klass*>(this));
-    assert(rhs && rhs->klass() == static_cast<Klass*>(this));
-    int x = dynamic_cast<PyInteger*>(lhs)->value();
-    int y = dynamic_cast<PyInteger*>(rhs)->value();
-    return new PyInteger(x - y);
-}
-
-PyObject* IntegerKlass::mul(PyObject *lhs, PyObject *rhs)
-{
-    assert(lhs && lhs->klass() == static_cast<Klass*>(this));
-    assert(rhs && rhs->klass() == static_cast<Klass*>(this));
-    int x = dynamic_cast<PyInteger*>(lhs)->value();
-    int y = dynamic_cast<PyInteger*>(rhs)->value();
-    return new PyInteger(x * y);
-}
-
 PyObject* IntegerKlass::div(PyObject *lhs, PyObject *rhs)
 {
     assert(lhs && lhs->klass() == static_cast<Klass*>(this));
-    assert(rhs && rhs->klass() == static_cast<Klass*>(this));
-    int x = dynamic_cast<PyInteger*>(lhs)->value();
-    int y = dynamic_cast<PyInteger*>(rhs)->value();
-    return new PyInteger(x / y);
+    Klass * rKlass = rhs->klass();
+    if(rKlass == nullptr)
+    {
+        __panic("rhs klass nullptr !");
+    } else if( rKlass == IntegerKlass::get_instance())
+    {
+        // python的除法比较坑爹 两个整数无论是否除尽都是浮点数
+        // 3/1 = 3.0  3/2=1.5
+        PyInteger *l = dynamic_cast<PyInteger*>(lhs);
+        PyInteger *r = dynamic_cast<PyInteger*>(rhs);
+        return new PyDouble(((double)(l->value())) / ((double)(r->value())));
+    } else if( rKlass == DoubleKlass::get_instance())
+    {
+        PyInteger *l = dynamic_cast<PyInteger*>(lhs);
+        PyDouble  *r = dynamic_cast<PyDouble*>(rhs);
+        return new PyDouble(l->value() / r->value());
+    } else {
+        __panic("TypeError: Unsupported operand type(s) for +: 'int' and '?'\n");
+    }
 }
 
 PyObject* IntegerKlass::mod(PyObject *lhs, PyObject *rhs)
 {
     assert(lhs && lhs->klass() == static_cast<Klass*>(this));
-    assert(rhs && rhs->klass() == static_cast<Klass*>(this));
-    int x = dynamic_cast<PyInteger*>(lhs)->value();
-    int y = dynamic_cast<PyInteger*>(rhs)->value();
-    return new PyInteger(x % y);
+    Klass * rKlass = rhs->klass();
+    if(rKlass == nullptr)
+    {
+        __panic("rhs klass nullptr !");
+    } else if( rKlass == IntegerKlass::get_instance())
+    {
+        PyInteger *l = dynamic_cast<PyInteger*>(lhs);
+        PyInteger *r = dynamic_cast<PyInteger*>(rhs);
+        return new PyInteger(l->value() % r->value());
+    } else if( rKlass == DoubleKlass::get_instance())
+    {
+        PyInteger *l = dynamic_cast<PyInteger*>(lhs);
+        PyDouble  *r = dynamic_cast<PyDouble*>(rhs);
+        return new PyDouble(l->value() % r->value());
+    } else {
+        __panic("TypeError: Unsupported operand type(s) for +: 'int' and '?'\n");
+    }
 }
 
 PyObject* IntegerKlass::greater(PyObject *lhs, PyObject *rhs)
