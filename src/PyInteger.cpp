@@ -5,6 +5,7 @@
 #include "Panic.hpp"
 
 #include <stdio.h>
+#include <math.h>   // fmod
 #include <assert.h>
 
 IntegerKlass::IntegerKlass(){}
@@ -110,11 +111,17 @@ PyObject* IntegerKlass::div(PyObject *lhs, PyObject *rhs)
         // 3/1 = 3.0  3/2=1.5
         PyInteger *l = dynamic_cast<PyInteger*>(lhs);
         PyInteger *r = dynamic_cast<PyInteger*>(rhs);
+        if(r->value() == 0) {
+            __panic("div by zero !");
+        }
         return new PyDouble(((double)(l->value())) / ((double)(r->value())));
     } else if( rKlass == DoubleKlass::get_instance())
     {
         PyInteger *l = dynamic_cast<PyInteger*>(lhs);
         PyDouble  *r = dynamic_cast<PyDouble*>(rhs);
+        if(r->value() == 0d) {
+            __panic("div by zero !");
+        }
         return new PyDouble(l->value() / r->value());
     } else {
         __panic("TypeError: Unsupported operand type(s) for +: 'int' and '?'\n");
@@ -137,7 +144,8 @@ PyObject* IntegerKlass::mod(PyObject *lhs, PyObject *rhs)
     {
         PyInteger *l = dynamic_cast<PyInteger*>(lhs);
         PyDouble  *r = dynamic_cast<PyDouble*>(rhs);
-        return new PyDouble(((double)(l->value())) % r->value());
+        // return new PyDouble(((double)(l->value())) % r->value());
+        return new PyDouble(fmod(((double)(l->value())), r->value()));
     } else {
         __panic("TypeError: Unsupported operand type(s) for +: 'int' and '?'\n");
     }
