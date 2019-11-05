@@ -65,11 +65,7 @@ PyObject* DoubleKlass::div(PyObject *lhs, PyObject *rhs)
 
 PyObject* DoubleKlass::mod(PyObject *lhs, PyObject *rhs)
 {
-    assert(lhs && lhs->klass() == static_cast<Klass*>(this));
-    assert(rhs && rhs->klass() == static_cast<Klass*>(this));
-    PyDouble *dl = dynamic_cast<PyDouble*>(lhs);
-    PyDouble *dr = dynamic_cast<PyDouble*>(rhs);
-    return new PyDouble(dl->value() % dr->value());
+    return new PyDouble(0.0d);
 }
 
 PyObject* DoubleKlass::greater(PyObject *lhs, PyObject *rhs)
