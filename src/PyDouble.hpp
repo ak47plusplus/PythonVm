@@ -4,6 +4,7 @@
 #include <mutex>
 #include "Klass.hpp"
 #include "PyObject.hpp"
+#include "PyInteger.hpp"
 
 
 class DoubleKlass : public Klass {
@@ -12,7 +13,7 @@ public:
 
     virtual void print(PyObject *x);
 
-    // TODO double的以下操作都支持和integer进行运算.
+    // TODO double的以下操作都支持和integer进行运算,且为int时需要自动提升类型
     virtual PyObject* add(PyObject *lhs, PyObject *rhs);
     virtual PyObject* sub(PyObject *lhs, PyObject *rhs);
     virtual PyObject* mul(PyObject *lhs, PyObject *rhs);

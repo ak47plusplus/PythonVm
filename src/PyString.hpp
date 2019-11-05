@@ -18,6 +18,8 @@ public:
 
     virtual void print(PyObject *x);
 
+    // python的str不能和int或double相操作
+    // 即便是这里设计成可以操作，但是编译器不支持还是白搭，所以不支持省时省力.
     virtual PyObject* add(PyObject *lhs, PyObject *rhs);
     // not supported: virtual PyObject* sub(PyObject *lhs, PyObject *rhs);
     // not supported: virtual PyObject* mul(PyObject *lhs, PyObject *rhs);

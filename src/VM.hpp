@@ -15,7 +15,7 @@ private:
 public:
     static PyInteger *PyTrue;
     static PyInteger *PyFalse;
-    static PyObject   *PyNone;
+    static PyObject  *PyNone;
 };
 
 #endif
