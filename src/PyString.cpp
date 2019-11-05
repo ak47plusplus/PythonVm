@@ -1,5 +1,6 @@
 #include "PyString.hpp"
 #include "PyInteger.hpp"
+#include "PyDouble.hpp"
 #include "VM.hpp"
 
 #include <string.h>
@@ -36,18 +37,31 @@ void StringKlass::print(PyObject *x)
     }
 }
 
+// python的str只能和str加
 PyObject* StringKlass::add(PyObject *lhs, PyObject *rhs)
 {
     return nullptr;
 }
 
-
-PyObject* StringKlass::less(PyObject *lhs, PyObject *rhs)
+// TODO 字符串不能乘以字符串 但是能乘以int 自动翻倍字符串...
+PyObject* StringKlass::mul(PyObject *lhs, PyObject *rhs)
 {
-    //  TODO
     return nullptr;
 }
 
+// greater 只支持str和str比较
+PyObject* StringKlass::greater(PyObject *lhs, PyObject *rhs)
+{
+    return nullptr;
+}
+
+// less 只支持str和str比较
+PyObject* StringKlass::less(PyObject *lhs, PyObject *rhs)
+{
+    return nullptr;
+}
+
+// equal 支持str和任意类型比较
 PyObject* StringKlass::equal(PyObject *lhs, PyObject *rhs)
 {
     if(lhs->klass() != rhs->klass()) return VM::PyFalse;
@@ -69,6 +83,26 @@ PyObject* StringKlass::equal(PyObject *lhs, PyObject *rhs)
     }
     return VM::PyTrue;
 }
+
+// not equal 支持str和任意类型比较
+PyObject* StringKlass::not_equal(PyObject *lhs, PyObject *rhs)
+{
+    return nullptr;
+}
+
+// ge 只支持str和str比较
+PyObject* StringKlass::ge(PyObject *lhs, PyObject *rhs)
+{
+    return nullptr;
+}
+
+// le 只支持str和str比较
+PyObject* StringKlass::le(PyObject *lhs, PyObject *rhs)
+{
+    return nullptr;
+}
+
+
 
 // =================================== stringobject=============================
 

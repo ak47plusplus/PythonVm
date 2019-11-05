@@ -18,7 +18,7 @@ public:
 
     virtual void print(PyObject *x);
 
-    // python的str不能和int或double相操作 即便是这里设计成可以操作，但是编译器不支持还是白搭，所以不支持省时省力.
+    // python的str只能和str加
     virtual PyObject* add(PyObject *lhs, PyObject *rhs);
 
     // python的str不支持减法
