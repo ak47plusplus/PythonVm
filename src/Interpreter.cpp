@@ -91,6 +91,12 @@ void Interpreter::run(CodeObject *codes)
             case ByteCode::RETURN_VALUE:  // 83
                 POP(); // ? just pop ?
                 break;
+            case ByteCode::STORE_NAME:   // 90
+                // ?
+                break;
+            case ByteCode::LOAD_NAME:   // 101
+                // ?
+                break;
             case ByteCode::COMPARE_OP:   // 107
                 w = POP();
                 v = POP();
@@ -120,6 +126,9 @@ void Interpreter::run(CodeObject *codes)
                 break;
             case ByteCode::JUMP_FORWARD:        // 110
                 pc += opArg;
+                break;
+            case ByteCode::JUMP_ABSOLUTE:       // 113
+                pc = opArg; // 绝对跳转
                 break;
             case ByteCode::POP_JUMP_IF_FALSE:   // 114
                 v = POP();
