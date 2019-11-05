@@ -1,5 +1,4 @@
-a = 3
-if a < 10:
-    print("a less than 10")
+if 2 > 1
+    print "2 greater than 1"
 else
-    print("a greater equal than 10")
+    print "2 less or equals to 1"
