@@ -1,8 +1,14 @@
 #include "BinaryFileParser.hpp"
+#include "VM.hpp"
+#include "Panic.hpp"
+#include "Logger.hpp"
+#include "PyInteger.hpp"
+#include "PyDouble.hpp"
+#include "PyString.hpp"
+
 #include <cstdio>
 #include <memory>
 #include <assert.h>
-#include "Logger.hpp"
 
 BinaryFileParser::BinaryFileParser(FileInputStream *fileInputStream) NOEXCEPT
 {
@@ -87,14 +93,17 @@ ArrayList<PyObject*> *BinaryFileParser::get_tuple()
         char objType = this->m_Stream->read();
         switch (objType) {
             case 'c':
-                LOG(DEBUG) << "this is a code object.";
+                LOG(DEBUG) << "this is a code object inner.";
                 list->add(this->get_code_object()); // 为c带表内嵌一个CodeObject.
                 break;
             case 'i':
-                list->add(new PyInteger(this->m_Stream->read_int()));
+                list->add(new PyInteger(m_Stream->read_int()));
+                break;
+            case 'g':
+                list->add(new PyDouble(m_Stream->read_double()));
                 break;
             case 'N':
-                list->add(NULL); // not nullptr. TODO
+                list->add(VM::PyNone);
                 break;
             case 't':
                 str = this->get_string();
@@ -105,8 +114,13 @@ ArrayList<PyObject*> *BinaryFileParser::get_tuple()
                 list->add(get_string());
                 break;
             case 'R':
-                list->add(this->m_StringTable.get(this->m_Stream->read_int()));
+                list->add(this->m_StringTable.get(m_Stream->read_int()));
                 break;
+            case '(':
+                // TODO.
+                break;
+            default:
+                __panic("Unrecognized obj type: %c \n", objType);
         }
     }
     return list;
