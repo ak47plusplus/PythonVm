@@ -65,8 +65,8 @@ public:
     PyString(const PyString& rhs);
     ~PyString();
     PyString& operator=(const PyString& rhs);
-    const char *value() { return this->m_Value;}
-    int length()   const     {return this->m_Length;}
+    const char *value() const   { return this->m_Value;}
+    int length()        const   { return this->m_Length;}
 public:
     static PyString* times(const PyString *rawStr, int times);
 
