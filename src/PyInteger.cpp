@@ -4,10 +4,7 @@
 #include <stdio.h>
 #include <assert.h>
 
-IntegerKlass::IntegerKlass()
-{
-
-}
+IntegerKlass::IntegerKlass(){}
 
 IntegerKlass* IntegerKlass::m_Instance = nullptr;
 std::mutex IntegerKlass::m_Mutex;
@@ -33,6 +30,8 @@ void IntegerKlass::print(PyObject *x)
 
 PyObject* IntegerKlass::add(PyObject *lhs, PyObject *rhs)
 {
+    // 这里要判断 rhs是否是integer或者double 支持加double和integer,int+double自动提升类型.
+    // 至于其他的class不支持 ,只有c++这种bitch才支持operator这种东西.
     assert(lhs && lhs->klass() == static_cast<Klass*>(this));
     assert(rhs && rhs->klass() == static_cast<Klass*>(this));
     int x = dynamic_cast<PyInteger*>(lhs)->value();

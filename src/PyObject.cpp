@@ -6,6 +6,8 @@ void PyObject::print()
     this->m_Klass->print(this);
 }
 
+// 这里强行约定 lhs全部用this.
+
 PyObject *PyObject::add(PyObject *rhs)
 {
     return this->m_Klass->add(this, rhs);

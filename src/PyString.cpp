@@ -38,7 +38,7 @@ void StringKlass::print(PyObject *x)
 
 PyObject* StringKlass::add(PyObject *lhs, PyObject *rhs)
 {
-    //  TODO
+    //  TODO 注意 设计成 string可以+ int/double
     return nullptr;
 }
 

@@ -18,12 +18,12 @@ public:
 
     virtual void print(PyObject *x);
 
+    // TODO integer的以下运算都必须支持和double进行.
     virtual PyObject* add(PyObject *lhs, PyObject *rhs);
     virtual PyObject* sub(PyObject *lhs, PyObject *rhs);
     virtual PyObject* mul(PyObject *lhs, PyObject *rhs);
     virtual PyObject* div(PyObject *lhs, PyObject *rhs);
     virtual PyObject* mod(PyObject *lhs, PyObject *rhs);
-
 
     virtual PyObject* greater(PyObject *lhs, PyObject *rhs);
     virtual PyObject* less(PyObject *lhs, PyObject *rhs);
