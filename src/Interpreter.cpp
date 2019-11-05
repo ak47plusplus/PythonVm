@@ -52,14 +52,14 @@ void Interpreter::run(CodeObject *codes)
         PyObject *v, *w, *u, *attr;
 
         switch (opCode) {
-            case ByteCode::LOAD_CONST:
+            case ByteCode::LOAD_CONST:      // 100
                 PUSH(m_Consts->get(opArg));
                 break;
-            case ByteCode::PRINT_ITEM:
+            case ByteCode::PRINT_ITEM:     // 71
                 v = POP();
                 v->print();
                 break;
-            case ByteCode::PRINT_NEWLINE:
+            case ByteCode::PRINT_NEWLINE:  // 72
                 std::cout << '\n';
                 std::fflush(stdout);
                 break;
@@ -91,7 +91,7 @@ void Interpreter::run(CodeObject *codes)
             case ByteCode::RETURN_VALUE:  // 83
                 POP(); // ? just pop ?
                 break;
-            case ByteCode::COMPARE_OP:
+            case ByteCode::COMPARE_OP:   // 107
                 w = POP();
                 v = POP();
                 // COMPARE_OP是带有参数的操作码
@@ -118,10 +118,10 @@ void Interpreter::run(CodeObject *codes)
                         __panic("Unrecognized compare op arg: %d\n", opArg);
                 }
                 break;
-            case ByteCode::JUMP_FORWARD:
+            case ByteCode::JUMP_FORWARD:        // 110
                 pc += opArg;
                 break;
-            case ByteCode::POP_JUMP_IF_FALSE:
+            case ByteCode::POP_JUMP_IF_FALSE:   // 114
                 v = POP();
                 if(VM::PyFalse == v)
                     pc = opArg;
