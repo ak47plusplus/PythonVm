@@ -323,10 +323,22 @@ PyObject.hpp
 /opt/PythonVm/src/PyDouble.cpp
 PyDouble.hpp
 /opt/PythonVm/src/PyDouble.hpp
+VM.hpp
+/opt/PythonVm/src/VM.hpp
+stdio.h
+-
+assert.h
+-
 
 /opt/PythonVm/src/PyDouble.hpp
+mutex
+-
+Klass.hpp
+/opt/PythonVm/src/Klass.hpp
 PyObject.hpp
 /opt/PythonVm/src/PyObject.hpp
+PyInteger.hpp
+/opt/PythonVm/src/PyInteger.hpp
 
 /opt/PythonVm/src/PyInteger.cpp
 PyInteger.hpp

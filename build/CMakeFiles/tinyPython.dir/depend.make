@@ -73,9 +73,13 @@ CMakeFiles/tinyPython.dir/src/PyDict.cpp.o: ../src/PyDict.cpp
 CMakeFiles/tinyPython.dir/src/PyDict.cpp.o: ../src/PyDict.hpp
 CMakeFiles/tinyPython.dir/src/PyDict.cpp.o: ../src/PyObject.hpp
 
+CMakeFiles/tinyPython.dir/src/PyDouble.cpp.o: ../src/Core.hpp
+CMakeFiles/tinyPython.dir/src/PyDouble.cpp.o: ../src/Klass.hpp
 CMakeFiles/tinyPython.dir/src/PyDouble.cpp.o: ../src/PyDouble.cpp
 CMakeFiles/tinyPython.dir/src/PyDouble.cpp.o: ../src/PyDouble.hpp
+CMakeFiles/tinyPython.dir/src/PyDouble.cpp.o: ../src/PyInteger.hpp
 CMakeFiles/tinyPython.dir/src/PyDouble.cpp.o: ../src/PyObject.hpp
+CMakeFiles/tinyPython.dir/src/PyDouble.cpp.o: ../src/VM.hpp
 
 CMakeFiles/tinyPython.dir/src/PyInteger.cpp.o: ../src/Core.hpp
 CMakeFiles/tinyPython.dir/src/PyInteger.cpp.o: ../src/Klass.hpp
