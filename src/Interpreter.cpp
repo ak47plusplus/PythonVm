@@ -1,7 +1,3 @@
-#include <mutex>
-#include <cstdio>
-#include <iostream>
-
 #include "Interpreter.hpp"
 #include "VM.hpp"
 #include "Map.hpp"
@@ -9,6 +5,10 @@
 #include "ByteCode.hpp"
 #include "PyString.hpp"
 #include "PyInteger.hpp"
+
+#include <mutex>
+#include <cstdio>
+#include <iostream>
 
 #define PUSH(v) m_Stack->add((v))
 #define POP()   m_Stack->pop()

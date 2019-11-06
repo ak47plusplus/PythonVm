@@ -26,7 +26,7 @@ void FileInputStream::close()
 
 char FileInputStream::read()
 {
-    if(m_Index < BUFFER_LEN) {
+    if(m_Index < BUFFER_LEN ) {
         return m_Buffer[m_Index++];
     }
     else {
@@ -47,7 +47,7 @@ int FileInputStream::read_int()
     char b = read() & 0xff;
     char c = read() & 0xff;
     char d = read() & 0xff;
-	//printf("readInt: a=%d b=%d c=%d d=%d \n", a, b, c, d);
+	printf("readInt: a=%x b=%x c=%x d=%x \n", a, b, c, d);
     return d << 24 | c << 16 | b << 8 | a;
 }
 
