@@ -50,7 +50,7 @@ int FileInputStream::read_int()
     int ret = (d & 0xff) << 24 |
               (c & 0xff) << 16 |
               (b & 0xff) << 8  |
-              a;
+              (a & 0xff);
     printf("int = %d\n", ret);
     return ret;
 }
