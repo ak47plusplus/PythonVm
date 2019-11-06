@@ -35,8 +35,8 @@ void Interpreter::run(CodeObject *codes)
 
     m_Stack = new ArrayList<PyObject*>(codes->m_StackSize);
     m_Consts = codes->m_Consts;
-    ArrayList<PyObject*> names = codes->m_Names;
-    Map<PyObject*, PyObject*> *locals = new Map<PyObject*,PyObject*>();
+    ArrayList<PyObject*>        *names = codes->m_Names;
+    Map<PyObject*, PyObject*>   *locals = new Map<PyObject*,PyObject*>();
 
     // 循环读取并解析字节码 opCode占一个字节 如果有参数 参数占2字节
     while (pc < codeLength) {
