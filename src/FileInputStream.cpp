@@ -51,7 +51,6 @@ int FileInputStream::read_int()
               (c & 0xff) << 16 |
               (b & 0xff) << 8  |
               (a & 0xff);
-    printf("int = %d\n", ret);
     return ret;
 }
 
