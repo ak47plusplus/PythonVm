@@ -7,7 +7,7 @@
 #include <stdexcept>
 
 template<typename K, typename V>
-class Map<K,V>;
+class Map;
 
 template<typename K, typename V>
 class MapEntry {
