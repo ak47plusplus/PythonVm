@@ -43,11 +43,15 @@ void FileInputStream::unread()
 
 int FileInputStream::read_int()
 {
-    char a = read() & 0xff;
-    char b = read() & 0xff;
-    char c = read() & 0xff;
-    char d = read() & 0xff;
+    char a = read();
+    char b = read();
+    char c = read();
+    char d = read();
 	printf("readInt: a=%x b=%x c=%x d=%x \t", a, b, c, d);
+    a = a & 0xff;
+    b = b & 0xff;
+    c = c & 0xff;
+    d = d & 0xff;
     int ret = (d << 24 | c << 16 | b << 8 | a);
     printf("int = %d\n", ret);
     return ret;
