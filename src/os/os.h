@@ -2,24 +2,27 @@
 #define OS_H___
 
 #include "Core.hpp"
-#if defined(NP_OS_LINUX) && (NP_OS_LINUX == 1)
+#if (defined(NP_OS_LINUX)) && (NP_OS_LINUX)
 #include <unistd.h>
 #include <pthread.h>
 #include <sys/types.h>
 #include <sys/syscall.h>
 typedef pid_t     PID;
 typedef pthread_t TID;
-#elif defined(NP_OS_WINDOWS) && (NP_OS_WINDOWS == 1)
+#elif (defined(NP_OS_WINDOWS)) && (NP_OS_WINDOWS)
 #include <TlHelp32.h>
+#include <windows.h>
+#include <WinBase.h>
+#include <limits.h>
 typedef DWORD     PID;
 typedef DWORD     TID;
 #else
-#error "Unsupported os system"
+#error "Unsupported Operating System."
 #endif
 
 inline PID GetCurrentProcessID()
 {
-#if defined(NP_OS_LINUX) && (NP_OS_LINUX == 1)
+#if (defined(NP_OS_LINUX)) && (NP_OS_LINUX)
     return getpid();
 #else
     return GetCurrentProcessId();
@@ -28,7 +31,7 @@ inline PID GetCurrentProcessID()
 
 inline PID GetParentProcessID()
 {
-#if defined(NP_OS_LINUX) && (NP_OS_LINUX == 1)
+#if (defined(NP_OS_LINUX)) && (NP_OS_LINUX)
     return getppid();
 #else
     PID pid = -1 ;
@@ -60,13 +63,11 @@ inline PID GetParentProcessID()
 
 inline TID GetCurrentThreadID()
 {
-#if defined(NP_OS_LINUX) && (NP_OS_LINUX == 1)
+#if (defined(NP_OS_LINUX)) && (NP_OS_LINUX)
     return syscall(SYS_gettid);
 #else
     return GetCurrentThreadId();
 #endif
 }
 
-
-
-#endif // endof OS_HPP__
+#endif // end of OS_H__
