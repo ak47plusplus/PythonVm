@@ -161,14 +161,24 @@ stdexcept
 /opt/PythonVm/src/BinaryFileParser.cpp
 BinaryFileParser.hpp
 /opt/PythonVm/src/BinaryFileParser.hpp
+VM.hpp
+/opt/PythonVm/src/VM.hpp
+Panic.hpp
+/opt/PythonVm/src/Panic.hpp
+Logger.hpp
+/opt/PythonVm/src/Logger.hpp
+PyInteger.hpp
+/opt/PythonVm/src/PyInteger.hpp
+PyDouble.hpp
+/opt/PythonVm/src/PyDouble.hpp
+PyString.hpp
+/opt/PythonVm/src/PyString.hpp
 cstdio
 -
 memory
 -
 assert.h
 -
-Logger.hpp
-/opt/PythonVm/src/Logger.hpp
 
 /opt/PythonVm/src/BinaryFileParser.hpp
 Core.hpp
@@ -239,6 +249,8 @@ Interpreter.hpp
 /opt/PythonVm/src/Interpreter.hpp
 VM.hpp
 /opt/PythonVm/src/VM.hpp
+Map.hpp
+/opt/PythonVm/src/Map.hpp
 Panic.hpp
 /opt/PythonVm/src/Panic.hpp
 ByteCode.hpp
@@ -304,6 +316,14 @@ FileInputStream.hpp
 BinaryFileParser.hpp
 /opt/PythonVm/src/BinaryFileParser.hpp
 
+/opt/PythonVm/src/Map.hpp
+VM.hpp
+/opt/PythonVm/src/VM.hpp
+exception
+-
+stdexcept
+-
+
 /opt/PythonVm/src/NonCopyable.hpp
 Core.hpp
 /opt/PythonVm/src/Core.hpp
@@ -343,9 +363,17 @@ PyInteger.hpp
 /opt/PythonVm/src/PyInteger.cpp
 PyInteger.hpp
 /opt/PythonVm/src/PyInteger.hpp
+PyDouble.hpp
+/opt/PythonVm/src/PyDouble.hpp
+PyString.hpp
+/opt/PythonVm/src/PyString.hpp
 VM.hpp
 /opt/PythonVm/src/VM.hpp
+Panic.hpp
+/opt/PythonVm/src/Panic.hpp
 stdio.h
+-
+math.h
 -
 assert.h
 -
@@ -381,6 +409,8 @@ PyString.hpp
 /opt/PythonVm/src/PyString.hpp
 PyInteger.hpp
 /opt/PythonVm/src/PyInteger.hpp
+PyDouble.hpp
+/opt/PythonVm/src/PyDouble.hpp
 VM.hpp
 /opt/PythonVm/src/VM.hpp
 string.h
