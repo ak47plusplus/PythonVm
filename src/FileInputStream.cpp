@@ -47,7 +47,7 @@ int FileInputStream::read_int()
     char b = read();
     char c = read();
     char d = read();
-	printf("readInt: a=%x b=%x c=%x d=%x \t", a, b, c, d);
+	printf("readInt: a=%x b=%x c=%x d=%x \t", (char)a, (char)b, (char)c, (char)d);
     a = a & 0xff;
     b = b & 0xff;
     c = c & 0xff;
