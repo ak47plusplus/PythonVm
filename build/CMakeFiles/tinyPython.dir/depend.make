@@ -14,9 +14,12 @@ CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.o: ../src/FileInputStream.hpp
 CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.o: ../src/Klass.hpp
 CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.o: ../src/Logger.hpp
 CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.o: ../src/NonCopyable.hpp
+CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.o: ../src/Panic.hpp
+CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.o: ../src/PyDouble.hpp
 CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.o: ../src/PyInteger.hpp
 CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.o: ../src/PyObject.hpp
 CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.o: ../src/PyString.hpp
+CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.o: ../src/VM.hpp
 
 CMakeFiles/tinyPython.dir/src/CodeObject.cpp.o: ../src/ArrayList.hpp
 CMakeFiles/tinyPython.dir/src/CodeObject.cpp.o: ../src/CodeObject.cpp
@@ -37,6 +40,7 @@ CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/Core.hpp
 CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/Interpreter.cpp
 CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/Interpreter.hpp
 CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/Klass.hpp
+CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/Map.hpp
 CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/Panic.hpp
 CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/PyInteger.hpp
 CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/PyObject.hpp
@@ -83,9 +87,12 @@ CMakeFiles/tinyPython.dir/src/PyDouble.cpp.o: ../src/VM.hpp
 
 CMakeFiles/tinyPython.dir/src/PyInteger.cpp.o: ../src/Core.hpp
 CMakeFiles/tinyPython.dir/src/PyInteger.cpp.o: ../src/Klass.hpp
+CMakeFiles/tinyPython.dir/src/PyInteger.cpp.o: ../src/Panic.hpp
+CMakeFiles/tinyPython.dir/src/PyInteger.cpp.o: ../src/PyDouble.hpp
 CMakeFiles/tinyPython.dir/src/PyInteger.cpp.o: ../src/PyInteger.cpp
 CMakeFiles/tinyPython.dir/src/PyInteger.cpp.o: ../src/PyInteger.hpp
 CMakeFiles/tinyPython.dir/src/PyInteger.cpp.o: ../src/PyObject.hpp
+CMakeFiles/tinyPython.dir/src/PyInteger.cpp.o: ../src/PyString.hpp
 CMakeFiles/tinyPython.dir/src/PyInteger.cpp.o: ../src/VM.hpp
 
 CMakeFiles/tinyPython.dir/src/PyList.cpp.o: ../src/ArrayList.hpp
@@ -99,6 +106,7 @@ CMakeFiles/tinyPython.dir/src/PyObject.cpp.o: ../src/PyObject.hpp
 
 CMakeFiles/tinyPython.dir/src/PyString.cpp.o: ../src/Core.hpp
 CMakeFiles/tinyPython.dir/src/PyString.cpp.o: ../src/Klass.hpp
+CMakeFiles/tinyPython.dir/src/PyString.cpp.o: ../src/PyDouble.hpp
 CMakeFiles/tinyPython.dir/src/PyString.cpp.o: ../src/PyInteger.hpp
 CMakeFiles/tinyPython.dir/src/PyString.cpp.o: ../src/PyObject.hpp
 CMakeFiles/tinyPython.dir/src/PyString.cpp.o: ../src/PyString.cpp
