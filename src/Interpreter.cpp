@@ -41,7 +41,7 @@ void Interpreter::run(CodeObject *codes)
     // 循环读取并解析字节码 opCode占一个字节 如果有参数 参数占2字节
     while (pc < codeLength) {
         unsigned char opCode = codes->m_ByteCodes->value()[pc++];
-        printf("\n===> start to parse opCode, opCode nbr: %d \n", opCode);
+        // printf("\n===> start to parse opCode, opCode nbr: %d \n", opCode);
 
         // python的字节码在设计的时候进行了安排，字节码<90代表无参数的
         bool hasArgument = (opCode & 0xff) >= ByteCode::HAVE_ARGUMENT;
@@ -154,7 +154,7 @@ void Interpreter::run(CodeObject *codes)
 
                 break;
             default:
-                __panic("Unsupported opCode: %c \n", opCode);
+                __panic("Unsupported opCode: %d \n", opCode);
         }
     }
     delete m_Stack;
