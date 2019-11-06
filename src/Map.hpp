@@ -1,7 +1,7 @@
 #ifndef MAP_HPP____
 #define MAP_HPP____
 
-#include "VM.h"
+#include "VM.hpp"
 
 #include <exception>
 #include <stdexcept>
