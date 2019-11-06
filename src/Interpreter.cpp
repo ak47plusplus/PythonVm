@@ -4,6 +4,7 @@
 
 #include "Interpreter.hpp"
 #include "VM.hpp"
+#include "Map.hpp"
 #include "Panic.hpp"
 #include "ByteCode.hpp"
 #include "PyString.hpp"
@@ -31,8 +32,11 @@ void Interpreter::run(CodeObject *codes)
 {
     int pc = 0;   // 指令计数器
     int codeLength = codes->m_ByteCodes->length();
+
     m_Stack = new ArrayList<PyObject*>(codes->m_StackSize);
     m_Consts = codes->m_Consts;
+    ArrayList<PyObject*> names = codes->m_Names();
+    Map<PyObject*, PyObject*> *locals = new Map<PyObject*,PyObject*>();
 
     // 循环读取并解析字节码 opCode占一个字节 如果有参数 参数占2字节
     while (pc < codeLength) {
@@ -91,11 +95,21 @@ void Interpreter::run(CodeObject *codes)
             case ByteCode::RETURN_VALUE:  // 83
                 POP(); // ? just pop ?
                 break;
+            case ByteCode::POP_BLOCK:     // 87
+                break;
             case ByteCode::STORE_NAME:   // 90
-                // ?
+                v = names->get(opArg);
+                locals->put(v, POP());
                 break;
             case ByteCode::LOAD_NAME:   // 101
-                // ?
+                v = names->get(opArg);
+                w = locals->get(v);
+                if(w != VM::PyNone)
+                {
+                    PUSH(w);
+                    break;
+                }
+                PUSH(VM::PyNone);
                 break;
             case ByteCode::COMPARE_OP:   // 107
                 w = POP();
@@ -134,6 +148,9 @@ void Interpreter::run(CodeObject *codes)
                 v = POP();
                 if(VM::PyFalse == v)
                     pc = opArg;
+                break;
+            case ByteCode::SETUP_LOOP:          // 120
+
                 break;
             default:
                 __panic("Unsupported opCode: %c \n", opCode);

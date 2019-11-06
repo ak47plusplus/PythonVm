@@ -134,30 +134,57 @@ ArrayList<PyObject*> *BinaryFileParser::get_consts()
     m_Stream->unread();
     return nullptr;
 }
+
 ArrayList<PyObject*> *BinaryFileParser::get_names()
 {
+    if(m_Stream->read() == '(')
+    {
+        return this->get_tuple();
+    }
+    m_Stream->unread();
     return nullptr;
 }
+
 ArrayList<PyObject*> *BinaryFileParser::get_var_names()
 {
+    if(m_Stream->read() == '(')
+    {
+        return this->get_tuple();
+    }
+    m_Stream->unread();
     return nullptr;
 }
+
 ArrayList<PyObject*> *BinaryFileParser::get_free_vars()
 {
+    if(m_Stream->read() == '(')
+    {
+        return this->get_tuple();
+    }
+    m_Stream->unread();
     return nullptr;
 }
+
 ArrayList<PyObject*> *BinaryFileParser::get_cell_vars()
 {
+    if(m_Stream->read() == '(')
+    {
+        return this->get_tuple();
+    }
+    m_Stream->unread();
     return nullptr;
 }
+
 PyString* BinaryFileParser::get_file_name()
 {
     return nullptr;
 }
+
 PyString* BinaryFileParser::get_name()
 {
     return nullptr;
 }
+
 PyString* BinaryFileParser::get_no_table()
 {
     return nullptr;
