@@ -52,5 +52,6 @@ target_include_directories(${PROJECT_NAME}
     PRIVATE
         ${PROJECT_SOURCE_DIR}/src
         ${PROJECT_SOURCE_DIR}/src/arch
+        ${PROJECT_SOURCE_DIR}/src/os
         ${PROJECT_SOURCE_DIR}/src/3rd/easylogging++
 )
