@@ -23,7 +23,7 @@ private:
 };
 
 template<typename K, typename V>
-MapEntry::MapEntry(const MapEntry<K,V> &rhs)
+MapEntry<K,V>::MapEntry(const MapEntry<K,V> &rhs)
 {
     this->m_K = rhs.m_K;
     this->m_V = rhs.m_V;
@@ -204,7 +204,7 @@ int Map<K,V>::index(K k)
 }
 
 template<typename K, typename V>
-void expand_capacity()
+void Map<K,V>::expand_capacity()
 {
     int newCap = m_Capacity << 1;
     MapEntry<K,V> *newSpace = new MapEntry<K,V>[newCap];
