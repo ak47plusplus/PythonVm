@@ -14,6 +14,20 @@ private:
 };
 
 template<typename K, typename V>
+MapEntry::MapEntry(const MapEntry<K,V> &rhs)
+{
+    this->m_K = rhs.m_K;
+    this->m_V = rhs.m_V;
+}
+
+template<typename K, typename V>
+MapEntry<K,V>& MapEntry<K,V>::operator=(const MapEntry<K,V>& rhs)
+{
+    this->m_K = rhs.m_K;
+    this->m_V = rhs.m_V;
+}
+
+template<typename K, typename V>
 class Map {
 public:
     Map();
