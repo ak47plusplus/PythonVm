@@ -20,7 +20,7 @@ typedef DWORD     TID;
 #error "Unsupported Operating System."
 #endif
 
-inline PID GetCurrentProcessID()
+static inline PID GetCurrentProcessID()
 {
 #if (defined(NP_OS_LINUX)) && (NP_OS_LINUX)
     return getpid();
@@ -29,7 +29,7 @@ inline PID GetCurrentProcessID()
 #endif
 }
 
-inline PID GetParentProcessID()
+static inline PID GetParentProcessID()
 {
 #if (defined(NP_OS_LINUX)) && (NP_OS_LINUX)
     return getppid();
@@ -61,7 +61,7 @@ inline PID GetParentProcessID()
 #endif
 }
 
-inline TID GetCurrentThreadID()
+static inline TID GetCurrentThreadID()
 {
 #if (defined(NP_OS_LINUX)) && (NP_OS_LINUX)
     return syscall(SYS_gettid);
