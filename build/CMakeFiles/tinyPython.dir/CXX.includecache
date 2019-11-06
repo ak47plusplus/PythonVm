@@ -239,12 +239,6 @@ NonCopyable.hpp
 /opt/PythonVm/src/NonCopyable.hpp
 
 /opt/PythonVm/src/Interpreter.cpp
-mutex
--
-cstdio
--
-iostream
--
 Interpreter.hpp
 /opt/PythonVm/src/Interpreter.hpp
 VM.hpp
@@ -259,6 +253,12 @@ PyString.hpp
 /opt/PythonVm/src/PyString.hpp
 PyInteger.hpp
 /opt/PythonVm/src/PyInteger.hpp
+mutex
+-
+cstdio
+-
+iostream
+-
 
 /opt/PythonVm/src/Interpreter.hpp
 mutex
