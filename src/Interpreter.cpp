@@ -43,8 +43,8 @@ void Interpreter::run(CodeObject *codes)
         unsigned char opCode = codes->m_ByteCodes->value()[pc++];
         printf("\n===> start to parse opCode, opCode nbr: %d \n", opCode);
 
-        // python的字节码在设计的时候进行了安排，字节码<=90代表无参数的
-        bool hasArgument = (opCode & 0xff) > ByteCode::HAVE_ARGUMENT;
+        // python的字节码在设计的时候进行了安排，字节码<90代表无参数的
+        bool hasArgument = (opCode & 0xff) >= ByteCode::HAVE_ARGUMENT;
 
         int opArg = -1;
         if (hasArgument) {
