@@ -82,7 +82,8 @@ void Interpreter::run(CodeObject *codes)
                 w = POP();
                 PUSH(w->mod(v));
                 break;
-            case ByteCode::BINARY_ADD:      // 23
+            case ByteCode::INPLACE_ADD:     // 55  (+=)
+            case ByteCode::BINARY_ADD:      // 23  (+)
                 v = POP();
                 w = POP();
                 PUSH(w->add(v));
