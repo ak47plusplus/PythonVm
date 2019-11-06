@@ -47,8 +47,10 @@ int FileInputStream::read_int()
     char b = read() & 0xff;
     char c = read() & 0xff;
     char d = read() & 0xff;
-	printf("readInt: a=%x b=%x c=%x d=%x \n", a, b, c, d);
-    return d << 24 | c << 16 | b << 8 | a;
+	printf("readInt: a=%x b=%x c=%x d=%x \t", a, b, c, d);
+    int ret = (d << 24 | c << 16 | b << 8 | a);
+    printf("int = %d\n", ret);
+    return ret;
 }
 
 double FileInputStream::read_double()
