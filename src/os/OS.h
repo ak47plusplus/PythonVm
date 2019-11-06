@@ -1,5 +1,5 @@
-#ifndef OS_HPP___
-#define OS_HPP___
+#ifndef OS_H___
+#define OS_H___
 
 #include "Core.hpp"
 
