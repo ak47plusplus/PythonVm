@@ -67,28 +67,32 @@ void Interpreter::run(CodeObject *codes)
                 std::cout << '\n';
                 std::fflush(stdout);
                 break;
+            case ByteCode::INPLACE_MULTIPLY:
             case ByteCode::BINARY_MULTIPLY: // 20
                 v = POP();
                 w = POP();
                 PUSH(w->mul(v));
                 break;
+            case ByteCode::INPLACE_DIVIDE:
             case ByteCode::BINARY_DIVIDE:  // 21
                 v = POP();
                 w = POP();
                 PUSH(w->div(v));
                 break;
+            case ByteCode::INPLACE_MODULO:
             case ByteCode::BINARY_MODULO:  // 22
                 v = POP();
                 w = POP();
                 PUSH(w->mod(v));
                 break;
-            case ByteCode::INPLACE_ADD:     // 55  (+=)
-            case ByteCode::BINARY_ADD:      // 23  (+)
+            case ByteCode::INPLACE_ADD:         // 55  (+=)
+            case ByteCode::BINARY_ADD:          // 23  (+)
                 v = POP();
                 w = POP();
                 PUSH(w->add(v));
                 break;
-            case ByteCode::BINARY_SUBTRACT: // 24
+            case ByteCode::INPLACE_SUBSTRACT:   // 56
+            case ByteCode::BINARY_SUBTRACT:     // 24
                 v = POP();
                 w = POP();
                 PUSH(w->sub(v));
