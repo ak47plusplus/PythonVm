@@ -47,12 +47,10 @@ int FileInputStream::read_int()
     char b = read();
     char c = read();
     char d = read();
-	printf("readInt: a=%02x b=%02x c=%02x d=%02x \t", (unsigned char)a, (unsigned char)b, (unsigned char)c, (unsigned char)d);
-    a = a & 0xff;
-    b = b & 0xff;
-    c = c & 0xff;
-    d = d & 0xff;
-    int ret = (d << 24 | c << 16 | b << 8 | a);
+    int ret = (d & 0xff) << 24 |
+              (c & 0xff) << 16 |
+              (b & 0xff) << 8  |
+              a;
     printf("int = %d\n", ret);
     return ret;
 }
