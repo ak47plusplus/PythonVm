@@ -113,8 +113,6 @@ void Interpreter::run(CodeObject *codes)
             case ByteCode::RETURN_VALUE:  // 83
                 POP(); // ? just pop ?
                 break;
-            case ByteCode::POP_BLOCK:     // 87
-                break;
             case ByteCode::STORE_NAME:   // 90
                 v = names->get(opArg);
                 locals->put(v, POP());
@@ -177,7 +175,7 @@ void Interpreter::run(CodeObject *codes)
                     POP();
                 }
                 break;
-            case ByteCode::BREAK_LOOP：
+            case ByteCode::BREAK_LOOP:
                 b = loopStack->pop();
                 while(STACK_LEVEL() > b->m_Level)
                 {
