@@ -37,7 +37,6 @@ void Interpreter::run(CodeObject *codes)
     pc_t pc = 0;
 
     while (m_Frame->has_more_codes()) {
-        pc = m_Frame->get_pc();
         uint8_t opCode = m_Frame->get_op_code();
         // printf("\n===> start to parse opCode, opCode nbr: %d \n", opCode);
         bool hasArgument = (opCode & 0xff) >= ByteCode::HAVE_ARGUMENT;
@@ -45,6 +44,9 @@ void Interpreter::run(CodeObject *codes)
         if (hasArgument) {
             opArg = m_Frame->get_op_arg();
         }
+        // 获取pc必须在获取opCode和opArg之后
+        // 踩坑: 6 SETUP_LOOP   51(to 60)
+        pc = m_Frame->get_pc();
 
         PyInteger *lhs, *rhs;
         PyObject *v, *w, *u, *attr;
@@ -160,12 +162,12 @@ void Interpreter::run(CodeObject *codes)
                 break;
             case ByteCode::BREAK_LOOP:
                 b = m_Frame->loop_stack()->pop();
-                delete b;
                 while(STACK_LEVEL() > b->m_Level)
                 {
                     POP();
                 }
                 m_Frame->set_pc(b->m_Target);
+                delete b;
                 break;
             default:
                 __panic("Unsupported opCode: %d \n", opCode);
