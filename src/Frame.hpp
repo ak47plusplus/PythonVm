@@ -26,13 +26,13 @@ public:
     uint8_t                    get_op_code();
     uint32_t                   get_op_arg();
 public:
-    ArrayList<PyObject*>        *m_Stack;
-    ArrayList<Block*>           *m_LoopStack;
-    ArrayList<PyObject*>        *m_Consts;
-    ArrayList<PyObject*>        *m_Names;
-    Map<PyObject*, PyObject*>   *m_Locals;
-    CodeObject                  *m_Codes;
-    pc_t                         m_Pc;
+    ArrayList<PyObject*>        *m_Stack;       /* 运行时栈 */
+    ArrayList<Block*>           *m_LoopStack;   /* 用于保存循环的Block栈 */
+    ArrayList<PyObject*>        *m_Consts;      /* 常量表 函数定义也存在里面 */
+    ArrayList<PyObject*>        *m_Names;       /* 符号表 */
+    Map<PyObject*, PyObject*>   *m_Locals;      /* 当前栈帧中的局部变量 */
+    CodeObject                  *m_Codes;       /* 当前栈帧的CodeObject */
+    pc_t                         m_Pc;          /* 程序计数器 类似于x86CPU中的eip */
 };
 
 #endif
