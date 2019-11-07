@@ -10,9 +10,9 @@
 #include <cstdio>
 #include <iostream>
 
-#define PUSH(v) m_Stack->add((v))
-#define POP()   m_Stack->pop()
-
+#define PUSH(v)         m_Stack->add((v))
+#define POP()           m_Stack->pop()
+#define STACK_LEVEL()   m_Stack->size()
 
 Interpreter* Interpreter::m_Instance = nullptr;
 std::mutex Interpreter::m_Mutex;
@@ -30,13 +30,25 @@ Interpreter *Interpreter::get_instance()
 
 void Interpreter::run(CodeObject *codes)
 {
-    int pc = 0;   // 指令计数器
+    // pc为指令计数器 类似于x86CPU中的eip
+    int pc = 0;
     int codeLength = codes->m_ByteCodes->length();
 
+    // 解释字节码的操作栈.
     m_Stack = new ArrayList<PyObject*>(codes->m_StackSize);
+
+    // 常量表
     m_Consts = codes->m_Consts;
+
+    // 符号表 包括变量 常量等的名字.
     ArrayList<PyObject*>        *names = codes->m_Names;
+
+    // 存储变量的名和值的映射表
     Map<PyObject*, PyObject*>   *locals = new Map<PyObject*,PyObject*>();
+
+    // 存储(多层)循环/异常/Finarlly块的栈
+    // 例如多层循环时,最外城循环的信息被压入栈的最低端.
+    ArrayList<Block*>           *loopStack = new ArrayList<Block*>();
 
     // 循环读取并解析字节码 opCode占一个字节 如果有参数 参数占2字节
     while (pc < codeLength) {
@@ -54,6 +66,7 @@ void Interpreter::run(CodeObject *codes)
 
         PyInteger *lhs, *rhs;
         PyObject *v, *w, *u, *attr;
+        Block *b;
 
         switch (opCode) {
             case ByteCode::LOAD_CONST:      // 100
@@ -155,7 +168,22 @@ void Interpreter::run(CodeObject *codes)
                     pc = opArg;
                 break;
             case ByteCode::SETUP_LOOP:          // 120
-
+                loopStack->add(new Block(opCode, pc + opArg, STACK_LEVEL()));
+                break;
+            case ByteCode::POP_BLOCK:
+                b = loopStack->pop();
+                while(STACK_LEVEL() > b->m_Level)
+                {
+                    POP();
+                }
+                break;
+            case ByteCode::BREAK_LOOP：
+                b = loopStack->pop();
+                while(STACK_LEVEL() > b->m_Level)
+                {
+                    POP();
+                }
+                pc = b->m_Target;
                 break;
             default:
                 __panic("Unsupported opCode: %d \n", opCode);
