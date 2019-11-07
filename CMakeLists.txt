@@ -40,6 +40,7 @@ set(SOURCES
     src/Klass.cpp
     src/VM.cpp
     src/LoggerConfig.cpp
+    src/Frame.cpp
 )
 
 # 添加一个可执行文件

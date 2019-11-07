@@ -151,7 +151,7 @@ int ArrayList<T>::capacity()
 template<typename T>
 T ArrayList<T>::pop()
 {
-    if(m_Size <= 0)
+    if(m_size <= 0)
     {
         throw std::out_of_range("empty list and pop failed.");
     }
