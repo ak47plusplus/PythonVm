@@ -14,6 +14,7 @@ class Frame {
 public:
     Frame(CodeObject *codes);
     Frame();
+    ~Frame();
 public:
     void                       set_pc(pc_t pc)     { m_Pc = pc;}
     pc_t                       get_pc()            { return m_Pc;}

@@ -5,14 +5,17 @@
 #include "ByteCode.hpp"
 #include "PyString.hpp"
 #include "PyInteger.hpp"
+#include "Frame.hpp"
 
 #include <mutex>
 #include <cstdio>
+#include <memory>
 #include <iostream>
 
-#define PUSH(v)         m_Stack->add((v))
-#define POP()           m_Stack->pop()
-#define STACK_LEVEL()   m_Stack->size()
+#define PUSH(v)         m_Frame->m_Stack->add((v))
+#define POP()           m_Frame->m_Stack->pop()
+#define STACK_LEVEL()   m_Frame->m_Stack->size()
+#define SET_PC(v)       m_Frame->set_pc(v)
 
 Interpreter* Interpreter::m_Instance = nullptr;
 std::mutex Interpreter::m_Mutex;
@@ -30,38 +33,17 @@ Interpreter *Interpreter::get_instance()
 
 void Interpreter::run(CodeObject *codes)
 {
-    // pc为指令计数器 类似于x86CPU中的eip
-    int pc = 0;
-    int codeLength = codes->m_ByteCodes->length();
+    m_Frame = new Frame(codes);
+    pc_t pc = 0;
 
-    // 解释字节码的操作栈.
-    m_Stack = new ArrayList<PyObject*>(codes->m_StackSize);
-
-    // 常量表
-    m_Consts = codes->m_Consts;
-
-    // 符号表 包括变量 常量等的名字.
-    ArrayList<PyObject*>        *names = codes->m_Names;
-
-    // 存储变量的名和值的映射表
-    Map<PyObject*, PyObject*>   *locals = new Map<PyObject*,PyObject*>();
-
-    // 存储(多层)循环/异常/Finarlly块的栈
-    // 例如多层循环时,最外城循环的信息被压入栈的最低端.
-    ArrayList<Block*>           *loopStack = new ArrayList<Block*>();
-
-    // 循环读取并解析字节码 opCode占一个字节 如果有参数 参数占2字节
-    while (pc < codeLength) {
-        unsigned char opCode = codes->m_ByteCodes->value()[pc++];
+    while (m_Frame->has_more_codes()) {
+        pc = m_Frame->get_pc();
+        uint8_t opCode = m_Frame->get_op_code();
         // printf("\n===> start to parse opCode, opCode nbr: %d \n", opCode);
-
-        // python的字节码在设计的时候进行了安排，字节码<90代表无参数的
         bool hasArgument = (opCode & 0xff) >= ByteCode::HAVE_ARGUMENT;
-
         int opArg = -1;
         if (hasArgument) {
-            int lowBit = (codes->m_ByteCodes->value()[pc++] & 0xff);
-            opArg = ((codes->m_ByteCodes->value()[pc++] & 0xff) << 8) | lowBit;
+            opArg = m_Frame->get_op_arg();
         }
 
         PyInteger *lhs, *rhs;
@@ -70,7 +52,7 @@ void Interpreter::run(CodeObject *codes)
 
         switch (opCode) {
             case ByteCode::LOAD_CONST:      // 100
-                PUSH(m_Consts->get(opArg));
+                PUSH(m_Frame->m_Consts->get(opArg));
                 break;
             case ByteCode::PRINT_ITEM:     // 71
                 v = POP();
@@ -114,12 +96,12 @@ void Interpreter::run(CodeObject *codes)
                 POP(); // ? just pop ?
                 break;
             case ByteCode::STORE_NAME:   // 90
-                v = names->get(opArg);
-                locals->put(v, POP());
+                v = m_Frame->names()->get(opArg);
+                m_Frame->locals()->put(v, POP());
                 break;
             case ByteCode::LOAD_NAME:   // 101
-                v = names->get(opArg);
-                w = locals->get(v);
+                v = m_Frame->names()->get(opArg);
+                w = m_Frame->locals()->get(v);
                 if(w != VM::PyNone)
                 {
                     PUSH(w);
@@ -155,21 +137,21 @@ void Interpreter::run(CodeObject *codes)
                 }
                 break;
             case ByteCode::JUMP_FORWARD:        // 110
-                pc += opArg;
+                m_Frame->set_pc(pc + opArg);
                 break;
             case ByteCode::JUMP_ABSOLUTE:       // 113
-                pc = opArg; // 绝对跳转
+                m_Frame->set_pc(opArg);
                 break;
             case ByteCode::POP_JUMP_IF_FALSE:   // 114
                 v = POP();
                 if(VM::PyFalse == v)
-                    pc = opArg;
+                    m_Frame->set_pc(opArg);
                 break;
             case ByteCode::SETUP_LOOP:          // 120
-                loopStack->add(new Block(opCode, pc + opArg, STACK_LEVEL()));
+                m_Frame->loop_stack()->add(new Block(opCode, pc + opArg, STACK_LEVEL()));
                 break;
             case ByteCode::POP_BLOCK:
-                b = loopStack->pop();
+                b = m_Frame->loop_stack()->pop();
                 delete b;
                 while(STACK_LEVEL() > b->m_Level)
                 {
@@ -177,17 +159,16 @@ void Interpreter::run(CodeObject *codes)
                 }
                 break;
             case ByteCode::BREAK_LOOP:
-                b = loopStack->pop();
+                b = m_Frame->loop_stack()->pop();
                 delete b;
                 while(STACK_LEVEL() > b->m_Level)
                 {
                     POP();
                 }
-                pc = b->m_Target;
+                m_Frame->set_pc(b->m_Target);
                 break;
             default:
                 __panic("Unsupported opCode: %d \n", opCode);
         }
     }
-    delete m_Stack;
 }
