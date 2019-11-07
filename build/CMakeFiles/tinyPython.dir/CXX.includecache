@@ -263,6 +263,8 @@ iostream
 /opt/PythonVm/src/Interpreter.hpp
 mutex
 -
+stdint.h
+-
 Core.hpp
 /opt/PythonVm/src/Core.hpp
 CodeObject.hpp

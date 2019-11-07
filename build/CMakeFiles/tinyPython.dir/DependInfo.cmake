@@ -25,8 +25,8 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../src"
-  "../src/arch"
   "../src/os"
+  "../src/cpu"
   "../src/3rd/easylogging++"
   )
 
