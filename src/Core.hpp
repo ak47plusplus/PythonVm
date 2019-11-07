@@ -6,6 +6,8 @@
  */
 #define VM_VERSION "2.7.15"
 
+typedef int pc_t;
+
 /*
  * Operating System Evaluation
  */
