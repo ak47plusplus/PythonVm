@@ -23,7 +23,7 @@ public:
     }
 
     Block(uint8_t _type, uint32_t _target, int32_t _level)
-        :m_Type(_type),m_Target(_target),m_Level(level){}
+        :m_Type(_type),m_Target(_target),m_Level(_level){}
 
     Block(const Block &rhs)
     {
