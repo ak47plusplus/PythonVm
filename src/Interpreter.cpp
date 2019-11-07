@@ -170,6 +170,7 @@ void Interpreter::run(CodeObject *codes)
                 break;
             case ByteCode::POP_BLOCK:
                 b = loopStack->pop();
+                delete b;
                 while(STACK_LEVEL() > b->m_Level)
                 {
                     POP();
@@ -177,6 +178,7 @@ void Interpreter::run(CodeObject *codes)
                 break;
             case ByteCode::BREAK_LOOP:
                 b = loopStack->pop();
+                delete b;
                 while(STACK_LEVEL() > b->m_Level)
                 {
                     POP();
