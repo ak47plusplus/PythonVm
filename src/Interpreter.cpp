@@ -61,6 +61,9 @@ void Interpreter::eval_frame()
         PyFunction *func;
 
         switch (opCode) {
+            case ByteCode::POP_TOP:
+                POP();
+                break;
             case ByteCode::LOAD_CONST:      // 100
                 PUSH(m_CurrentFrame->m_Consts->get(opArg));
                 break;
@@ -103,7 +106,7 @@ void Interpreter::eval_frame()
                 PUSH(w->sub(v));
                 break;
             case ByteCode::RETURN_VALUE:  // 83
-                m_RetValue = POP(); // ? just pop ?
+                m_RetValue = POP();
                 if(m_CurrentFrame->is_first_frame())
                     return;
                 leave_frame();
@@ -182,7 +185,7 @@ void Interpreter::eval_frame()
                 break;
             case ByteCode::MAKE_FUNCTION:
                 v = POP();
-                func = new PyFunction((CodeObject*)v);
+                func = new PyFunction((CodeObject*)v); // TODO 这个Function什么时候被释放?
                 PUSH(func);
                 break;
             case ByteCode::CALL_FUNCTION:
