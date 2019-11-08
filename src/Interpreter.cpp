@@ -182,10 +182,8 @@ void Interpreter::eval_frame()
                 break;
             case ByteCode::MAKE_FUNCTION:
                 v = POP();
-                CodeObject *tmp = (CodeObject*)v;
                 func = new PyFunction((CodeObject*)v);
-                printf("")
-                PUSH(v);
+                PUSH(func);
                 break;
             case ByteCode::CALL_FUNCTION:
                 v = POP();
