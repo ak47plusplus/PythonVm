@@ -15,9 +15,18 @@
 
 INITIALIZE_EASYLOGGINGPP
 
-/**
- * Main method and the boostrap.
- */
+void print_vm_logo()
+{
+    printf("_____         _    _                __      __ __  __ \n");
+    printf("|  __ \       | |  | |               \ \    / /|  \/  |\n");
+    printf("| |__) |_   _ | |_ | |__    ___   _ __\ \  / / | \  / |\n");
+    printf("|  ___/| | | || __|| '_ \  / _ \ | '_ \\ \/ /  | |\/| |\n");
+    printf("| |    | |_| || |_ | | | || (_) || | | |\  /   | |  | |\n");
+    printf("|_|     \__, | \__||_| |_| \___/ |_| |_| \/    |_|  |_|\n");
+    printf("         __/ |   \n");
+    printf("        |___/            \n");
+}
+
 int main(int argc, char const *argv[]) {
     START_EASYLOGGINGPP(argc, argv);
 
@@ -29,6 +38,7 @@ int main(int argc, char const *argv[]) {
         auto parser = std::make_shared<BinaryFileParser>(&_stream);
         CodeObject *main_code = parser->parse();
         assert(main_code != nullptr);
+        print_vm_logo();
         Interpreter::get_instance()->run(main_code);
     } catch(std::exception &ex) {
         std::cout << "Error: " << ex.what() << std::endl;
