@@ -1,6 +1,7 @@
 #include "PyFunction.hpp"
 
 #include <stdio.h>
+#include <assert.h>
 
 FunctionKlass* FunctionKlass::m_Instance = nullptr;
 std::mutex FunctionKlass::m_Mutex;
