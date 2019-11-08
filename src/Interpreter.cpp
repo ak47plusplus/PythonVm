@@ -227,7 +227,7 @@ void Interpreter::leave_frame()
  */
 void Interpreter::exec_new_frame(PyObject *callable)
 {
-    PyFrame *_new_frame = new PyFrame((PyFunction*)callable);
+    Frame *_new_frame = new Frame((PyFunction*)callable);
     _new_frame->set_caller(m_CurrentFrame);
     m_CurrentFrame = _new_frame;
 }
