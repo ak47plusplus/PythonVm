@@ -40,7 +40,7 @@ void Interpreter::run(CodeObject *codes)
 }
 
 
-void eval_frame()
+void Interpreter::eval_frame()
 {
     pc_t pc = 0;
     while (m_CurrentFrame->has_more_codes()) {
@@ -199,7 +199,7 @@ void eval_frame()
  * <p>
  * 销毁前需要将当前程序的运行时栈帧设置为被销毁的caller,然后再销毁本身.
  */
-void destroy_frame()
+void Interpreter::destroy_frame()
 {
     Frame *frame_to_destroy = m_CurrentFrame;
     m_CurrentFrame = frame_to_destroy->caller();
@@ -211,7 +211,7 @@ void destroy_frame()
  * <p>
  * 在记录了当前栈帧的返回值后,再销毁当前栈帧,将返回值压入调用者栈帧的栈中.
  */
-void leave_frame()
+void Interpreter::leave_frame()
 {
     this->destroy_frame();
     PUSH(m_RetValue);
