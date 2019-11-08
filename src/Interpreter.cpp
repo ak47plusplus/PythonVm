@@ -186,7 +186,8 @@ void Interpreter::eval_frame()
                 PUSH(v);
                 break;
             case ByteCode::CALL_FUNCTION:
-                this->exec_new_frame(POP());
+                v = POP();
+                this->exec_new_frame(v);
                 break;
             default:
                 __panic("Unsupported opCode: %d \n", opCode);
