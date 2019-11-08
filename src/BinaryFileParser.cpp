@@ -178,15 +178,37 @@ ArrayList<PyObject*> *BinaryFileParser::get_cell_vars()
 
 PyString* BinaryFileParser::get_file_name()
 {
-    return nullptr;
+    return get_name();
 }
 
 PyString* BinaryFileParser::get_name()
 {
+    int8_t ch = m_Stream->read();
+    if(ch == 's')
+    {
+        return get_string();
+    }
+    else if(ch == 't')
+    {
+        PyString *str = get_string();
+        m_StringTable.add(str);
+        return str;
+    }
+    else if(ch == 'R')
+    {
+        int index = m_Stream->read_int();
+        return m_StringTable.get(index);
+    }
     return nullptr;
 }
 
 PyString* BinaryFileParser::get_no_table()
 {
-    return nullptr;
+    int8_t ch = m_Stream->read();
+    if(ch != 's' && ch != 't')
+    {
+        m_Stream->unread();
+        return nullptr;
+    }
+    return get_string();
 }
