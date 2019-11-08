@@ -33,15 +33,31 @@ CMakeFiles/tinyPython.dir/src/FileInputStream.cpp.o: ../src/FileInputStream.cpp
 CMakeFiles/tinyPython.dir/src/FileInputStream.cpp.o: ../src/FileInputStream.hpp
 CMakeFiles/tinyPython.dir/src/FileInputStream.cpp.o: ../src/NonCopyable.hpp
 
+CMakeFiles/tinyPython.dir/src/Frame.cpp.o: ../src/ArrayList.hpp
+CMakeFiles/tinyPython.dir/src/Frame.cpp.o: ../src/Block.hpp
+CMakeFiles/tinyPython.dir/src/Frame.cpp.o: ../src/CodeObject.hpp
+CMakeFiles/tinyPython.dir/src/Frame.cpp.o: ../src/Core.hpp
+CMakeFiles/tinyPython.dir/src/Frame.cpp.o: ../src/Frame.cpp
+CMakeFiles/tinyPython.dir/src/Frame.cpp.o: ../src/Frame.hpp
+CMakeFiles/tinyPython.dir/src/Frame.cpp.o: ../src/Klass.hpp
+CMakeFiles/tinyPython.dir/src/Frame.cpp.o: ../src/Map.hpp
+CMakeFiles/tinyPython.dir/src/Frame.cpp.o: ../src/PyFunction.hpp
+CMakeFiles/tinyPython.dir/src/Frame.cpp.o: ../src/PyObject.hpp
+CMakeFiles/tinyPython.dir/src/Frame.cpp.o: ../src/PyString.hpp
+CMakeFiles/tinyPython.dir/src/Frame.cpp.o: ../src/VM.hpp
+
 CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/ArrayList.hpp
+CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/Block.hpp
 CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/ByteCode.hpp
 CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/CodeObject.hpp
 CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/Core.hpp
+CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/Frame.hpp
 CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/Interpreter.cpp
 CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/Interpreter.hpp
 CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/Klass.hpp
 CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/Map.hpp
 CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/Panic.hpp
+CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/PyFunction.hpp
 CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/PyInteger.hpp
 CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/PyObject.hpp
 CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/PyString.hpp
@@ -59,14 +75,17 @@ CMakeFiles/tinyPython.dir/src/LoggerConfig.cpp.o: ../src/LoggerConfig.hpp
 CMakeFiles/tinyPython.dir/src/Main.cpp.o: ../src/3rd/easylogging++/easylogging++.hpp
 CMakeFiles/tinyPython.dir/src/Main.cpp.o: ../src/ArrayList.hpp
 CMakeFiles/tinyPython.dir/src/Main.cpp.o: ../src/BinaryFileParser.hpp
+CMakeFiles/tinyPython.dir/src/Main.cpp.o: ../src/Block.hpp
 CMakeFiles/tinyPython.dir/src/Main.cpp.o: ../src/CodeObject.hpp
 CMakeFiles/tinyPython.dir/src/Main.cpp.o: ../src/Core.hpp
 CMakeFiles/tinyPython.dir/src/Main.cpp.o: ../src/FileInputStream.hpp
+CMakeFiles/tinyPython.dir/src/Main.cpp.o: ../src/Frame.hpp
 CMakeFiles/tinyPython.dir/src/Main.cpp.o: ../src/Interpreter.hpp
 CMakeFiles/tinyPython.dir/src/Main.cpp.o: ../src/Klass.hpp
 CMakeFiles/tinyPython.dir/src/Main.cpp.o: ../src/Logger.hpp
 CMakeFiles/tinyPython.dir/src/Main.cpp.o: ../src/LoggerConfig.hpp
 CMakeFiles/tinyPython.dir/src/Main.cpp.o: ../src/Main.cpp
+CMakeFiles/tinyPython.dir/src/Main.cpp.o: ../src/Map.hpp
 CMakeFiles/tinyPython.dir/src/Main.cpp.o: ../src/NonCopyable.hpp
 CMakeFiles/tinyPython.dir/src/Main.cpp.o: ../src/PyInteger.hpp
 CMakeFiles/tinyPython.dir/src/Main.cpp.o: ../src/PyObject.hpp
@@ -84,6 +103,19 @@ CMakeFiles/tinyPython.dir/src/PyDouble.cpp.o: ../src/PyDouble.hpp
 CMakeFiles/tinyPython.dir/src/PyDouble.cpp.o: ../src/PyInteger.hpp
 CMakeFiles/tinyPython.dir/src/PyDouble.cpp.o: ../src/PyObject.hpp
 CMakeFiles/tinyPython.dir/src/PyDouble.cpp.o: ../src/VM.hpp
+
+CMakeFiles/tinyPython.dir/src/PyFunction.cpp.o: ../src/ArrayList.hpp
+CMakeFiles/tinyPython.dir/src/PyFunction.cpp.o: ../src/Block.hpp
+CMakeFiles/tinyPython.dir/src/PyFunction.cpp.o: ../src/CodeObject.hpp
+CMakeFiles/tinyPython.dir/src/PyFunction.cpp.o: ../src/Core.hpp
+CMakeFiles/tinyPython.dir/src/PyFunction.cpp.o: ../src/Frame.hpp
+CMakeFiles/tinyPython.dir/src/PyFunction.cpp.o: ../src/Klass.hpp
+CMakeFiles/tinyPython.dir/src/PyFunction.cpp.o: ../src/Map.hpp
+CMakeFiles/tinyPython.dir/src/PyFunction.cpp.o: ../src/PyFunction.cpp
+CMakeFiles/tinyPython.dir/src/PyFunction.cpp.o: ../src/PyFunction.hpp
+CMakeFiles/tinyPython.dir/src/PyFunction.cpp.o: ../src/PyObject.hpp
+CMakeFiles/tinyPython.dir/src/PyFunction.cpp.o: ../src/PyString.hpp
+CMakeFiles/tinyPython.dir/src/PyFunction.cpp.o: ../src/VM.hpp
 
 CMakeFiles/tinyPython.dir/src/PyInteger.cpp.o: ../src/Core.hpp
 CMakeFiles/tinyPython.dir/src/PyInteger.cpp.o: ../src/Klass.hpp

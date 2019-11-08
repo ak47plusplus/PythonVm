@@ -231,6 +231,33 @@ src/FileInputStream.cpp.s:
 	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/FileInputStream.cpp.s
 .PHONY : src/FileInputStream.cpp.s
 
+src/Frame.o: src/Frame.cpp.o
+
+.PHONY : src/Frame.o
+
+# target to build an object file
+src/Frame.cpp.o:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/Frame.cpp.o
+.PHONY : src/Frame.cpp.o
+
+src/Frame.i: src/Frame.cpp.i
+
+.PHONY : src/Frame.i
+
+# target to preprocess a source file
+src/Frame.cpp.i:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/Frame.cpp.i
+.PHONY : src/Frame.cpp.i
+
+src/Frame.s: src/Frame.cpp.s
+
+.PHONY : src/Frame.s
+
+# target to generate assembly for a file
+src/Frame.cpp.s:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/Frame.cpp.s
+.PHONY : src/Frame.cpp.s
+
 src/Interpreter.o: src/Interpreter.cpp.o
 
 .PHONY : src/Interpreter.o
@@ -393,6 +420,33 @@ src/PyDouble.cpp.s:
 	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/PyDouble.cpp.s
 .PHONY : src/PyDouble.cpp.s
 
+src/PyFunction.o: src/PyFunction.cpp.o
+
+.PHONY : src/PyFunction.o
+
+# target to build an object file
+src/PyFunction.cpp.o:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/PyFunction.cpp.o
+.PHONY : src/PyFunction.cpp.o
+
+src/PyFunction.i: src/PyFunction.cpp.i
+
+.PHONY : src/PyFunction.i
+
+# target to preprocess a source file
+src/PyFunction.cpp.i:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/PyFunction.cpp.i
+.PHONY : src/PyFunction.cpp.i
+
+src/PyFunction.s: src/PyFunction.cpp.s
+
+.PHONY : src/PyFunction.s
+
+# target to generate assembly for a file
+src/PyFunction.cpp.s:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/PyFunction.cpp.s
+.PHONY : src/PyFunction.cpp.s
+
 src/PyInteger.o: src/PyInteger.cpp.o
 
 .PHONY : src/PyInteger.o
@@ -549,6 +603,9 @@ help:
 	@echo "... src/FileInputStream.o"
 	@echo "... src/FileInputStream.i"
 	@echo "... src/FileInputStream.s"
+	@echo "... src/Frame.o"
+	@echo "... src/Frame.i"
+	@echo "... src/Frame.s"
 	@echo "... src/Interpreter.o"
 	@echo "... src/Interpreter.i"
 	@echo "... src/Interpreter.s"
@@ -567,6 +624,9 @@ help:
 	@echo "... src/PyDouble.o"
 	@echo "... src/PyDouble.i"
 	@echo "... src/PyDouble.s"
+	@echo "... src/PyFunction.o"
+	@echo "... src/PyFunction.i"
+	@echo "... src/PyFunction.s"
 	@echo "... src/PyInteger.o"
 	@echo "... src/PyInteger.i"
 	@echo "... src/PyInteger.s"

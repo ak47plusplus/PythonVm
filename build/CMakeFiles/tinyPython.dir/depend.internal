@@ -33,16 +33,32 @@ CMakeFiles/tinyPython.dir/src/FileInputStream.cpp.o
  /opt/PythonVm/src/FileInputStream.cpp
  /opt/PythonVm/src/FileInputStream.hpp
  /opt/PythonVm/src/NonCopyable.hpp
+CMakeFiles/tinyPython.dir/src/Frame.cpp.o
+ /opt/PythonVm/src/ArrayList.hpp
+ /opt/PythonVm/src/Block.hpp
+ /opt/PythonVm/src/CodeObject.hpp
+ /opt/PythonVm/src/Core.hpp
+ /opt/PythonVm/src/Frame.cpp
+ /opt/PythonVm/src/Frame.hpp
+ /opt/PythonVm/src/Klass.hpp
+ /opt/PythonVm/src/Map.hpp
+ /opt/PythonVm/src/PyFunction.hpp
+ /opt/PythonVm/src/PyObject.hpp
+ /opt/PythonVm/src/PyString.hpp
+ /opt/PythonVm/src/VM.hpp
 CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o
  /opt/PythonVm/src/ArrayList.hpp
+ /opt/PythonVm/src/Block.hpp
  /opt/PythonVm/src/ByteCode.hpp
  /opt/PythonVm/src/CodeObject.hpp
  /opt/PythonVm/src/Core.hpp
+ /opt/PythonVm/src/Frame.hpp
  /opt/PythonVm/src/Interpreter.cpp
  /opt/PythonVm/src/Interpreter.hpp
  /opt/PythonVm/src/Klass.hpp
  /opt/PythonVm/src/Map.hpp
  /opt/PythonVm/src/Panic.hpp
+ /opt/PythonVm/src/PyFunction.hpp
  /opt/PythonVm/src/PyInteger.hpp
  /opt/PythonVm/src/PyObject.hpp
  /opt/PythonVm/src/PyString.hpp
@@ -60,14 +76,17 @@ CMakeFiles/tinyPython.dir/src/Main.cpp.o
  /opt/PythonVm/src/3rd/easylogging++/easylogging++.hpp
  /opt/PythonVm/src/ArrayList.hpp
  /opt/PythonVm/src/BinaryFileParser.hpp
+ /opt/PythonVm/src/Block.hpp
  /opt/PythonVm/src/CodeObject.hpp
  /opt/PythonVm/src/Core.hpp
  /opt/PythonVm/src/FileInputStream.hpp
+ /opt/PythonVm/src/Frame.hpp
  /opt/PythonVm/src/Interpreter.hpp
  /opt/PythonVm/src/Klass.hpp
  /opt/PythonVm/src/Logger.hpp
  /opt/PythonVm/src/LoggerConfig.hpp
  /opt/PythonVm/src/Main.cpp
+ /opt/PythonVm/src/Map.hpp
  /opt/PythonVm/src/NonCopyable.hpp
  /opt/PythonVm/src/PyInteger.hpp
  /opt/PythonVm/src/PyObject.hpp
@@ -84,6 +103,19 @@ CMakeFiles/tinyPython.dir/src/PyDouble.cpp.o
  /opt/PythonVm/src/PyDouble.hpp
  /opt/PythonVm/src/PyInteger.hpp
  /opt/PythonVm/src/PyObject.hpp
+ /opt/PythonVm/src/VM.hpp
+CMakeFiles/tinyPython.dir/src/PyFunction.cpp.o
+ /opt/PythonVm/src/ArrayList.hpp
+ /opt/PythonVm/src/Block.hpp
+ /opt/PythonVm/src/CodeObject.hpp
+ /opt/PythonVm/src/Core.hpp
+ /opt/PythonVm/src/Frame.hpp
+ /opt/PythonVm/src/Klass.hpp
+ /opt/PythonVm/src/Map.hpp
+ /opt/PythonVm/src/PyFunction.cpp
+ /opt/PythonVm/src/PyFunction.hpp
+ /opt/PythonVm/src/PyObject.hpp
+ /opt/PythonVm/src/PyString.hpp
  /opt/PythonVm/src/VM.hpp
 CMakeFiles/tinyPython.dir/src/PyInteger.cpp.o
  /opt/PythonVm/src/Core.hpp

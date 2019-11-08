@@ -198,6 +198,8 @@ FileInputStream.hpp
 Logger.hpp
 /opt/PythonVm/src/Logger.hpp
 
+/opt/PythonVm/src/Block.hpp
+
 /opt/PythonVm/src/ByteCode.hpp
 
 /opt/PythonVm/src/CodeObject.cpp
@@ -238,6 +240,30 @@ fstream
 NonCopyable.hpp
 /opt/PythonVm/src/NonCopyable.hpp
 
+/opt/PythonVm/src/Frame.cpp
+Frame.hpp
+/opt/PythonVm/src/Frame.hpp
+VM.hpp
+/opt/PythonVm/src/VM.hpp
+Core.hpp
+/opt/PythonVm/src/Core.hpp
+PyFunction.hpp
+/opt/PythonVm/src/PyFunction.hpp
+
+/opt/PythonVm/src/Frame.hpp
+stdint.h
+-
+Map.hpp
+/opt/PythonVm/src/Map.hpp
+Core.hpp
+/opt/PythonVm/src/Core.hpp
+Block.hpp
+/opt/PythonVm/src/Block.hpp
+CodeObject.hpp
+/opt/PythonVm/src/CodeObject.hpp
+ArrayList.hpp
+/opt/PythonVm/src/ArrayList.hpp
+
 /opt/PythonVm/src/Interpreter.cpp
 Interpreter.hpp
 /opt/PythonVm/src/Interpreter.hpp
@@ -253,9 +279,15 @@ PyString.hpp
 /opt/PythonVm/src/PyString.hpp
 PyInteger.hpp
 /opt/PythonVm/src/PyInteger.hpp
+Frame.hpp
+/opt/PythonVm/src/Frame.hpp
+PyFunction.hpp
+/opt/PythonVm/src/PyFunction.hpp
 mutex
 -
 cstdio
+-
+memory
 -
 iostream
 -
@@ -267,6 +299,8 @@ stdint.h
 -
 Core.hpp
 /opt/PythonVm/src/Core.hpp
+Frame.hpp
+/opt/PythonVm/src/Frame.hpp
 CodeObject.hpp
 /opt/PythonVm/src/CodeObject.hpp
 ArrayList.hpp
@@ -361,6 +395,26 @@ PyObject.hpp
 /opt/PythonVm/src/PyObject.hpp
 PyInteger.hpp
 /opt/PythonVm/src/PyInteger.hpp
+
+/opt/PythonVm/src/PyFunction.cpp
+PyFunction.hpp
+/opt/PythonVm/src/PyFunction.hpp
+stdio.h
+-
+assert.h
+-
+
+/opt/PythonVm/src/PyFunction.hpp
+Core.hpp
+/opt/PythonVm/src/Core.hpp
+Klass.hpp
+/opt/PythonVm/src/Klass.hpp
+Frame.hpp
+/opt/PythonVm/src/Frame.hpp
+CodeObject.hpp
+/opt/PythonVm/src/CodeObject.hpp
+mutex
+-
 
 /opt/PythonVm/src/PyInteger.cpp
 PyInteger.hpp
