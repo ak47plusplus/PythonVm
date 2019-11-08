@@ -36,7 +36,7 @@ CodeObject* BinaryFileParser::parse()
 
 CodeObject *BinaryFileParser::get_code_object()
 {
-    print("start to exec get_code_object\n");
+    printf("start to exec get_code_object\n");
     int argCount = m_Stream->read_int();
     int nLocals = m_Stream->read_int();
     int stackSize = m_Stream->read_int();
@@ -59,7 +59,7 @@ CodeObject *BinaryFileParser::get_code_object()
     int beginLineNo = this->m_Stream->read_int();
     PyString *lnotab = this->get_no_table();
 
-    print("finish to exec get_code_object\n");
+    printf("finish to exec get_code_object\n");
     return new CodeObject(argCount, nLocals, stackSize,flags, byteCodes,
       consts,names, varNames,freeVars,cellVars,fileName,moduleName,beginLineNo, lnotab);
 }
