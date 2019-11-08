@@ -36,6 +36,7 @@ CodeObject* BinaryFileParser::parse()
 
 CodeObject *BinaryFileParser::get_code_object()
 {
+    print("start to exec get_code_object\n");
     int argCount = m_Stream->read_int();
     int nLocals = m_Stream->read_int();
     int stackSize = m_Stream->read_int();
@@ -46,7 +47,7 @@ CodeObject *BinaryFileParser::get_code_object()
     PyString *byteCodes = this->get_byte_codes();
     printf("read byte codes ,length=%d\n", byteCodes->length());
     byteCodes->print();
-	  printf("\nread byte code end...\n");
+	printf("\nread byte code end...\n");
 
     ArrayList<PyObject*> *consts = this->get_consts();
     ArrayList<PyObject*> *names = this->get_names();
@@ -58,6 +59,7 @@ CodeObject *BinaryFileParser::get_code_object()
     int beginLineNo = this->m_Stream->read_int();
     PyString *lnotab = this->get_no_table();
 
+    print("finish to exec get_code_object\n");
     return new CodeObject(argCount, nLocals, stackSize,flags, byteCodes,
       consts,names, varNames,freeVars,cellVars,fileName,moduleName,beginLineNo, lnotab);
 }
@@ -93,7 +95,6 @@ ArrayList<PyObject*> *BinaryFileParser::get_tuple()
         char objType = this->m_Stream->read();
         switch (objType) {
             case 'c':
-                LOG(DEBUG) << "this is a code object inner.";
                 list->add(this->get_code_object()); // 为c带表内嵌一个CodeObject.
                 break;
             case 'i':
