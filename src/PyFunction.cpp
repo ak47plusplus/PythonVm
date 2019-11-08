@@ -32,7 +32,7 @@ void FunctionKlass::print(PyObject *x)
 
 
 // PyFunction
-PyFunction::PyFunction(CodeObject *codeObj);
+PyFunction::PyFunction(CodeObject *codeObj)
 {
     m_FuncCode = codeObj;
     m_FuncName = codeObj->m_CoName;
