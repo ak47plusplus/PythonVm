@@ -5,7 +5,7 @@
 #include <fstream>
 #include "NonCopyable.hpp"
 
-#define BUFFER_LEN 512
+#define BUFFER_LEN 256
 
 /*
  * @brief A file stream with a buffer.
