@@ -6,16 +6,17 @@
 #include "PyString.hpp"
 #include "PyInteger.hpp"
 #include "Frame.hpp"
+#include "PyFunction.hpp"
 
 #include <mutex>
 #include <cstdio>
 #include <memory>
 #include <iostream>
 
-#define PUSH(v)         m_Frame->m_Stack->add((v))
-#define POP()           m_Frame->m_Stack->pop()
-#define STACK_LEVEL()   m_Frame->m_Stack->size()
-#define SET_PC(v)       m_Frame->set_pc(v)
+#define PUSH(v)         m_CurrentFrame->m_Stack->add((v))
+#define POP()           m_CurrentFrame->m_Stack->pop()
+#define STACK_LEVEL()   m_CurrentFrame->m_Stack->size()
+#define SET_PC(v)       m_CurrentFrame->set_pc(v)
 
 Interpreter* Interpreter::m_Instance = nullptr;
 std::mutex Interpreter::m_Mutex;
@@ -33,28 +34,35 @@ Interpreter *Interpreter::get_instance()
 
 void Interpreter::run(CodeObject *codes)
 {
-    m_Frame = new Frame(codes);
-    pc_t pc = 0;
+    m_CurrentFrame = new Frame(codes);
+    eval_frame();
+    destroy_frame();
+}
 
-    while (m_Frame->has_more_codes()) {
-        uint8_t opCode = m_Frame->get_op_code();
+
+void eval_frame()
+{
+    pc_t pc = 0;
+    while (m_CurrentFrame->has_more_codes()) {
+        uint8_t opCode = m_CurrentFrame->get_op_code();
         // printf("\n===> start to parse opCode, opCode nbr: %d \n", opCode);
         bool hasArgument = (opCode & 0xff) >= ByteCode::HAVE_ARGUMENT;
         int opArg = -1;
         if (hasArgument) {
-            opArg = m_Frame->get_op_arg();
+            opArg = m_CurrentFrame->get_op_arg();
         }
         // 获取pc必须在获取opCode和opArg之后
         // 踩坑: 6 SETUP_LOOP   51(to 60)
-        pc = m_Frame->get_pc();
+        pc = m_CurrentFrame->get_pc();
 
         PyInteger *lhs, *rhs;
         PyObject *v, *w, *u, *attr;
         Block *b;
+        PyFunction *func;
 
         switch (opCode) {
             case ByteCode::LOAD_CONST:      // 100
-                PUSH(m_Frame->m_Consts->get(opArg));
+                PUSH(m_CurrentFrame->m_Consts->get(opArg));
                 break;
             case ByteCode::PRINT_ITEM:     // 71
                 v = POP();
@@ -95,15 +103,18 @@ void Interpreter::run(CodeObject *codes)
                 PUSH(w->sub(v));
                 break;
             case ByteCode::RETURN_VALUE:  // 83
-                POP(); // ? just pop ?
+                m_RetValue = POP(); // ? just pop ?
+                if(m_CurrentFrame->is_first_frame())
+                    return;
+                leave_frame();
                 break;
             case ByteCode::STORE_NAME:   // 90
-                v = m_Frame->names()->get(opArg);
-                m_Frame->locals()->put(v, POP());
+                v = m_CurrentFrame->names()->get(opArg);
+                m_CurrentFrame->locals()->put(v, POP());
                 break;
             case ByteCode::LOAD_NAME:   // 101
-                v = m_Frame->names()->get(opArg);
-                w = m_Frame->locals()->get(v);
+                v = m_CurrentFrame->names()->get(opArg);
+                w = m_CurrentFrame->locals()->get(v);
                 if(w != VM::PyNone)
                 {
                     PUSH(w);
@@ -139,21 +150,21 @@ void Interpreter::run(CodeObject *codes)
                 }
                 break;
             case ByteCode::JUMP_FORWARD:        // 110
-                m_Frame->set_pc(pc + opArg);
+                m_CurrentFrame->set_pc(pc + opArg);
                 break;
             case ByteCode::JUMP_ABSOLUTE:       // 113
-                m_Frame->set_pc(opArg);
+                m_CurrentFrame->set_pc(opArg);
                 break;
             case ByteCode::POP_JUMP_IF_FALSE:   // 114
                 v = POP();
                 if(VM::PyFalse == v)
-                    m_Frame->set_pc(opArg);
+                    m_CurrentFrame->set_pc(opArg);
                 break;
             case ByteCode::SETUP_LOOP:          // 120
-                m_Frame->loop_stack()->add(new Block(opCode, pc + opArg, STACK_LEVEL()));
+                m_CurrentFrame->loop_stack()->add(new Block(opCode, pc + opArg, STACK_LEVEL()));
                 break;
             case ByteCode::POP_BLOCK:
-                b = m_Frame->loop_stack()->pop();
+                b = m_CurrentFrame->loop_stack()->pop();
                 delete b;
                 while(STACK_LEVEL() > b->m_Level)
                 {
@@ -161,16 +172,62 @@ void Interpreter::run(CodeObject *codes)
                 }
                 break;
             case ByteCode::BREAK_LOOP:
-                b = m_Frame->loop_stack()->pop();
+                b = m_CurrentFrame->loop_stack()->pop();
                 while(STACK_LEVEL() > b->m_Level)
                 {
                     POP();
                 }
-                m_Frame->set_pc(b->m_Target);
+                m_CurrentFrame->set_pc(b->m_Target);
                 delete b;
+                break;
+            case ByteCode::MAKE_FUNCTION:
+                v = POP();
+                func = new PyFunction((PyObject*)v);
+                PUSH(v);
+                break;
+            case ByteCode::CALL_FUNCTION:
+                this->exec_new_frame(POP());
                 break;
             default:
                 __panic("Unsupported opCode: %d \n", opCode);
         }
     }
+}
+
+/**
+ * 销毁当前栈帧.
+ * <p>
+ * 销毁前需要将当前程序的运行时栈帧设置为被销毁的caller,然后再销毁本身.
+ */
+void destroy_frame()
+{
+    Frame *frame_to_destroy = m_CurrentFrame;
+    m_CurrentFrame = frame_to_destroy->caller();
+    delete frame_to_destroy;
+}
+
+/**
+ * 离开当前栈帧
+ * <p>
+ * 在记录了当前栈帧的返回值后,再销毁当前栈帧,将返回值压入调用者栈帧的栈中.
+ */
+void leave_frame()
+{
+    this->destroy_frame();
+    PUSH(m_RetValue);
+}
+
+/**
+ * 创建一个新的栈帧 并设置为当前的运行时栈帧.
+ * <p>
+ * a = 10
+ * foo(a)
+ * a在主线程运行，随即遇到一个函数调用，则创建一个新的函数栈帧,将当前运行时
+ * 栈帧设置为foo函数运行的栈帧.
+ */
+void Interpreter::exec_new_frame(PyObject *callable)
+{
+    PyFrame *_new_frame = new PyFrame((PyFunction*)callable);
+    _new_frame->set_caller(m_CurrentFrame);
+    m_CurrentFrame = _new_frame;
 }

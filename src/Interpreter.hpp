@@ -27,12 +27,16 @@ public:
     void run(CodeObject* codes);
 private:
     Interpreter() = default;
+    void eval_frame();
+    void exec_new_frame(PyObject *callable);
+    void destroy_frame();
+    void leave_frame();
 private:
     static Interpreter *  m_Instance;
     static std::mutex     m_Mutex;
 
-    Frame *               m_Frame;
-
+    Frame *               m_CurrentFrame;
+    PyObject*             m_RetValue;
 };
 
 #endif

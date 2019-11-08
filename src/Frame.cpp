@@ -1,4 +1,8 @@
 #include "Frame.hpp"
+#include "VM.hpp"
+#include "Core.hpp"
+#include "PyFunction.hpp"
+
 
 Frame::Frame(CodeObject *codes)
 {
@@ -9,7 +13,21 @@ Frame::Frame(CodeObject *codes)
     m_Names     = codes->m_Names;
     m_Codes     = codes;
     m_Pc        = 0;
+    m_Caller    = nullptr;
 }
+
+Frame::Frame(PyFunction *func)
+{
+    m_Locals    = new Map<PyObject*,PyObject*>();
+    m_Stack     = new ArrayList<PyObject*>();
+    m_LoopStack = new ArrayList<Block*>();
+    m_Codes     = func->m_FuncCode;
+    m_Consts    = m_Codes->m_Consts;
+    m_Names     = m_Codes->m_Names;
+    m_Pc        = 0;
+    m_Caller    = nullptr;
+}
+
 Frame::Frame(){}
 
 Frame::~Frame()

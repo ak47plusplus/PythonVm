@@ -9,20 +9,26 @@
 #include "CodeObject.hpp"
 #include "ArrayList.hpp"
 
+class PyFunction;
+
 // 函数运行栈帧.
 class Frame {
 public:
     Frame(CodeObject *codes);
+    Frame(PyFunction *func);
     Frame();
     ~Frame();
 public:
-    void                       set_pc(pc_t pc)     { m_Pc = pc;}
-    pc_t                       get_pc()            { return m_Pc;}
     ArrayList<PyObject*> *     stack()             { return m_Stack;}
     ArrayList<Block*>*         loop_stack()        { return m_LoopStack;}
     ArrayList<PyObject*> *     consts()            { return m_Consts;}
     ArrayList<PyObject*> *     names()             { return m_Names;}
     Map<PyObject*, PyObject*>* locals()            { return m_Locals;}
+    void                       set_pc(pc_t pc)     { m_Pc = pc;}
+    pc_t                       get_pc()            { return m_Pc;}
+    Frame                     *caller()            { return m_Caller;}
+    void                       set_caller(Frame *f){ m_Caller = f;}
+    bool                       is_first_frame()    { return m_Caller == nullptr;}
     bool                       has_more_codes();
     uint8_t                    get_op_code();
     uint32_t                   get_op_arg();
@@ -34,6 +40,7 @@ public:
     Map<PyObject*, PyObject*>   *m_Locals;      /* 当前栈帧中的局部变量 */
     CodeObject                  *m_Codes;       /* 当前栈帧的CodeObject */
     pc_t                         m_Pc;          /* 程序计数器 类似于x86CPU中的eip */
+    Frame                       *m_Caller;      /* 调用当前栈帧的上一个栈帧 */
 };
 
 #endif
