@@ -72,7 +72,9 @@ void Interpreter::eval_frame()
         Block *b;
         PyFunction *func;
         ArrayList<PyObject*> *funcArgs = nullptr;
+        ArrayList<PyObject*> *defaultArgs = nullptr;
         int argCount = 0;
+
         switch (opCode) {
             case ByteCode::POP_TOP:
                 POP();
@@ -211,10 +213,26 @@ void Interpreter::eval_frame()
                 delete b;
                 break;
             case ByteCode::MAKE_FUNCTION:
+                /*
+                 * 先压入的是函数的默认参数 在压入的函数的CodeObject.
+                 */
                 v = POP();
-                func = new PyFunction((CodeObject*)v); // TODO 这个Function什么时候被释放?
-                // 函数所依赖的全局变量表是定义函数对象的时候的，而不是调用函数时候的
+                func = new PyFunction((CodeObject*)v);
                 func->set_globals(m_CurrentFrame->globals());
+                if(opArg > 0) // 说明有默认值
+                {
+                    defaultArgs = new ArrayList<PyObject*>(opArg);
+                    while (opArg--)
+                    {
+                        defaultArgs->set(opArg, POP());
+                    }
+                }
+                func->set_default_args(defaultArgs); // made copy
+                if(defaultArgs != nullptr)
+                {
+                    delete defaultArgs;
+                    defaultArgs = nullptr;
+                }
                 PUSH(func);
                 break;
             case ByteCode::CALL_FUNCTION:

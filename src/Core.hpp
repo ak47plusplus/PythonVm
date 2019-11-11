@@ -95,4 +95,8 @@ typedef int pc_t;
 #define FROM_BOOST_BEGIN namespace fromboost {
 #define FROM_BOOST_END }
 
+#define __PTR_IN__ 
+#define __PTR_OUT__
+#define __PTR_INNER__
+
 #endif // endif CORE_HPP

@@ -11,7 +11,9 @@
 
 class PyFunction;
 
-// 函数运行栈帧.
+/**
+ * Runtime Frame. 
+ */
 class Frame {
 public:
     Frame(CodeObject *codes);
