@@ -3,10 +3,11 @@
 #include "Core.hpp"
 #include "PyFunction.hpp"
 
-
+// 这个方法仅限于模块使用.
 Frame::Frame(CodeObject *codes)
 {
     m_Locals    = new Map<PyObject*,PyObject*>();
+    m_Globals   = m_Locals; // 非函数上下文 全局和局部等价
     m_Stack     = new ArrayList<PyObject*>(codes->m_StackSize);
     m_LoopStack = new ArrayList<Block*>();
     m_Consts    = codes->m_Consts;
@@ -19,6 +20,7 @@ Frame::Frame(CodeObject *codes)
 Frame::Frame(PyFunction *func)
 {
     m_Locals    = new Map<PyObject*,PyObject*>();
+    m_Globals   = func->globals();
     m_Stack     = new ArrayList<PyObject*>();
     m_LoopStack = new ArrayList<Block*>();
     m_Codes     = func->m_FuncCode;
@@ -32,9 +34,10 @@ Frame::Frame(){}
 
 Frame::~Frame()
 {
-    delete m_Locals;
     delete m_Stack;
     delete m_LoopStack;
+    delete m_Locals;
+    // delete m_Globals; need delete ?
     m_Locals = nullptr;
     m_Stack = nullptr;
     m_LoopStack = nullptr;

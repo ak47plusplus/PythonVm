@@ -37,6 +37,7 @@ PyFunction::PyFunction(CodeObject *codeObj)
     m_FuncCode = codeObj;
     m_FuncName = codeObj->m_CoName;
     m_Flags    = codeObj->m_Flag;
+    m_Globals  = nullptr;
     set_klass(FunctionKlass::get_instance());
 }
 
@@ -44,6 +45,7 @@ PyFunction::PyFunction(Klass *klass)
 {
     m_FuncCode = nullptr;
     m_FuncName = nullptr;
+    m_Globals  = nullptr;
     m_Flags    = 0;
     set_klass(klass);
 }

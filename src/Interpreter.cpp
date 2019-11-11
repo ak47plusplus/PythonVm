@@ -18,6 +18,10 @@
 #define STACK_LEVEL()   m_CurrentFrame->m_Stack->size()
 #define SET_PC(v)       m_CurrentFrame->set_pc(v)
 
+#define TRUE            VM::PyTrue
+#define FALSE           VM::PyFalse
+#define None            VM::PyNone
+
 Interpreter* Interpreter::m_Instance = nullptr;
 std::mutex Interpreter::m_Mutex;
 
@@ -30,6 +34,14 @@ Interpreter *Interpreter::get_instance()
         }
     }
     return Interpreter::m_Instance;
+}
+
+Interpreter::Interpreter()
+{
+    m_Builtins = new Map<PyObject*, PyObject*>;
+    m_Builtins->put(new PyString("True"), VM::PyTrue);
+    m_Builtins->put(new PyString("False"), VM::PyFalse);
+    m_Builtins->put(new PyString("None"), VM::PyNone);
 }
 
 void Interpreter::run(CodeObject *codes)
@@ -123,34 +135,42 @@ void Interpreter::eval_frame()
                     PUSH(w);
                     break;
                 }
+                // LOAD_NAME如果从局部变量表找不到则去全局常量表找
+                w = m_CurrentFrame->globals()->get(v);
+                if(w != VM::PyNone)
+                {
+                    PUSH(w);
+                    break;
+                }
+                // 如果全局变量表仍然找不到 则去找builtin
+                w = m_Builtins->get(v);
+                if(w != VM::PyNone)
+                {
+                    PUSH(w);
+                    break;
+                }
                 PUSH(VM::PyNone);
                 break;
-            case ByteCode::COMPARE_OP:   // 107
-                w = POP();
-                v = POP();
-                // COMPARE_OP是带有参数的操作码
-                switch (opArg) {
-                    case ByteCode::GREATER:
-                        PUSH(v->greater(w));
-                        break;
-                    case ByteCode::LESS:
-                        PUSH(v->less(w));
-                        break;
-                    case ByteCode::EQUAL:
-                        PUSH(v->equal(w));
-                        break;
-                    case ByteCode::NOT_EQUAL:
-                        PUSH(v->not_equal(w));
-                        break;
-                    case ByteCode::GREATER_EQUAL:
-                        PUSH(v->ge(w));
-                        break;
-                    case ByteCode::LESS_EQUAL:
-                        PUSH(v->le(w));
-                        break;
-                    default:
-                        __panic("Unrecognized compare op arg: %d\n", opArg);
+            case ByteCode::STORE_GLOBAL:
+                v = m_CurrentFrame->names()->get(opArg);
+                m_CurrentFrame->globals()->put(v, POP());
+                break;
+            case ByteCode::LOAD_GLOBAL:
+                v = m_CurrentFrame->names()->get(opArg);
+                w = m_CurrentFrame->globals()->get(w);
+                if(w != VM::PyNone)
+                {
+                    PUSH(w);
+                    break;
                 }
+                // 全局变量表找不到则尝试去builtin找
+                w = m_Builtins->get(v);
+                if(w != VM::PyNone)
+                {
+                    PUSH(w);
+                    break;
+                }
+                PUSH(VM::PyNone);
                 break;
             case ByteCode::JUMP_FORWARD:        // 110
                 m_CurrentFrame->set_pc(pc + opArg);
@@ -186,11 +206,46 @@ void Interpreter::eval_frame()
             case ByteCode::MAKE_FUNCTION:
                 v = POP();
                 func = new PyFunction((CodeObject*)v); // TODO 这个Function什么时候被释放?
+                // 函数所依赖的全局变量表是定义函数对象的时候的，而不是调用函数时候的
+                func->set_globals(m_CurrentFrame->globals());
                 PUSH(func);
                 break;
             case ByteCode::CALL_FUNCTION:
                 v = POP();
                 this->exec_new_frame(v);
+                break;
+            case ByteCode::COMPARE_OP:   // 107
+                w = POP();
+                v = POP();
+                // COMPARE_OP是带有参数的操作码
+                switch (opArg) {
+                    case ByteCode::GREATER:
+                        PUSH(v->greater(w));
+                        break;
+                    case ByteCode::LESS:
+                        PUSH(v->less(w));
+                        break;
+                    case ByteCode::EQUAL:
+                        PUSH(v->equal(w));
+                        break;
+                    case ByteCode::NOT_EQUAL:
+                        PUSH(v->not_equal(w));
+                        break;
+                    case ByteCode::GREATER_EQUAL:
+                        PUSH(v->ge(w));
+                        break;
+                    case ByteCode::LESS_EQUAL:
+                        PUSH(v->le(w));
+                        break;
+                    case ByteCode::IS:
+                        PUSH(v == w ? VM::PyTrue : VM::PyFalse);
+                        break;
+                    case ByteCode::IS_NOT:
+                        PUSH(v != w ? VM::PyTrue : VM::PyFalse);
+                        break;
+                    default:
+                        __panic("Unrecognized compare op arg: %d\n", opArg);
+                }
                 break;
             default:
                 __panic("Unsupported opCode: %d \n", opCode);
