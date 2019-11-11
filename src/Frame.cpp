@@ -26,7 +26,7 @@ Frame::Frame(PyFunction *func, ArrayList<PyObject*> *args, int opArg)
 
     // 如果存在默认参数 则先设置默认参数
     m_FastLocals = new ArrayList<PyObject*>();
-    if(func->default_args)
+    if(func->default_args())
     {
         int defaultArgCnt = func->default_args()->size();
         int realArgCnt    = opArg;
