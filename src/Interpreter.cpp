@@ -226,7 +226,7 @@ void Interpreter::eval_frame()
                  * LOAD_CONST   2(1)
                  * CALL_FUNCTION 2
                  */
-                if(funcArgs > 0)
+                if(opArg > 0)
                 {
                     funcArgs = new ArrayList<PyObject*>();
                     argCount = opArg;
