@@ -118,10 +118,12 @@ T ArrayList<T>::get(int index)
 template<typename T>
 void ArrayList<T>::set(int index, T t)
 {
-    while(index >= (this->m_size-1)) {
-      this->expandCapacity();
-    }
+    while(index >= m_capacity-1)
+        this->expandCapacity();
+
     this->m_data[index] = t;
+    if(index >= m_size) // 5/8
+        m_size = index + 1;
 }
 
 template<typename T>
