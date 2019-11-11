@@ -17,12 +17,22 @@ Frame::Frame(CodeObject *codes)
     m_Caller    = nullptr;
 }
 
-Frame::Frame(PyFunction *func)
+Frame::Frame(PyFunction *func, ArrayList<PyObject*> *args, int opArg)
 {
-    m_Locals    = new Map<PyObject*,PyObject*>();
-    m_Globals   = func->globals();
     m_Stack     = new ArrayList<PyObject*>();
     m_LoopStack = new ArrayList<Block*>();
+    m_Locals    = new Map<PyObject*,PyObject*>();
+    m_Globals   = func->globals();
+
+    m_FastLocals = new ArrayList<PyObject*>();
+    if(args)
+    {
+        for(auto i = 0; i < args->size(); i++)
+        {
+            m_FastLocals->set(i, args->get(i));
+        }
+    }
+    
     m_Codes     = func->m_FuncCode;
     m_Consts    = m_Codes->m_Consts;
     m_Names     = m_Codes->m_Names;

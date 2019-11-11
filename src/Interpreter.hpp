@@ -29,7 +29,7 @@ public:
 private:
     Interpreter();
     void eval_frame();
-    void exec_new_frame(PyObject *callable);
+    void exec_new_frame(PyObject *callable, ArrayList<PyObject*> *funcArgs, int opArg);
     void destroy_frame();
     void leave_frame();
 private:

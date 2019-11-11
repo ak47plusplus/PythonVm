@@ -71,13 +71,11 @@ void Interpreter::eval_frame()
         PyObject *v, *w, *u, *attr;
         Block *b;
         PyFunction *func;
-
+        ArrayList<PyObject*> *funcArgs = nullptr;
+        int argCount = 0;
         switch (opCode) {
             case ByteCode::POP_TOP:
                 POP();
-                break;
-            case ByteCode::LOAD_CONST:      // 100
-                PUSH(m_CurrentFrame->m_Consts->get(opArg));
                 break;
             case ByteCode::PRINT_ITEM:     // 71
                 v = POP();
@@ -122,6 +120,9 @@ void Interpreter::eval_frame()
                 if(m_CurrentFrame->is_first_frame())
                     return;
                 leave_frame();
+                break;
+            case ByteCode::LOAD_CONST:      // 100
+                PUSH(m_CurrentFrame->m_Consts->get(opArg));
                 break;
             case ByteCode::STORE_NAME:   // 90
                 v = m_CurrentFrame->names()->get(opArg);
@@ -172,6 +173,12 @@ void Interpreter::eval_frame()
                 }
                 PUSH(VM::PyNone);
                 break;
+            case ByteCode::STORE_FAST:
+                m_CurrentFrame->fastLocals()->set(opArg, POP());
+                break;
+            case ByteCode::LOAD_FAST:
+                PUSH(m_CurrentFrame->fastLocals()->get(opArg));
+                break;
             case ByteCode::JUMP_FORWARD:        // 110
                 m_CurrentFrame->set_pc(pc + opArg);
                 break;
@@ -211,8 +218,31 @@ void Interpreter::eval_frame()
                 PUSH(func);
                 break;
             case ByteCode::CALL_FUNCTION:
+                /*
+                 * 先压入的是函数本身 然后压入的是函数的参数
+                 * add(1,2)
+                 * LOAD_NAME    0(add)
+                 * LOAD_CONST   1(99)
+                 * LOAD_CONST   2(1)
+                 * CALL_FUNCTION 2
+                 */
+                if(funcArgs > 0)
+                {
+                    funcArgs = new ArrayList<PyObject*>();
+                    argCount = opArg;
+                    while (argCount--)
+                    {
+                        funcArgs->set(argCount, POP());
+                    }
+                }
                 v = POP();
-                this->exec_new_frame(v);
+                this->exec_new_frame(v, funcArgs, opArg);
+                if(funcArgs != nullptr)
+                {
+                    delete funcArgs;
+                    funcArgs = nullptr;
+                    argCount = 0;
+                }
                 break;
             case ByteCode::COMPARE_OP:   // 107
                 w = POP();
@@ -277,16 +307,18 @@ void Interpreter::leave_frame()
 }
 
 /**
- * 创建一个新的栈帧 并设置为当前的运行时栈帧.
+ * @brief 创建一个新的栈帧 并设置为当前的运行时栈帧.
  * <p>
  * a = 10
  * foo(a)
  * a在主线程运行，随即遇到一个函数调用，则创建一个新的函数栈帧,将当前运行时
  * 栈帧设置为foo函数运行的栈帧.
+ * @param callable PyFunction对象
+ * @param funcArgs函数的参数列表
  */
-void Interpreter::exec_new_frame(PyObject *callable)
+void Interpreter::exec_new_frame(PyObject *callable, ArrayList<PyObject*> *funcArgs, int opArg)
 {
-    Frame *_new_frame = new Frame((PyFunction*)callable);
+    Frame *_new_frame = new Frame((PyFunction*)callable, funcArgs, opArg);
     _new_frame->set_caller(m_CurrentFrame);
     m_CurrentFrame = _new_frame;
 }

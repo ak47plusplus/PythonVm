@@ -25,6 +25,7 @@ void print_vm_logo()
     printf("|_|     \__, | \__||_| |_| \___/ |_| |_| \/    |_|  |_|\n");
     printf("         __/ |   \n");
     printf("        |___/            \n");
+    printf("\n\n");
 }
 
 int main(int argc, char const *argv[]) {
