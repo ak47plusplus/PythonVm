@@ -222,3 +222,96 @@
 2019-11-08 17:57:17,735 INFO Log using default file
 %date argCount: 0, nLocals: 0, stackSize: 1, flags: 64
 %date argCount: 0, nLocals: 1, stackSize: 2, flags: 67
+2019-11-11 15:05:41,397 INFO Log using default file
+%date argCount: 0, nLocals: 0, stackSize: 2, flags: 64
+%date argCount: 0, nLocals: 0, stackSize: 1, flags: 67
+2019-11-11 15:09:17,287 INFO Log using default file
+%date argCount: 0, nLocals: 0, stackSize: 1, flags: 64
+%date argCount: 0, nLocals: 0, stackSize: 1, flags: 67
+2019-11-11 15:20:55,711 INFO Log using default file
+%date argCount: 0, nLocals: 0, stackSize: 1, flags: 64
+%date argCount: 0, nLocals: 1, stackSize: 1, flags: 67
+2019-11-11 15:23:30,767 INFO Log using default file
+%date argCount: 0, nLocals: 0, stackSize: 1, flags: 64
+%date argCount: 0, nLocals: 0, stackSize: 1, flags: 67
+2019-11-11 15:30:39,362 INFO Log using default file
+%date argCount: 0, nLocals: 0, stackSize: 1, flags: 64
+%date argCount: 0, nLocals: 1, stackSize: 1, flags: 67
+2019-11-11 16:26:39,255 INFO Log using default file
+%date argCount: 0, nLocals: 0, stackSize: 3, flags: 64
+%date argCount: 2, nLocals: 2, stackSize: 2, flags: 67
+2019-11-11 16:26:51,254 INFO Log using default file
+%date argCount: 0, nLocals: 0, stackSize: 3, flags: 64
+%date argCount: 2, nLocals: 2, stackSize: 2, flags: 67
+2019-11-11 16:36:32,180 INFO Log using default file
+%date argCount: 0, nLocals: 0, stackSize: 3, flags: 64
+%date argCount: 2, nLocals: 2, stackSize: 2, flags: 67
+2019-11-11 16:38:39,262 INFO Log using default file
+%date argCount: 0, nLocals: 0, stackSize: 3, flags: 64
+%date argCount: 2, nLocals: 2, stackSize: 2, flags: 67
+2019-11-11 16:41:00,078 INFO Log using default file
+%date argCount: 0, nLocals: 0, stackSize: 3, flags: 64
+%date argCount: 2, nLocals: 2, stackSize: 2, flags: 67
+2019-11-11 16:42:15,682 INFO Log using default file
+%date argCount: 0, nLocals: 0, stackSize: 3, flags: 64
+%date argCount: 2, nLocals: 2, stackSize: 2, flags: 67
+2019-11-11 16:42:23,763 INFO Log using default file
+%date argCount: 0, nLocals: 0, stackSize: 3, flags: 64
+%date argCount: 2, nLocals: 2, stackSize: 2, flags: 67
+2019-11-11 16:47:11,506 INFO Log using default file
+2019-11-11 16:47:16,226 INFO Log using default file
+%date argCount: 0, nLocals: 0, stackSize: 3, flags: 64
+%date argCount: 2, nLocals: 2, stackSize: 2, flags: 67
+2019-11-11 16:47:34,784 INFO Log using default file
+%date argCount: 0, nLocals: 0, stackSize: 3, flags: 64
+%date argCount: 2, nLocals: 2, stackSize: 2, flags: 67
+2019-11-11 16:47:52,518 INFO Log using default file
+2019-11-11 16:48:29,267 INFO Log using default file
+%date argCount: 0, nLocals: 0, stackSize: 3, flags: 64
+%date argCount: 2, nLocals: 2, stackSize: 2, flags: 67
+2019-11-11 16:48:54,544 INFO Log using default file
+%date argCount: 0, nLocals: 0, stackSize: 3, flags: 64
+%date argCount: 2, nLocals: 2, stackSize: 2, flags: 67
+2019-11-11 16:50:39,750 INFO Log using default file
+%date argCount: 0, nLocals: 0, stackSize: 3, flags: 64
+%date argCount: 2, nLocals: 2, stackSize: 2, flags: 67
+2019-11-11 16:53:31,504 INFO Log using default file
+%date argCount: 0, nLocals: 0, stackSize: 3, flags: 64
+%date argCount: 2, nLocals: 2, stackSize: 2, flags: 67
+2019-11-11 16:55:23,900 INFO Log using default file
+%date argCount: 0, nLocals: 0, stackSize: 1, flags: 64
+%date argCount: 0, nLocals: 0, stackSize: 1, flags: 67
+2019-11-11 16:55:33,103 INFO Log using default file
+%date argCount: 0, nLocals: 0, stackSize: 3, flags: 64
+%date argCount: 2, nLocals: 2, stackSize: 2, flags: 67
+2019-11-11 16:57:44,148 INFO Log using default file
+%date argCount: 0, nLocals: 0, stackSize: 3, flags: 64
+%date argCount: 2, nLocals: 2, stackSize: 2, flags: 67
+2019-11-11 17:00:47,453 INFO Log using default file
+2019-11-11 17:01:21,839 INFO Log using default file
+2019-11-11 17:01:28,611 INFO Log using default file
+2019-11-11 17:01:36,030 INFO Log using default file
+2019-11-11 17:04:32,231 INFO Log using default file
+2019-11-11 17:08:24,107 INFO Log using default file
+2019-11-11 17:08:34,704 INFO Log using default file
+2019-11-11 17:09:21,016 INFO Log using default file
+%date argCount: 0, nLocals: 0, stackSize: 3, flags: 64
+%date argCount: 2, nLocals: 2, stackSize: 2, flags: 67
+2019-11-11 17:11:08,987 INFO Log using default file
+%date argCount: 0, nLocals: 0, stackSize: 3, flags: 64
+%date argCount: 2, nLocals: 2, stackSize: 2, flags: 67
+2019-11-11 17:11:16,228 INFO Log using default file
+%date argCount: 0, nLocals: 0, stackSize: 3, flags: 64
+%date argCount: 2, nLocals: 2, stackSize: 2, flags: 67
+2019-11-11 17:11:26,786 INFO Log using default file
+%date argCount: 0, nLocals: 0, stackSize: 3, flags: 64
+%date argCount: 2, nLocals: 2, stackSize: 2, flags: 67
+2019-11-11 17:13:05,807 INFO Log using default file
+%date argCount: 0, nLocals: 0, stackSize: 3, flags: 64
+%date argCount: 2, nLocals: 2, stackSize: 2, flags: 67
+2019-11-11 17:18:44,072 INFO Log using default file
+%date argCount: 0, nLocals: 0, stackSize: 3, flags: 64
+%date argCount: 2, nLocals: 2, stackSize: 2, flags: 67
+2019-11-11 17:19:45,108 INFO Log using default file
+%date argCount: 0, nLocals: 0, stackSize: 3, flags: 64
+%date argCount: 2, nLocals: 2, stackSize: 2, flags: 67

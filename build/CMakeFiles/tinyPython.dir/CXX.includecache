@@ -299,6 +299,8 @@ stdint.h
 -
 Core.hpp
 /opt/PythonVm/src/Core.hpp
+Map.hpp
+/opt/PythonVm/src/Map.hpp
 Frame.hpp
 /opt/PythonVm/src/Frame.hpp
 CodeObject.hpp
@@ -407,6 +409,8 @@ assert.h
 /opt/PythonVm/src/PyFunction.hpp
 Core.hpp
 /opt/PythonVm/src/Core.hpp
+Map.hpp
+/opt/PythonVm/src/Map.hpp
 Klass.hpp
 /opt/PythonVm/src/Klass.hpp
 Frame.hpp

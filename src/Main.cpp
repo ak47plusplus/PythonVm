@@ -34,16 +34,11 @@ int main(int argc, char const *argv[]) {
     LoggerConfig::init();
     VM::init();
 
-    try {
-        FileInputStream _stream(argv[1]);
+    FileInputStream _stream(argv[1]);
         auto parser = std::make_shared<BinaryFileParser>(&_stream);
         CodeObject *main_code = parser->parse();
         assert(main_code != nullptr);
         print_vm_logo();
         Interpreter::get_instance()->run(main_code);
-    } catch(std::exception &ex) {
-        std::cout << "Error: " << ex.what() << std::endl;
-        exit(EXIT_FAILURE);
-    }
     return 0;
 }
