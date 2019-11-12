@@ -67,9 +67,9 @@ void PyFunction::set_default_args(ArrayList<PyObject*> *_default_args)
         m_DefaultArgs = nullptr;
         return;
     }
-    m_DefaultArgs = new ArrayList<PyObject*>(_default_args->size());
-    for(decltype(m_DefaultArgs->size()) i = 0; i < m_DefaultArgs->size(); i++)
+    m_DefaultArgs = new ArrayList<PyObject*>(_default_args->capacity());
+    for(auto i = 0; i < _default_args->size(); i++)
     {
-        m_DefaultArgs[i] = _default_args[i];
+        m_DefaultArgs->set(i, _default_args->get(i));
     }
 }
