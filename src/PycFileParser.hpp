@@ -11,11 +11,10 @@
 
 #include "Logger.hpp"
 
-
-class BinaryFileParser : public fromboost::NonCopyable {
+class PycFileParser : public fromboost::NonCopyable {
 public:
-    explicit BinaryFileParser(FileInputStream *fileInputStream) NOEXCEPT;
-    ~BinaryFileParser();
+    explicit PycFileParser(FileInputStream *fileInputStream) NOEXCEPT;
+    ~PycFileParser();
     CodeObject* parse();
 private:
     CodeObject *get_code_object();
@@ -32,7 +31,7 @@ private:
     PyString *get_string();
     ArrayList<PyObject*> *get_tuple();
 private:
-    // not owned the target object, do not delete at ~BinaryFileParser()
+    // not owned the target object, do not delete at ~PycFileParser()
     FileInputStream* m_Stream;
     ArrayList<PyString*> m_StringTable;
 };
