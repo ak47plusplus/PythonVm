@@ -17,22 +17,33 @@ Frame::Frame(CodeObject *codes)
     m_Caller    = nullptr;
 }
 
+/**
+ * 根据一个函数对象创建一个用于执行的函数栈帧.
+ * @param func  函数体.
+ * @param args  调用函数实际传递的参数列表.(如果默认值可能缺省)
+ * @param opArg 调用函数实际传递的参数个数.(如果默认值可能缺省)
+ */
 Frame::Frame(PyFunction *func, ArrayList<PyObject*> *args, int opArg)
 {
     m_Stack     = new ArrayList<PyObject*>();
     m_LoopStack = new ArrayList<Block*>();
     m_Locals    = new Map<PyObject*,PyObject*>();
     m_Globals   = func->globals();
+    m_Codes     = func->m_FuncCode;
+    m_Consts    = m_Codes->m_Consts;
+    m_Names     = m_Codes->m_Names;
+    m_Pc        = 0;
+    m_Caller    = nullptr;
 
     // 如果存在默认参数 则先设置默认参数
     m_FastLocals = new ArrayList<PyObject*>();
     if(func->default_args())
     {
         int defaultArgCnt = func->default_args()->size();
-        int realArgCnt    = opArg;
+        int neededArgCnt    = m_Codes->m_ArgCount;
         while (defaultArgCnt--) // 默认参数只支持从后往前
         {
-            m_FastLocals->set(-- realArgCnt, func->default_args()->get(defaultArgCnt));
+            m_FastLocals->set(-- neededArgCnt, func->default_args()->get(defaultArgCnt));
         }
     }
     if(args)
@@ -42,12 +53,6 @@ Frame::Frame(PyFunction *func, ArrayList<PyObject*> *args, int opArg)
             m_FastLocals->set(i, args->get(i));
         }
     }
-    
-    m_Codes     = func->m_FuncCode;
-    m_Consts    = m_Codes->m_Consts;
-    m_Names     = m_Codes->m_Names;
-    m_Pc        = 0;
-    m_Caller    = nullptr;
 }
 
 Frame::Frame(){}
