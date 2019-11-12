@@ -27,7 +27,7 @@ endif()
 set(SOURCES
     src/Main.cpp
     src/3rd/easylogging++/easylogging++.cpp
-    src/BinaryFileParser.cpp
+    src/PycFileParser.cpp
     src/CodeObject.cpp
     src/FileInputStream.cpp
     src/Interpreter.cpp

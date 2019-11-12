@@ -1,5 +1,5 @@
-#ifndef BINARY_FILE_PARSER_HPP
-#define BINARY_FILE_PARSER_HPP
+#ifndef PYC_FILE_PARSER_HPP
+#define PYC_FILE_PARSER_HPP
 
 #include "Core.hpp"
 #include "PyString.hpp"

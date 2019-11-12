@@ -10,7 +10,7 @@
 #include "CodeObject.hpp"
 #include "Interpreter.hpp"
 #include "FileInputStream.hpp"
-#include "BinaryFileParser.hpp"
+#include "PycFileParser.hpp"
 
 
 INITIALIZE_EASYLOGGINGPP
@@ -34,11 +34,12 @@ int main(int argc, char const *argv[]) {
     LoggerConfig::init();
     VM::init();
 
-    FileInputStream _stream(argv[1]);
-        auto parser = std::make_shared<BinaryFileParser>(&_stream);
-        CodeObject *main_code = parser->parse();
-        assert(main_code != nullptr);
-        print_vm_logo();
-        Interpreter::get_instance()->run(main_code);
+    FileInputStream pyc_stream(argv[1]);
+    auto parser = std::make_shared<PycFileParser>(&pyc_stream);
+    CodeObject *main_code = parser->parse();
+
+    assert(main_code != nullptr);
+    print_vm_logo();
+    Interpreter::get_instance()->run(main_code);
     return 0;
 }
