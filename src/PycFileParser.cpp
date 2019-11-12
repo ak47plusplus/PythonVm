@@ -10,14 +10,15 @@
 #include <memory>
 #include <assert.h>
 
-BinaryFileParser::BinaryFileParser(FileInputStream *fileInputStream) NOEXCEPT
+
+PycFileParser::PycFileParser(FileInputStream *fileInputStream) NOEXCEPT
 {
     this->m_Stream = fileInputStream;
 }
 
-BinaryFileParser::~BinaryFileParser(){}
+PycFileParser::~PycFileParser(){}
 
-CodeObject* BinaryFileParser::parse()
+CodeObject* PycFileParser::parse()
 {
     int magicNumber = m_Stream->read_int();
     printf("magic number: %x \n", magicNumber);
@@ -34,7 +35,7 @@ CodeObject* BinaryFileParser::parse()
     return nullptr;
 }
 
-CodeObject *BinaryFileParser::get_code_object()
+CodeObject *PycFileParser::get_code_object()
 {
     printf("start to exec get_code_object\n");
     int argCount = m_Stream->read_int();
@@ -68,13 +69,13 @@ CodeObject *BinaryFileParser::get_code_object()
  * Read the bytecode from file stream.
  * |'s'|strLen|content|
  */
-PyString *BinaryFileParser::get_byte_codes()
+PyString *PycFileParser::get_byte_codes()
 {
     assert(m_Stream->read() == 's');
     return this->get_string();
 }
 
-PyString *BinaryFileParser::get_string()
+PyString *PycFileParser::get_string()
 {
     int strLen = m_Stream->read_int();
     char *strArr = new char[strLen];
@@ -85,7 +86,7 @@ PyString *BinaryFileParser::get_string()
     return new PyString(strArr,strLen);
 }
 
-ArrayList<PyObject*> *BinaryFileParser::get_tuple()
+ArrayList<PyObject*> *PycFileParser::get_tuple()
 {
     int length = this->m_Stream->read_int();
     PyString *str;
@@ -126,7 +127,7 @@ ArrayList<PyObject*> *BinaryFileParser::get_tuple()
     }
     return list;
 }
-ArrayList<PyObject*> *BinaryFileParser::get_consts()
+ArrayList<PyObject*> *PycFileParser::get_consts()
 {
     if(m_Stream->read() == '(')
     {
@@ -136,7 +137,7 @@ ArrayList<PyObject*> *BinaryFileParser::get_consts()
     return nullptr;
 }
 
-ArrayList<PyObject*> *BinaryFileParser::get_names()
+ArrayList<PyObject*> *PycFileParser::get_names()
 {
     if(m_Stream->read() == '(')
     {
@@ -146,7 +147,7 @@ ArrayList<PyObject*> *BinaryFileParser::get_names()
     return nullptr;
 }
 
-ArrayList<PyObject*> *BinaryFileParser::get_var_names()
+ArrayList<PyObject*> *PycFileParser::get_var_names()
 {
     if(m_Stream->read() == '(')
     {
@@ -156,7 +157,7 @@ ArrayList<PyObject*> *BinaryFileParser::get_var_names()
     return nullptr;
 }
 
-ArrayList<PyObject*> *BinaryFileParser::get_free_vars()
+ArrayList<PyObject*> *PycFileParser::get_free_vars()
 {
     if(m_Stream->read() == '(')
     {
@@ -166,7 +167,7 @@ ArrayList<PyObject*> *BinaryFileParser::get_free_vars()
     return nullptr;
 }
 
-ArrayList<PyObject*> *BinaryFileParser::get_cell_vars()
+ArrayList<PyObject*> *PycFileParser::get_cell_vars()
 {
     if(m_Stream->read() == '(')
     {
@@ -176,12 +177,12 @@ ArrayList<PyObject*> *BinaryFileParser::get_cell_vars()
     return nullptr;
 }
 
-PyString* BinaryFileParser::get_file_name()
+PyString* PycFileParser::get_file_name()
 {
     return get_name();
 }
 
-PyString* BinaryFileParser::get_name()
+PyString* PycFileParser::get_name()
 {
     int8_t ch = m_Stream->read();
     if(ch == 's')
@@ -202,7 +203,7 @@ PyString* BinaryFileParser::get_name()
     return nullptr;
 }
 
-PyString* BinaryFileParser::get_no_table()
+PyString* PycFileParser::get_no_table()
 {
     int8_t ch = m_Stream->read();
     if(ch != 's' && ch != 't')
