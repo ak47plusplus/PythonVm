@@ -105,28 +105,28 @@ CMakeFiles/tinyPython.dir/src/3rd/easylogging++/easylogging++.cpp.o.provides: CM
 CMakeFiles/tinyPython.dir/src/3rd/easylogging++/easylogging++.cpp.o.provides.build: CMakeFiles/tinyPython.dir/src/3rd/easylogging++/easylogging++.cpp.o
 
 
-CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.o: CMakeFiles/tinyPython.dir/flags.make
-CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.o: ../src/BinaryFileParser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/PythonVm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.o -c /opt/PythonVm/src/BinaryFileParser.cpp
+CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o: CMakeFiles/tinyPython.dir/flags.make
+CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o: ../src/PycFileParser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/PythonVm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o -c /opt/PythonVm/src/PycFileParser.cpp
 
-CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/PythonVm/src/BinaryFileParser.cpp > CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.i
+CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/PythonVm/src/PycFileParser.cpp > CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.i
 
-CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/PythonVm/src/BinaryFileParser.cpp -o CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.s
+CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/PythonVm/src/PycFileParser.cpp -o CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.s
 
-CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.o.requires:
+CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o.requires:
 
-.PHONY : CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.o.requires
+.PHONY : CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o.requires
 
-CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.o.provides: CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.o.requires
-	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.o.provides.build
-.PHONY : CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.o.provides
+CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o.provides: CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o.requires
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o.provides.build
+.PHONY : CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o.provides
 
-CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.o.provides.build: CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.o
+CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o.provides.build: CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o
 
 
 CMakeFiles/tinyPython.dir/src/CodeObject.cpp.o: CMakeFiles/tinyPython.dir/flags.make
@@ -469,7 +469,7 @@ CMakeFiles/tinyPython.dir/src/PyFunction.cpp.o.provides.build: CMakeFiles/tinyPy
 tinyPython_OBJECTS = \
 "CMakeFiles/tinyPython.dir/src/Main.cpp.o" \
 "CMakeFiles/tinyPython.dir/src/3rd/easylogging++/easylogging++.cpp.o" \
-"CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.o" \
+"CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o" \
 "CMakeFiles/tinyPython.dir/src/CodeObject.cpp.o" \
 "CMakeFiles/tinyPython.dir/src/FileInputStream.cpp.o" \
 "CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o" \
@@ -490,7 +490,7 @@ tinyPython_EXTERNAL_OBJECTS =
 
 tinyPython: CMakeFiles/tinyPython.dir/src/Main.cpp.o
 tinyPython: CMakeFiles/tinyPython.dir/src/3rd/easylogging++/easylogging++.cpp.o
-tinyPython: CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.o
+tinyPython: CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o
 tinyPython: CMakeFiles/tinyPython.dir/src/CodeObject.cpp.o
 tinyPython: CMakeFiles/tinyPython.dir/src/FileInputStream.cpp.o
 tinyPython: CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o
@@ -517,7 +517,7 @@ CMakeFiles/tinyPython.dir/build: tinyPython
 
 CMakeFiles/tinyPython.dir/requires: CMakeFiles/tinyPython.dir/src/Main.cpp.o.requires
 CMakeFiles/tinyPython.dir/requires: CMakeFiles/tinyPython.dir/src/3rd/easylogging++/easylogging++.cpp.o.requires
-CMakeFiles/tinyPython.dir/requires: CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.o.requires
+CMakeFiles/tinyPython.dir/requires: CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o.requires
 CMakeFiles/tinyPython.dir/requires: CMakeFiles/tinyPython.dir/src/CodeObject.cpp.o.requires
 CMakeFiles/tinyPython.dir/requires: CMakeFiles/tinyPython.dir/src/FileInputStream.cpp.o.requires
 CMakeFiles/tinyPython.dir/requires: CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o.requires

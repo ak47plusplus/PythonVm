@@ -150,33 +150,6 @@ src/3rd/easylogging++/easylogging++.cpp.s:
 	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/3rd/easylogging++/easylogging++.cpp.s
 .PHONY : src/3rd/easylogging++/easylogging++.cpp.s
 
-src/BinaryFileParser.o: src/BinaryFileParser.cpp.o
-
-.PHONY : src/BinaryFileParser.o
-
-# target to build an object file
-src/BinaryFileParser.cpp.o:
-	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.o
-.PHONY : src/BinaryFileParser.cpp.o
-
-src/BinaryFileParser.i: src/BinaryFileParser.cpp.i
-
-.PHONY : src/BinaryFileParser.i
-
-# target to preprocess a source file
-src/BinaryFileParser.cpp.i:
-	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.i
-.PHONY : src/BinaryFileParser.cpp.i
-
-src/BinaryFileParser.s: src/BinaryFileParser.cpp.s
-
-.PHONY : src/BinaryFileParser.s
-
-# target to generate assembly for a file
-src/BinaryFileParser.cpp.s:
-	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.s
-.PHONY : src/BinaryFileParser.cpp.s
-
 src/CodeObject.o: src/CodeObject.cpp.o
 
 .PHONY : src/CodeObject.o
@@ -555,6 +528,33 @@ src/PyString.cpp.s:
 	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/PyString.cpp.s
 .PHONY : src/PyString.cpp.s
 
+src/PycFileParser.o: src/PycFileParser.cpp.o
+
+.PHONY : src/PycFileParser.o
+
+# target to build an object file
+src/PycFileParser.cpp.o:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o
+.PHONY : src/PycFileParser.cpp.o
+
+src/PycFileParser.i: src/PycFileParser.cpp.i
+
+.PHONY : src/PycFileParser.i
+
+# target to preprocess a source file
+src/PycFileParser.cpp.i:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.i
+.PHONY : src/PycFileParser.cpp.i
+
+src/PycFileParser.s: src/PycFileParser.cpp.s
+
+.PHONY : src/PycFileParser.s
+
+# target to generate assembly for a file
+src/PycFileParser.cpp.s:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.s
+.PHONY : src/PycFileParser.cpp.s
+
 src/VM.o: src/VM.cpp.o
 
 .PHONY : src/VM.o
@@ -594,9 +594,6 @@ help:
 	@echo "... src/3rd/easylogging++/easylogging++.o"
 	@echo "... src/3rd/easylogging++/easylogging++.i"
 	@echo "... src/3rd/easylogging++/easylogging++.s"
-	@echo "... src/BinaryFileParser.o"
-	@echo "... src/BinaryFileParser.i"
-	@echo "... src/BinaryFileParser.s"
 	@echo "... src/CodeObject.o"
 	@echo "... src/CodeObject.i"
 	@echo "... src/CodeObject.s"
@@ -639,6 +636,9 @@ help:
 	@echo "... src/PyString.o"
 	@echo "... src/PyString.i"
 	@echo "... src/PyString.s"
+	@echo "... src/PycFileParser.o"
+	@echo "... src/PycFileParser.i"
+	@echo "... src/PycFileParser.s"
 	@echo "... src/VM.o"
 	@echo "... src/VM.i"
 	@echo "... src/VM.s"

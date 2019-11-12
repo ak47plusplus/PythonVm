@@ -389,3 +389,8 @@
 %date argCount: 0, nLocals: 0, stackSize: 2, flags: 64
 %date argCount: 1, nLocals: 2, stackSize: 2, flags: 67
 %date argCount: 2, nLocals: 2, stackSize: 2, flags: 83
+2019-11-12 16:49:46,559 INFO Log using default file
+2019-11-12 16:49:50,703 INFO Log using default file
+%date argCount: 0, nLocals: 0, stackSize: 2, flags: 64
+%date argCount: 1, nLocals: 2, stackSize: 2, flags: 67
+%date argCount: 2, nLocals: 2, stackSize: 2, flags: 83

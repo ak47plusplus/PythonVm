@@ -4,23 +4,6 @@
 CMakeFiles/tinyPython.dir/src/3rd/easylogging++/easylogging++.cpp.o: ../src/3rd/easylogging++/easylogging++.cpp
 CMakeFiles/tinyPython.dir/src/3rd/easylogging++/easylogging++.cpp.o: ../src/3rd/easylogging++/easylogging++.hpp
 
-CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.o: ../src/3rd/easylogging++/easylogging++.hpp
-CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.o: ../src/ArrayList.hpp
-CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.o: ../src/BinaryFileParser.cpp
-CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.o: ../src/BinaryFileParser.hpp
-CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.o: ../src/CodeObject.hpp
-CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.o: ../src/Core.hpp
-CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.o: ../src/FileInputStream.hpp
-CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.o: ../src/Klass.hpp
-CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.o: ../src/Logger.hpp
-CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.o: ../src/NonCopyable.hpp
-CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.o: ../src/Panic.hpp
-CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.o: ../src/PyDouble.hpp
-CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.o: ../src/PyInteger.hpp
-CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.o: ../src/PyObject.hpp
-CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.o: ../src/PyString.hpp
-CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.o: ../src/VM.hpp
-
 CMakeFiles/tinyPython.dir/src/CodeObject.cpp.o: ../src/ArrayList.hpp
 CMakeFiles/tinyPython.dir/src/CodeObject.cpp.o: ../src/CodeObject.cpp
 CMakeFiles/tinyPython.dir/src/CodeObject.cpp.o: ../src/CodeObject.hpp
@@ -74,7 +57,6 @@ CMakeFiles/tinyPython.dir/src/LoggerConfig.cpp.o: ../src/LoggerConfig.hpp
 
 CMakeFiles/tinyPython.dir/src/Main.cpp.o: ../src/3rd/easylogging++/easylogging++.hpp
 CMakeFiles/tinyPython.dir/src/Main.cpp.o: ../src/ArrayList.hpp
-CMakeFiles/tinyPython.dir/src/Main.cpp.o: ../src/BinaryFileParser.hpp
 CMakeFiles/tinyPython.dir/src/Main.cpp.o: ../src/Block.hpp
 CMakeFiles/tinyPython.dir/src/Main.cpp.o: ../src/CodeObject.hpp
 CMakeFiles/tinyPython.dir/src/Main.cpp.o: ../src/Core.hpp
@@ -90,6 +72,7 @@ CMakeFiles/tinyPython.dir/src/Main.cpp.o: ../src/NonCopyable.hpp
 CMakeFiles/tinyPython.dir/src/Main.cpp.o: ../src/PyInteger.hpp
 CMakeFiles/tinyPython.dir/src/Main.cpp.o: ../src/PyObject.hpp
 CMakeFiles/tinyPython.dir/src/Main.cpp.o: ../src/PyString.hpp
+CMakeFiles/tinyPython.dir/src/Main.cpp.o: ../src/PycFileParser.hpp
 CMakeFiles/tinyPython.dir/src/Main.cpp.o: ../src/VM.hpp
 
 CMakeFiles/tinyPython.dir/src/PyDict.cpp.o: ../src/PyDict.cpp
@@ -144,6 +127,23 @@ CMakeFiles/tinyPython.dir/src/PyString.cpp.o: ../src/PyObject.hpp
 CMakeFiles/tinyPython.dir/src/PyString.cpp.o: ../src/PyString.cpp
 CMakeFiles/tinyPython.dir/src/PyString.cpp.o: ../src/PyString.hpp
 CMakeFiles/tinyPython.dir/src/PyString.cpp.o: ../src/VM.hpp
+
+CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o: ../src/3rd/easylogging++/easylogging++.hpp
+CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o: ../src/ArrayList.hpp
+CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o: ../src/CodeObject.hpp
+CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o: ../src/Core.hpp
+CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o: ../src/FileInputStream.hpp
+CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o: ../src/Klass.hpp
+CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o: ../src/Logger.hpp
+CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o: ../src/NonCopyable.hpp
+CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o: ../src/Panic.hpp
+CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o: ../src/PyDouble.hpp
+CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o: ../src/PyInteger.hpp
+CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o: ../src/PyObject.hpp
+CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o: ../src/PyString.hpp
+CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o: ../src/PycFileParser.cpp
+CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o: ../src/PycFileParser.hpp
+CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o: ../src/VM.hpp
 
 CMakeFiles/tinyPython.dir/src/VM.cpp.o: ../src/Core.hpp
 CMakeFiles/tinyPython.dir/src/VM.cpp.o: ../src/Klass.hpp

@@ -5,7 +5,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/opt/PythonVm/src/3rd/easylogging++/easylogging++.cpp" "/opt/PythonVm/build/CMakeFiles/tinyPython.dir/src/3rd/easylogging++/easylogging++.cpp.o"
-  "/opt/PythonVm/src/BinaryFileParser.cpp" "/opt/PythonVm/build/CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.o"
   "/opt/PythonVm/src/CodeObject.cpp" "/opt/PythonVm/build/CMakeFiles/tinyPython.dir/src/CodeObject.cpp.o"
   "/opt/PythonVm/src/FileInputStream.cpp" "/opt/PythonVm/build/CMakeFiles/tinyPython.dir/src/FileInputStream.cpp.o"
   "/opt/PythonVm/src/Frame.cpp" "/opt/PythonVm/build/CMakeFiles/tinyPython.dir/src/Frame.cpp.o"
@@ -20,6 +19,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/opt/PythonVm/src/PyList.cpp" "/opt/PythonVm/build/CMakeFiles/tinyPython.dir/src/PyList.cpp.o"
   "/opt/PythonVm/src/PyObject.cpp" "/opt/PythonVm/build/CMakeFiles/tinyPython.dir/src/PyObject.cpp.o"
   "/opt/PythonVm/src/PyString.cpp" "/opt/PythonVm/build/CMakeFiles/tinyPython.dir/src/PyString.cpp.o"
+  "/opt/PythonVm/src/PycFileParser.cpp" "/opt/PythonVm/build/CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o"
   "/opt/PythonVm/src/VM.cpp" "/opt/PythonVm/build/CMakeFiles/tinyPython.dir/src/VM.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

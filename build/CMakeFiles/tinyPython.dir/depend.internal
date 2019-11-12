@@ -4,23 +4,6 @@
 CMakeFiles/tinyPython.dir/src/3rd/easylogging++/easylogging++.cpp.o
  /opt/PythonVm/src/3rd/easylogging++/easylogging++.cpp
  /opt/PythonVm/src/3rd/easylogging++/easylogging++.hpp
-CMakeFiles/tinyPython.dir/src/BinaryFileParser.cpp.o
- /opt/PythonVm/src/3rd/easylogging++/easylogging++.hpp
- /opt/PythonVm/src/ArrayList.hpp
- /opt/PythonVm/src/BinaryFileParser.cpp
- /opt/PythonVm/src/BinaryFileParser.hpp
- /opt/PythonVm/src/CodeObject.hpp
- /opt/PythonVm/src/Core.hpp
- /opt/PythonVm/src/FileInputStream.hpp
- /opt/PythonVm/src/Klass.hpp
- /opt/PythonVm/src/Logger.hpp
- /opt/PythonVm/src/NonCopyable.hpp
- /opt/PythonVm/src/Panic.hpp
- /opt/PythonVm/src/PyDouble.hpp
- /opt/PythonVm/src/PyInteger.hpp
- /opt/PythonVm/src/PyObject.hpp
- /opt/PythonVm/src/PyString.hpp
- /opt/PythonVm/src/VM.hpp
 CMakeFiles/tinyPython.dir/src/CodeObject.cpp.o
  /opt/PythonVm/src/ArrayList.hpp
  /opt/PythonVm/src/CodeObject.cpp
@@ -75,7 +58,6 @@ CMakeFiles/tinyPython.dir/src/LoggerConfig.cpp.o
 CMakeFiles/tinyPython.dir/src/Main.cpp.o
  /opt/PythonVm/src/3rd/easylogging++/easylogging++.hpp
  /opt/PythonVm/src/ArrayList.hpp
- /opt/PythonVm/src/BinaryFileParser.hpp
  /opt/PythonVm/src/Block.hpp
  /opt/PythonVm/src/CodeObject.hpp
  /opt/PythonVm/src/Core.hpp
@@ -91,6 +73,7 @@ CMakeFiles/tinyPython.dir/src/Main.cpp.o
  /opt/PythonVm/src/PyInteger.hpp
  /opt/PythonVm/src/PyObject.hpp
  /opt/PythonVm/src/PyString.hpp
+ /opt/PythonVm/src/PycFileParser.hpp
  /opt/PythonVm/src/VM.hpp
 CMakeFiles/tinyPython.dir/src/PyDict.cpp.o
  /opt/PythonVm/src/PyDict.cpp
@@ -144,6 +127,23 @@ CMakeFiles/tinyPython.dir/src/PyString.cpp.o
  /opt/PythonVm/src/PyObject.hpp
  /opt/PythonVm/src/PyString.cpp
  /opt/PythonVm/src/PyString.hpp
+ /opt/PythonVm/src/VM.hpp
+CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o
+ /opt/PythonVm/src/3rd/easylogging++/easylogging++.hpp
+ /opt/PythonVm/src/ArrayList.hpp
+ /opt/PythonVm/src/CodeObject.hpp
+ /opt/PythonVm/src/Core.hpp
+ /opt/PythonVm/src/FileInputStream.hpp
+ /opt/PythonVm/src/Klass.hpp
+ /opt/PythonVm/src/Logger.hpp
+ /opt/PythonVm/src/NonCopyable.hpp
+ /opt/PythonVm/src/Panic.hpp
+ /opt/PythonVm/src/PyDouble.hpp
+ /opt/PythonVm/src/PyInteger.hpp
+ /opt/PythonVm/src/PyObject.hpp
+ /opt/PythonVm/src/PyString.hpp
+ /opt/PythonVm/src/PycFileParser.cpp
+ /opt/PythonVm/src/PycFileParser.hpp
  /opt/PythonVm/src/VM.hpp
 CMakeFiles/tinyPython.dir/src/VM.cpp.o
  /opt/PythonVm/src/Core.hpp
