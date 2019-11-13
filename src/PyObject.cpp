@@ -4,7 +4,8 @@
 
 PyObject *PyObject::id()
 {
-    return new PyInteger((int)this);
+    // 这里如果是64位可能对丢失部分bit了.没办法,PyInteger理论不应该内部用int
+    return new PyInteger(reinterpret_cast<int>(this));
 }
 
 void PyObject::print()
