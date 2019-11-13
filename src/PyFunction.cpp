@@ -119,6 +119,22 @@ PyObject* PyFunction::native_call(ArrayList<PyObject*> *args)
 
 namespace native {
 
+    /**
+     * 获取一个对象的唯一id. 
+     * 在本虚拟机中返回的是对象的地址. 
+     */
+    PyObject* id(FuncArgs args)
+    {
+        if(args == nullptr || args->size() != 1)
+        {
+            __panic("TypeError: id() takes exactly one argument(%d given)", args == nullptr ? 0 : args->size());
+        }
+        return args->get(0)->id();
+    }
+
+    /**
+     * 对一个整形或者浮点型求绝对值
+     */
     PyObject* abs(FuncArgs args)
     {
         PyObject *arg = args->get(0);

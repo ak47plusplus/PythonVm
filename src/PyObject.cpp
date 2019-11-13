@@ -1,5 +1,11 @@
 #include "PyObject.hpp"
 #include "Klass.hpp"
+#include "PyInteger.hpp"
+
+PyObject *PyObject::id()
+{
+    return new PyInteger((int)this);
+}
 
 void PyObject::print()
 {

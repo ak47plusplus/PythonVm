@@ -11,6 +11,8 @@ public:
     void set_klass(Klass * kls) { m_Klass = kls;}
 
     void print();
+    
+    PyObject *id();
 
     PyObject *add(PyObject *rhs);
     PyObject *sub(PyObject *rhs);
