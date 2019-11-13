@@ -1,7 +1,30 @@
 #include "PyFunction.hpp"
-
+#include "Panic.hpp"
+#include "VM.hpp"
+#include "PyInteger.hpp"
 #include <stdio.h>
 #include <assert.h>
+
+NativeFunctionKlass* NativeFunctionKlass::m_Instance = nullptr;
+std::mutex NativeFunctionKlass::m_Mutex;
+NativeFunctionKlass::NativeFunctionKlass()
+{
+
+}
+
+NativeFunctionKlass* NativeFunctionKlass::get_instance()
+{
+    if(nullptr == m_Instance)
+    {
+        std::lock_guard<std::mutex> lock(m_Mutex);
+        if(nullptr == m_Instance)
+        {
+            m_Instance = new NativeFunctionKlass();
+        }
+    }
+    return m_Instance;
+}
+
 
 FunctionKlass* FunctionKlass::m_Instance = nullptr;
 std::mutex FunctionKlass::m_Mutex;
@@ -71,5 +94,41 @@ void PyFunction::set_default_args(ArrayList<PyObject*> *_default_args)
     for(auto i = 0; i < _default_args->size(); i++)
     {
         m_DefaultArgs->set(i, _default_args->get(i));
+    }
+}
+
+PyFunction::PyFunction(NativeFunctionPtr nativeFuncPtr)
+{
+    m_FuncName = nullptr;
+    m_FuncCode = nullptr;
+    m_Globals = nullptr;
+    m_Flags = 0;
+    m_DefaultArgs = nullptr;
+    m_NativeFunctionPtr = nativeFuncPtr;
+    set_klass(NativeFunctionKlass::get_instance());
+}
+
+PyObject* PyFunction::native_call(ArrayList<PyObject*> *args)
+{
+    if(this->klass() != static_cast<Klass*>(NativeFunctionKlass::get_instance()))
+        __panic("native called by a PyFunction not instance of NativeFunctionKlass.");
+    return (*m_NativeFunctionPtr)(args);
+}
+
+namespace native {
+    
+    PyObject* len(FuncArgs args)
+    {
+        return args->get(0)->len();
+    }
+
+    PyObject* type_of(FuncArgs args)
+    {
+        return nullptr;
+    }
+
+    PyObject* ininstance(FuncArgs args)
+    {
+        return VM::PyFalse;
     }
 }

@@ -30,6 +30,8 @@ public:
     virtual PyObject* ge(PyObject *lhs, PyObject *rhs)       {return 0;}
     virtual PyObject* le(PyObject *lhs, PyObject *rhs)       {return 0;}
 
+    virtual PyObject* len(PyObject *x)                       {return 0;}
+
 private:
     PyString *m_Name;
 };

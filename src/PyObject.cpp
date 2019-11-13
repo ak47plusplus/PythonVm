@@ -62,3 +62,8 @@ PyObject *PyObject::le(PyObject *rhs)
 {
     return this->m_Klass->le(this, rhs);
 }
+
+PyObject *PyObject::len()
+{
+    return this->m_Klass->len(this);
+}

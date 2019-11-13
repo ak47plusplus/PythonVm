@@ -51,6 +51,8 @@ public:
     // le 只支持str和str比较
     virtual PyObject* le(PyObject *lhs, PyObject *rhs);
 
+    virtual PyObject* len(PyObject *x);
+
 private:
     StringKlass();
     static StringKlass *m_Instance;

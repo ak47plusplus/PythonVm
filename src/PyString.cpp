@@ -84,6 +84,8 @@ PyObject* StringKlass::equal(PyObject *lhs, PyObject *rhs)
     return VM::PyTrue;
 }
 
+
+
 // not equal 支持str和任意类型比较
 PyObject* StringKlass::not_equal(PyObject *lhs, PyObject *rhs)
 {
@@ -102,6 +104,10 @@ PyObject* StringKlass::le(PyObject *lhs, PyObject *rhs)
     return nullptr;
 }
 
+PyObject* StringKlass::len(PyObject *x)
+{
+    return new PyInteger(dynamic_cast<PyString*>(x)->length());
+}
 
 
 // =================================== stringobject=============================

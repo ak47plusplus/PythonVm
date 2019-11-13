@@ -42,6 +42,9 @@ Interpreter::Interpreter()
     m_Builtins->put(new PyString("True"), VM::PyTrue);
     m_Builtins->put(new PyString("False"), VM::PyFalse);
     m_Builtins->put(new PyString("None"), VM::PyNone);
+
+    // native function
+    m_Builtins->put(new PyString("len"), new PyFunction(native::len));
 }
 
 void Interpreter::run(CodeObject *codes)
@@ -336,7 +339,13 @@ void Interpreter::leave_frame()
  */
 void Interpreter::exec_new_frame(PyObject *callable, ArrayList<PyObject*> *funcArgs, int opArg)
 {
-    Frame *_new_frame = new Frame((PyFunction*)callable, funcArgs, opArg);
-    _new_frame->set_caller(m_CurrentFrame);
-    m_CurrentFrame = _new_frame;
+    // 如果是native函数,直接调用c++写好的函数
+    if(callable->klass() == NativeFunctionKlass::get_instance())
+    {
+        PUSH(dynamic_cast<PyFunction*>(callable)->native_call(funcArgs));
+    } else {
+        Frame *_new_frame = new Frame((PyFunction*)callable, funcArgs, opArg);
+        _new_frame->set_caller(m_CurrentFrame);
+        m_CurrentFrame = _new_frame;
+    }
 }

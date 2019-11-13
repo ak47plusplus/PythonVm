@@ -25,6 +25,8 @@ public:
     PyObject *ge(PyObject *rhs);
     PyObject *le(PyObject *rhs);
 
+    PyObject *len();
+
 private:
     Klass *m_Klass;
 };
