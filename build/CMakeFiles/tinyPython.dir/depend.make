@@ -94,8 +94,10 @@ CMakeFiles/tinyPython.dir/src/PyFunction.cpp.o: ../src/Core.hpp
 CMakeFiles/tinyPython.dir/src/PyFunction.cpp.o: ../src/Frame.hpp
 CMakeFiles/tinyPython.dir/src/PyFunction.cpp.o: ../src/Klass.hpp
 CMakeFiles/tinyPython.dir/src/PyFunction.cpp.o: ../src/Map.hpp
+CMakeFiles/tinyPython.dir/src/PyFunction.cpp.o: ../src/Panic.hpp
 CMakeFiles/tinyPython.dir/src/PyFunction.cpp.o: ../src/PyFunction.cpp
 CMakeFiles/tinyPython.dir/src/PyFunction.cpp.o: ../src/PyFunction.hpp
+CMakeFiles/tinyPython.dir/src/PyFunction.cpp.o: ../src/PyInteger.hpp
 CMakeFiles/tinyPython.dir/src/PyFunction.cpp.o: ../src/PyObject.hpp
 CMakeFiles/tinyPython.dir/src/PyFunction.cpp.o: ../src/PyString.hpp
 CMakeFiles/tinyPython.dir/src/PyFunction.cpp.o: ../src/VM.hpp

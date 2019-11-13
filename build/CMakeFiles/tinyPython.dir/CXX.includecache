@@ -361,6 +361,12 @@ PyInteger.hpp
 /opt/PythonVm/src/PyFunction.cpp
 PyFunction.hpp
 /opt/PythonVm/src/PyFunction.hpp
+Panic.hpp
+/opt/PythonVm/src/Panic.hpp
+VM.hpp
+/opt/PythonVm/src/VM.hpp
+PyInteger.hpp
+/opt/PythonVm/src/PyInteger.hpp
 stdio.h
 -
 assert.h

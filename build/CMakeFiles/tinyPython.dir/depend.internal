@@ -95,8 +95,10 @@ CMakeFiles/tinyPython.dir/src/PyFunction.cpp.o
  /opt/PythonVm/src/Frame.hpp
  /opt/PythonVm/src/Klass.hpp
  /opt/PythonVm/src/Map.hpp
+ /opt/PythonVm/src/Panic.hpp
  /opt/PythonVm/src/PyFunction.cpp
  /opt/PythonVm/src/PyFunction.hpp
+ /opt/PythonVm/src/PyInteger.hpp
  /opt/PythonVm/src/PyObject.hpp
  /opt/PythonVm/src/PyString.hpp
  /opt/PythonVm/src/VM.hpp
