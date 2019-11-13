@@ -4,8 +4,11 @@
 
 PyObject *PyObject::id()
 {
-    // 这里如果是64位可能对丢失部分bit了.没办法,PyInteger理论不应该内部用int
-    return new PyInteger(reinterpret_cast<int>(this));
+    #if __SIZEOF_POINTER__ == 8
+        return new PyInteger((int)reinterpret_cast<int64_t>(this));
+    #else
+        return new PyInteger((int)reinterpret_cast<int32_t>(this));
+    #endif
 }
 
 void PyObject::print()
