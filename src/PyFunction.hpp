@@ -15,9 +15,10 @@ typedef PyObject* (*NativeFunctionPtr)(ArrayList<PyObject*> *args);
 // 常用的native函数定义
 namespace native {
     typedef ArrayList<PyObject*> *FuncArgs;
+    extern PyObject* abs(FuncArgs args);
     extern PyObject* len(FuncArgs args);
     extern PyObject* type_of(FuncArgs args);
-    extern PyObject* ininstance(FuncArgs args);
+    extern PyObject* isinstance(FuncArgs args);
 }
 
 class NativeFunctionKlass : public Klass {

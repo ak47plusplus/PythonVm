@@ -2,7 +2,9 @@
 #include "Panic.hpp"
 #include "VM.hpp"
 #include "PyInteger.hpp"
+#include "PyDouble.hpp"
 #include <stdio.h>
+#include <cmath>
 #include <assert.h>
 
 NativeFunctionKlass* NativeFunctionKlass::m_Instance = nullptr;
@@ -116,7 +118,24 @@ PyObject* PyFunction::native_call(ArrayList<PyObject*> *args)
 }
 
 namespace native {
-    
+
+    PyObject* abs(FuncArgs args)
+    {
+        PyObject *arg = args->get(0);
+        if(arg->klass() == IntegerKlass::get_instance())
+        {
+            return new PyInteger(std::abs(dynamic_cast<PyInteger*>(arg)->value()));
+        }
+        else if(arg->klass() == DoubleKlass::get_instance())
+        {
+            return new PyDouble(std::fabs(dynamic_cast<PyDouble*>(arg)->value()));
+        } else 
+        {
+            __panic("TypeError: bad operand type for abs():'%s' ^_^\n", "?");
+        }
+        return nullptr;
+    }
+
     PyObject* len(FuncArgs args)
     {
         return args->get(0)->len();
@@ -127,7 +146,7 @@ namespace native {
         return nullptr;
     }
 
-    PyObject* ininstance(FuncArgs args)
+    PyObject* isinstance(FuncArgs args)
     {
         return VM::PyFalse;
     }
