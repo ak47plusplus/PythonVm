@@ -195,7 +195,7 @@ int Map<K,V>::index(K k)
 {
     for(decltype(size()) i = 0; i < m_Size; i++)
     {
-        if(m_Entries[i].m_K->equal(k) == VM::PyTrue)
+        if(m_Entries[i].m_K->equal(k) == VM::PyTrue) // 这里比较的用的是equal 而不是直接operator==比较地址!
         {
             return i;
         }

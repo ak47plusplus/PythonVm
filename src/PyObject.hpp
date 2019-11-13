@@ -28,6 +28,7 @@ public:
     PyObject *le(PyObject *rhs);
 
     PyObject *len();
+    PyObject *getattr(PyObject *x, PyObject *y);
 
 private:
     Klass *m_Klass;

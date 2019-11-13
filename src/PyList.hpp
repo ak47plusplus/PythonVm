@@ -1,16 +1,26 @@
 #ifndef PY_LIST_HPP__
 #define PY_LIST_HPP__
 
+#include "Klass.hpp"
 #include "PyObject.hpp"
 #include "ArrayList.hpp"
+#include <mutex>
 
-/**
- *  @brief Python的list可以装任何类型元素.
- *  @Created by GuoXiang 2019/11/1
- */
+class ListKlass : public Klass {
+public:
+    virtual void print(PyObject *x);
+
+    static ListKlass *get_instance();
+private:
+    ListKlass();
+    static ListKlass *m_Instance;
+    static std::mutex m_Mutex;
+};
+
 class PyList : public PyObject {
 public:
     PyList();
+    PyList(ArrayList<PyObject*> *list);
     ~PyList();
     PyList(const PyList &rhs);
     PyList& operator=(const PyList &rhs);
@@ -24,7 +34,7 @@ public:
     void set(int index, PyObject *obj)    { m_InnerList->set(index, obj);}
     PyObject *top()                       { return m_InnerList->get(this->size() - 1);}
 
-    int index(PyObject *obj);
+    int index(PyObject *obj)              { return 0;}
  //   void delete_index(int index)          { m_InnerList.delete_index(index);}
 
 private:

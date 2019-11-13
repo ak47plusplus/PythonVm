@@ -1,6 +1,8 @@
 #ifndef KLASS_HPP___
 #define KLASS_HPP___
 
+#include <map>
+
 // Forward declaration
 class PyString;
 class PyObject;
@@ -11,8 +13,9 @@ class Klass {
 public:
     Klass();
     ~Klass();
-    void set_name(PyString *name) {this->m_Name = name;}
-    PyString *name()              { return this->m_Name;}
+    void set_name(PyString *name)                           {this->m_Name = name;}
+    PyString *name()                                        { return this->m_Name;}
+
 
     virtual void print(PyObject *x)                          {}
 
@@ -32,8 +35,13 @@ public:
 
     virtual PyObject* len(PyObject *x)                       {return 0;}
 
+    void register_klass_dict(PyObject* k, PyObject* v);
+    std::map<PyObject*, PyObject*> klass_dict()             { return m_KlassDict; }
+    virtual PyObject* getattr(PyObject *lhs, PyObject *rhs);
+
 private:
-    PyString *m_Name;
+    PyString                        *m_Name;
+    std::map<PyObject*, PyObject*>   m_KlassDict;
 };
 
 #endif

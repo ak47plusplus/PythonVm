@@ -1,5 +1,6 @@
 #include "Interpreter.hpp"
 #include "VM.hpp"
+#include "Native.hpp"
 #include "Map.hpp"
 #include "Panic.hpp"
 #include "ByteCode.hpp"
@@ -44,9 +45,9 @@ Interpreter::Interpreter()
     m_Builtins->put(new PyString("None"), VM::PyNone);
 
     // native function
-    m_Builtins->put(new PyString("id"),  new PyFunction(native::id));
-    m_Builtins->put(new PyString("abs"), new PyFunction(native::abs));
-    m_Builtins->put(new PyString("len"), new PyFunction(native::len));
+    m_Builtins->put(new PyString("id"),  new PyFunction(native::python_builtins::id));
+    m_Builtins->put(new PyString("abs"), new PyFunction(native::python_builtins::abs));
+    m_Builtins->put(new PyString("len"), new PyFunction(native::python_builtins::len));
 }
 
 void Interpreter::run(CodeObject *codes)
@@ -127,6 +128,11 @@ void Interpreter::eval_frame()
                 if(m_CurrentFrame->is_first_frame())
                     return;
                 leave_frame();
+                break;
+            case ByteCode::LOAD_ATTR:
+                v = POP();
+                w = m_CurrentFrame->m_Names->get(opArg);
+                PUSH(v->getattr(w)); // 这里的w和VM初始化的put进去的明显不是同一个,这里承载attr的map肯定不能使用stl里的map
                 break;
             case ByteCode::LOAD_CONST:      // 100
                 PUSH(m_CurrentFrame->m_Consts->get(opArg));

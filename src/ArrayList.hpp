@@ -94,10 +94,8 @@ void ArrayList<T>::add(T t)
 template<typename T>
 void ArrayList<T>::insert(int index, T t)
 {
-    if (this->m_size >= this->m_capacity) {
-      this->expandCapacity();
-    }
-    for(int i = this->m_size; i > index; i--)
+    this->add(t); // 只为了添加一个占位, 添加的内容会被覆盖.
+    for(int i = this->m_size-1; i > index; i--)
     {
       m_data[i] = m_data[i-1];
     }

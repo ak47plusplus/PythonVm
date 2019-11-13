@@ -42,6 +42,7 @@ set(SOURCES
     src/LoggerConfig.cpp
     src/Frame.cpp
     src/PyFunction.cpp
+    src/Native.cpp
 )
 
 # 添加一个可执行文件
