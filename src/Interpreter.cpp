@@ -44,6 +44,7 @@ Interpreter::Interpreter()
     m_Builtins->put(new PyString("None"), VM::PyNone);
 
     // native function
+    m_Builtins->put(new PyString("abs"), new PyFunction(native::abs));
     m_Builtins->put(new PyString("len"), new PyFunction(native::len));
 }
 
