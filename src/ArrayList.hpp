@@ -144,22 +144,6 @@ int ArrayList<T>::index(T &t)
     return -1;
 }
 
-/**
- * 针对PyObject*的模板特化版本. 使用equal比较而不是直接
- * 使用operator==比较.
- */
-template<>
-int ArrayList<PyObject *>::index(PyObject * &t)
-{
-    if(m_size <= 0)
-        return -1;
-    for(auto i = 0; i < m_size; i++)
-    {
-        if(m_data[i]->equal(t) == VM::PyTrue)
-            return i;
-    }
-    return -1;
-}
 
 template<typename T>
 void ArrayList<T>::expandCapacity()
