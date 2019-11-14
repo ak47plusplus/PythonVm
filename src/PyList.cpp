@@ -1,4 +1,6 @@
 #include "PyList.hpp"
+#include <assert.h>
+#include <stdio.h>
 
 ListKlass* ListKlass::m_Instance = nullptr;
 std::mutex ListKlass::m_Mutex;
@@ -19,9 +21,24 @@ ListKlass *ListKlass::get_instance()
     return m_Instance;
 }
 
-void ListKlass::print(PyObject *x)
+/**
+ * @brief 打印一个PyList.
+ * 例如: [1,2,"3"]
+ */
+void ListKlass::print(PyObject * x)
 {
-    // TODO
+    assert(x && x->klass() == this);
+    PyList *pList = dynamic_cast<PyList*>(x);
+    printf("[");
+    for(auto i = 0; i < pList->size(); i++)
+    {
+        pList->get(i)->print();
+        if(i < pList->size() -1) 
+        {
+            printf(",");
+        }
+    }
+    printf("]");
 }
 
 /**
