@@ -87,7 +87,7 @@ namespace internal_usage {
         char c;
         for(auto i = 0; i < len; i++)
         {
-            c = str->value[i];
+            c = str->value()[i];
             if(c >= 'a' && c <= 'z')
                 upper[i] = c - 32;
             else

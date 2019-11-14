@@ -132,7 +132,6 @@ void ArrayList<T>::set(int index, T t)
 template<typename T>
 int ArrayList<T>::index(T &t)
 {
-    std::string
     if(m_size <= 0)
         return -1;
     for(auto i = 0; i < m_size; i++)

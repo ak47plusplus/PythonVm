@@ -12,6 +12,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/opt/PythonVm/src/Klass.cpp" "/opt/PythonVm/build/CMakeFiles/tinyPython.dir/src/Klass.cpp.o"
   "/opt/PythonVm/src/LoggerConfig.cpp" "/opt/PythonVm/build/CMakeFiles/tinyPython.dir/src/LoggerConfig.cpp.o"
   "/opt/PythonVm/src/Main.cpp" "/opt/PythonVm/build/CMakeFiles/tinyPython.dir/src/Main.cpp.o"
+  "/opt/PythonVm/src/Native.cpp" "/opt/PythonVm/build/CMakeFiles/tinyPython.dir/src/Native.cpp.o"
   "/opt/PythonVm/src/PyDict.cpp" "/opt/PythonVm/build/CMakeFiles/tinyPython.dir/src/PyDict.cpp.o"
   "/opt/PythonVm/src/PyDouble.cpp" "/opt/PythonVm/build/CMakeFiles/tinyPython.dir/src/PyDouble.cpp.o"
   "/opt/PythonVm/src/PyFunction.cpp" "/opt/PythonVm/build/CMakeFiles/tinyPython.dir/src/PyFunction.cpp.o"

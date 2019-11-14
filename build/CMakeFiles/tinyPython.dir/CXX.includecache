@@ -229,6 +229,10 @@ Interpreter.hpp
 /opt/PythonVm/src/Interpreter.hpp
 VM.hpp
 /opt/PythonVm/src/VM.hpp
+Native.hpp
+/opt/PythonVm/src/Native.hpp
+Frame.hpp
+/opt/PythonVm/src/Frame.hpp
 Map.hpp
 /opt/PythonVm/src/Map.hpp
 Panic.hpp
@@ -239,8 +243,8 @@ PyString.hpp
 /opt/PythonVm/src/PyString.hpp
 PyInteger.hpp
 /opt/PythonVm/src/PyInteger.hpp
-Frame.hpp
-/opt/PythonVm/src/Frame.hpp
+PyList.hpp
+/opt/PythonVm/src/PyList.hpp
 PyFunction.hpp
 /opt/PythonVm/src/PyFunction.hpp
 mutex
@@ -273,8 +277,12 @@ Klass.hpp
 /opt/PythonVm/src/Klass.hpp
 PyString.hpp
 /opt/PythonVm/src/PyString.hpp
+Panic.hpp
+/opt/PythonVm/src/Panic.hpp
 
 /opt/PythonVm/src/Klass.hpp
+map
+-
 
 /opt/PythonVm/src/Logger.hpp
 3rd/easylogging++/easylogging++.hpp
@@ -322,6 +330,30 @@ exception
 stdexcept
 -
 
+/opt/PythonVm/src/Native.cpp
+Native.hpp
+/opt/PythonVm/src/Native.hpp
+PyFunction.hpp
+/opt/PythonVm/src/PyFunction.hpp
+PyInteger.hpp
+/opt/PythonVm/src/PyInteger.hpp
+PyString.hpp
+/opt/PythonVm/src/PyString.hpp
+PyDouble.hpp
+/opt/PythonVm/src/PyDouble.hpp
+Panic.hpp
+/opt/PythonVm/src/Panic.hpp
+cmath
+-
+cassert
+-
+
+/opt/PythonVm/src/Native.hpp
+PyObject.hpp
+/opt/PythonVm/src/PyObject.hpp
+ArrayList.hpp
+/opt/PythonVm/src/ArrayList.hpp
+
 /opt/PythonVm/src/NonCopyable.hpp
 Core.hpp
 /opt/PythonVm/src/Core.hpp
@@ -367,7 +399,11 @@ VM.hpp
 /opt/PythonVm/src/VM.hpp
 PyInteger.hpp
 /opt/PythonVm/src/PyInteger.hpp
+PyDouble.hpp
+/opt/PythonVm/src/PyDouble.hpp
 stdio.h
+-
+cmath
 -
 assert.h
 -
@@ -415,18 +451,28 @@ mutex
 /opt/PythonVm/src/PyList.cpp
 PyList.hpp
 /opt/PythonVm/src/PyList.hpp
+assert.h
+-
+stdio.h
+-
 
 /opt/PythonVm/src/PyList.hpp
+Klass.hpp
+/opt/PythonVm/src/Klass.hpp
 PyObject.hpp
 /opt/PythonVm/src/PyObject.hpp
 ArrayList.hpp
 /opt/PythonVm/src/ArrayList.hpp
+mutex
+-
 
 /opt/PythonVm/src/PyObject.cpp
 PyObject.hpp
 /opt/PythonVm/src/PyObject.hpp
 Klass.hpp
 /opt/PythonVm/src/Klass.hpp
+PyInteger.hpp
+/opt/PythonVm/src/PyInteger.hpp
 
 /opt/PythonVm/src/PyObject.hpp
 
@@ -497,12 +543,16 @@ Logger.hpp
 /opt/PythonVm/src/VM.cpp
 VM.hpp
 /opt/PythonVm/src/VM.hpp
+Native.hpp
+/opt/PythonVm/src/Native.hpp
 PyObject.hpp
 /opt/PythonVm/src/PyObject.hpp
 PyInteger.hpp
 /opt/PythonVm/src/PyInteger.hpp
 PyString.hpp
 /opt/PythonVm/src/PyString.hpp
+PyFunction.hpp
+/opt/PythonVm/src/PyFunction.hpp
 
 /opt/PythonVm/src/VM.hpp
 Core.hpp

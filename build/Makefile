@@ -339,6 +339,33 @@ src/Main.cpp.s:
 	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/Main.cpp.s
 .PHONY : src/Main.cpp.s
 
+src/Native.o: src/Native.cpp.o
+
+.PHONY : src/Native.o
+
+# target to build an object file
+src/Native.cpp.o:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/Native.cpp.o
+.PHONY : src/Native.cpp.o
+
+src/Native.i: src/Native.cpp.i
+
+.PHONY : src/Native.i
+
+# target to preprocess a source file
+src/Native.cpp.i:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/Native.cpp.i
+.PHONY : src/Native.cpp.i
+
+src/Native.s: src/Native.cpp.s
+
+.PHONY : src/Native.s
+
+# target to generate assembly for a file
+src/Native.cpp.s:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/Native.cpp.s
+.PHONY : src/Native.cpp.s
+
 src/PyDict.o: src/PyDict.cpp.o
 
 .PHONY : src/PyDict.o
@@ -615,6 +642,9 @@ help:
 	@echo "... src/Main.o"
 	@echo "... src/Main.i"
 	@echo "... src/Main.s"
+	@echo "... src/Native.o"
+	@echo "... src/Native.i"
+	@echo "... src/Native.s"
 	@echo "... src/PyDict.o"
 	@echo "... src/PyDict.i"
 	@echo "... src/PyDict.s"
