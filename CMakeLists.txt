@@ -43,6 +43,7 @@ set(SOURCES
     src/Frame.cpp
     src/PyFunction.cpp
     src/Native.cpp
+    src/ArrayList.cpp
 )
 
 # 添加一个可执行文件
