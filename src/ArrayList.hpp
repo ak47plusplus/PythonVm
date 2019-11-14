@@ -7,8 +7,6 @@
 
 #include "VM.hpp"
 
-class PyObject;
-
 /**
  *  @brief A implementation of dynamic array like java.util.ArrayList
  *  @Created by GuoXiang 2019/10/29
