@@ -24,4 +24,6 @@ int ArrayList<PyObject *>::index(PyObject * &t)
     return -1;
 }
 
+
+template<>
 class ArrayList<PyObject*>;
