@@ -150,6 +150,16 @@ boost/container/flat_set.hpp
 wx/vector.h
 -
 
+/opt/PythonVm/src/ArrayList.cpp
+ArrayList.hpp
+/opt/PythonVm/src/ArrayList.hpp
+PyObject.hpp
+/opt/PythonVm/src/PyObject.hpp
+PyInteger.hpp
+/opt/PythonVm/src/PyInteger.hpp
+stdio.h
+-
+
 /opt/PythonVm/src/ArrayList.hpp
 cstdio
 -
@@ -157,6 +167,8 @@ exception
 -
 stdexcept
 -
+VM.hpp
+/opt/PythonVm/src/VM.hpp
 
 /opt/PythonVm/src/Block.hpp
 
@@ -321,6 +333,10 @@ FileInputStream.hpp
 /opt/PythonVm/src/FileInputStream.hpp
 PycFileParser.hpp
 /opt/PythonVm/src/PycFileParser.hpp
+ArrayList.hpp
+/opt/PythonVm/src/ArrayList.hpp
+PyInteger.hpp
+/opt/PythonVm/src/PyInteger.hpp
 
 /opt/PythonVm/src/Map.hpp
 VM.hpp

@@ -17,6 +17,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/tinyPython.dir/src/Frame.cpp.o"
   "CMakeFiles/tinyPython.dir/src/PyFunction.cpp.o"
   "CMakeFiles/tinyPython.dir/src/Native.cpp.o"
+  "CMakeFiles/tinyPython.dir/src/ArrayList.cpp.o"
   "tinyPython.pdb"
   "tinyPython"
 )

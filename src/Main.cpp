@@ -11,6 +11,8 @@
 #include "Interpreter.hpp"
 #include "FileInputStream.hpp"
 #include "PycFileParser.hpp"
+#include "ArrayList.hpp"
+#include "PyInteger.hpp"
 
 
 INITIALIZE_EASYLOGGINGPP
@@ -30,7 +32,7 @@ void print_vm_logo()
 
 int main(int argc, char const *argv[]) {
     START_EASYLOGGINGPP(argc, argv);
-
+	
     LoggerConfig::init();
     VM::init();
 

@@ -23,7 +23,7 @@ public:
     void insert(int index, T t);
     T get(int index);
     void set(int index, T t);
-    int index(T &t);
+    int index(const T &t);
     int size();
     int capacity();
     T pop();
@@ -132,7 +132,7 @@ void ArrayList<T>::set(int index, T t)
  * 泛化版本的index
  */
 template<typename T>
-int ArrayList<T>::index(T &t)
+int ArrayList<T>::index(const T &t)
 {
     if(m_size <= 0)
         return -1;

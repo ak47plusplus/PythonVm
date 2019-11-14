@@ -4,13 +4,23 @@
 CMakeFiles/tinyPython.dir/src/3rd/easylogging++/easylogging++.cpp.o
  /opt/PythonVm/src/3rd/easylogging++/easylogging++.cpp
  /opt/PythonVm/src/3rd/easylogging++/easylogging++.hpp
+CMakeFiles/tinyPython.dir/src/ArrayList.cpp.o
+ /opt/PythonVm/src/ArrayList.cpp
+ /opt/PythonVm/src/ArrayList.hpp
+ /opt/PythonVm/src/Core.hpp
+ /opt/PythonVm/src/Klass.hpp
+ /opt/PythonVm/src/PyInteger.hpp
+ /opt/PythonVm/src/PyObject.hpp
+ /opt/PythonVm/src/VM.hpp
 CMakeFiles/tinyPython.dir/src/CodeObject.cpp.o
  /opt/PythonVm/src/ArrayList.hpp
  /opt/PythonVm/src/CodeObject.cpp
  /opt/PythonVm/src/CodeObject.hpp
+ /opt/PythonVm/src/Core.hpp
  /opt/PythonVm/src/Klass.hpp
  /opt/PythonVm/src/PyObject.hpp
  /opt/PythonVm/src/PyString.hpp
+ /opt/PythonVm/src/VM.hpp
 CMakeFiles/tinyPython.dir/src/FileInputStream.cpp.o
  /opt/PythonVm/src/Core.hpp
  /opt/PythonVm/src/FileInputStream.cpp
@@ -135,10 +145,12 @@ CMakeFiles/tinyPython.dir/src/PyInteger.cpp.o
  /opt/PythonVm/src/VM.hpp
 CMakeFiles/tinyPython.dir/src/PyList.cpp.o
  /opt/PythonVm/src/ArrayList.hpp
+ /opt/PythonVm/src/Core.hpp
  /opt/PythonVm/src/Klass.hpp
  /opt/PythonVm/src/PyList.cpp
  /opt/PythonVm/src/PyList.hpp
  /opt/PythonVm/src/PyObject.hpp
+ /opt/PythonVm/src/VM.hpp
 CMakeFiles/tinyPython.dir/src/PyObject.cpp.o
  /opt/PythonVm/src/Klass.hpp
  /opt/PythonVm/src/PyInteger.hpp

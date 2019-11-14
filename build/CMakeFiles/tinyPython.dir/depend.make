@@ -4,12 +4,22 @@
 CMakeFiles/tinyPython.dir/src/3rd/easylogging++/easylogging++.cpp.o: ../src/3rd/easylogging++/easylogging++.cpp
 CMakeFiles/tinyPython.dir/src/3rd/easylogging++/easylogging++.cpp.o: ../src/3rd/easylogging++/easylogging++.hpp
 
+CMakeFiles/tinyPython.dir/src/ArrayList.cpp.o: ../src/ArrayList.cpp
+CMakeFiles/tinyPython.dir/src/ArrayList.cpp.o: ../src/ArrayList.hpp
+CMakeFiles/tinyPython.dir/src/ArrayList.cpp.o: ../src/Core.hpp
+CMakeFiles/tinyPython.dir/src/ArrayList.cpp.o: ../src/Klass.hpp
+CMakeFiles/tinyPython.dir/src/ArrayList.cpp.o: ../src/PyInteger.hpp
+CMakeFiles/tinyPython.dir/src/ArrayList.cpp.o: ../src/PyObject.hpp
+CMakeFiles/tinyPython.dir/src/ArrayList.cpp.o: ../src/VM.hpp
+
 CMakeFiles/tinyPython.dir/src/CodeObject.cpp.o: ../src/ArrayList.hpp
 CMakeFiles/tinyPython.dir/src/CodeObject.cpp.o: ../src/CodeObject.cpp
 CMakeFiles/tinyPython.dir/src/CodeObject.cpp.o: ../src/CodeObject.hpp
+CMakeFiles/tinyPython.dir/src/CodeObject.cpp.o: ../src/Core.hpp
 CMakeFiles/tinyPython.dir/src/CodeObject.cpp.o: ../src/Klass.hpp
 CMakeFiles/tinyPython.dir/src/CodeObject.cpp.o: ../src/PyObject.hpp
 CMakeFiles/tinyPython.dir/src/CodeObject.cpp.o: ../src/PyString.hpp
+CMakeFiles/tinyPython.dir/src/CodeObject.cpp.o: ../src/VM.hpp
 
 CMakeFiles/tinyPython.dir/src/FileInputStream.cpp.o: ../src/Core.hpp
 CMakeFiles/tinyPython.dir/src/FileInputStream.cpp.o: ../src/FileInputStream.cpp
@@ -134,10 +144,12 @@ CMakeFiles/tinyPython.dir/src/PyInteger.cpp.o: ../src/PyString.hpp
 CMakeFiles/tinyPython.dir/src/PyInteger.cpp.o: ../src/VM.hpp
 
 CMakeFiles/tinyPython.dir/src/PyList.cpp.o: ../src/ArrayList.hpp
+CMakeFiles/tinyPython.dir/src/PyList.cpp.o: ../src/Core.hpp
 CMakeFiles/tinyPython.dir/src/PyList.cpp.o: ../src/Klass.hpp
 CMakeFiles/tinyPython.dir/src/PyList.cpp.o: ../src/PyList.cpp
 CMakeFiles/tinyPython.dir/src/PyList.cpp.o: ../src/PyList.hpp
 CMakeFiles/tinyPython.dir/src/PyList.cpp.o: ../src/PyObject.hpp
+CMakeFiles/tinyPython.dir/src/PyList.cpp.o: ../src/VM.hpp
 
 CMakeFiles/tinyPython.dir/src/PyObject.cpp.o: ../src/Klass.hpp
 CMakeFiles/tinyPython.dir/src/PyObject.cpp.o: ../src/PyInteger.hpp

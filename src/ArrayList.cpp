@@ -10,10 +10,10 @@
  * 针对PyObject*的模板特化版本. 使用equal比较而不是直接
  * 使用operator==比较.
  */
+typedef PyObject *pPyObject;  // 直接用PyObject*就有问题...c++的编译器基本都是bug一堆
 template<>
-int ArrayList<PyObject *>::index(PyObject * &t)
+int ArrayList<pPyObject>::index(const pPyObject &t)
 {
-    printf("version special for PyObject* \n");
     if(m_size <= 0)
         return -1;
     for(auto i = 0; i < m_size; i++)
