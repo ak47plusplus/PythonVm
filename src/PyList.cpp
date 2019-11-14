@@ -15,7 +15,7 @@ ListKlass *ListKlass::get_instance()
         std::lock_guard<std::mutex> lock(m_Mutex);
         if(nullptr == m_Instance)
         {
-            m_Instance = nullptr;
+            m_Instance = new ListKlass();
         }
     }
     return m_Instance;
