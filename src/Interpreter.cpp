@@ -1,12 +1,14 @@
 #include "Interpreter.hpp"
 #include "VM.hpp"
 #include "Native.hpp"
+#include "Frame.hpp"
 #include "Map.hpp"
 #include "Panic.hpp"
 #include "ByteCode.hpp"
 #include "PyString.hpp"
 #include "PyInteger.hpp"
-#include "Frame.hpp"
+#include "PyList.hpp"
+
 #include "PyFunction.hpp"
 
 #include <mutex>
@@ -79,6 +81,7 @@ void Interpreter::eval_frame()
         PyFunction *func;
         ArrayList<PyObject*> *funcArgs = nullptr;
         ArrayList<PyObject*> *defaultArgs = nullptr;
+        PyList *list = nullptr;
         int argCount = 0;
 
         switch (opCode) {
@@ -185,6 +188,14 @@ void Interpreter::eval_frame()
                     break;
                 }
                 PUSH(VM::PyNone);
+                break;
+            case ByteCode::BUILD_LIST:
+                list = new PyList();
+                while(opArg--)
+                {
+                    list->set(opArg, POP());
+                }
+                PUSH(list);
                 break;
             case ByteCode::STORE_FAST:
                 m_CurrentFrame->fastLocals()->set(opArg, POP());
