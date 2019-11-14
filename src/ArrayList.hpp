@@ -5,6 +5,10 @@
 #include <exception>
 #include <stdexcept>
 
+#include "VM.hpp"
+
+class PyObject;
+
 /**
  *  @brief A implementation of dynamic array like java.util.ArrayList
  *  @Created by GuoXiang 2019/10/29
@@ -153,7 +157,7 @@ int ArrayList<PyObject *>::index(PyObject * &t)
         return -1;
     for(auto i = 0; i < m_size; i++)
     {
-        if(m_data[i]->equal(t))
+        if(m_data[i]->equal(t) == VM::PyTrue)
             return i;
     }
     return -1;
