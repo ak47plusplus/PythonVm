@@ -31,10 +31,12 @@ void StringKlass::print(PyObject *x)
 {
     assert(x && x->klass() == static_cast<Klass*>(this));
     PyString *pyStr = dynamic_cast<PyString*>(x);
+    printf("'");
     for(int i = 0; i < pyStr->length(); i++)
     {
         printf("%c", pyStr->value()[i]);
     }
+     printf("'");
 }
 
 // python的str只能和str加
