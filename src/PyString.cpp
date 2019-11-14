@@ -111,6 +111,16 @@ PyObject* StringKlass::len(PyObject *x)
     return new PyInteger(dynamic_cast<PyString*>(x)->length());
 }
 
+PyObject* StringKlass::subscr(PyObject *lhs, PyObject* rhs)
+{
+    assert(lhs && lhs->klass() == this);
+    assert(rhs && rhs->klass() == IntegerKlass::get_instance());
+    PyString *pyStr = dynamic_cast<PyString*>(lhs);
+    PyInteger *index = dynamic_cast<PyInteger*>(rhs);
+    char  target = pyStr->value()[index->value()];
+    return new PyString(&target, 1);
+}
+
 
 // =================================== stringobject=============================
 

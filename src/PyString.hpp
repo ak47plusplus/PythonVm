@@ -53,6 +53,9 @@ public:
 
     virtual PyObject* len(PyObject *x);
 
+    // 取下标
+    virtual PyObject* subscr(PyObject *lhs, PyObject* rhs);
+
 private:
     StringKlass();
     static StringKlass *m_Instance;

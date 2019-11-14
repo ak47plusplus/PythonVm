@@ -1,4 +1,5 @@
 #include "PyList.hpp"
+#include "PyInteger.hpp"
 #include <assert.h>
 #include <stdio.h>
 
@@ -39,6 +40,20 @@ void ListKlass::print(PyObject * x)
         }
     }
     printf("]");
+}
+
+/**
+ * @brief  对一个PyList进行取下标操作
+ * @param lhs 需要取下标的list本身
+ * @param rhs 下标值,必须是PyInteger
+ */
+PyObject *ListKlass::subscr(PyObject *lhs, PyObject *rhs)
+{
+    assert(lhs && lhs->klass() == this);
+    assert(rhs && rhs->klass() == IntegerKlass::get_instance());
+    PyList * list = static_cast<PyList*>(lhs);
+    PyInteger *index = static_cast<PyInteger*>(rhs);
+    return list->get(index->value());
 }
 
 /**

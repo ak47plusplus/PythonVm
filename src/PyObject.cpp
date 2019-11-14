@@ -78,6 +78,11 @@ PyObject *PyObject::len()
     return this->m_Klass->len(this);
 }
 
+PyObject *PyObject::subscr(PyObject *rhs)
+{
+    return this->m_Klass->subscr(this, rhs);
+}
+
 PyObject *PyObject::getattr(PyObject *attrK)
 {
     return this->m_Klass->getattr(this, attrK);

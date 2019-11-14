@@ -28,6 +28,7 @@ public:
     PyObject *le(PyObject *rhs);
 
     PyObject *len();
+    PyObject *subscr(PyObject *rhs);
     PyObject *getattr(PyObject *attrK);
 
 private:

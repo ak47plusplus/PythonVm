@@ -16,10 +16,10 @@
 #include <memory>
 #include <iostream>
 
-#define PUSH(v)         m_CurrentFrame->m_Stack->add((v))
-#define POP()           m_CurrentFrame->m_Stack->pop()
-#define STACK_LEVEL()   m_CurrentFrame->m_Stack->size()
-#define SET_PC(v)       m_CurrentFrame->set_pc(v)
+#define PUSH(v)               m_CurrentFrame->m_Stack->add((v))
+#define POP()                   m_CurrentFrame->m_Stack->pop()
+#define STACK_LEVEL()     m_CurrentFrame->m_Stack->size()
+#define SET_PC(v)             m_CurrentFrame->set_pc(v)
 
 #define TRUE            VM::PyTrue
 #define FALSE           VM::PyFalse
@@ -125,6 +125,12 @@ void Interpreter::eval_frame()
                 v = POP();
                 w = POP();
                 PUSH(w->sub(v));
+                break;
+            case ByteCode::BINARY_SUBSCR:
+                // 先压入栈中的是list/str再压入的是下标
+                v = POP();
+                w = POP();
+                PUSH(w->subscr(v));
                 break;
             case ByteCode::RETURN_VALUE:  // 83
                 m_RetValue = POP();

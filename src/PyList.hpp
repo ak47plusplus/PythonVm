@@ -9,7 +9,8 @@
 class ListKlass : public Klass {
 public:
     virtual void print(PyObject *x);
-
+    virtual PyObject *subscr(PyObject *lhs, PyObject *rhs);
+    
     static ListKlass *get_instance();
 private:
     ListKlass();

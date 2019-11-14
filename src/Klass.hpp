@@ -33,7 +33,8 @@ public:
     virtual PyObject* ge(PyObject *lhs, PyObject *rhs)       {return 0;}
     virtual PyObject* le(PyObject *lhs, PyObject *rhs)       {return 0;}
 
-    virtual PyObject* len(PyObject *x)                       {return 0;}
+    virtual PyObject* len(PyObject *x)                                  {return 0;}
+    virtual PyObject* subscr(PyObject *lhs, PyObject *rhs)  { return 0;}
 
     void register_klass_dict(PyObject* k, PyObject* v);
     std::map<PyObject*, PyObject*> klass_dict()             { return m_KlassDict; }
