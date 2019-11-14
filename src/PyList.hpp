@@ -21,20 +21,21 @@ class PyList : public PyObject {
 public:
     PyList();
     PyList(ArrayList<PyObject*> *list);
-    ~PyList();
     PyList(const PyList &rhs);
+    PyList(PyList &&rhs);
     PyList& operator=(const PyList &rhs);
+    ~PyList();
 
     ArrayList<PyObject*>* inner_list()    { return m_InnerList;}
 
-    int size()                            { return m_InnerList->size();}
+    int size()     const                  { return m_InnerList->size();}
     void append(PyObject *obj)            { m_InnerList->add(obj);}
     PyObject *pop()                       { return m_InnerList->pop();}
     PyObject *get(int index)              { return m_InnerList->get(index);}
     void set(int index, PyObject *obj)    { m_InnerList->set(index, obj);}
     PyObject *top()                       { return m_InnerList->get(this->size() - 1);}
 
-    int index(PyObject *obj)              { return 0;}
+    int index(PyObject *obj)              { return m_InnerList->index(obj);}
  //   void delete_index(int index)          { m_InnerList.delete_index(index);}
 
 private:

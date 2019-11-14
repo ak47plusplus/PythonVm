@@ -33,7 +33,7 @@ private:
     void destroy_frame();
     void leave_frame();
 private:
-    static Interpreter  *       m_Instance;
+    static Interpreter  *       m_Instance;s
     static std::mutex           m_Mutex;
     Map<PyObject*,PyObject*>*   m_Builtins;         // 内建对象
     Frame *                     m_CurrentFrame;

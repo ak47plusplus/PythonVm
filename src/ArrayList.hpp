@@ -21,9 +21,11 @@ public:
     void insert(int index, T t);
     T get(int index);
     void set(int index, T t);
+    int index(T &t);
     int size();
     int capacity();
     T pop();
+    T top();
     bool isEmpty();
 private:
     void expandCapacity();
@@ -124,6 +126,40 @@ void ArrayList<T>::set(int index, T t)
         m_size = index + 1;
 }
 
+/**
+ * 泛化版本的index
+ */
+template<typename T>
+int ArrayList<T>::index(T &t)
+{
+    std::string
+    if(m_size <= 0)
+        return -1;
+    for(auto i = 0; i < m_size; i++)
+    {
+        if(m_data[i] == t)
+            return i;
+    }
+    return -1;
+}
+
+/**
+ * 针对PyObject*的模板特化版本. 使用equal比较而不是直接
+ * 使用operator==比较.
+ */
+template<>
+int ArrayList<PyObject *>::index(PyObject * &t)
+{
+    if(m_size <= 0)
+        return -1;
+    for(auto i = 0; i < m_size; i++)
+    {
+        if(m_data[i]->equal(t))
+            return i;
+    }
+    return -1;
+}
+
 template<typename T>
 void ArrayList<T>::expandCapacity()
 {
@@ -156,6 +192,16 @@ T ArrayList<T>::pop()
         throw std::out_of_range("empty list and pop failed.");
     }
     return m_data[--m_size];
+}
+
+template<typename T>
+T ArrayList<T>::top()
+{
+    if(m_size <= 0)
+    {
+        throw std::out_of_range("empty list and top failed.");
+    }
+    return m_data[m_size-1];
 }
 
 template<typename T>

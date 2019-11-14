@@ -80,5 +80,5 @@ PyObject *PyObject::len()
 
 PyObject *PyObject::getattr(PyObject *attrK)
 {
-    return this->m_Klass->getattr(this, attrKey);
+    return this->m_Klass->getattr(this, attrK);
 }

@@ -10,9 +10,7 @@
 NativeFunctionKlass* NativeFunctionKlass::m_Instance = nullptr;
 std::mutex NativeFunctionKlass::m_Mutex;
 NativeFunctionKlass::NativeFunctionKlass()
-{
-
-}
+{}
 
 NativeFunctionKlass* NativeFunctionKlass::get_instance()
 {
@@ -22,6 +20,24 @@ NativeFunctionKlass* NativeFunctionKlass::get_instance()
         if(nullptr == m_Instance)
         {
             m_Instance = new NativeFunctionKlass();
+        }
+    }
+    return m_Instance;
+}
+
+MethodKlass* MethodKlass::m_Instance = nullptr;
+std::mutex   MethodKlass::m_Mutex;
+
+MethodKlass::MethodKlass(){}
+
+MethodKlass *MethodKlass::get_instance()
+{
+    if(nullptr == m_Instance)
+    {
+        std::lock_guard<std::mutex> lock(m_Mutex);
+        if(nullptr == m_Instance)
+        {
+            m_Instance = new MethodKlass();
         }
     }
     return m_Instance;

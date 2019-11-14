@@ -12,6 +12,9 @@
 // 指向native函数的函数指针
 typedef PyObject* (*NativeFunctionPtr)(ArrayList<PyObject*> *args);
 
+/**
+ *  the klass of native function.
+ */
 class NativeFunctionKlass : public Klass {
 public:
     static NativeFunctionKlass* get_instance();
@@ -21,6 +24,21 @@ private:
     NativeFunctionKlass();
 };
 
+/**
+ * MethodKlass is use of the function defined in the class.
+ */
+class MethodKlass : public Klass {
+public:
+    static MethodKlass* get_instance();
+private:
+    static MethodKlass* m_Instance;
+    static std::mutex   m_Mutex;
+    MethodKlass();
+};
+
+/**
+ * FunctionKlass is a klass of the functions.
+ */
 class FunctionKlass : public Klass {
 public:
     static FunctionKlass* get_instance();
