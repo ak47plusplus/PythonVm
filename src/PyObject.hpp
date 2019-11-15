@@ -11,7 +11,7 @@ public:
     void set_klass(Klass * kls) { m_Klass = kls;}
 
     void print();
-    
+
     PyObject *id();
 
     PyObject *add(PyObject *rhs);
@@ -29,6 +29,7 @@ public:
 
     PyObject *len();
     PyObject *subscr(PyObject *rhs);
+    PyObject *contains(PyObject *rhs);
     PyObject *getattr(PyObject *attrK);
 
 private:

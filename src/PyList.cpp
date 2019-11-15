@@ -34,7 +34,7 @@ void ListKlass::print(PyObject * x)
     for(auto i = 0; i < pList->size(); i++)
     {
         pList->get(i)->print();
-        if(i < pList->size() -1) 
+        if(i < pList->size() -1)
         {
             printf(",");
         }
@@ -54,6 +54,20 @@ PyObject *ListKlass::subscr(PyObject *lhs, PyObject *rhs)
     PyList * list = static_cast<PyList*>(lhs);
     PyInteger *index = static_cast<PyInteger*>(rhs);
     return list->get(index->value());
+}
+
+/**
+ * @brief 判断当前list是否包含某个对象(==使用equals)
+ * @param list本身
+ * @param 被判断的对象
+ */
+PyObject *ListKlass::contains(PyObject *lhs, PyObject *rhs)
+{
+    assert(lhs && lhs->klass() == this);
+    if(rhs == nullptr) return VM::PyFalse;
+    PyList *list = dynamic_cast<PyList*>(lhs);
+    if(list->size() == 0) return VM::PyFalse;
+    return list->index(rhs) = -1 ? VM::PyFalse: VM::PyTrue;
 }
 
 /**

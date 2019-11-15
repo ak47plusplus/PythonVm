@@ -16,14 +16,14 @@
 #include <memory>
 #include <iostream>
 
-#define PUSH(v)               m_CurrentFrame->m_Stack->add((v))
-#define POP()                   m_CurrentFrame->m_Stack->pop()
+#define PUSH(v)           m_CurrentFrame->m_Stack->add((v))
+#define POP()             m_CurrentFrame->m_Stack->pop()
 #define STACK_LEVEL()     m_CurrentFrame->m_Stack->size()
-#define SET_PC(v)             m_CurrentFrame->set_pc(v)
+#define SET_PC(v)         m_CurrentFrame->set_pc(v)
 
-#define TRUE            VM::PyTrue
-#define FALSE           VM::PyFalse
-#define None            VM::PyNone
+#define TRUE              VM::PyTrue
+#define FALSE             VM::PyFalse
+#define None              VM::PyNone
 
 Interpreter* Interpreter::m_Instance = nullptr;
 std::mutex Interpreter::m_Mutex;
@@ -58,7 +58,6 @@ void Interpreter::run(CodeObject *codes)
     eval_frame();
     destroy_frame();
 }
-
 
 void Interpreter::eval_frame()
 {
@@ -318,6 +317,9 @@ void Interpreter::eval_frame()
                         break;
                     case ByteCode::IS_NOT:
                         PUSH(v != w ? VM::PyTrue : VM::PyFalse);
+                        break;
+                    case ByteCode::IN:
+                        PUSH(w->contains(v));
                         break;
                     default:
                         __panic("Unrecognized compare op arg: %d\n", opArg);

@@ -83,6 +83,11 @@ PyObject *PyObject::subscr(PyObject *rhs)
     return this->m_Klass->subscr(this, rhs);
 }
 
+PyObject *PyObject::contains(PyObject *rhs)
+{
+    return this->m_Klass->contains(this, rhs);
+}
+
 PyObject *PyObject::getattr(PyObject *attrK)
 {
     return this->m_Klass->getattr(this, attrK);
