@@ -133,9 +133,9 @@ PyObject* StringKlass::contains(PyObject *lhs, PyObject *rhs)
     {
         __panic("TypeError: 'in <string>' requires string as left operand, not ?\n");
     }
-    PyString *base_str = dynamic_cast<PyString*>(lhs);
+    PyString *base_str = dynamic_cast<PyString*>(rhs);
     PyString *sub_str = dynamic_cast<PyString*>(rhs);
-    if(sub_str->length() > base_str->length()
+    if(sub_str->length() > base_str->length())
     {
         return VM::PyFalse;
     }
