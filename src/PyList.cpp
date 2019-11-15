@@ -140,7 +140,7 @@ PyList::~PyList()
 
 namespace pylist {
 
-extern PyObject* list_append(FuncArgs args)
+PyObject* list_append(FuncArgs args)
 {
     PyList *list = dynamic_cast<PyList*>(args->get(0));
     PyObject *new_element = args->get(1);
@@ -148,4 +148,21 @@ extern PyObject* list_append(FuncArgs args)
     return VM::PyNone;
 }
 
+PyObject *list_insert(FuncArgs args)
+{
+return nullptr;
 }
+PyObject *list_index(FuncArgs args)
+{
+return nullptr;
+}
+PyObject *list_pop(FuncArgs args)
+{
+return nullptr;
+}
+PyObject *list_remove(FuncArgs args)
+{
+    return nullptr;
+}
+
+} // end of namespace pylist

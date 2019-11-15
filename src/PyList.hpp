@@ -46,8 +46,12 @@ private:
 
 namespace pylist {
     typedef ArrayList<PyObject*> *FuncArgs;
-    
+
     extern PyObject *list_append(FuncArgs args);
+    extern PyObject *list_insert(FuncArgs args);
+    extern PyObject *list_index(FuncArgs args);
+    extern PyObject *list_pop(FuncArgs args);
+    extern PyObject *list_remove(FuncArgs args);
 }
 
 #endif
