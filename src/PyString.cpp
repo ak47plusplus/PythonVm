@@ -44,12 +44,32 @@ void StringKlass::print(PyObject *x)
 // python的str只能和str加
 PyObject* StringKlass::add(PyObject *lhs, PyObject *rhs)
 {
-    return nullptr;
+    assert(lhs && lhs->klass() == this);
+    if(rhs == nullptr || rhs->klass() != StringKlass::get_instance())
+    {
+        __panic("TypeError: must be str, not int\n");
+    }
+    PyString *str1 = dynamic_cast<PyString*>(lhs);
+    PyString *str2 = dynamic_cast<PyString*>(rhs);
+    auto str1_len = str1->length();
+    auto str2_len = str2->length();
+    char *buffer = new char[str1_len + str2_len];
+    memcpy(buffer, str1->value(), str1_len);
+    memcpy(buffer + str1_len, str2->value(); str2_len);
+    PyString *res = new PyString(buffer, str1_len + str2_len);
+    delete[] buffer;
+    return res;
 }
 
 // TODO 字符串不能乘以字符串 但是能乘以int 自动翻倍字符串...
 PyObject* StringKlass::mul(PyObject *lhs, PyObject *rhs)
 {
+    assert(lhs && lhs->klass() == this);
+    if(rhs == nullptr || rhs->klass() != IntegerKlass::get_instance())
+    {
+        __panic("TypeError: can't multiply sequence by non-int of type 'str'");
+    }
+    // TODO
     return nullptr;
 }
 
