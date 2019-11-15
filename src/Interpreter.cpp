@@ -18,6 +18,7 @@
 
 #define PUSH(v)           m_CurrentFrame->m_Stack->add((v))
 #define POP()             m_CurrentFrame->m_Stack->pop()
+#define TOP()             m_CurrentFrame->m_Stack->top()
 #define STACK_LEVEL()     m_CurrentFrame->m_Stack->size()
 #define SET_PC(v)         m_CurrentFrame->set_pc(v)
 
@@ -86,6 +87,16 @@ void Interpreter::eval_frame()
         switch (opCode) {
             case ByteCode::POP_TOP:
                 POP();
+                break;
+            case ByteCode::ROT_TWO:
+                v = POP();
+                w = POP();
+                PUSH(v);
+                PUSH(w);
+            case ByteCode::ROT_THREE:
+                break;
+            case ByteCode::DUP_TOP:
+                PUSH(TOP());
                 break;
             case ByteCode::PRINT_ITEM:     // 71
                 v = POP();
