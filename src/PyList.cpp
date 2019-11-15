@@ -1,8 +1,11 @@
 #include "PyList.hpp"
 #include "PyInteger.hpp"
 #include "VM.hpp"
+#include "Panic.hpp"
+
 #include <assert.h>
 #include <stdio.h>
+#include <vector>
 
 ListKlass* ListKlass::m_Instance = nullptr;
 std::mutex ListKlass::m_Mutex;
@@ -140,6 +143,11 @@ PyList::~PyList()
 
 namespace pylist {
 
+/**
+ * @brief 给list追加一个元素
+ * @param args[0] list本身
+ * @param args[1] 追加的元素
+ */
 PyObject* list_append(FuncArgs args)
 {
     PyList *list = dynamic_cast<PyList*>(args->get(0));
@@ -148,21 +156,87 @@ PyObject* list_append(FuncArgs args)
     return VM::PyNone;
 }
 
+/**
+ * @brief 在list的指定位置插入一个元素
+ * 如果插入位置的索引大于size，那么则视为追加。
+ * <pre>
+ * lst = []
+ * lst.insert(100, 'ab')
+ * print lst // ['ab'] , size = 1
+ * </pre>
+ * @param args[0] list本身
+ * @param args[1] 插入位置的索引，必须为PyInteger
+ * @param args[2] 插入的数据
+ */
 PyObject *list_insert(FuncArgs args)
 {
-return nullptr;
+    PyObject *arg0 = args->get(0);
+    PyObject *arg1 = args->get(1);
+    PyObject *arg2 = args->get(2);
+    assert(arg0 && arg0->klass() == ListKlass::get_instance());
+    if(arg1 == nullptr || arg1->klass() != IntegerKlass::get_instance())
+    {
+        __panic("'?' object cannot be interpreted as an integer\n");
+    }
+    PyList *list = dynamic_cast<PyList*>(arg0);
+    PyInteger *index = dynamic_cast<PyInteger*>(arg1);
+    if(index->value() > list->size()-1)
+        list->append(arg2);
+    else 
+        list->set(index->value(), arg2);
+    return VM::PyNone;
 }
+
+/**
+ * @brief 获取一个对象在list中的索引，不在list中则抛出异常
+ */
 PyObject *list_index(FuncArgs args)
 {
-return nullptr;
+    PyList* list = dynamic_cast<PyList*>(args->get(0));
+    PyObject *target = args->get(1);
+    for(auto i = 0; i < list->size(); ++i)
+    {
+        if(list->get(i)->equal(target))
+        {
+            return new PyInteger(i);
+        }
+    }
+    __throw_python_except("ValueError: object not in list\n");
 }
+
+/**
+ * @brief 对一个list进行pop操作
+ * @param args[0] 操作的list
+ */
 PyObject *list_pop(FuncArgs args)
 {
-return nullptr;
+    PyList* list = dynamic_cast<PyList*>(args->get(0));
+    if(list->size() <= 0)
+        __throw_python_except("IndexError: pop from empty list\n");
+    list->pop();
+    return VM::PyNone;
 }
+
+/**
+ * @brief 从list删除一个元素，
+ * 如一个list中多次出现，那么只删除第一个.
+ */
 PyObject *list_remove(FuncArgs args)
 {
-    return nullptr;
+    PyList* list = dynamic_cast<PyList*>(args->get(0));
+    PyObject *target = args->get(1);
+    auto index = -1;
+    for(auto i = 0; i < list->size(); i++)
+    {
+        if(list->get(i)->equal(target))
+        {
+            index = i;
+        }
+    }
+    if(index == -1)
+        __throw_python_except("ValueError: list.remove(x): x not in list");
+    list->delete_index(index);
+    return VM::PyNone;
 }
 
 } // end of namespace pylist

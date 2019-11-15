@@ -29,6 +29,7 @@ public:
     T pop();
     T top();
     bool isEmpty();
+    void delete_index(int index);
 private:
     void expandCapacity();
 private:
@@ -201,6 +202,18 @@ ArrayList<T>::~ArrayList()
     if (m_data != nullptr) {
       delete[] m_data;
     }
+}
+
+template<typename T>
+void ArrayList<T>::delete_index(int index)
+{
+    if(index < 0 || index >= m_size)
+        throw std::out_of_range("index out of bounds.");
+    for(auto i = index; i < m_size-1; i++)
+    {
+        m_data[i] = m_data[i+1];
+    }
+    m_size--;
 }
 
 #endif

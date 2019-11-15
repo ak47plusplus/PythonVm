@@ -38,7 +38,7 @@ public:
     PyObject *top()                       { return m_InnerList->get(this->size() - 1);}
 
     int index(PyObject *obj)              { return m_InnerList->index(obj);}
- //   void delete_index(int index)          { m_InnerList.delete_index(index);}
+    void delete_index(int index)          { m_InnerList->delete_index(index);}
 
 private:
     ArrayList<PyObject*> *m_InnerList;

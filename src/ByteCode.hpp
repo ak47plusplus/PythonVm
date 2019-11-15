@@ -14,7 +14,7 @@ public:
     static const unsigned char UNARY_NEGATIVE = 11;
     static const unsigned char BINARY_MULTIPLY = 20;    // *
     static const unsigned char BINARY_MODULO = 22;      // %
-    static const unsigned char BINARY_SUBSCR = 25;      // ?
+    static const unsigned char BINARY_SUBSCR = 25;      // []
     static const unsigned char BINARY_DIVIDE = 21;      // /
     static const unsigned char BINARY_ADD = 23;         // +
     static const unsigned char BINARY_SUBTRACT = 24;    // -
