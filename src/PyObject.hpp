@@ -30,6 +30,7 @@ public:
     PyObject *len();
     PyObject *subscr(PyObject *rhs);
     PyObject *contains(PyObject *rhs);
+
     PyObject *getattr(PyObject *attrK);
 
 private:

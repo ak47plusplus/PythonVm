@@ -55,6 +55,7 @@ public:
 
     // 取下标
     virtual PyObject* subscr(PyObject *lhs, PyObject* rhs);
+    virtual PyObject* contains(PyObject *lhs, PyObject *rhs);
 
 private:
     StringKlass();
@@ -74,7 +75,7 @@ public:
     int length()        const   { return this->m_Length;}
 public:
     static PyString* times(const PyString *rawStr, int times);
-
+    static PyString* empty_str();
 private:
     char * m_Value;
     int    m_Length;

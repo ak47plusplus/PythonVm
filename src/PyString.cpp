@@ -1,8 +1,10 @@
 #include "PyString.hpp"
 #include "PyInteger.hpp"
 #include "PyDouble.hpp"
+#include "Panic.hpp"
 #include "VM.hpp"
 
+#include <string>
 #include <string.h>
 #include <stdlib.h>
 #include <assert.h>
@@ -15,15 +17,15 @@ std::mutex StringKlass::m_Mutex;
 
 StringKlass *StringKlass::get_instance()
 {
-      if(StringKlass::m_Instance == nullptr)
-      {
-            std::lock_guard<std::mutex> lock(StringKlass::m_Mutex);
+    if(StringKlass::m_Instance == nullptr)
+    {
+        std::lock_guard<std::mutex> lock(StringKlass::m_Mutex);
             if(StringKlass::m_Instance == nullptr)
             {
                   StringKlass::m_Instance = new StringKlass();
             }
-      }
-      return StringKlass::m_Instance;
+        }
+    return StringKlass::m_Instance;
 }
 
 // py的字符串里可以包含\0 请勿使用%s打印
@@ -114,11 +116,33 @@ PyObject* StringKlass::len(PyObject *x)
 PyObject* StringKlass::subscr(PyObject *lhs, PyObject* rhs)
 {
     assert(lhs && lhs->klass() == this);
-    assert(rhs && rhs->klass() == IntegerKlass::get_instance());
+    if(rhs == nullptr || rhs->klass() != IntegerKlass::get_instance())
+    {
+        __panic("TypeError: string indices must be inntegers\n");
+    }
     PyString *pyStr = dynamic_cast<PyString*>(lhs);
     PyInteger *index = dynamic_cast<PyInteger*>(rhs);
     char  target = pyStr->value()[index->value()];
     return new PyString(&target, 1);
+}
+
+PyObject* StringKlass::contains(PyObject *lhs, PyObject *rhs)
+{
+    assert(lhs && lhs->klass() == this);
+    if(rhs == nullptr || rhs->klass() != StringKlass::get_instance())
+    {
+        __panic("TypeError: 'in <string>' requires string as left operand, not ?\n");
+    }
+    PyString *base_str = dynamic_cast<PyString*>(lhs);
+    PyString *sub_str = dynamic_cast<PyString*>(rhs);
+    if(sub_str->length() > base_str->length()
+    {
+        return VM::PyFalse;
+    }
+    // 避免使用strstr,因为PyString可以包含'\0' 这里直接使用std::string来实现.
+    std::string _base(base_str->value(), base_str->length());
+    std::string _sub(sub_str->value(), sub_str->length());
+    return _base.find(_sub) == std::string::npos ? VM::PyFalse : VM::PyTrue;
 }
 
 
@@ -127,9 +151,16 @@ PyObject* StringKlass::subscr(PyObject *lhs, PyObject* rhs)
 // do not contain the '\0'
 PyString::PyString(const char * str)
 {
-    m_Length = strlen(str);
-    m_Value = new char[m_Length];
-    strcpy(m_Value, str);
+    if(str == nullptr)
+    {
+        m_Length = 0;
+        m_Value = nullptr;
+    } else
+    {
+        m_Length = strlen(str);
+        m_Value = new char[m_Length];
+        strcpy(m_Value, str);
+    }
     set_klass(StringKlass::get_instance());
 }
 
@@ -179,4 +210,9 @@ PyString* PyString::times(const PyString* rawStr, int times)
     memcpy(tmp + oldLen, rawStr->value(), oldLen);
     memcpy(tmp + oldLen + oldLen, rawStr->value(), oldLen);
     return new PyString(tmp, newLen);
+}
+
+PyString* PyString::empty_str()
+{
+    return new PyString(nullptr);
 }
