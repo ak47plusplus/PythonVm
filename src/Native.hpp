@@ -5,9 +5,9 @@
 #include "ArrayList.hpp"
 
 namespace native {
-    
+
 typedef ArrayList<PyObject*> *FuncArgs;
-    
+
 namespace python_builtins {
     extern PyObject* id(FuncArgs args);
     extern PyObject* abs(FuncArgs args);
@@ -15,13 +15,7 @@ namespace python_builtins {
     extern PyObject* type_of(FuncArgs args);
     extern PyObject* isinstance(FuncArgs args);
 }
-   
-namespace internal_usage {
-    extern PyObject* string_upper(FuncArgs args);
-}
-
 }
 
 
 #endif
-

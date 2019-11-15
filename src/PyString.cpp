@@ -236,3 +236,27 @@ PyString* PyString::empty_str()
 {
     return new PyString(nullptr);
 }
+
+
+namespace pystring {
+    PyObject* string_upper(FuncArgs args)
+    {
+        auto arg0 = args->get(0);
+        assert(arg0->klass() == StringKlass::get_instance());
+        PyString *str = dynamic_cast<PyString*>(arg0);
+        int len = str->length();
+        if(len <= 0)
+            return VM::PyNone;
+        char upper[len];
+        char c;
+        for(auto i = 0; i < len; i++)
+        {
+            c = str->value()[i];
+            if(c >= 'a' && c <= 'z')
+                upper[i] = c - 32;
+            else
+                upper[i] = c;
+        }
+        return new PyString(upper,len);
+    }
+}

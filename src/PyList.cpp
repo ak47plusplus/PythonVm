@@ -1,5 +1,6 @@
 #include "PyList.hpp"
 #include "PyInteger.hpp"
+#include "VM.hpp"
 #include <assert.h>
 #include <stdio.h>
 
@@ -134,4 +135,17 @@ PyList::~PyList()
 {
     if(m_InnerList != nullptr)
         delete m_InnerList;
+}
+
+
+namespace pylist {
+
+extern PyObject* list_append(FuncArgs args)
+{
+    PyList *list = dynamic_cast<PyList*>(args->get(0));
+    PyObject *new_element = args->get(1);
+    list->append(new_element);
+    return VM::PyNone;
+}
+
 }

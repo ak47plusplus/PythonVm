@@ -3,6 +3,7 @@
 #include "PyObject.hpp"
 #include "PyInteger.hpp"
 #include "PyString.hpp"
+#include "PyList.hpp"
 #include "PyFunction.hpp"
 
 PyInteger * VM::PyTrue = nullptr;
@@ -16,7 +17,9 @@ void VM::init() NOEXCEPT
     VM::PyNone = new PyObject();
 
     // init string.
-    StringKlass::get_instance()->register_klass_dict(new PyString("upper"), new PyFunction(native::internal_usage::string_upper));
+    StringKlass::get_instance()->register_klass_dict(new PyString("upper"), new PyFunction(pystring::string_upper));
+    // init list.
+    ListKlass::get_instance()->register_klass_dict(new PyString("append"), new PyFunction(pylist::list_append));
 }
 
 

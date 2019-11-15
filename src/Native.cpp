@@ -16,8 +16,8 @@ namespace native {
 namespace python_builtins {
 
     /**
-     * 获取一个对象的唯一id. 
-     * 在本虚拟机中返回的是对象的地址. 
+     * 获取一个对象的唯一id.
+     * 在本虚拟机中返回的是对象的地址.
      */
     PyObject* id(FuncArgs args)
     {
@@ -41,7 +41,7 @@ namespace python_builtins {
         else if(arg->klass() == DoubleKlass::get_instance())
         {
             return new PyDouble(std::fabs(dynamic_cast<PyDouble*>(arg)->value()));
-        } else 
+        } else
         {
             __panic("TypeError: bad operand type for abs():'%s' ^_^\n", "?");
         }
@@ -69,32 +69,5 @@ namespace python_builtins {
     }
 } // end of namespace python_builtins.
 
-/**
- * namespace internal_usage:
- * brief:
- */
-namespace internal_usage {
-    
-    PyObject* string_upper(FuncArgs args)
-    {
-        auto arg0 = args->get(0);
-        assert(arg0->klass() == StringKlass::get_instance());
-        PyString *str = dynamic_cast<PyString*>(arg0);
-        int len = str->length();
-        if(len <= 0)
-            return VM::PyNone;
-        char upper[len];
-        char c;
-        for(auto i = 0; i < len; i++)
-        {
-            c = str->value()[i];
-            if(c >= 'a' && c <= 'z')
-                upper[i] = c - 32;
-            else
-                upper[i] = c;
-        }
-        return new PyString(upper,len);
-    }
-}
-    
+
 } // end of namespace native

@@ -44,4 +44,10 @@ private:
     ArrayList<PyObject*> *m_InnerList;
 };
 
+namespace pylist {
+    typedef ArrayList<PyObject*> *FuncArgs;
+    
+    extern PyObject *list_append(FuncArgs args);
+}
+
 #endif

@@ -81,4 +81,10 @@ private:
     int    m_Length;
 };
 
+namespace pystring {
+    typedef ArrayList<PyObject*> *FuncArgs;
+    extern PyObject* string_upper(FuncArgs args);
+}
+
+
 #endif
