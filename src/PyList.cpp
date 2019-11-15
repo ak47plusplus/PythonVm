@@ -67,7 +67,7 @@ PyObject *ListKlass::contains(PyObject *lhs, PyObject *rhs)
     if(rhs == nullptr) return VM::PyFalse;
     PyList *list = dynamic_cast<PyList*>(lhs);
     if(list->size() == 0) return VM::PyFalse;
-    return list->index(rhs) = -1 ? VM::PyFalse: VM::PyTrue;
+    return list->index(rhs) == -1 ? VM::PyFalse: VM::PyTrue;
 }
 
 /**
@@ -127,6 +127,7 @@ PyList& PyList::operator=(const PyList &rhs)
     {
         m_InnerList[i] = rhs.m_InnerList[i];
     }
+    return *this;
 }
 
 PyList::~PyList()
