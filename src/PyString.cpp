@@ -55,7 +55,7 @@ PyObject* StringKlass::add(PyObject *lhs, PyObject *rhs)
     auto str2_len = str2->length();
     char *buffer = new char[str1_len + str2_len];
     memcpy(buffer, str1->value(), str1_len);
-    memcpy(buffer + str1_len, str2->value(); str2_len);
+    memcpy(buffer + str1_len, str2->value(), str2_len);
     PyString *res = new PyString(buffer, str1_len + str2_len);
     delete[] buffer;
     return res;
