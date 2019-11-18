@@ -57,8 +57,8 @@ PyObject *ListKlass::subscr(PyObject *lhs, PyObject *rhs)
 {
     assert(lhs && lhs->klass() == this);
     assert(rhs && rhs->klass() == IntegerKlass::get_instance());
-    PyList * list = static_cast<PyList*>(lhs);
-    PyInteger *index = static_cast<PyInteger*>(rhs);
+    PyList * list = dynamic_cast<PyList*>(lhs);
+    PyInteger *index = dynamic_cast<PyInteger*>(rhs);
     return list->get(index->value());
 }
 
@@ -292,17 +292,41 @@ PyObject *list_remove(FuncArgs args)
     return VM::PyNone;
 }
 
+/**
+ * 清空整个list.
+ */
 PyObject *list_clear(FuncArgs args)
 {
     PyList* list = dynamic_cast<PyList*>(args->get(0));
     list->clear();
 }
 
+/**
+ * 统计list中某个元素出现的个数.
+ */
 PyObject *list_count(FuncArgs args)
 {
     PyList* list = dynamic_cast<PyList*>(args->get(0));
     PyObject *target = args->get(0);
     return new PyInteger(list->count(target));
+}
+
+/**
+ * 将list从小到大进行升序排列.
+ */
+PyObject *list_sort(FuncArgs args)
+{
+    return VM::PyNone;
+}
+
+/**
+ * 反转整个列表.
+ */
+PyObject *list_reverse(FuncArgs args)
+{
+    PyList* list = dynamic_cast<PyList*>(args->get(0));
+    list->reverse();
+    return VM::PyNone;
 }
 
 } // end of namespace pylist

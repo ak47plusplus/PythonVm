@@ -1,6 +1,7 @@
 #ifndef PY_DICT_HPP__
 #define PY_DICT_HPP__
 
+#include "Map.hpp"
 #include "Klass.hpp"
 #include "PyObject.hpp"
 
@@ -17,8 +18,12 @@ private:
 
 class PyDict : public PyObject {
 public:
-
+    PyDict();
+    PyDict(int defaultCap);
+    PyDict(const PyDict &rhs);
+    PyDict(PyDict &&rhs);
 private:
+    Map<PyObject*,PyObject*> contents__;
 };
 
 #endif

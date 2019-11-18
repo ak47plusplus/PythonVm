@@ -15,7 +15,8 @@ template<typename T>
 class ArrayList {
 public:
     explicit ArrayList(int initial_cap = 16);
-    ArrayList(const ArrayList& rhs);
+    ArrayList(const ArrayList<T>& rhs);
+    ArrayList(ArrayList<T> &&rhs);
     ~ArrayList();
     ArrayList& operator=(const ArrayList& rhs);
     T& operator[](int index);// Returns a Reference to the element at position n in the vector container.
@@ -31,6 +32,7 @@ public:
     bool isEmpty();
     void delete_index(int index);
     void clear();
+    void reverse();
 private:
     void expandCapacity();
 private:
@@ -52,7 +54,7 @@ ArrayList<T>::ArrayList(int initial_cap)
 
 // Copy constructor implementation.
 template<typename T>
-ArrayList<T>::ArrayList(const ArrayList& rhs)
+ArrayList<T>::ArrayList(const ArrayList<T>& rhs)
 {
     if(m_data != nullptr)
         delete[] m_data;
@@ -64,7 +66,18 @@ ArrayList<T>::ArrayList(const ArrayList& rhs)
     }
 }
 
-// Operator= implementation.
+template<typename T>
+ArrayList<T>::ArrayList(ArrayList<T> &&rhs)
+{
+    m_data = rhs.m_data;
+    m_size = rhs.m_size;
+    m_capacity = rhs.m_capacity;
+
+    rhs.m_data = nullptr;
+    rhs.m_size = 0;
+    rhs.capacity = 0;
+}
+
 template<typename T>
 ArrayList<T>& ArrayList<T>::operator=(const ArrayList<T>& rhs)
 {
@@ -100,7 +113,7 @@ void ArrayList<T>::add(T t)
 template<typename T>
 void ArrayList<T>::insert(int index, T t)
 {
-    this->add(t); // 只为了添加一个占位, 添加的内容会被覆盖.
+    this->add(t);
     for(int i = this->m_size-1; i > index; i--)
     {
       m_data[i] = m_data[i-1];
@@ -118,7 +131,6 @@ T ArrayList<T>::get(int index)
   return m_data[index];
 }
 
-// TODO
 template<typename T>
 void ArrayList<T>::set(int index, T t)
 {
@@ -126,7 +138,7 @@ void ArrayList<T>::set(int index, T t)
         this->expandCapacity();
 
     this->m_data[index] = t;
-    if(index >= m_size) // 5/8
+    if(index >= m_size)
         m_size = index + 1;
 }
 
@@ -150,7 +162,7 @@ int ArrayList<T>::index(const T &t)
 template<typename T>
 void ArrayList<T>::expandCapacity()
 {
-    T *new_space = new T[m_capacity << 1]; // capacity expands to 2 times.
+    T *new_space = new T[m_capacity << 1];
     for (size_t i = 0; i < m_capacity; i++) {
         new_space[i] = m_data[i];
     }
@@ -221,6 +233,25 @@ template<typename T>
 void ArrayList<T>::clear()
 {
     m_size = 0;
+}
+
+template<typename T>
+void ArrayList<T>::reverse()
+{
+    if(m_size <= 1)
+    {
+        return;
+    }
+    int start = 0;
+    int end = m_size-1;
+    while(start != end)
+    {
+        T tmp = m_data[start];
+        m_data[start] = m_data[end];
+        m_data[end]  = tmp;
+        start++;
+        end--;
+    }
 }
 
 #endif
