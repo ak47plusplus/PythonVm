@@ -35,6 +35,7 @@ public:
     PyObject *pop()                       { return m_InnerList->pop();}
     PyObject *get(int index)              { return m_InnerList->get(index);}
     void set(int index, PyObject *obj)    { m_InnerList->set(index, obj);}
+    void insert(int index, PyObject *obj) { m_InnerList->insert(index, obj);}
     PyObject *top()                       { return m_InnerList->get(this->size() - 1);}
 
     int index(PyObject *obj)              { return m_InnerList->index(obj);}
