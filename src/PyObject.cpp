@@ -83,6 +83,16 @@ PyObject *PyObject::subscr(PyObject *rhs)
     return this->m_Klass->subscr(this, rhs);
 }
 
+PyObject *PyObject::store_subscr(PyObject *mhs, PyObject *rhs)
+{   
+    return this->m_Klass->store_subscr(this, mhs, rhs);
+}
+
+PyObject *PyObject::del_subscr(PyObject *rhs)
+{
+    return this->m_Klass->del_subscr(this, rhs);
+}
+
 PyObject *PyObject::contains(PyObject *rhs)
 {
     return this->m_Klass->contains(this, rhs);

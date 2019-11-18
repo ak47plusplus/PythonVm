@@ -54,7 +54,7 @@ public:
 
     virtual PyObject* len(PyObject *x);
 
-    // 取下标
+    // 只支持取下标 不支持下标赋值和删除下标.
     virtual PyObject* subscr(PyObject *lhs, PyObject* rhs);
     virtual PyObject* contains(PyObject *lhs, PyObject *rhs);
 

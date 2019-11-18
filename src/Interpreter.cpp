@@ -142,6 +142,17 @@ void Interpreter::eval_frame()
                 w = POP();
                 PUSH(w->subscr(v));
                 break;
+            case ByteCode::STORE_SUBSCR:
+                v = POP();//index
+                w = POP();// payload
+                u = POP();// value
+                w->store_subscr(v, u);
+                break;
+            case ByteCode::DELETE_SUBSCR:
+                v = POP();
+                w = POP();
+                PUSH(w->del_subscr(v));
+                break;
             case ByteCode::RETURN_VALUE:  // 83
                 m_RetValue = POP();
                 if(m_CurrentFrame->is_first_frame())

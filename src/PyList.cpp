@@ -62,15 +62,43 @@ PyObject *ListKlass::subscr(PyObject *lhs, PyObject *rhs)
     return list->get(index->value());
 }
 
+/**
+ * @param lhs list本身
+ * @param rhs 删除的索引
+ */
 PyObject *ListKlass::del_subscr(PyObject *lhs, PyObject *rhs)
 {
     assert(lhs && lhs->klass() == this);
+    assert(rhs && rhs->klass() == IntegerKlass::get_instance());
+    PyList * list = static_cast<PyList*>(lhs);
+    PyInteger *index = static_cast<PyInteger*>(rhs);
+    int idx = index->value();
+    if(idx < 0 || idx >= list->size())
+    {
+        __throw_python_except("IndexError: list assignment index out of range.\n");
+    }
+    list->delete_index(idx);
+    return VM::PyNone;
 }
 
-PyObject *ListKlass::store_subscr(PyObject *lhs, PyObject *rhs)
+/**
+ * @param lhs list本身
+ * @param mhs 修改的索引位置
+ * @param rhs 修改的值
+ */
+PyObject *ListKlass::store_subscr(PyObject *lhs, PyObject *mhs, PyObject *rhs)
 {
     assert(lhs && lhs->klass() == this);
-    
+    assert(mhs && mhs->klass() == IntegerKlass::get_instance());
+    PyList *list = dynamic_cast<PyList*>(lhs);
+    PyInteger *index = dynamic_cast<PyInteger*>(mhs);
+    auto idx = index->value();
+    if(idx < 0 || idx >= list->size())
+    {
+        __throw_python_except("IndexError: list assignment index out of range.\n");
+    }
+    list->set(idx, rhs);
+    return VM::PyNone;
 }
 
 /**

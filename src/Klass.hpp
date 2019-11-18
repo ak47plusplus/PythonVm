@@ -41,7 +41,7 @@ public:
         __throw_python_except("TypeError:%s object is not subscriptable.\n", m_Name.c_str());
         return 0;
     }
-    virtual PyObject* store_subscr(PyObject *lhs, PyObject *rhs) 
+    virtual PyObject* store_subscr(PyObject *lhs, PyObject *mhs, PyObject *rhs) 
     {
         __throw_python_except("TypeError:%s object doesn't support item assignment.\n", m_Name.c_str());
         return 0;

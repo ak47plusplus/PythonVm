@@ -10,7 +10,7 @@ class ListKlass : public Klass {
 public:
     virtual void print(PyObject *x);
     virtual PyObject *subscr(PyObject *lhs, PyObject *rhs);
-    virtual PyObject *store_subscr(PyObject *lhs, PyObject *rhs);
+    virtual PyObject *store_subscr(PyObject *lhs, PyObject *mhs, PyObject *rhs);
     virtual PyObject *del_subscr(PyObject *lhs, PyObject *rhs);
     virtual PyObject *contains(PyObject *lhs, PyObject *rhs);
 
