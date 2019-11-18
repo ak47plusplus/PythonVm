@@ -10,7 +10,9 @@
 #include <assert.h>
 
 
-StringKlass::StringKlass(){}
+StringKlass::StringKlass(){
+    set_name("str");
+}
 
 StringKlass *StringKlass::m_Instance = nullptr;
 std::mutex StringKlass::m_Mutex;
@@ -257,6 +259,8 @@ namespace pystring {
             else
                 upper[i] = c;
         }
+        std::string c;
+        c.c_str();
         return new PyString(upper,len);
     }
 }

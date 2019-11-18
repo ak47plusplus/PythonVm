@@ -30,6 +30,7 @@ public:
     T top();
     bool isEmpty();
     void delete_index(int index);
+    void clear();
 private:
     void expandCapacity();
 private:
@@ -214,6 +215,12 @@ void ArrayList<T>::delete_index(int index)
         m_data[i] = m_data[i+1];
     }
     m_size--;
+}
+
+template<typename T>
+void ArrayList<T>::clear()
+{
+    m_size = 0;
 }
 
 #endif

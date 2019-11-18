@@ -40,6 +40,8 @@ public:
 
     int index(PyObject *obj)              { return m_InnerList->index(obj);}
     void delete_index(int index)          { m_InnerList->delete_index(index);}
+    void clear()                          { m_InnerList->clear();}
+    int count(PyObject *target);
 
 private:
     ArrayList<PyObject*> *m_InnerList;
@@ -53,6 +55,8 @@ namespace pylist {
     extern PyObject *list_index(FuncArgs args);
     extern PyObject *list_pop(FuncArgs args);
     extern PyObject *list_remove(FuncArgs args);
+    extern PyObject *list_clear(FuncArgs args);
+    extern PyObject *list_count(FuncArgs args);
 }
 
 #endif

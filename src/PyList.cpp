@@ -134,6 +134,18 @@ PyList& PyList::operator=(const PyList &rhs)
     return *this;
 }
 
+int PyList::count(PyObject *target)
+{
+    size_t cnt = 0;
+    auto size = m_InnerList->size();
+    for(auto i = 0; i < size; i ++)
+    {
+        if((*m_InnerList)[i]->equal(target))
+            cnt++;
+    }
+    return cnt;
+}
+
 PyList::~PyList()
 {
     if(m_InnerList != nullptr)
@@ -183,7 +195,7 @@ PyObject *list_insert(FuncArgs args)
     if(index->value() > list->size()-1)
         list->append(arg2);
     else 
-        list->set(index->value(), arg2);
+        list->insert(index->value(), arg2);
     return VM::PyNone;
 }
 
@@ -237,6 +249,19 @@ PyObject *list_remove(FuncArgs args)
         __throw_python_except("ValueError: list.remove(x): x not in list");
     list->delete_index(index);
     return VM::PyNone;
+}
+
+PyObject *list_clear(FuncArgs args)
+{
+    PyList* list = dynamic_cast<PyList*>(args->get(0));
+    list->clear();
+}
+
+PyObject *list_count(FuncArgs args)
+{
+    PyList* list = dynamic_cast<PyList*>(args->get(0));
+    PyObject *target = args->get(0);
+    return new PyInteger(list->count(target));
 }
 
 } // end of namespace pylist

@@ -4,12 +4,12 @@
 
 Klass::Klass()
 {
-    this->m_Name = nullptr;
+    //this->m_Name = nullptr;
 }
 
 Klass::~Klass()
 {
-    if(m_Name != nullptr) delete m_Name;
+    
 }
 
 void Klass::register_klass_dict(PyObject* k, PyObject *v)
