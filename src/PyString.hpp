@@ -5,6 +5,7 @@
 
 #include "Klass.hpp"
 #include "PyObject.hpp"
+#include "ArrayList.hpp"
 
 /**
  *  @brief The Python String class and object.
