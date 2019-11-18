@@ -38,17 +38,17 @@ public:
     virtual PyObject* len(PyObject *x)                       {return 0;}
     virtual PyObject* subscr(PyObject *lhs, PyObject *rhs)   
     {
-        __panic("TypeError:%s object is not subscriptable.\n", m_Name.c_str());
+        __throw_python_except("TypeError:%s object is not subscriptable.\n", m_Name.c_str());
         return 0;
     }
     virtual PyObject* store_subscr(PyObject *lhs, PyObject *rhs) 
     {
-        __panic("TypeError:%s object doesn't support item assignment.\n", m_Name.c_str());
+        __throw_python_except("TypeError:%s object doesn't support item assignment.\n", m_Name.c_str());
         return 0;
     }
     virtual PyObject* del_subscr(PyObject *lhs, PyObject *rhs) 
     {
-        __panic("TypeError:%s object doesn't support item deletion.\n", m_Name.c_str());
+        __throw_python_except("TypeError:%s object doesn't support item deletion.\n", m_Name.c_str());
         return 0;
     }
 
