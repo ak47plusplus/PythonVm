@@ -5,7 +5,10 @@
 DictKlass* DictKlass::m_Instance = nullptr;
 std::mutex DictKlass::m_Mutex;
 
-DictKlass::DictKlass(){}
+DictKlass::DictKlass()
+{
+    set_name("dict");
+}
 
 DictKlass* DictKlass::get_instance()
 {

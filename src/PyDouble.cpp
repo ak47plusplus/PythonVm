@@ -5,7 +5,7 @@
 
 DoubleKlass::DoubleKlass()
 {
-
+    set_name("float");
 }
 
 DoubleKlass *DoubleKlass::m_Instance = nullptr;

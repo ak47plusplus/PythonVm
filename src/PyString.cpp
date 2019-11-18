@@ -259,8 +259,6 @@ namespace pystring {
             else
                 upper[i] = c;
         }
-        std::string c;
-        c.c_str();
         return new PyString(upper,len);
     }
 }

@@ -11,7 +11,9 @@ ListKlass* ListKlass::m_Instance = nullptr;
 std::mutex ListKlass::m_Mutex;
 
 ListKlass::ListKlass()
-{}
+{
+    set_name("list");
+}
 
 ListKlass *ListKlass::get_instance()
 {
@@ -58,6 +60,17 @@ PyObject *ListKlass::subscr(PyObject *lhs, PyObject *rhs)
     PyList * list = static_cast<PyList*>(lhs);
     PyInteger *index = static_cast<PyInteger*>(rhs);
     return list->get(index->value());
+}
+
+PyObject *ListKlass::del_subscr(PyObject *lhs, PyObject *rhs)
+{
+    assert(lhs && lhs->klass() == this);
+}
+
+PyObject *ListKlass::store_subscr(PyObject *lhs, PyObject *rhs)
+{
+    assert(lhs && lhs->klass() == this);
+    
 }
 
 /**

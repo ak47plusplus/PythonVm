@@ -10,7 +10,9 @@
 NativeFunctionKlass* NativeFunctionKlass::m_Instance = nullptr;
 std::mutex NativeFunctionKlass::m_Mutex;
 NativeFunctionKlass::NativeFunctionKlass()
-{}
+{
+    set_name("function");
+}
 
 NativeFunctionKlass* NativeFunctionKlass::get_instance()
 {

@@ -8,7 +8,10 @@
 #include <math.h>   // fmod
 #include <assert.h>
 
-IntegerKlass::IntegerKlass(){}
+IntegerKlass::IntegerKlass()
+{
+    set_name("int");
+}
 
 IntegerKlass* IntegerKlass::m_Instance = nullptr;
 std::mutex IntegerKlass::m_Mutex;
