@@ -25,7 +25,7 @@ public:
     virtual bool has_next();
     virtual PyObject* next();
 private:
-    PyList *m_Target;
+    PyList *m_Target;   // do not hold the ownership.
     int     m_Cursor;
 };
 

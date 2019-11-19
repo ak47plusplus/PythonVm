@@ -10,4 +10,5 @@ public:
     virtual T    next()    = 0;
 };
 
+
 #endif

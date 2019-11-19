@@ -5,6 +5,35 @@
 #include <string>
 #include "Panic.hpp"
 
+#define MAKE_KLASS(_kls_)                               \
+    class _kls_ : public Klass {                        \
+    public:                                             \
+        static _kls_ *get_instance();                   \
+    private:                                            \
+        _kls_##();                                      \
+        static _kls_ *m_Instance;                       \
+        static std::mutex m_Mutex;                      \
+    };  
+
+#define MAKE_CLASS_IMPL(_kls_, _kls_name_)              \
+    _kls_ * _kls_::m_Instance = nullptr;                \
+    std::mutex _kls_::m_Mutex;                          \
+    _kls_::_kls_(){                                     \
+    set_name(#_kls_name_);                              \
+    }                                                   \
+    _kls_ * _kls_::get_instance()                       \
+    {                                                   \
+        if(nullptr == m_Instance)                       \
+        {                                               \
+            std::lock_guard<std::mutex> lock(m_Mutex);  \
+            if(nullptr == m_Instance)                   \
+            {                                           \
+                m_Instance = new _kls_##();             \
+            }                                           \
+        }                                               \
+        return m_Instance;                              \
+    }
+
 // Forward declaration
 class PyString;
 class PyObject;
@@ -71,5 +100,6 @@ private:
     std::string                      m_Name;
     std::map<PyObject*, PyObject*>   m_KlassDict;
 };
+
 
 #endif

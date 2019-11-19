@@ -23,7 +23,7 @@ public:
     PyDict(const PyDict &rhs);
     PyDict(PyDict &&rhs);
 private:
-    Map<PyObject*,PyObject*> contents__;
+    Map<PyObject*,PyObject*> m_;
 };
 
 #endif

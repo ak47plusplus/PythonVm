@@ -45,6 +45,7 @@ set(SOURCES
     src/Native.cpp
     src/ArrayList.cpp
     src/PyListIterator.cpp
+    src/PyStringIterator.cpp
 )
 
 # 添加一个可执行文件
