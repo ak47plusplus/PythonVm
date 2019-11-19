@@ -159,23 +159,25 @@ void Interpreter::eval_frame()
                 PUSH(v->iter());
                 break;
             case ByteCode::FOR_ITER:
-                v = POP();
-                Iterator<PyObject*>* it = dynamic_cast<Iterator<PyObject*>*>(v);
-                if(it->has_next())
                 {
-                    /*
-                     * 先需要将迭代器压栈,一次for循环结束后JUMP_ABSOLUTE直接到FOR_ITER指令
-                     * 取出迭代器,因此需要在压入迭代元素之前先压入迭代器.
-                     */
-                    PUSH(v);
-                    PUSH(it->next());
-                }
-                else {
-                    /*
-                     * 当迭代器没有元素时,应该退出for循环.程序计数器应该跳转到POP_BLOCK处
-                     * 进入for循环时已经安装了一个BLOCK.
-                     */
-                    SET_PC(pc + opArg);
+                    v = POP();
+                    Iterator<PyObject*>* it = dynamic_cast<Iterator<PyObject*>*>(v);
+                    if(it->has_next())
+                    {
+                       /*
+                        * 先需要将迭代器压栈,一次for循环结束后JUMP_ABSOLUTE直接到FOR_ITER指令
+                        * 取出迭代器,因此需要在压入迭代元素之前先压入迭代器.
+                        */
+                        PUSH(v);
+                        PUSH(it->next());
+                    }
+                    else {
+                       /*
+                        * 当迭代器没有元素时,应该退出for循环.程序计数器应该跳转到POP_BLOCK处
+                        * 进入for循环时已经安装了一个BLOCK.
+                        */
+                        SET_PC(pc + opArg);
+                    }
                 }
                 break;
             case ByteCode::RETURN_VALUE:  // 83
