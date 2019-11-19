@@ -35,7 +35,16 @@ public:
     virtual PyObject* ge(PyObject *lhs, PyObject *rhs)       {return 0;}
     virtual PyObject* le(PyObject *lhs, PyObject *rhs)       {return 0;}
 
-    virtual PyObject* len(PyObject *x)                       {return 0;}
+    virtual PyObject* len(PyObject *x)
+    {
+        __throw_python_except("TypeError: object oif type '%s' has no len()\n", m_Name.c_str());
+        return 0;
+    }
+    virtual PyObject* iter(PyObject *self)
+    {
+        __throw_python_except("TypeError:%s object is not iterable.\n", m_Name.c_str());
+        return 0;
+    }
     virtual PyObject* subscr(PyObject *lhs, PyObject *rhs)   
     {
         __throw_python_except("TypeError:%s object is not subscriptable.\n", m_Name.c_str());

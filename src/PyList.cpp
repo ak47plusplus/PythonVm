@@ -1,7 +1,8 @@
 #include "PyList.hpp"
-#include "PyInteger.hpp"
+#include "PyListIterator.hpp"
 #include "VM.hpp"
 #include "Panic.hpp"
+#include "PyInteger.hpp"
 
 #include <assert.h>
 #include <stdio.h>
@@ -46,6 +47,18 @@ void ListKlass::print(PyObject * x)
         }
     }
     printf("]");
+}
+
+PyObject *ListKlass::len(PyObject *self)
+{
+    assert(self && self->klass() == this);
+    return new PyInteger(dynamic_cast<PyList*>(self)->size());
+}
+
+PyObject *ListKlass::iter(PyObject *self)
+{
+    assert(self && self->klass() == this);
+    return new PyListIterator(dynamic_cast<PyList*>(self));
 }
 
 /**

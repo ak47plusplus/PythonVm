@@ -77,6 +77,10 @@ PyObject *PyObject::len()
 {
     return this->m_Klass->len(this);
 }
+PyObject *PyObject::iter()
+{
+    return this->m_Klass->iter(this);
+}
 
 PyObject *PyObject::subscr(PyObject *rhs)
 {

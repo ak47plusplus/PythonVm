@@ -28,6 +28,7 @@ public:
     PyObject *le(PyObject *rhs);
 
     PyObject *len();
+    PyObject *iter();
     PyObject *subscr(PyObject *rhs);
     PyObject *store_subscr(PyObject *mhs, PyObject *rhs);
     PyObject *del_subscr(PyObject *rhs);
