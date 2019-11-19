@@ -9,12 +9,12 @@
 MAKE_KLASS(StringIteratorKlass)
 
 class PyString;
-class PyStringIterator : public PyObject, public Iterator<PyString*> {
+class PyStringIterator : public PyObject, public Iterator<PyObject*> {
 public:
     PyStringIterator(PyString *pyStr);
     virtual ~PyStringIterator() = default;
     virtual bool has_next();
-    virtual PyString* next();
+    virtual PyObject* next();
 private:
     PyString *m_Target;     // do not hold the ownership.
     int       m_Cursor;

@@ -16,7 +16,7 @@ bool PyStringIterator::has_next()
     return m_Cursor < m_Target->length(); // ok for eq.
 }
 
-PyString* PyStringIterator::next()
+PyObject* PyStringIterator::next()
 {
     auto cur = m_Cursor;
     if(cur >= m_Target->length())
