@@ -10,7 +10,7 @@
     public:                                             \
         static _kls_ *get_instance();                   \
     private:                                            \
-        _kls_();                                      \
+        _kls_();                                        \
         static _kls_ *m_Instance;                       \
         static std::mutex m_Mutex;                      \
     };  
@@ -28,7 +28,7 @@
             std::lock_guard<std::mutex> lock(m_Mutex);  \
             if(nullptr == m_Instance)                   \
             {                                           \
-                m_Instance = new _kls_##();             \
+                m_Instance = new _kls_();               \
             }                                           \
         }                                               \
         return m_Instance;                              \
