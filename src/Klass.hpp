@@ -10,7 +10,7 @@
     public:                                             \
         static _kls_ *get_instance();                   \
     private:                                            \
-        _kls_##();                                      \
+        _kls_();                                      \
         static _kls_ *m_Instance;                       \
         static std::mutex m_Mutex;                      \
     };  
