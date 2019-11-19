@@ -1,4 +1,5 @@
 #include "PyString.hpp"
+#include "PyStringIterator.hpp"
 #include "PyInteger.hpp"
 #include "PyDouble.hpp"
 #include "Panic.hpp"
@@ -133,6 +134,11 @@ PyObject* StringKlass::le(PyObject *lhs, PyObject *rhs)
 PyObject* StringKlass::len(PyObject *x)
 {
     return new PyInteger(dynamic_cast<PyString*>(x)->length());
+}
+
+PyObject* StringKlass::iter(PyObject *self)
+{
+    return new PyStringIterator(dynamic_cast<PyString*>(self));
 }
 
 PyObject* StringKlass::subscr(PyObject *lhs, PyObject* rhs)

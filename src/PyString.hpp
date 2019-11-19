@@ -53,6 +53,7 @@ public:
     virtual PyObject* le(PyObject *lhs, PyObject *rhs);
 
     virtual PyObject* len(PyObject *x);
+    virtual PyObject* iter(PyObject *self);
 
     // 只支持取下标 不支持下标赋值和删除下标.
     virtual PyObject* subscr(PyObject *lhs, PyObject* rhs);
