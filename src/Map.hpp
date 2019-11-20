@@ -3,6 +3,7 @@
 
 #include "VM.hpp"
 
+#include <map>
 #include <exception>
 #include <stdexcept>
 
@@ -40,22 +41,27 @@ MapEntry<K,V>& MapEntry<K,V>::operator=(const MapEntry<K,V>& rhs)
 
 template<typename K, typename V>
 class Map {
+    typedef K key_type;
+    typedef V mapped_type;
 public:
     Map();
+    Map(int default_cap);
     Map(const Map<K,V>& rhs);
     Map(Map<K,V>&& rhs);
     Map<K,V>& operator=(const Map<K,V>& rhs);
     Map<K,V>& operator=(Map<K,V>&& rhs);
+    V& operator[](const K &k);
     ~Map();
     int     size()     const {  return m_Size;}
     int     capacity() const {  return m_Capacity;}
-    void    put(K k, V v);
-    V       get(K k);
+    bool    empty()    const {  return m_Size == 0;}
+    void    put(const K &k, const V &v);
+    V       get(const K &k);
     K       get_key(int index);
-    bool    contains_key(K k);
-    bool    has_key(K k);       // alias contains_key
-    V       remove(K k);
-    int     index(K k);
+    bool    contains_key(const K &k);
+    bool    has_key(const K &k);       // alias contains_key
+    V       erase(const K &k);
+    int     index(const K &k);
     const MapEntry<K,V> *entries() const {return m_Entries;}
 private:
     void expand_capacity();
@@ -65,11 +71,45 @@ private:
     int            m_Capacity;
 };
 
+// If k matches the key of an element in the container, the function 
+// returns a reference to its mapped value.
+// If k does not match the key of any element in the container, the 
+// function inserts a new element with that key and returns a reference to 
+// its mapped value. Notice that this always increases the container size by one, 
+// even if no mapped value is assigned to the element (the element is constructed using 
+// its default constructor).
+// Note: default compare use operator== but when pyobject* we prefer to use the 'equal'.
+template<typename K, typename V>
+V& Map<K,V>::operator[](const K &_kType)
+{
+    auto index = this->index(_kType);
+    if(index != -1)
+    {
+        return m_Entries[index].m_V;
+    }
+    // not found then put one.
+    if(m_Size + 1 > m_Capacity)
+    {
+        this->expand_capacity();
+    }
+    entries[m_Size].m_K = _kType;
+    return entries[m_Size++].m_V;
+}
+
+
 template<typename K, typename V>
 Map<K,V>::Map()
 {
     m_Entries   = new MapEntry<K,V>[DEFAULT_MAP_INIT_CAP];
     m_Capacity  = DEFAULT_MAP_INIT_CAP;
+    m_Size      = 0;
+}
+
+template<typename K, typename V>
+Map<K,V>::Map(int default_cap)
+{
+    m_Entries   = new MapEntry<K,V>[default_cap];
+    m_Capacity  = default_cap;
     m_Size      = 0;
 }
 
@@ -133,7 +173,7 @@ Map<K,V>::~Map()
 }
 
 template<typename K, typename V>
-void Map<K,V>::put(K k, V v)
+void Map<K,V>::put(const K &k, const V &v)
 {
     for(decltype(size()) i = 0; i < m_Size; i++)
     {
@@ -151,7 +191,7 @@ void Map<K,V>::put(K k, V v)
 }
 
 template<typename K, typename V>
-V Map<K,V>::get(K k)
+V Map<K,V>::get(const K &k)
 {
     int idx = index(k);
     if(idx < 0)
@@ -169,18 +209,18 @@ K Map<K,V>::get_key(int idx)
 }
 
 template<typename K, typename V>
-bool Map<K,V>::contains_key(K k)
+bool Map<K,V>::contains_key(const K &k)
 {
     return has_key(k);
 }
 
 template<typename K, typename V>    // alias contains_key
-bool Map<K,V>::has_key(K k){
+bool Map<K,V>::has_key(const K &k){
     return index(k) >= 0;
 }
 
 template<typename K, typename V>
-V  Map<K,V>::remove(K k)
+V  Map<K,V>::erase(const K &k)
 {
     int idx = index(k);
     if(idx < 0)
@@ -191,7 +231,7 @@ V  Map<K,V>::remove(K k)
 }
 
 template<typename K, typename V>
-int Map<K,V>::index(K k)
+int Map<K,V>::index(const K &k)
 {
     for(decltype(size()) i = 0; i < m_Size; i++)
     {

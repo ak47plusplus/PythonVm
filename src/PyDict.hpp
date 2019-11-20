@@ -19,11 +19,14 @@ private:
 class PyDict : public PyObject {
 public:
     PyDict();
-    PyDict(int defaultCap);
     PyDict(const PyDict &rhs);
     PyDict(PyDict &&rhs);
+    ~PyDict();
+
+    int size() const     { return m_InnerMap->size();}
+    int capacity() const  { return m_InnerMap->capacity();}
 private:
-    Map<PyObject*,PyObject*> m_;
+    Map<PyObject*,PyObject*> *m_InnerMap;
 };
 
 #endif

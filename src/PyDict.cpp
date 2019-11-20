@@ -22,3 +22,38 @@ DictKlass* DictKlass::get_instance()
     }
     return m_Instance;
 }
+
+PyDict::PyDict()
+{
+    set_klass(DictKlass::get_instance());
+    m_InnerMap = new Map<PyObject*, PyObject*>();
+}
+
+// copy一堆指针实际没啥用 没有做DeepCopy
+PyDict::PyDict(const PyDict &rhs)
+{
+    set_klass(DictKlass::get_instance());
+    m_InnerMap = new Map<PyObject*,PyObject*>(rhs.capacity());
+    // make copy
+    for(auto i = 0; i < rhs.m_InnerMap->size(); i++)
+    {
+        (*m_InnerMap)[i] = (*(rhs.m_InnerMap))[i];
+    }
+}
+
+PyDict::PyDict(PyDict &&rhs)
+{
+    set_klass(DictKlass::get_instance());
+    // move the owership
+    m_InnerMap = rhs.m_InnerMap;
+    rhs.m_InnerMap = nullptr;
+}
+
+PyDict::~PyDict()
+{
+    if(nullptr != m_InnerMap)
+    {
+        delete m_InnerMap;
+        m_InnerMap = nullptr;
+    }
+}
