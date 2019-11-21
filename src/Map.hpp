@@ -11,14 +11,13 @@ template<typename K, typename V>
 class Map;
 
 template<typename K, typename V>
-class MapEntry {
+struct MapEntry {
 public:
     MapEntry() = default;
     MapEntry(K k, V v): m_K(k), m_V(v){}
     MapEntry(const MapEntry<K,V>& rhs);
     MapEntry& operator=(const MapEntry<K,V>& rhs);
     friend class Map<K,V>;
-private:
     K m_K;
     V m_V;
 };
@@ -37,12 +36,84 @@ MapEntry<K,V>& MapEntry<K,V>::operator=(const MapEntry<K,V>& rhs)
     this->m_V = rhs.m_V;
 }
 
+template<typename _Tp>
+class _Map_iterator {
+public:
+    typedef _Tp  value_type;
+    typedef _Tp& reference;
+    typedef _Tp* pointer;
+    typedef _Tp *const _BasePtr;
+    typedef typename std::ptrdiff_t difference_type;
+
+    typedef _Map_iterator<_Tp>  _Self;
+public:
+    explicit
+    _Map_iterator(_BasePtr owner, int cursor=0)
+        :owner_(owner), cursor_(cursor)
+    {}
+    _Self& 
+    operator++() _GLIBCXX_NOEXCEPT
+    {
+        cursor_ += 1;
+        return *this;
+    } 
+    _Self 
+    opeator++(int) _GLIBCXX_NOEXCEPT
+    {
+        _Self tmp = *this;
+        cursor_ += 1;
+        return tmp;
+    }
+    _Self& 
+    operator--() _GLIBCXX_NOEXCEPT
+    {
+        cursor_ -= 1;
+        return *this;
+    }
+    _Self 
+    opeator--(int) _GLIBCXX_NOEXCEPT
+    {
+        _Self tmp = *this;
+        cursor_ -= 1;
+        return tmp;
+    }
+
+    bool
+    operator==(const _Self &__x) _GLIBCXX_NOEXCEPT
+    {
+        return owner_ == __x.owner_ 
+            && cursor_ == __x.cursor_;
+    }
+
+    bool 
+    operator!=(const _Self &__x) _GLIBCXX_NOEXCEPT
+    {
+        return owner_ != __x.owner_ 
+        || cursor_ != __x.cursor_;
+    }
+    _Tp
+    operator*() _GLIBCXX_NOEXCEPT
+    {
+        return *(owner_ + cursor_);
+    }
+    pointer
+    operator->() _GLIBCXX_NOEXCEPT
+    {
+        return (pointer)(owner_ + cursor_);
+    }
+private:
+    _BasePtr  owner_;
+    int       cursor_;
+};
+
 #define DEFAULT_MAP_INIT_CAP 8
 
 template<typename K, typename V>
 class Map {
+public:
     typedef K key_type;
     typedef V mapped_type;
+    typedef _Map_iterator<MapEntry<K,V>> iterator;
 public:
     Map();
     Map(int default_cap);
@@ -63,6 +134,8 @@ public:
     V       erase(const K &k);
     int     index(const K &k);
     const MapEntry<K,V> *entries() const {return m_Entries;}
+    iterator begin() const;
+    iterator end() const;
 private:
     void expand_capacity();
 private:
@@ -177,7 +250,7 @@ void Map<K,V>::put(const K &k, const V &v)
 {
     for(decltype(size()) i = 0; i < m_Size; i++)
     {
-        if(m_Entries[i].m_K->equal(k) == VM::PyTrue)
+        if(m_Entries[i].m_K == k)
         {
             m_Entries[i].m_V = v;
             return;
@@ -235,7 +308,7 @@ int Map<K,V>::index(const K &k)
 {
     for(decltype(size()) i = 0; i < m_Size; i++)
     {
-        if(m_Entries[i].m_K->equal(k) == VM::PyTrue) // 这里比较的用的是equal 而不是直接operator==比较地址!
+        if(m_Entries[i].m_K == k)
         {
             return i;
         }
@@ -255,6 +328,17 @@ void Map<K,V>::expand_capacity()
     delete m_Entries;
     m_Entries = newSpace;
     m_Capacity = newCap;
+}
+
+template<typename K, typename V>
+Map<K,V>::iterator Map<K,V>::begin() const
+{
+    return iterator(m_Entries, 0);
+}
+template<typename K, typename V>
+Map<K,V>::iterator Map<K,V>::end() const
+{
+    return iterator(m_Entries, m_Size);
 }
 
 #endif

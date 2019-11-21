@@ -44,6 +44,7 @@ set(SOURCES
     src/PyFunction.cpp
     src/Native.cpp
     src/ArrayList.cpp
+    src/Map.cpp
     src/PyListIterator.cpp
     src/PyStringIterator.cpp
 )
