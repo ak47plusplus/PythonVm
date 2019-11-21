@@ -58,7 +58,7 @@ public:
         return *this;
     } 
     _Self 
-    opeator++(int) _GLIBCXX_NOEXCEPT
+    operator++(int) _GLIBCXX_NOEXCEPT
     {
         _Self tmp = *this;
         cursor_ += 1;
@@ -71,7 +71,7 @@ public:
         return *this;
     }
     _Self 
-    opeator--(int) _GLIBCXX_NOEXCEPT
+    operator--(int) _GLIBCXX_NOEXCEPT
     {
         _Self tmp = *this;
         cursor_ -= 1;
