@@ -35,7 +35,7 @@ void DictKlass::print(PyObject *self)
         pMapEntries[i].m_K->print();
         printf(" : ");
         pMapEntries[i].m_V->print();
-        if(i != dict->size())
+        if(i < dict->size() -1 )
         {
             printf(", ");
         }
