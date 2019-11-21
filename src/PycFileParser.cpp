@@ -21,15 +21,15 @@ PycFileParser::~PycFileParser(){}
 CodeObject* PycFileParser::parse()
 {
     int magicNumber = m_Stream->read_int();
-    printf("magic number: %x \n", magicNumber);
+    printf("读取到魔数: %x \n", magicNumber);
 
     int updateDate = m_Stream->read_int();
-    printf("update date: %x \n", updateDate);
+    printf("读取到更新时间: %x \n", updateDate);
 
     char objectType = m_Stream->read();
     if (objectType == 'c') {
         CodeObject* result = this->get_code_object();
-        printf("Parser Ok!\n");
+        printf("字节码读取解析完毕,可以转交解释器执行!\n");
         return result;
     }
     return nullptr;
@@ -37,19 +37,19 @@ CodeObject* PycFileParser::parse()
 
 CodeObject *PycFileParser::get_code_object()
 {
-    printf("start to exec get_code_object\n");
+    printf("开始获取CodeObject.\n");
     int argCount = m_Stream->read_int();
     int nLocals = m_Stream->read_int();
     int stackSize = m_Stream->read_int();
     int flags = m_Stream->read_int();
-    LOG(INFO) << "argCount: " << argCount << ", nLocals: " << nLocals
+    LOG(INFO) << "参数: argCount: " << argCount << ", nLocals: " << nLocals
         << ", stackSize: " << stackSize << ", flags: " << flags;
 
+    printf("\t开始读取字节操作码...\n");
     PyString *byteCodes = this->get_byte_codes();
-    printf("read byte codes ,length=%d\n", byteCodes->length());
     byteCodes->print();
-	printf("\nread byte code end...\n");
 
+    printf("\t开始加载常量表/变量表/符号表/模块名等等...\n");
     ArrayList<PyObject*> *consts = this->get_consts();
     ArrayList<PyObject*> *names = this->get_names();
     ArrayList<PyObject*> *varNames = this->get_var_names();
@@ -60,7 +60,7 @@ CodeObject *PycFileParser::get_code_object()
     int beginLineNo = this->m_Stream->read_int();
     PyString *lnotab = this->get_no_table();
 
-    printf("finish to exec get_code_object\n");
+    printf("CodeObject读取完毕\n");
     return new CodeObject(argCount, nLocals, stackSize,flags, byteCodes,
       consts,names, varNames,freeVars,cellVars,fileName,moduleName,beginLineNo, lnotab);
 }
