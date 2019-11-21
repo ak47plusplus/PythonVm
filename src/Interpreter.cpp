@@ -261,6 +261,7 @@ void Interpreter::eval_frame()
                 u = POP();// dict
                 dynamic_cast<PyDict*>(u)->put(v, w);
                 PUSH(u);
+                break;
             case ByteCode::STORE_FAST:
                 m_CurrentFrame->fastLocals()->set(opArg, POP());
                 break;
