@@ -1,6 +1,7 @@
 #ifndef MAP_HPP____
 #define MAP_HPP____
 
+#include "Core.hpp"
 #include "VM.hpp"
 
 #include <map>
@@ -131,7 +132,7 @@ public:
     K       get_key(int index);
     bool    contains_key(const K &k);
     bool    has_key(const K &k);       // alias contains_key
-    V       erase(const K &k);
+    void    erase(const K &k);
     int     index(const K &k);
     const MapEntry<K,V> *entries() const {return m_Entries;}
     iterator begin() const;
@@ -293,14 +294,12 @@ bool Map<K,V>::has_key(const K &k){
 }
 
 template<typename K, typename V>
-V  Map<K,V>::erase(const K &k)
+void Map<K,V>::erase(const K &k)
 {
     int idx = index(k);
     if(idx < 0)
-        return VM::PyNone;
-    V rtV = m_Entries[idx].m_V;
+        return end();
     m_Entries[idx] = m_Entries[--m_Size];
-    return rtV;
 }
 
 template<typename K, typename V>
@@ -331,12 +330,13 @@ void Map<K,V>::expand_capacity()
 }
 
 template<typename K, typename V>
-Map<K,V>::iterator Map<K,V>::begin() const
+typename Map<K,V>::iterator Map<K,V>::begin() const
 {
     return iterator(m_Entries, 0);
 }
+
 template<typename K, typename V>
-Map<K,V>::iterator Map<K,V>::end() const
+typename Map<K,V>::iterator Map<K,V>::end() const
 {
     return iterator(m_Entries, m_Size);
 }

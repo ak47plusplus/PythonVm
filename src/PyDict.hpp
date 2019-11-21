@@ -19,11 +19,13 @@ private:
 class PyDict : public PyObject {
 public:
     PyDict();
-    PyDict(const PyDict &rhs);
+    PyDict(const PyDict &rhs) = delete;
     PyDict(PyDict &&rhs);
     ~PyDict();
+    PyDict& operator=(const PyDict &rhs) = delete;
 
-    int size() const     { return m_InnerMap->size();}
+
+    int size() const      { return m_InnerMap->size();}
     int capacity() const  { return m_InnerMap->capacity();}
 private:
     Map<PyObject*,PyObject*> *m_InnerMap;

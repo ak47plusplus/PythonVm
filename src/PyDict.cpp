@@ -30,16 +30,19 @@ PyDict::PyDict()
 }
 
 // copy一堆指针实际没啥用 没有做DeepCopy
-PyDict::PyDict(const PyDict &rhs)
-{
-    set_klass(DictKlass::get_instance());
-    m_InnerMap = new Map<PyObject*,PyObject*>(rhs.capacity());
-    // make copy
-    for(auto i = 0; i < rhs.m_InnerMap->size(); i++)
-    {
-        (*m_InnerMap)[i] = (*(rhs.m_InnerMap))[i];
-    }
-}
+// PyDict::PyDict(const PyDict &rhs)
+// {
+//     set_klass(DictKlass::get_instance());
+//     m_InnerMap = new Map<PyObject*,PyObject*>(rhs.capacity());
+//     // make copy
+//     MapEntry<PyObject*, PyObject*> *thisEntry = 
+//         const_cast<MapEntry<PyObject*, PyObject*> *>(m_InnerMap->entries());
+//     const MapEntry<PyObject*, PyObject*> *rhsEntry = rhs.m_InnerMap->entries();
+//     for(auto i = 0; i < rhs.m_InnerMap->size(); i++)
+//     {
+//         thisEntry[i] = rhsEntry[i];
+//     }
+// }
 
 PyDict::PyDict(PyDict &&rhs)
 {
