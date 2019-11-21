@@ -1,6 +1,7 @@
 #include "PyDict.hpp"
 
 #include <iostream>
+#include <cassert>
 
 DictKlass* DictKlass::m_Instance = nullptr;
 std::mutex DictKlass::m_Mutex;
@@ -23,10 +24,36 @@ DictKlass* DictKlass::get_instance()
     return m_Instance;
 }
 
+void DictKlass::print(PyObject *self)
+{
+    assert(self && self->klass() == this);
+    PyDict *dict = dynamic_cast<PyDict*>(self);
+    auto pMapEntries = dict->innerMap()->entries();
+    printf("{");
+    for(int i = 0; i < dict->size(); i++)
+    {
+        pMapEntries[i].m_K->print();
+        printf(" : ");
+        pMapEntries[i].m_V->print();
+        if(i != dict->size())
+        {
+            printf(", ");
+        }
+    }
+    printf("}");
+    fflush(stdout);
+}
+
 PyDict::PyDict()
 {
     set_klass(DictKlass::get_instance());
     m_InnerMap = new Map<PyObject*, PyObject*>();
+}
+
+PyDict::PyDict(int init_cap)
+{
+    set_klass(DictKlass::get_instance());
+    m_InnerMap = new Map<PyObject*, PyObject*>(8);
 }
 
 // copy一堆指针实际没啥用 没有做DeepCopy

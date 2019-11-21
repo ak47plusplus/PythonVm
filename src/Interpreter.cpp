@@ -9,8 +9,9 @@
 #include "PyInteger.hpp"
 #include "PyList.hpp"
 #include "PyListIterator.hpp"
+#include "PyDict.hpp"
 
-#include "PyFunction.hpp"
+#include "PyFunction.hpp"   
 
 #include <mutex>
 #include <cstdio>
@@ -251,6 +252,15 @@ void Interpreter::eval_frame()
                 }
                 PUSH(list);
                 break;
+            case ByteCode::BUILD_MAP:
+                PUSH(new PyDict(opArg));
+                break;
+            case ByteCode::STORE_MAP:
+                v = POP();// k
+                w = POP();// v
+                u = POP();// dict
+                dynamic_cast<PyDict*>(u)->put(v, w);
+                PUSH(u);
             case ByteCode::STORE_FAST:
                 m_CurrentFrame->fastLocals()->set(opArg, POP());
                 break;
