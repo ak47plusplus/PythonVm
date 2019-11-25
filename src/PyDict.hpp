@@ -12,6 +12,8 @@ public:
     static DictKlass* get_instance();
 
     virtual void print(PyObject *self);
+
+    virtual PyObject* subscr(PyObject *self, PyObject *key);
     virtual PyObject* store_subscr(PyObject *self, PyObject *key, PyObject *value);
 
 private:
@@ -30,6 +32,7 @@ public:
     PyDict& operator=(const PyDict &rhs) = delete;
 
     void put(PyObject *first, PyObject *second) { m_InnerMap->put(first, second); }
+    PyObject *get(PyObject *key)                { return m_InnerMap->get(key); }
     bool contains(PyObject *target)             { return m_InnerMap->contains_key(target); }
     int size() const                            { return m_InnerMap->size();}
     int capacity() const                        { return m_InnerMap->capacity();}

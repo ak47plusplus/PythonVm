@@ -47,6 +47,17 @@ void DictKlass::print(PyObject *self)
     fflush(stdout);
 }
 
+PyObject* DictKlass::subscr(PyObject *self, PyObject *key)
+{
+    assert(self && self->klass() == this);
+    PyDict *dict = dynamic_cast<PyDict*>(self);
+    if(dict->contains(key))
+    {
+        return dict->get(key);
+    }
+    __throw_python_except("KeyError \n");
+}
+
 /**
  * 对字典进行下标赋值操作.
  */
