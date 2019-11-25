@@ -312,6 +312,7 @@ PyObject *list_clear(FuncArgs args)
 {
     PyList* list = dynamic_cast<PyList*>(args->get(0));
     list->clear();
+    return VM::PyNone;
 }
 
 /**

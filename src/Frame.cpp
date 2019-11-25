@@ -1,6 +1,7 @@
 #include "Frame.hpp"
 #include "VM.hpp"
 #include "Core.hpp"
+#include "PyString.hpp"
 #include "PyFunction.hpp"
 
 // 这个方法仅限于模块使用.
