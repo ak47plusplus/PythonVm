@@ -8,7 +8,6 @@
 #include "Logger.hpp"
 #include "LoggerConfig.hpp"
 #include "CodeObject.hpp"
-#include "Interpreter.hpp"
 #include "FileInputStream.hpp"
 #include "PycFileParser.hpp"
 #include "ArrayList.hpp"

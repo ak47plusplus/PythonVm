@@ -2,10 +2,14 @@
 #define CODE_OBJECT_HPP
 
 #include "PyObject.hpp"
-#include "ArrayList.hpp"
 
-#include "PyString.hpp"
-// class PyString; 无法调用delete
+//#include "ArrayList.hpp"
+//#include "PyString.hpp"
+
+class PyString;
+
+template<typename _Tp>
+class ArrayList;
 
 /*
  * @brief 每一个.pyc文件对应的结构

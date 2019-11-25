@@ -3,6 +3,7 @@
 #include "Native.hpp"
 #include "Frame.hpp"
 #include "Map.hpp"
+#include "ArrayList.hpp"
 #include "Panic.hpp"
 #include "ByteCode.hpp"
 #include "PyString.hpp"

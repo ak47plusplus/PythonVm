@@ -8,7 +8,9 @@
 #include "Map.hpp"
 #include "Frame.hpp"
 #include "CodeObject.hpp"
-#include "ArrayList.hpp"
+
+template<typename _Tp>
+class ArrayList;
 
 class Interpreter {
 

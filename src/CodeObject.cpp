@@ -1,4 +1,6 @@
 #include "CodeObject.hpp"
+#include "PyString.hpp"
+#include "ArrayList.hpp"
 
 CodeObject::CodeObject(
   int argCount,
