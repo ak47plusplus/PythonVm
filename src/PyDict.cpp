@@ -1,5 +1,6 @@
 #include "PyDict.hpp"
 #include "PyInteger.hpp"
+#include "PyDictIterator.hpp"
 
 #include <iostream>
 #include <cassert>
@@ -57,7 +58,9 @@ PyObject* DictKlass::len(PyObject *self)
 
 PyObject* DictKlass::iter(PyObject *self)
 {
-    
+    assert(self && self->klass() == this);
+    PyDict *slf = dynamic_cast<PyDict*>(self);
+    return new PyDictKeyIterator(slf);
 }
 
 PyObject* DictKlass::subscr(PyObject *self, PyObject *key)
