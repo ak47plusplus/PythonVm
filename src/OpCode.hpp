@@ -21,8 +21,8 @@ public:
     
     static const unsigned char DELETE_SLICE = 50;
     static const unsigned char DELETE_SLICE_1 = 51;
-    static const unsigned char DELETE_SLICE_1 = 52;
-    static const unsigned char DELETE_SLICE_1 = 53;
+    static const unsigned char DELETE_SLICE_2 = 52;
+    static const unsigned char DELETE_SLICE_3 = 53;
 
     static const unsigned char STORE_MAP = 54;
     static const unsigned char INPLACE_ADD = 55;
