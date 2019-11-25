@@ -24,6 +24,9 @@ DictKlass* DictKlass::get_instance()
     return m_Instance;
 }
 
+/**
+ * 打印当前字典
+ */
 void DictKlass::print(PyObject *self)
 {
     assert(self && self->klass() == this);
@@ -42,6 +45,18 @@ void DictKlass::print(PyObject *self)
     }
     printf("}");
     fflush(stdout);
+}
+
+/**
+ * 对字典进行下标赋值操作.
+ */
+PyObject* DictKlass::store_subscr(PyObject *self, PyObject *key, PyObject *value)
+{
+    assert(self && self->klass() == this);
+    PyDict *dict = dynamic_cast<PyDict*>(self);
+    // replace if key exisits and append if not exisits.
+    dict->put(key, value);
+    return VM::PyNone;
 }
 
 PyDict::PyDict()

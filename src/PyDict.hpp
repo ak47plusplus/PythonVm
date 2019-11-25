@@ -12,6 +12,7 @@ public:
     static DictKlass* get_instance();
 
     virtual void print(PyObject *self);
+    virtual PyObject* store_subscr(PyObject *self, PyObject *key, PyObject *value);
 
 private:
     static DictKlass     *m_Instance;
@@ -29,10 +30,10 @@ public:
     PyDict& operator=(const PyDict &rhs) = delete;
 
     void put(PyObject *first, PyObject *second) { m_InnerMap->put(first, second); }
-
-    int size() const      { return m_InnerMap->size();}
-    int capacity() const  { return m_InnerMap->capacity();}
-    Map<PyObject*,PyObject*> *innerMap() { return m_InnerMap; }
+    bool contains(PyObject *target)             { return m_InnerMap->contains_key(target); }
+    int size() const                            { return m_InnerMap->size();}
+    int capacity() const                        { return m_InnerMap->capacity();}
+    Map<PyObject*,PyObject*> *innerMap()        { return m_InnerMap; }
 private:
     Map<PyObject*,PyObject*> *m_InnerMap;
 };

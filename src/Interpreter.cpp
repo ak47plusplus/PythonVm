@@ -146,9 +146,9 @@ void Interpreter::eval_frame()
                 PUSH(w->subscr(v));
                 break;
             case ByteCode::STORE_SUBSCR:
-                v = POP();//index
-                w = POP();// payload
-                u = POP();// value
+                v = POP();// index   / k
+                w = POP();// payload / map
+                u = POP();// value   / v
                 w->store_subscr(v, u);
                 break;
             case ByteCode::DELETE_SUBSCR:
