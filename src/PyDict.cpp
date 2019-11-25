@@ -86,6 +86,24 @@ PyObject* DictKlass::store_subscr(PyObject *self, PyObject *key, PyObject *value
     return VM::PyNone;
 }
 
+/**
+ * 对字典进行删除下标操作
+ * <p>
+ * e.g: 
+ * score = {'zhangsan':98, "lisi":67}
+ * del score['lisi']
+ */
+PyObject* DictKlass::del_subscr(PyObject *self, PyObject *key)
+{
+    assert(self && self->klass() == this);
+    PyDict *dict = dynamic_cast<PyDict*>(self);
+    if(dict->contains(key))
+        dict->del_key(key);
+    else 
+        __throw_python_except("KeyError \n");
+    return VM::PyNone;
+}
+
 PyDict::PyDict()
 {
     set_klass(DictKlass::get_instance());

@@ -298,7 +298,7 @@ void Map<K,V>::erase(const K &k)
 {
     int idx = index(k);
     if(idx < 0)
-        return end();
+        return;
     m_Entries[idx] = m_Entries[--m_Size];
 }
 

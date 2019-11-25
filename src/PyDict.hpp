@@ -16,6 +16,7 @@ public:
     virtual PyObject* iter(PyObject *self); // only for key
     virtual PyObject* subscr(PyObject *self, PyObject *key);
     virtual PyObject* store_subscr(PyObject *self, PyObject *key, PyObject *value);
+    virtual PyObject* del_subscr(PyObject *self, PyObject *key);
 
 private:
     static DictKlass     *m_Instance;
@@ -36,6 +37,7 @@ public:
     PyObject *get(PyObject *key)                { return m_InnerMap->get(key); }
     PyObject *get_key(int idx)                  { return m_InnerMap->get_key(idx); }
     bool contains(PyObject *target)             { return m_InnerMap->contains_key(target); }
+    void del_key(PyObject *key)                 { m_InnerMap->erase(key); }
     int size() const                            { return m_InnerMap->size();}
     int capacity() const                        { return m_InnerMap->capacity();}
     Map<PyObject*,PyObject*> *innerMap()        { return m_InnerMap; }

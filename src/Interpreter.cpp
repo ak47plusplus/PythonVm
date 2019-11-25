@@ -1,18 +1,18 @@
 #include "Interpreter.hpp"
 #include "VM.hpp"
+#include "OpCode.hpp"
 #include "Native.hpp"
 #include "Frame.hpp"
 #include "Map.hpp"
 #include "ArrayList.hpp"
 #include "Panic.hpp"
-#include "ByteCode.hpp"
 #include "PyString.hpp"
 #include "PyInteger.hpp"
 #include "PyList.hpp"
 #include "PyListIterator.hpp"
 #include "PyDict.hpp"
 
-#include "PyFunction.hpp"   
+#include "PyFunction.hpp"
 
 #include <mutex>
 #include <cstdio>
@@ -69,7 +69,7 @@ void Interpreter::eval_frame()
     while (m_CurrentFrame->has_more_codes()) {
         uint8_t opCode = m_CurrentFrame->get_op_code();
         // printf("\n===> start to parse opCode, opCode nbr: %d \n", opCode);
-        bool hasArgument = (opCode & 0xff) >= ByteCode::HAVE_ARGUMENT;
+        bool hasArgument = (opCode & 0xff) >= OpCode::HAVE_ARGUMENT;
         int opArg = -1;
         if (hasArgument) {
             opArg = m_CurrentFrame->get_op_arg();
@@ -88,79 +88,79 @@ void Interpreter::eval_frame()
         int argCount = 0;
 
         switch (opCode) {
-            case ByteCode::POP_TOP:
+            case OpCode::POP_TOP:
                 POP();
                 break;
-            case ByteCode::ROT_TWO:
+            case OpCode::ROT_TWO:
                 v = POP();
                 w = POP();
                 PUSH(v);
                 PUSH(w);
-            case ByteCode::ROT_THREE:
+            case OpCode::ROT_THREE:
                 break;
-            case ByteCode::DUP_TOP:
+            case OpCode::DUP_TOP:
                 PUSH(TOP());
                 break;
-            case ByteCode::PRINT_ITEM:     // 71
+            case OpCode::PRINT_ITEM:     // 71
                 v = POP();
                 v->print();
                 break;
-            case ByteCode::PRINT_NEWLINE:  // 72
+            case OpCode::PRINT_NEWLINE:  // 72
                 std::cout << '\n';
                 std::fflush(stdout);
                 break;
-            case ByteCode::INPLACE_MULTIPLY:
-            case ByteCode::BINARY_MULTIPLY: // 20
+            case OpCode::INPLACE_MULTIPLY:
+            case OpCode::BINARY_MULTIPLY: // 20
                 v = POP();
                 w = POP();
                 PUSH(w->mul(v));
                 break;
-            case ByteCode::INPLACE_DIVIDE:
-            case ByteCode::BINARY_DIVIDE:  // 21
+            case OpCode::INPLACE_DIVIDE:
+            case OpCode::BINARY_DIVIDE:  // 21
                 v = POP();
                 w = POP();
                 PUSH(w->div(v));
                 break;
-            case ByteCode::INPLACE_MODULO:
-            case ByteCode::BINARY_MODULO:  // 22
+            case OpCode::INPLACE_MODULO:
+            case OpCode::BINARY_MODULO:  // 22
                 v = POP();
                 w = POP();
                 PUSH(w->mod(v));
                 break;
-            case ByteCode::INPLACE_ADD:         // 55  (+=)
-            case ByteCode::BINARY_ADD:          // 23  (+)
+            case OpCode::INPLACE_ADD:         // 55  (+=)
+            case OpCode::BINARY_ADD:          // 23  (+)
                 v = POP();
                 w = POP();
                 PUSH(w->add(v));
                 break;
-            case ByteCode::INPLACE_SUBSTRACT:   // 56
-            case ByteCode::BINARY_SUBTRACT:     // 24
+            case OpCode::INPLACE_SUBSTRACT:   // 56
+            case OpCode::BINARY_SUBTRACT:     // 24
                 v = POP();
                 w = POP();
                 PUSH(w->sub(v));
                 break;
-            case ByteCode::BINARY_SUBSCR:
+            case OpCode::BINARY_SUBSCR:
                 // 先压入栈中的是list/str再压入的是下标
                 v = POP();
                 w = POP();
                 PUSH(w->subscr(v));
                 break;
-            case ByteCode::STORE_SUBSCR:
+            case OpCode::STORE_SUBSCR:
                 v = POP();// index   / k
                 w = POP();// payload / map
                 u = POP();// value   / v
                 w->store_subscr(v, u);
                 break;
-            case ByteCode::DELETE_SUBSCR:
+            case OpCode::DELETE_SUBSCR:
                 v = POP();
                 w = POP();
                 PUSH(w->del_subscr(v));
                 break;
-            case ByteCode::GET_ITER:
+            case OpCode::GET_ITER:
                 v = POP();
                 PUSH(v->iter());
                 break;
-            case ByteCode::FOR_ITER:
+            case OpCode::FOR_ITER:
                 {
                     v = POP();
                     Iterator<PyObject*>* it = dynamic_cast<Iterator<PyObject*>*>(v);
@@ -182,25 +182,29 @@ void Interpreter::eval_frame()
                     }
                 }
                 break;
-            case ByteCode::RETURN_VALUE:  // 83
+            case OpCode::RETURN_VALUE:  // 83
                 m_RetValue = POP();
                 if(m_CurrentFrame->is_first_frame())
                     return;
                 leave_frame();
                 break;
-            case ByteCode::LOAD_ATTR:
+            case OpCode::LOAD_ATTR:
                 v = POP();
                 w = m_CurrentFrame->m_Names->get(opArg);
                 PUSH(v->getattr(w)); // 这里的w和VM初始化的put进去的明显不是同一个,这里承载attr的map肯定不能使用stl里的map
                 break;
-            case ByteCode::LOAD_CONST:      // 100
+            case OpCode::LOAD_CONST:      // 100
                 PUSH(m_CurrentFrame->m_Consts->get(opArg));
                 break;
-            case ByteCode::STORE_NAME:   // 90
+            case OpCode::STORE_NAME:   // 90
                 v = m_CurrentFrame->names()->get(opArg);
                 m_CurrentFrame->locals()->put(v, POP());
                 break;
-            case ByteCode::LOAD_NAME:   // 101
+            case OpCode::DELETE_NAME:
+                v = m_CurrentFrame->names()->get(opArg);
+                m_CurrentFrame->locals()->erase(v);
+                break;
+            case OpCode::LOAD_NAME:   // 101
                 v = m_CurrentFrame->names()->get(opArg);
                 w = m_CurrentFrame->locals()->get(v);
                 if(w != VM::PyNone)
@@ -224,11 +228,11 @@ void Interpreter::eval_frame()
                 }
                 PUSH(VM::PyNone);
                 break;
-            case ByteCode::STORE_GLOBAL:
+            case OpCode::STORE_GLOBAL:
                 v = m_CurrentFrame->names()->get(opArg);
                 m_CurrentFrame->globals()->put(v, POP());
                 break;
-            case ByteCode::LOAD_GLOBAL:
+            case OpCode::LOAD_GLOBAL:
                 v = m_CurrentFrame->names()->get(opArg);
                 w = m_CurrentFrame->globals()->get(w);
                 if(w != VM::PyNone)
@@ -245,7 +249,7 @@ void Interpreter::eval_frame()
                 }
                 PUSH(VM::PyNone);
                 break;
-            case ByteCode::BUILD_LIST:
+            case OpCode::BUILD_LIST:
                 list = new PyList();
                 while(opArg--)
                 {
@@ -253,37 +257,37 @@ void Interpreter::eval_frame()
                 }
                 PUSH(list);
                 break;
-            case ByteCode::BUILD_MAP:
+            case OpCode::BUILD_MAP:
                 PUSH(new PyDict(opArg));
                 break;
-            case ByteCode::STORE_MAP:
+            case OpCode::STORE_MAP:
                 v = POP();// k
                 w = POP();// v
                 u = POP();// dict
                 dynamic_cast<PyDict*>(u)->put(v, w);
                 PUSH(u);
                 break;
-            case ByteCode::STORE_FAST:
+            case OpCode::STORE_FAST:
                 m_CurrentFrame->fastLocals()->set(opArg, POP());
                 break;
-            case ByteCode::LOAD_FAST:
+            case OpCode::LOAD_FAST:
                 PUSH(m_CurrentFrame->fastLocals()->get(opArg));
                 break;
-            case ByteCode::JUMP_FORWARD:        // 110
+            case OpCode::JUMP_FORWARD:        // 110
                 m_CurrentFrame->set_pc(pc + opArg);
                 break;
-            case ByteCode::JUMP_ABSOLUTE:       // 113
+            case OpCode::JUMP_ABSOLUTE:       // 113
                 m_CurrentFrame->set_pc(opArg);
                 break;
-            case ByteCode::POP_JUMP_IF_FALSE:   // 114
+            case OpCode::POP_JUMP_IF_FALSE:   // 114
                 v = POP();
                 if(VM::PyFalse == v)
                     m_CurrentFrame->set_pc(opArg);
                 break;
-            case ByteCode::SETUP_LOOP:          // 120
+            case OpCode::SETUP_LOOP:          // 120
                 m_CurrentFrame->loop_stack()->add(new Block(opCode, pc + opArg, STACK_LEVEL()));
                 break;
-            case ByteCode::POP_BLOCK:
+            case OpCode::POP_BLOCK:
                 b = m_CurrentFrame->loop_stack()->pop();
                 delete b;
                 while(STACK_LEVEL() > b->m_Level)
@@ -291,7 +295,7 @@ void Interpreter::eval_frame()
                     POP();
                 }
                 break;
-            case ByteCode::BREAK_LOOP:
+            case OpCode::BREAK_LOOP:
                 b = m_CurrentFrame->loop_stack()->pop();
                 while(STACK_LEVEL() > b->m_Level)
                 {
@@ -300,7 +304,7 @@ void Interpreter::eval_frame()
                 m_CurrentFrame->set_pc(b->m_Target);
                 delete b;
                 break;
-            case ByteCode::MAKE_FUNCTION:
+            case OpCode::MAKE_FUNCTION:
                 /*
                  * 先压入的是函数的默认参数 在压入的函数的CodeObject.
                  */
@@ -323,7 +327,7 @@ void Interpreter::eval_frame()
                 }
                 PUSH(func);
                 break;
-            case ByteCode::CALL_FUNCTION:
+            case OpCode::CALL_FUNCTION:
                 /*
                  * 先压入的是函数本身 然后压入的是函数的参数
                  * add(1,2)
@@ -350,36 +354,36 @@ void Interpreter::eval_frame()
                     argCount = 0;
                 }
                 break;
-            case ByteCode::COMPARE_OP:   // 107
+            case OpCode::COMPARE_OP:   // 107
                 w = POP();
                 v = POP();
                 // COMPARE_OP是带有参数的操作码
                 switch (opArg) {
-                    case ByteCode::GREATER:
+                    case OpCode::GREATER:
                         PUSH(v->greater(w));
                         break;
-                    case ByteCode::LESS:
+                    case OpCode::LESS:
                         PUSH(v->less(w));
                         break;
-                    case ByteCode::EQUAL:
+                    case OpCode::EQUAL:
                         PUSH(v->equal(w));
                         break;
-                    case ByteCode::NOT_EQUAL:
+                    case OpCode::NOT_EQUAL:
                         PUSH(v->not_equal(w));
                         break;
-                    case ByteCode::GREATER_EQUAL:
+                    case OpCode::GREATER_EQUAL:
                         PUSH(v->ge(w));
                         break;
-                    case ByteCode::LESS_EQUAL:
+                    case OpCode::LESS_EQUAL:
                         PUSH(v->le(w));
                         break;
-                    case ByteCode::IS:
+                    case OpCode::IS:
                         PUSH(v == w ? VM::PyTrue : VM::PyFalse);
                         break;
-                    case ByteCode::IS_NOT:
+                    case OpCode::IS_NOT:
                         PUSH(v != w ? VM::PyTrue : VM::PyFalse);
                         break;
-                    case ByteCode::IN:
+                    case OpCode::IN:
                         PUSH(w->contains(v));
                         break;
                     default:

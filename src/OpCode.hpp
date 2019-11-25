@@ -1,11 +1,11 @@
-#ifndef BYTHON_2_7_BYTE_CODE_HPP
-#define BYTHON_2_7_BYTE_CODE_HPP
+#ifndef BYTHON_2_7_OP_CODE_HPP 
+#define BYTHON_2_7_OP_CODE_HPP 1
 
 /*
  * ByteCodes defined by the Python Offical.
  * <a href = "https://www.python.org/">Python Software Foundation</a>
  */
-class ByteCode {
+class OpCode {
 public:
     static const unsigned char POP_TOP = 1;
     static const unsigned char ROT_TWO = 2;
@@ -18,9 +18,14 @@ public:
     static const unsigned char BINARY_DIVIDE = 21;      // /
     static const unsigned char BINARY_ADD = 23;         // +
     static const unsigned char BINARY_SUBTRACT = 24;    // -
+    
+    static const unsigned char DELETE_SLICE = 50;
+    static const unsigned char DELETE_SLICE_1 = 51;
+    static const unsigned char DELETE_SLICE_1 = 52;
+    static const unsigned char DELETE_SLICE_1 = 53;
 
-    static const unsigned char INPLACE_ADD = 55;
     static const unsigned char STORE_MAP = 54;
+    static const unsigned char INPLACE_ADD = 55;
     static const unsigned char INPLACE_SUBSTRACT = 56;
     static const unsigned char INPLACE_MULTIPLY = 57;
     static const unsigned char INPLACE_DIVIDE = 58;
@@ -45,10 +50,13 @@ public:
     static const unsigned char HAVE_ARGUMENT = 90; /* Opcodes from here have an argument: */
 
     static const unsigned char STORE_NAME = 90; /* Index in name list */
+    static const unsigned char DELETE_NAME = 91;
     static const unsigned char UNPACK_SEQUENCE = 92;
     static const unsigned char FOR_ITER = 93;
     static const unsigned char STORE_ATTR = 95;  /* Index in name list */
+    static const unsigned char DELETE_ATTR = 96;
     static const unsigned char STORE_GLOBAL = 97;
+    static const unsigned char DELETE_GLOBAL = 98;
     static const unsigned char DUP_TOPX = 99;   /* number of items to duplicate */
     static const unsigned char LOAD_CONST = 100; /* Index in const list */
     static const unsigned char LOAD_NAME = 101; /* Index in name list */
@@ -75,6 +83,7 @@ public:
 
     static const unsigned char LOAD_FAST  = 124; /* Local variable number */
     static const unsigned char STORE_FAST = 125; /* Local variable number */
+    static const unsigned char DELETE_FAST = 126;
 
     static const unsigned char RAISE_VARARGS = 130;
     static const unsigned char CALL_FUNCTION = 131;
@@ -87,7 +96,7 @@ public:
 
     static const unsigned char CALL_FUNCTION_VAR = 140;
 
-    // for ByteCode::COMPARE_OP
+    // for OpCode::COMPARE_OP
     enum COMPARE {
         LESS = 0,
         LESS_EQUAL,
