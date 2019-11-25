@@ -47,6 +47,7 @@ set(SOURCES
     src/Map.cpp
     src/PyListIterator.cpp
     src/PyStringIterator.cpp
+    src/PyDictIterator.cpp
 )
 
 # 添加一个可执行文件
