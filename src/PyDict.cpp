@@ -1,4 +1,5 @@
 #include "PyDict.hpp"
+#include "PyInteger.hpp"
 
 #include <iostream>
 #include <cassert>
@@ -45,6 +46,18 @@ void DictKlass::print(PyObject *self)
     }
     printf("}");
     fflush(stdout);
+}
+
+PyObject* DictKlass::len(PyObject *self)
+{
+    assert(self && self->klass() == this);
+    PyDict *slf = dynamic_cast<PyDict*>(self);
+    return new PyInteger(slf->size());
+}
+
+PyObject* DictKlass::iter(PyObject *self)
+{
+    
 }
 
 PyObject* DictKlass::subscr(PyObject *self, PyObject *key)

@@ -26,7 +26,7 @@ ListIteratorKlass *ListIteratorKlass::get_instance()
 PyListIterator::PyListIterator(PyList *list)
     : m_Target(list), m_Cursor(0)
 {
-
+    set_klass(ListIteratorKlass::get_instance());
 }
 
 bool PyListIterator::has_next()
