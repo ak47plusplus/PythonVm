@@ -6,6 +6,9 @@
 #include "PyList.hpp"
 #include "PyFunction.hpp"
 
+#include "Interpreter.hpp"
+#include "CodeObject.hpp"
+
 PyInteger * VM::PyTrue = nullptr;
 PyInteger * VM::PyFalse = nullptr;
 PyObject  * VM::PyNone = nullptr;
@@ -26,4 +29,9 @@ void VM::init() NOEXCEPT
 void VM::destroy() NOEXCEPT
 {
 
+}
+
+void VM::run(CodeObject *mainCode) NOEXCEPT 
+{
+    Interpreter::get_instance()->run(mainCode);
 }

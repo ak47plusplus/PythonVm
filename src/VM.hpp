@@ -2,6 +2,7 @@
 #define VM_HPP____
 
 #include "Core.hpp"
+#include "CodeObject.hpp"
 
 class PyInteger;
 class PyObject;
@@ -10,6 +11,7 @@ class VM {
 public:
     static void init() NOEXCEPT;
     static void destroy() NOEXCEPT;
+    static void run(CodeObject *mainCode) NOEXCEPT;
 private:
 
 public:

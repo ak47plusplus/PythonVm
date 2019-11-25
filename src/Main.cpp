@@ -32,16 +32,16 @@ void print_vm_logo()
 
 int main(int argc, char const *argv[]) {
     START_EASYLOGGINGPP(argc, argv);
-	
     LoggerConfig::init();
     VM::init();
 
-    FileInputStream pyc_stream(argv[1]);
-    auto parser = std::make_shared<PycFileParser>(&pyc_stream);
-    CodeObject *main_code = parser->parse();
+    FileInputStream binaryStream(argv[1]);
+    auto parser = std::make_shared<PycFileParser>(&binaryStream);
+    CodeObject *priCode = parser->parse();
+    assert(priCode != nullptr);
 
-    assert(main_code != nullptr);
     print_vm_logo();
-    Interpreter::get_instance()->run(main_code);
+    VM::run(priCode);
+    delete priCode;
     return 0;
 }
