@@ -55,6 +55,56 @@ PyObject *ListKlass::len(PyObject *self)
     return new PyInteger(dynamic_cast<PyList*>(self)->size());
 }
 
+/**
+ * 两个列表相加，返回一个新的列表.
+ * 
+ */
+PyObject* ListKlass::add(PyObject *lhs, PyObject *rhs)
+{
+    assert(lhs && lhs->klass() == this);
+    assert(rhs && rhs->klass() == this);
+    PyList *first = dynamic_cast<PyList*>(lhs);
+    PyList *second = dynamic_cast<PyList*>(rhs);
+    PyList *joiner = new PyList();
+    for(auto i = 0; i < first->size(); ++i)
+    {
+        joiner->append(first->get(i));
+    }
+    for(auto j = 0; j < second->size(); ++j)
+    {
+        joiner->append(second->get(j));
+    }
+    return joiner;
+}
+
+/**
+ * 列表和一个整数相乘
+ */
+PyObject* ListKlass::mul(PyObject *lhs, PyObject *rhs)
+{
+    assert(lhs && lhs->klass() == this);
+    assert(rhs && rhs->klass() == this);
+    PyList *base = dynamic_cast<PyList*>(lhs);
+    PyInteger *times = dynamic_cast<PyInteger*>(rhs);
+    PyList *joiner = new PyList();
+    int _times = times->value();
+    if(_times <= 0)
+    {
+        return joiner;
+    }
+    while(_times--)
+    {
+        for(auto i = 0; i < base->size(); i++)
+        {
+            joiner->append(base->get(i));
+        }
+    }
+    return joiner;
+}
+
+/**
+ * 获取一个PyList的迭代器.
+ */
 PyObject *ListKlass::iter(PyObject *self)
 {
     assert(self && self->klass() == this);

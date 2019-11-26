@@ -12,6 +12,9 @@ public:
     virtual PyObject *len(PyObject *self);
     virtual PyObject *iter(PyObject *self);
 
+    virtual PyObject* add(PyObject *lhs, PyObject *rhs);
+    virtual PyObject* mul(PyObject *lhs, PyObject *rhs);
+
     virtual PyObject *subscr(PyObject *lhs, PyObject *rhs);
     virtual PyObject *store_subscr(PyObject *lhs, PyObject *mhs, PyObject *rhs);
     virtual PyObject *del_subscr(PyObject *lhs, PyObject *rhs);
