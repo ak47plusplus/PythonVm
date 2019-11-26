@@ -53,11 +53,11 @@ class PyFunction : public PyObject {
 friend class Frame;
 friend class FunctionKlass;
 private:
-    CodeObject                  *m_FuncCode  __PTR_IN__;
-    PyString                    *m_FuncName  __PTR_IN__;
+    CodeObject                  *m_FuncCode;
+    PyString                    *m_FuncName;
     uint32_t                     m_Flags;
-    ArrayList<PyObject*>        *m_DefaultArgs __PTR_INNER__;
-    Map<PyObject*, PyObject*>   *m_Globals __PTR_IN__; // 函数所依赖的全局变量表是定义函数对象的时候的，而不是调用函数时候的 这个字段纯属无奈之举
+    ArrayList<PyObject*>        *m_DefaultArgs;
+    Map<PyObject*, PyObject*>   *m_Globals; // 函数所依赖的全局变量表是定义函数对象的时候的，而不是调用函数时候的 这个字段纯属无奈之举
     NativeFunctionPtr            m_NativeFunctionPtr;
 public:
     PyFunction(CodeObject *codeObj);

@@ -120,6 +120,7 @@ ArrayList<PyObject*> *PycFileParser::get_tuple()
                 break;
             case '(':
                 // TODO.
+                printf("read (.....\n");
                 break;
             default:
                 __panic("Unrecognized obj type: %c \n", objType);

@@ -41,6 +41,8 @@ int main(int argc, char const *argv[]) {
 
     print_vm_logo();
     VM::run(priCode);
-    delete priCode;
+
+    // 这里不应delete gc线程可能把部分对象已经释放了.
+    //delete priCode;
     return 0;
 }

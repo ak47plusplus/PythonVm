@@ -48,6 +48,7 @@ set(SOURCES
     src/PyListIterator.cpp
     src/PyStringIterator.cpp
     src/PyDictIterator.cpp
+    src/PyTuple.cpp
 )
 
 # 添加一个可执行文件
@@ -59,6 +60,7 @@ add_executable(${PROJECT_NAME} ${SOURCES})
 target_include_directories(${PROJECT_NAME}
     PRIVATE
         ${PROJECT_SOURCE_DIR}/src
+        ${PROJECT_SOURCE_DIR}/src/object
         ${PROJECT_SOURCE_DIR}/src/os
         ${PROJECT_SOURCE_DIR}/src/cpu
         ${PROJECT_SOURCE_DIR}/src/3rd/easylogging++
