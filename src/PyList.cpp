@@ -83,7 +83,7 @@ PyObject* ListKlass::add(PyObject *lhs, PyObject *rhs)
 PyObject* ListKlass::mul(PyObject *lhs, PyObject *rhs)
 {
     assert(lhs && lhs->klass() == this);
-    assert(rhs && rhs->klass() == this);
+    assert(rhs && rhs->klass() == IntegerKlass::get_instance());
     PyList *base = dynamic_cast<PyList*>(lhs);
     PyInteger *times = dynamic_cast<PyInteger*>(rhs);
     PyList *joiner = new PyList();
