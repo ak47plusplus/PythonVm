@@ -31,24 +31,25 @@ set(SOURCES
     src/CodeObject.cpp
     src/FileInputStream.cpp
     src/Interpreter.cpp
-    src/PyObject.cpp
-    src/PyInteger.cpp
-    src/PyDouble.cpp
-    src/PyString.cpp
-    src/PyList.cpp
-    src/PyDict.cpp
     src/Klass.cpp
     src/VM.cpp
     src/LoggerConfig.cpp
     src/Frame.cpp
-    src/PyFunction.cpp
+    
     src/Native.cpp
     src/ArrayList.cpp
     src/Map.cpp
-    src/PyListIterator.cpp
-    src/PyStringIterator.cpp
-    src/PyDictIterator.cpp
-    src/PyTuple.cpp
+    src/object/PyObject.cpp
+    src/object/PyInteger.cpp
+    src/object/PyDouble.cpp
+    src/object/PyString.cpp
+    src/object/PyStringIterator.cpp
+    src/object/PyFunction.cpp
+    src/object/PyList.cpp
+    src/object/PyListIterator.cpp
+    src/object/PyDict.cpp
+    src/object/PyDictIterator.cpp
+    src/object/PyTuple.cpp
 )
 
 # 添加一个可执行文件
