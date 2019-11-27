@@ -139,6 +139,24 @@ void Interpreter::eval_frame()
                 w = POP();
                 PUSH(w->sub(v));
                 break;
+            case OpCode::BUILD_SLICE: /* sequence[ilow:ihigh:step] 当三个参数全都齐全时才会使用BUILD_SLICE */
+                // TODO
+                break;
+            case OpCode::SLICE:
+            case OpCode::SLICE_1:// 0001
+            case OpCode::SLICE_2:// 0010
+            case OpCode::SLICE_3:// 0011
+                if((opCode-OpCode::SLICE) & 2 /* 0010 */) // SLICE_2 SLICE_3
+                    w = POP();
+                else
+                    w = nullptr;
+                if((opCode-OpCode::SLICE) & 1 /* 0001 */) // SLICE_1 SLICE_3
+                    v = POP();
+                else
+                    v = nullptr;
+                u = POP();
+                PUSH()
+                break;
             case OpCode::BINARY_SUBSCR:
                 // 先压入栈中的是list/str再压入的是下标
                 v = POP();

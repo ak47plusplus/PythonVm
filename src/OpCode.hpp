@@ -18,6 +18,12 @@ public:
     static const unsigned char BINARY_DIVIDE = 21;      // /
     static const unsigned char BINARY_ADD = 23;         // +
     static const unsigned char BINARY_SUBTRACT = 24;    // -
+
+    static const unsigned char SLICE = 30;
+    /* Also uses 31-33 */
+    static const unsigned char SLICE_1 = 31;
+    static const unsigned char SLICE_2 = 32;
+    static const unsigned char SLICE_3 = 33;
     
     static const unsigned char DELETE_SLICE = 50;
     static const unsigned char DELETE_SLICE_1 = 51;
@@ -88,6 +94,8 @@ public:
     static const unsigned char RAISE_VARARGS = 130;
     static const unsigned char CALL_FUNCTION = 131;
     static const unsigned char MAKE_FUNCTION = 132;
+
+    static const unsigned char BUILD_SLICE = 133;
 
     static const unsigned char MAKE_CLOSURE = 134; /* #free vars */
     static const unsigned char LOAD_CLOSURE = 135; /* Load free variable from closure */
