@@ -14,7 +14,7 @@ chmod 755 build.sh <br/>
 python -m compileall test.py <br/>
 ./mypython test.pyc
 
-### 备注
+### 虚拟机实现过程中发现的坑这里做几下记录
 1.python2和python3在切片的操作上发生了巨大变化    <br/>
 Python2关于切片的字节码    <br/>
 <pre>    
