@@ -6,6 +6,7 @@
 #include "Map.hpp"
 #include "ArrayList.hpp"
 #include "Panic.hpp"
+#include "PySlice.hpp"
 #include "PyString.hpp"
 #include "PyInteger.hpp"
 #include "PyList.hpp"
@@ -79,7 +80,7 @@ void Interpreter::eval_frame()
         pc = m_CurrentFrame->get_pc();
 
         PyInteger *lhs, *rhs;
-        PyObject *v, *w, *u, *attr;
+        PyObject *v, *w, *u, *x, *attr;
         Block *b;
         PyFunction *func;
         ArrayList<PyObject*> *funcArgs = nullptr;
@@ -139,8 +140,20 @@ void Interpreter::eval_frame()
                 w = POP();
                 PUSH(w->sub(v));
                 break;
-            case OpCode::BUILD_SLICE: /* sequence[ilow:ihigh:step] 当三个参数全都齐全时才会使用BUILD_SLICE */
-                // TODO
+            /*
+             * 在python3中,所有的切片操作都变成了BUILD_SLICE+BINARYZ_SUBSCR的组合,并废弃了其余
+             * 的SLICE相关的字节码。
+             * 在python2中也有BUILD_SLICE + BINARY_SUBSCR的组合 但是经过测试 发现python2编译器
+             * 只有在切片seq[ilow:ihigh:step]都存在的时候才会编译成这个组合,其余情况都会使用上面的字节码。
+             */
+            case OpCode::BUILD_SLICE: 
+                if(opArg == 3) /* opArg always = 3 in python2 */
+                    w = POP();
+                else
+                    w = nullptr;
+                v = POP();
+                u = TOP(); /* Do not pop the stack */
+                x = new PySlice();
                 break;
             case OpCode::SLICE:
             case OpCode::SLICE_1:// 0001
@@ -155,7 +168,8 @@ void Interpreter::eval_frame()
                 else
                     v = nullptr;
                 u = POP();
-                PUSH()
+                // u[v:w]
+                // TODO
                 break;
             case OpCode::BINARY_SUBSCR:
                 // 先压入栈中的是list/str再压入的是下标

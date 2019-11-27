@@ -44,4 +44,6 @@ Python3中关于切片的字节码就缩减为一个BUILD_SLICE,但是会额外�
 |  list   |
 |   ...   |
 |_________|
+python2中也有BUILD_SLICE + BINARY_SUBSCR的组合 但是经过测试 发现python2编译器
+只有在切片seq[ilow:ihigh:step]都存在的时候才会编译成这个组合,其余情况都会使用上面的字节码
 </pre>
