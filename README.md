@@ -35,5 +35,13 @@ Python2关于切片的字节码    <br/>
 #define DELETE_SLICE_3	53    <br/>
 #define BUILD_SLICE 	133	/* Number of items */    <br/>
 </pre>    <br/>
-Python3中关于切片的字节码就缩减为一个:    <br/>
+Python3中关于切片的字节码就缩减为一个BUILD_SLICE,但是会额外用到BINARY_SUBSCR:    <br/>
+<pre>
 #define BUILD_SLICE 	133	/* Number of items */    <br/>
+在eval BUILD_SLICE时,原本的序列是TOP而不是POP出栈，紧接着执行BINARY_SUBSCR
+此时解释器栈如下
+| sliceObj| <--- 程序计数器 （下一条指令是BINARY_SUBSCR）
+|  list   |
+|   ...   |
+|_________|
+</pre>
