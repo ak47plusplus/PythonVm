@@ -1,5 +1,14 @@
 # PythonVm
 
+### 项目结构
+-build 工程构建目录
+-DLLs  用C/C++编写的库
+-Lib   用Python编写的标准库
+-src   Python虚拟机源码
+-test  测试文件目录
+-build.sh 构建脚本
+-CMakeLists.txt 编译的文件
+
 ### 编译项目
 1.请确保先安装cmake,如果没有安装cmake,请执行一下命令安装 <br/>
 $ sudo apt-get install build-essential  <br/>
