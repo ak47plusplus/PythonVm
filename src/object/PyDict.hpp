@@ -29,7 +29,7 @@ public:
     PyDict();
     PyDict(int init_cap = 8);
     PyDict(const PyDict &rhs) = delete;
-    PyDict(PyDict &&rhs);
+    PyDict(PyDict &&rhs) NOEXCEPT;
     ~PyDict();
     PyDict& operator=(const PyDict &rhs) = delete;
 

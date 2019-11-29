@@ -3,7 +3,8 @@
 
 #include <iostream>
 #include <fstream>
-#include "NonCopyable.hpp"
+
+#include "boost/noncopyable.hpp"
 
 #define BUFFER_LEN 256
 
@@ -11,7 +12,7 @@
  * @brief A file stream with a buffer.
  * @Created by GuoXiang 2019/10/20
  */
-class FileInputStream : public fromboost::NonCopyable {
+class FileInputStream : public boost::noncopyable {
 public:
     explicit FileInputStream(const char * filename);
     ~FileInputStream();

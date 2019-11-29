@@ -1,18 +1,12 @@
 #include <memory>
-#include <assert.h>
-#include <stdlib.h>
 #include <iostream>
-#include <exception>
-
+#include <cassert>
 #include "VM.hpp"
 #include "Logger.hpp"
 #include "LoggerConfig.hpp"
 #include "CodeObject.hpp"
 #include "FileInputStream.hpp"
 #include "PycFileParser.hpp"
-#include "ArrayList.hpp"
-#include "PyInteger.hpp"
-
 
 INITIALIZE_EASYLOGGINGPP
 

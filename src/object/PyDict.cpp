@@ -52,21 +52,21 @@ void DictKlass::print(PyObject *self)
 PyObject* DictKlass::len(PyObject *self)
 {
     assert(self && self->klass() == this);
-    PyDict *slf = dynamic_cast<PyDict*>(self);
+    auto *slf = dynamic_cast<PyDict*>(self);
     return new PyInteger(slf->size());
 }
 
 PyObject* DictKlass::iter(PyObject *self)
 {
     assert(self && self->klass() == this);
-    PyDict *slf = dynamic_cast<PyDict*>(self);
+    auto *slf = dynamic_cast<PyDict*>(self);
     return new PyDictKeyIterator(slf);
 }
 
 PyObject* DictKlass::subscr(PyObject *self, PyObject *key)
 {
     assert(self && self->klass() == this);
-    PyDict *dict = dynamic_cast<PyDict*>(self);
+    auto *dict = dynamic_cast<PyDict*>(self);
     if(dict->contains(key))
     {
         return dict->get(key);
@@ -80,7 +80,7 @@ PyObject* DictKlass::subscr(PyObject *self, PyObject *key)
 PyObject* DictKlass::store_subscr(PyObject *self, PyObject *key, PyObject *value)
 {
     assert(self && self->klass() == this);
-    PyDict *dict = dynamic_cast<PyDict*>(self);
+    auto *dict = dynamic_cast<PyDict*>(self);
     // replace if key exisits and append if not exisits.
     dict->put(key, value);
     return VM::PyNone;
@@ -96,7 +96,7 @@ PyObject* DictKlass::store_subscr(PyObject *self, PyObject *key, PyObject *value
 PyObject* DictKlass::del_subscr(PyObject *self, PyObject *key)
 {
     assert(self && self->klass() == this);
-    PyDict *dict = dynamic_cast<PyDict*>(self);
+    auto *dict = dynamic_cast<PyDict*>(self);
     if(dict->contains(key))
         dict->del_key(key);
     else 
@@ -131,7 +131,7 @@ PyDict::PyDict(int init_cap)
 //     }
 // }
 
-PyDict::PyDict(PyDict &&rhs)
+PyDict::PyDict(PyDict &&rhs) NOEXCEPT
 {
     set_klass(DictKlass::get_instance());
     // move the owership

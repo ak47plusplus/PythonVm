@@ -3,9 +3,9 @@
 #include "VM.hpp"
 #include "PyInteger.hpp"
 #include "PyDouble.hpp"
-#include <stdio.h>
+#include <cstdio>
 #include <cmath>
-#include <assert.h>
+#include <cassert>
 
 NativeFunctionKlass* NativeFunctionKlass::m_Instance = nullptr;
 std::mutex NativeFunctionKlass::m_Mutex;

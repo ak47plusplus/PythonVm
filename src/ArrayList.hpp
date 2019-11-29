@@ -16,7 +16,7 @@ class ArrayList {
 public:
     explicit ArrayList(int initial_cap = 16);
     ArrayList(const ArrayList<T>& rhs);
-    ArrayList(ArrayList<T> &&rhs);
+    ArrayList(ArrayList<T> &&rhs) NOEXCEPT;
     ~ArrayList();
     ArrayList& operator=(const ArrayList& rhs);
     T& operator[](int index);// Returns a Reference to the element at position n in the vector container.
@@ -67,7 +67,7 @@ ArrayList<T>::ArrayList(const ArrayList<T>& rhs)
 }
 
 template<typename T>
-ArrayList<T>::ArrayList(ArrayList<T> &&rhs)
+ArrayList<T>::ArrayList(ArrayList<T> &&rhs)  NOEXCEPT
 {
     m_data = rhs.m_data;
     m_size = rhs.m_size;

@@ -1,7 +1,7 @@
 #ifndef FRAME_HPP__
 #define FRAME_HPP__
 
-#include <stdint.h>
+#include <cstdint>
 
 #include "Map.hpp"
 #include "Core.hpp"
@@ -16,7 +16,7 @@ class PyFunction;
  */
 class Frame {
 public:
-    Frame(CodeObject *codes);
+    explicit Frame(CodeObject *codes);
     Frame(PyFunction *func, ArrayList<PyObject*> *args, int opArg);
     Frame();
     ~Frame();

@@ -1,7 +1,7 @@
 #include "FileInputStream.hpp"
 
-#include <stdio.h>
-#include <stdlib.h>
+#include <cstdio>
+#include <cstdlib>
 #include <memory>
 #include <cstring>
 #include <stdexcept>

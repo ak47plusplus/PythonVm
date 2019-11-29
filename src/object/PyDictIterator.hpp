@@ -16,10 +16,10 @@ MAKE_KLASS(DictKeyIteratorKlass)
  */
 class PyDictKeyIterator :public PyObject, public Iterator<PyObject*> {
 public:
-    PyDictKeyIterator(PyDict *target);
-    virtual ~PyDictKeyIterator() = default;
-    bool has_next();
-    PyObject* next();
+    explicit PyDictKeyIterator(PyDict *target);
+    ~PyDictKeyIterator() override = default;
+    bool has_next() override;
+    PyObject* next() override;
 private:
     PyDict *m_Target;
     int     m_Cursor;

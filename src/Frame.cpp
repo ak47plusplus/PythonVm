@@ -7,6 +7,7 @@
 // 这个方法仅限于模块使用.
 Frame::Frame(CodeObject *codes)
 {
+    m_FastLocals=nullptr;
     m_Locals    = new Map<PyObject*,PyObject*>();
     m_Globals   = m_Locals; // 非函数上下文 全局和局部等价
     m_Stack     = new ArrayList<PyObject*>(codes->m_StackSize);

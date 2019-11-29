@@ -34,32 +34,32 @@ PyObject* DoubleKlass::add(PyObject *lhs, PyObject *rhs)
 {
     assert(lhs && lhs->klass() == static_cast<Klass*>(this));
     assert(rhs && rhs->klass() == static_cast<Klass*>(this));
-    PyDouble *dl = dynamic_cast<PyDouble*>(lhs);
-    PyDouble *dr = dynamic_cast<PyDouble*>(rhs);
+    auto *dl = dynamic_cast<PyDouble*>(lhs);
+    auto *dr = dynamic_cast<PyDouble*>(rhs);
     return new PyDouble(dl->value() + dr->value());
 }
 PyObject* DoubleKlass::sub(PyObject *lhs, PyObject *rhs)
 {
     assert(lhs && lhs->klass() == static_cast<Klass*>(this));
     assert(rhs && rhs->klass() == static_cast<Klass*>(this));
-    PyDouble *dl = dynamic_cast<PyDouble*>(lhs);
-    PyDouble *dr = dynamic_cast<PyDouble*>(rhs);
+    auto *dl = dynamic_cast<PyDouble*>(lhs);
+    auto *dr = dynamic_cast<PyDouble*>(rhs);
     return new PyDouble(dl->value() - dr->value());
 }
 PyObject* DoubleKlass::mul(PyObject *lhs, PyObject *rhs)
 {
     assert(lhs && lhs->klass() == static_cast<Klass*>(this));
     assert(rhs && rhs->klass() == static_cast<Klass*>(this));
-    PyDouble *dl = dynamic_cast<PyDouble*>(lhs);
-    PyDouble *dr = dynamic_cast<PyDouble*>(rhs);
+    auto *dl = dynamic_cast<PyDouble*>(lhs);
+    auto *dr = dynamic_cast<PyDouble*>(rhs);
     return new PyDouble(dl->value() * dr->value());
 }
 PyObject* DoubleKlass::div(PyObject *lhs, PyObject *rhs)
 {
     assert(lhs && lhs->klass() == static_cast<Klass*>(this));
     assert(rhs && rhs->klass() == static_cast<Klass*>(this));
-    PyDouble *dl = dynamic_cast<PyDouble*>(lhs);
-    PyDouble *dr = dynamic_cast<PyDouble*>(rhs);
+    auto *dl = dynamic_cast<PyDouble*>(lhs);
+    auto *dr = dynamic_cast<PyDouble*>(rhs);
     return new PyDouble(dl->value() / dr->value());
 }
 

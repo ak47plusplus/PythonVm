@@ -32,7 +32,7 @@ public:
       PyString *coName,
       int lineno,
       PyString *notable);
-      ~CodeObject();
+      ~CodeObject() override;
 
 public:
     int m_ArgCount;                     /* 参数个数 */

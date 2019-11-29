@@ -33,5 +33,5 @@ void VM::destroy() NOEXCEPT
 
 void VM::run(CodeObject *mainCode) NOEXCEPT 
 {
-    Interpreter::get_instance()->run(mainCode);
+    Interpreter::Get().run(mainCode);
 }

@@ -6,12 +6,12 @@
 #include "PyInteger.hpp"
 #include "CodeObject.hpp"
 #include "ArrayList.hpp"
-#include "NonCopyable.hpp"
 #include "FileInputStream.hpp"
-
 #include "Logger.hpp"
 
-class PycFileParser : public fromboost::NonCopyable {
+#include "boost/noncopyable.hpp"
+
+class PycFileParser : public boost::noncopyable {
 public:
     explicit PycFileParser(FileInputStream *fileInputStream) NOEXCEPT;
     ~PycFileParser();

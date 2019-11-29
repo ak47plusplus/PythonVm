@@ -8,6 +8,13 @@ SET(CMAKE_BUILD_TYPE "Debug")
 SET(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -g2 -ggdb")
 SET(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall")
 
+set(CMAKE_CXX_STANDARD 11)
+
+# boost
+set(BOOST_ROOT "C:\\Users\\mzygd\\Desktop\\boost_1_70_0\\boost")
+set(Boost_LIBRARIES "C:\\Users\\mzygd\\Desktop\\boost_1_70_0\\libs")
+# find_package(Boost 1.70.0 COMPONENTS system thread REQUIRED)
+find_package(Boost "1.70.0" COMPONENTS REQUIRED)
 
 # 检查c++编译器标志，设置c++11支持变量
 include(CheckCXXCompilerFlag)
@@ -35,7 +42,6 @@ set(SOURCES
     src/VM.cpp
     src/LoggerConfig.cpp
     src/Frame.cpp
-    
     src/Native.cpp
     src/ArrayList.cpp
     src/Map.cpp
@@ -67,3 +73,15 @@ target_include_directories(${PROJECT_NAME}
         ${PROJECT_SOURCE_DIR}/src/cpu
         ${PROJECT_SOURCE_DIR}/src/3rd/easylogging++
 )
+
+if(Boost_FOUND)
+    message(STATUS "Boost_INCLUDE_DIRS: ${Boost_INCLUDE_DIRS}")
+    message(STATUS "Boost_LIBRARIES: ${Boost_LIBRARIES}")
+    message(STATUS "Boost_VERSION: ${Boost_VERSION}")
+    #include_directories(${Boost_INCLUDE_DIRS})
+    target_include_directories(${PROJECT_NAME} PRIVATE ${Boost_INCLUDE_DIRS})
+endif()
+
+if(Boost_FOUND)
+    target_link_libraries(${PROJECT_NAME} ${Boost_LIBRARIES})
+endif()

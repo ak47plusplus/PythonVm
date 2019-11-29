@@ -30,18 +30,15 @@
 #define FALSE             VM::PyFalse
 #define None              VM::PyNone
 
-Interpreter* Interpreter::m_Instance = nullptr;
-std::mutex Interpreter::m_Mutex;
+boost::thread_specific_ptr<Interpreter> Interpreter::gs_ThreadLocalInterpreter; /* NOLINT */
 
-Interpreter *Interpreter::get_instance()
+Interpreter& Interpreter::Get()
 {
-    if (Interpreter::m_Instance == nullptr) {
-        std::lock_guard<std::mutex> lock(m_Mutex);
-        if(Interpreter::m_Instance == nullptr) {
-            Interpreter::m_Instance = new Interpreter();
-        }
-    }
-    return Interpreter::m_Instance;
+   if(!gs_ThreadLocalInterpreter.get())
+   {
+       gs_ThreadLocalInterpreter.reset(new Interpreter());
+   }
+   return *gs_ThreadLocalInterpreter;
 }
 
 Interpreter::Interpreter()
