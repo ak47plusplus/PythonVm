@@ -150,7 +150,7 @@ void Interpreter::eval_frame()
                     w = nullptr;
                 v = POP();
                 u = TOP(); /* Do not pop the stack */
-                x = new PySlice();
+                //x = new PySlice();
                 break;
             case OpCode::SLICE:
             case OpCode::SLICE_1:// 0001

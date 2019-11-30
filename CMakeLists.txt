@@ -3,18 +3,18 @@ cmake_minimum_required(VERSION 3.5)
 # 设置项目的名称
 project (tinyPython)
 
+set(CMAKE_CXX_STANDARD 11)
+
 # 启动gdb
 SET(CMAKE_BUILD_TYPE "Debug")
 SET(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -g2 -ggdb")
 SET(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall")
 
-set(CMAKE_CXX_STANDARD 11)
-
 # boost
-set(BOOST_ROOT "C:\\Users\\mzygd\\Desktop\\boost_1_70_0\\boost")
-set(Boost_LIBRARIES "C:\\Users\\mzygd\\Desktop\\boost_1_70_0\\libs")
-# find_package(Boost 1.70.0 COMPONENTS system thread REQUIRED)
-find_package(Boost "1.70.0" COMPONENTS REQUIRED)
+#set(Boost_USE_STATIC_LIBS ON)
+set(BOOST_ROOT "C:\\Users\\mzygd\\Desktop\\boost_1_70_0")
+#set(BOOST_LIBRARYDIR "C:\\Users\\mzygd\\Desktop\\boost_1_70_0\\stage\\lib")
+find_package(Boost COMPONENTS filesystem REQUIRED)
 
 # 检查c++编译器标志，设置c++11支持变量
 include(CheckCXXCompilerFlag)
@@ -77,11 +77,10 @@ target_include_directories(${PROJECT_NAME}
 if(Boost_FOUND)
     message(STATUS "Boost_INCLUDE_DIRS: ${Boost_INCLUDE_DIRS}")
     message(STATUS "Boost_LIBRARIES: ${Boost_LIBRARIES}")
+    message(STATUS "Boost_LIBRARY_DIRS: ${Boost_LIBRARY_DIRS}")
     message(STATUS "Boost_VERSION: ${Boost_VERSION}")
-    #include_directories(${Boost_INCLUDE_DIRS})
     target_include_directories(${PROJECT_NAME} PRIVATE ${Boost_INCLUDE_DIRS})
-endif()
-
-if(Boost_FOUND)
     target_link_libraries(${PROJECT_NAME} ${Boost_LIBRARIES})
+    #include_directories(${Boost_INCLUDE_DIR})
+    #link_directories(${Boost_LIBRARY_DIR})
 endif()
