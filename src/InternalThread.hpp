@@ -5,16 +5,26 @@
 #ifndef INTERNALTHREAD_HPP
 #define INTERNALTHREAD_HPP
 
+#include <functional>
+
 #include "Core.hpp"
 #include "boost/thread.hpp"
 #include "boost/noncopyable.hpp"
 
-/**
- * Thread for Internal Usage.
- */
+class Runnable {
+public:
+    virtual ~Runnable(){}
+    virtual Run() = 0;
+};
+
 class InternalThread : public noncopyable {
     using tid = boost::thread::id;
 public:
+    explicit InternalThread(Runnable *target)
+        : thread_(std::mem_fn(&Runnable::Run(), target))
+    {
+
+    }
     void Join()     { thread_.join(); }
     void Detach()   { thread_.detach(); }
     tid GetId() const NOEXCEPT    { return thread_.get_id(); }
