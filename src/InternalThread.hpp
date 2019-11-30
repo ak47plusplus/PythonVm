@@ -28,7 +28,7 @@ class InternalThread : public noncopyable {
     using tid = boost::thread::id;
 public:
     explicit InternalThread(Runnable *target)
-        : thread_(&Runnable::Run(), target){}
+        : thread_(&Runnable::Run, target){}
     void Join()     { thread_.join(); }
     void Detach()   { thread_.detach(); }
     tid GetId() const NOEXCEPT    { return thread_.get_id(); }

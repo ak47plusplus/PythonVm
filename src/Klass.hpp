@@ -50,19 +50,19 @@ public:
 
     virtual void print(PyObject *x)                          {}
 
-    virtual PyObject* add(PyObject *lhs, PyObject *rhs)      {return 0;}
-    virtual PyObject* sub(PyObject *lhs, PyObject *rhs)      {return 0;}
-    virtual PyObject* mul(PyObject *lhs, PyObject *rhs)      {return 0;}
-    virtual PyObject* div(PyObject *lhs, PyObject *rhs)      {return 0;}
-    virtual PyObject* mod(PyObject *lhs, PyObject *rhs)      {return 0;}
+    virtual PyObject* add(PyObject *lhs, PyObject *rhs)      {return nullptr;}
+    virtual PyObject* sub(PyObject *lhs, PyObject *rhs)      {return nullptr;}
+    virtual PyObject* mul(PyObject *lhs, PyObject *rhs)      {return nullptr;}
+    virtual PyObject* div(PyObject *lhs, PyObject *rhs)      {return nullptr;}
+    virtual PyObject* mod(PyObject *lhs, PyObject *rhs)      {return nullptr;}
 
 
-    virtual PyObject* greater(PyObject *lhs, PyObject *rhs)  {return 0;}
-    virtual PyObject* less(PyObject *lhs, PyObject *rhs)     {return 0;}
-    virtual PyObject* equal(PyObject *lhs, PyObject *rhs)    {return 0;}
-    virtual PyObject* not_equal(PyObject *lhs, PyObject *rhs){return 0;}
-    virtual PyObject* ge(PyObject *lhs, PyObject *rhs)       {return 0;}
-    virtual PyObject* le(PyObject *lhs, PyObject *rhs)       {return 0;}
+    virtual PyObject* greater(PyObject *lhs, PyObject *rhs)  {return nullptr;}
+    virtual PyObject* less(PyObject *lhs, PyObject *rhs)     {return nullptr;}
+    virtual PyObject* equal(PyObject *lhs, PyObject *rhs)    {return nullptr;}
+    virtual PyObject* not_equal(PyObject *lhs, PyObject *rhs){return nullptr;}
+    virtual PyObject* ge(PyObject *lhs, PyObject *rhs)       {return nullptr;}
+    virtual PyObject* le(PyObject *lhs, PyObject *rhs)       {return nullptr;}
 
     virtual PyObject* len(PyObject *x)
     {
@@ -90,7 +90,7 @@ public:
         return 0;
     }
 
-    virtual PyObject* contains(PyObject *lhs, PyObject *rhs) {return 0;} // 1 in lst
+    virtual PyObject* contains(PyObject *lhs, PyObject *rhs) {return nullptr;} // 1 in lst
 
     void register_klass_dict(PyObject* k, PyObject* v);
     std::map<PyObject*, PyObject*> klass_dict()              {return m_KlassDict; }
