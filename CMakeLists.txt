@@ -12,9 +12,9 @@ SET(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall")
 
 # boost
 #set(Boost_USE_STATIC_LIBS ON)
-set(BOOST_ROOT "C:\\Users\\mzygd\\Desktop\\boost_1_70_0")
+#set(BOOST_ROOT "C:\\Users\\mzygd\\Desktop\\boost_1_70_0")
 #set(BOOST_LIBRARYDIR "C:\\Users\\mzygd\\Desktop\\boost_1_70_0\\stage\\lib")
-find_package(Boost COMPONENTS filesystem REQUIRED)
+find_package(Boost COMPONENTS thread REQUIRED)
 
 # 检查c++编译器标志，设置c++11支持变量
 include(CheckCXXCompilerFlag)
