@@ -35,6 +35,7 @@ MapEntry<K,V>& MapEntry<K,V>::operator=(const MapEntry<K,V>& rhs)
 {
     this->m_K = rhs.m_K;
     this->m_V = rhs.m_V;
+    return *this;
 }
 
 template<typename _Tp>
@@ -52,26 +53,26 @@ public:
     _Map_iterator(_BasePtr owner, int cursor=0)
         :owner_(owner), cursor_(cursor)
     {}
-    _Self& 
+    _Self&
     operator++() _GLIBCXX_NOEXCEPT
     {
         cursor_ += 1;
         return *this;
-    } 
-    _Self 
+    }
+    _Self
     operator++(int) _GLIBCXX_NOEXCEPT
     {
         _Self tmp = *this;
         cursor_ += 1;
         return tmp;
     }
-    _Self& 
+    _Self&
     operator--() _GLIBCXX_NOEXCEPT
     {
         cursor_ -= 1;
         return *this;
     }
-    _Self 
+    _Self
     operator--(int) _GLIBCXX_NOEXCEPT
     {
         _Self tmp = *this;
@@ -82,14 +83,14 @@ public:
     bool
     operator==(const _Self &__x) _GLIBCXX_NOEXCEPT
     {
-        return owner_ == __x.owner_ 
+        return owner_ == __x.owner_
             && cursor_ == __x.cursor_;
     }
 
-    bool 
+    bool
     operator!=(const _Self &__x) _GLIBCXX_NOEXCEPT
     {
-        return owner_ != __x.owner_ 
+        return owner_ != __x.owner_
         || cursor_ != __x.cursor_;
     }
     _Tp
@@ -145,12 +146,12 @@ private:
     int            m_Capacity;
 };
 
-// If k matches the key of an element in the container, the function 
+// If k matches the key of an element in the container, the function
 // returns a reference to its mapped value.
-// If k does not match the key of any element in the container, the 
-// function inserts a new element with that key and returns a reference to 
-// its mapped value. Notice that this always increases the container size by one, 
-// even if no mapped value is assigned to the element (the element is constructed using 
+// If k does not match the key of any element in the container, the
+// function inserts a new element with that key and returns a reference to
+// its mapped value. Notice that this always increases the container size by one,
+// even if no mapped value is assigned to the element (the element is constructed using
 // its default constructor).
 // Note: default compare use operator== but when pyobject* we prefer to use the 'equal'.
 template<typename K, typename V>
