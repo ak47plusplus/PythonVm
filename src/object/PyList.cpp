@@ -326,7 +326,7 @@ PyObject *list_index(FuncArgs args)
     PyObject *target = args->get(1);
     for(auto i = 0; i < list->size(); ++i)
     {
-        if(list->get(i)->equal(target))
+        if(list->get(i)->equal(target) == VM::PyTrue)
         {
             return new PyInteger(i);
         }
