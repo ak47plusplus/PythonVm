@@ -24,7 +24,7 @@ public:
     virtual void Run() = 0;
 };
 
-class InternalThread : public noncopyable {
+class InternalThread : public boost::noncopyable {
     using tid = boost::thread::id;
 public:
     explicit InternalThread(Runnable *target)
