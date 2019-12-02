@@ -111,7 +111,7 @@ PyObject *PyObject::getattr(PyObject *attr_name)
     PyDict *attrs = m_Klass->attrs();
     do{
         if(attrs == nullptr) break;
-        target_attr = attrs->get(attrK);
+        target_attr = attrs->get(attr_name);
     } while(0);
     if (target_attr == VM::PyNone)
     {
