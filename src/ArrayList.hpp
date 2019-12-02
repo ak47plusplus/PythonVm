@@ -244,7 +244,7 @@ void ArrayList<T>::reverse()
     }
     int start = 0;
     int end = m_size-1;
-    while(start != end)
+    while(start < end) // 不能用!= size为偶数时start和end就会错过.
     {
         T tmp = m_data[start];
         m_data[start] = m_data[end];
