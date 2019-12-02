@@ -18,8 +18,6 @@ void VM::init() NOEXCEPT
     VM::PyTrue = new PyInteger(1);
     VM::PyFalse = new PyInteger(0);
     VM::PyNone = new PyObject();
-
-    // init string.
 }
 
 

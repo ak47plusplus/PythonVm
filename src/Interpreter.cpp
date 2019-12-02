@@ -12,7 +12,6 @@
 #include "PyList.hpp"
 #include "PyListIterator.hpp"
 #include "PyDict.hpp"
-#include "PyMethod.hpp"
 #include "PyFunction.hpp"
 
 
