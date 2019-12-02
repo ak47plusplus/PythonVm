@@ -51,7 +51,6 @@ set(SOURCES
     src/object/PyString.cpp
     src/object/PyStringIterator.cpp
     src/object/PyFunction.cpp
-    src/object/PyMethod.cpp
     src/object/PyList.cpp
     src/object/PyListIterator.cpp
     src/object/PyDict.cpp
