@@ -20,9 +20,6 @@ void VM::init() NOEXCEPT
     VM::PyNone = new PyObject();
 
     // init string.
-    StringKlass::get_instance()->register_klass_dict(new PyString("upper"), new PyFunction(pystring::string_upper));
-    // init list.
-    ListKlass::get_instance()->register_klass_dict(new PyString("append"), new PyFunction(pylist::list_append));
 }
 
 
@@ -31,7 +28,7 @@ void VM::destroy() NOEXCEPT
 
 }
 
-void VM::run(CodeObject *mainCode) NOEXCEPT 
+void VM::run(CodeObject *mainCode) NOEXCEPT
 {
     Interpreter::Get().run(mainCode);
 }

@@ -2,7 +2,10 @@
 #include "PyListIterator.hpp"
 #include "VM.hpp"
 #include "Panic.hpp"
+#include "PyDict.hpp"
+#include "PyString.hpp"
 #include "PyInteger.hpp"
+#include "PyFunction.hpp"
 
 #include <assert.h>
 #include <stdio.h>
@@ -14,6 +17,17 @@ std::mutex ListKlass::m_Mutex;
 ListKlass::ListKlass()
 {
     set_name("list");
+    PyDict *attrs = new PyDict();
+    attrs->put(new PyString("append"),  new PyFunction(pylist::list_append));
+    attrs->put(new PyString("insert"),  new PyFunction(pylist::list_insert));
+    attrs->put(new PyString("index"),   new PyFunction(pylist::list_index));
+    attrs->put(new PyString("pop"),     new PyFunction(pylist::list_pop));
+    attrs->put(new PyString("remove"),  new PyFunction(pylist::list_remove));
+    attrs->put(new PyString("clear"),   new PyFunction(pylist::list_clear));
+    attrs->put(new PyString("count"),   new PyFunction(pylist::list_count));
+    attrs->put(new PyString("sort"),    new PyFunction(pylist::list_sort));
+    attrs->put(new PyString("reverse"), new PyFunction(pylist::list_reverse));
+    set_attrs(attrs);
 }
 
 ListKlass *ListKlass::get_instance()
@@ -57,7 +71,7 @@ PyObject *ListKlass::len(PyObject *self)
 
 /**
  * 两个列表相加，返回一个新的列表.
- * 
+ *
  */
 PyObject* ListKlass::add(PyObject *lhs, PyObject *rhs)
 {
@@ -298,7 +312,7 @@ PyObject *list_insert(FuncArgs args)
     PyInteger *index = dynamic_cast<PyInteger*>(arg1);
     if(index->value() > list->size()-1)
         list->append(arg2);
-    else 
+    else
         list->insert(index->value(), arg2);
     return VM::PyNone;
 }
