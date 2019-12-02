@@ -13,7 +13,7 @@
         _kls_();                                        \
         static _kls_ *m_Instance;                       \
         static std::mutex m_Mutex;                      \
-    };  
+    };
 
 #define MAKE_CLASS_IMPL(_kls_, _kls_name_)              \
     _kls_ * _kls_::m_Instance = nullptr;                \
@@ -44,12 +44,16 @@ class Klass {
 public:
     Klass();
     ~Klass();
-    void set_name(const char *name)                           {m_Name.assign(name);}
-    std::string& name()                                       {return m_Name;}
+    void set_name(const char *name)  { m_Name.assign(name);}
+    std::string& name()              { return m_Name;      }
+
+    void set_attrs(PyDict *attrs_)   { m_Attrs = attrs_;   }
+    PyDict *attrs()                  { return m_Attrs;     }
 
 
-    virtual void print(PyObject *x)                          {}
+    /* virtuals */
 
+    virtual void print(PyObject *x)                          {;}
     virtual PyObject* add(PyObject *lhs, PyObject *rhs)      {return nullptr;}
     virtual PyObject* sub(PyObject *lhs, PyObject *rhs)      {return nullptr;}
     virtual PyObject* mul(PyObject *lhs, PyObject *rhs)      {return nullptr;}
@@ -74,31 +78,27 @@ public:
         __throw_python_except("TypeError:%s object is not iterable.\n", m_Name.c_str());
         return 0;
     }
-    virtual PyObject* subscr(PyObject *lhs, PyObject *rhs)   
+    virtual PyObject* subscr(PyObject *lhs, PyObject *rhs)
     {
         __throw_python_except("TypeError:%s object is not subscriptable.\n", m_Name.c_str());
         return 0;
     }
-    virtual PyObject* store_subscr(PyObject *lhs, PyObject *mhs, PyObject *rhs) 
+    virtual PyObject* store_subscr(PyObject *lhs, PyObject *mhs, PyObject *rhs)
     {
         __throw_python_except("TypeError:%s object doesn't support item assignment.\n", m_Name.c_str());
         return 0;
     }
-    virtual PyObject* del_subscr(PyObject *lhs, PyObject *rhs) 
+    virtual PyObject* del_subscr(PyObject *lhs, PyObject *rhs)
     {
         __throw_python_except("TypeError:%s object doesn't support item deletion.\n", m_Name.c_str());
         return 0;
     }
 
-    virtual PyObject* contains(PyObject *lhs, PyObject *rhs) {return nullptr;} // 1 in lst
-
-    void register_klass_dict(PyObject* k, PyObject* v);
-    std::map<PyObject*, PyObject*> klass_dict()              {return m_KlassDict; }
-    virtual PyObject* getattr(PyObject *lhs, PyObject *rhs);
-
+    virtual PyObject* contains(PyObject *lhs, PyObject *rhs) { return nullptr;} // 1 in lst
+    // virtual PyObject* getattr(PyObject *lhs, PyObject *rhs);
 private:
-    std::string                      m_Name;
-    std::map<PyObject*, PyObject*>   m_KlassDict;
+    std::string  m_Name;  /* The name of the klass. */
+    PyDict      *m_Attrs; /* method and fields are attributes of the klass. */
 };
 
 

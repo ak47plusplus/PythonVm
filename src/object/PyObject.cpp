@@ -1,6 +1,8 @@
 #include "PyObject.hpp"
 #include "Klass.hpp"
 #include "PyInteger.hpp"
+#include "PyDict.hpp"
+#include "VM.hpp"
 
 PyObject *PyObject::id()
 {
@@ -88,7 +90,7 @@ PyObject *PyObject::subscr(PyObject *rhs)
 }
 
 PyObject *PyObject::store_subscr(PyObject *mhs, PyObject *rhs)
-{   
+{
     return this->m_Klass->store_subscr(this, mhs, rhs);
 }
 
@@ -102,7 +104,17 @@ PyObject *PyObject::contains(PyObject *rhs)
     return this->m_Klass->contains(this, rhs);
 }
 
-PyObject *PyObject::getattr(PyObject *attrK)
+PyObject *PyObject::getattr(PyObject *attr_name)
 {
-    return this->m_Klass->getattr(this, attrK);
+    PyObject *target_attr = VM::PyNone;
+    PyDict *attrs = m_Klass->attrs();
+    do{
+        if(attrs == nullptr) break;
+        target_attr = attrs->get(attrK);
+    } while(0);
+    if (target_attr == VM::PyNone)
+    {
+        __throw_python_except("AttributeError: cucr has no attribute xxx\n");
+    }
+    return target_attr;
 }

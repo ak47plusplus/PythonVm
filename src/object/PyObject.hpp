@@ -34,7 +34,7 @@ public:
     PyObject *del_subscr(PyObject *rhs);
     PyObject *contains(PyObject *rhs);
 
-    PyObject *getattr(PyObject *attrK);
+    PyObject *getattr(PyObject *attr_name);
 
 private:
     Klass *m_Klass;

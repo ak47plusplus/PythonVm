@@ -51,13 +51,14 @@ set(SOURCES
     src/object/PyString.cpp
     src/object/PyStringIterator.cpp
     src/object/PyFunction.cpp
+    src/object/PyMethod.cpp
     src/object/PyList.cpp
     src/object/PyListIterator.cpp
     src/object/PyDict.cpp
     src/object/PyDictIterator.cpp
     src/object/PyTuple.cpp
     src/object/PySlice.cpp
-        src/object/PyTypeObject.cpp)
+    src/object/PyTypeObject.cpp)
 
 # 添加一个可执行文件
 add_executable(${PROJECT_NAME} ${SOURCES})
