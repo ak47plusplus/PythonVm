@@ -61,14 +61,14 @@ PyMethod::PyMethod(PyObject *owner, PyFunction *func)
     set_klass(MethodKlass::get_instance();)
 }
 
-bool MethodObject::is_function(PyObject *obj)
+bool PyMethod::is_function(PyObject *obj)
 {
     return obj && (
         obj->klass() == MethodKlass::get_instance() ||
         obj->klass() == FunctionKlass::get_instance();
     )
 }
-bool MethodObject::is_yield_function(PyObject *obj)
+bool PyMethod::is_yield_function(PyObject *obj)
 {
     return false;
 }
