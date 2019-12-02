@@ -52,13 +52,13 @@ MethodKlass *MethodKlass::get_instance()
 PyMethod::PyMethod(PyFunction *func)
     : m_Owner(nullptr), m_Func(func)
 {
-    set_klass(MethodKlass::get_instance();
+    set_klass(MethodKlass::get_instance());
 }
 
 PyMethod::PyMethod(PyObject *owner, PyFunction *func)
     : m_Owner(owner), m_Func(func)
 {
-    set_klass(MethodKlass::get_instance();
+    set_klass(MethodKlass::get_instance());
 }
 
 bool PyMethod::is_function(PyObject *obj)
