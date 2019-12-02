@@ -1,6 +1,7 @@
 #include "PyObject.hpp"
 #include "Klass.hpp"
 #include "PyInteger.hpp"
+#include "PyMethod.hpp"
 #include "PyDict.hpp"
 #include "VM.hpp"
 
@@ -115,6 +116,12 @@ PyObject *PyObject::getattr(PyObject *attr_name)
     if (target_attr == VM::PyNone)
     {
         __throw_python_except("AttributeError: cucr has no attribute xxx\n");
+    }
+
+    // Just for klass attr :
+    if(PyMethod::is_function(target_attr))
+    {
+        target_attr = new PyMethod(this, target_attr);
     }
     return target_attr;
 }

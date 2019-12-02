@@ -12,8 +12,9 @@
 #include "PyList.hpp"
 #include "PyListIterator.hpp"
 #include "PyDict.hpp"
-
+#include "PyMethod.hpp"
 #include "PyFunction.hpp"
+
 
 #include <mutex>
 #include <cstdio>
@@ -143,7 +144,7 @@ void Interpreter::eval_frame()
              * 在python2中也有BUILD_SLICE + BINARY_SUBSCR的组合 但是经过测试 发现python2编译器
              * 只有在切片seq[ilow:ihigh:step]都存在的时候才会编译成这个组合,其余情况都会使用上面的字节码。
              */
-            case OpCode::BUILD_SLICE: 
+            case OpCode::BUILD_SLICE:
                 if(opArg == 3) /* opArg always = 3 in python2 */
                     w = POP();
                 else
@@ -460,11 +461,21 @@ void Interpreter::leave_frame()
  */
 void Interpreter::exec_new_frame(PyObject *callable, ArrayList<PyObject*> *funcArgs, int opArg)
 {
-    // 如果是native函数,直接调用c++写好的函数
     if(callable->klass() == NativeFunctionKlass::get_instance())
     {
+        /* 如果是native函数,直接调用c++写好的函数 */
         PUSH(dynamic_cast<PyFunction*>(callable)->native_call(funcArgs));
-    } else {
+    }
+    else if(callable->klass() == MethodKlass::get_instance()) {
+        PyMethod *method = dynamic_cast<PyMethod*>(callable);
+        if(funcArgs == nullptr) {
+            ArrayList<PyObject*> selfArg(1);
+            funcArgs = &selfArg;
+        }
+        funcArgs->insert(0, method->owner());
+        exec_new_frame(method->func(), funcArgs, opArg);
+    }
+    else {
         Frame *_new_frame = new Frame((PyFunction*)callable, funcArgs, opArg);
         _new_frame->set_caller(m_CurrentFrame);
         m_CurrentFrame = _new_frame;
