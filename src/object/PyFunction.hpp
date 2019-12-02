@@ -31,7 +31,7 @@ private:
  */
  class MethodKlass : public Klass {
  public:
-     MethodKlass *get_instance();
+     static MethodKlass *get_instance();
  private:
      MethodKlass();
      static MethodKlass *m_Instance;
