@@ -1,7 +1,7 @@
 #include "PyObject.hpp"
 #include "Klass.hpp"
 #include "PyInteger.hpp"
-#include "PyMethod.hpp"
+#include "PyFunction.hpp"
 #include "PyDict.hpp"
 #include "VM.hpp"
 
