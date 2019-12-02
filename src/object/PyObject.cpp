@@ -121,7 +121,7 @@ PyObject *PyObject::getattr(PyObject *attr_name)
     // Just for klass attr :
     if(PyMethod::is_function(target_attr))
     {
-        target_attr = new PyMethod(this, target_attr);
+        target_attr = new PyMethod(this, dynamic_cast<PyFunction*>(target_attr));
     }
     return target_attr;
 }
