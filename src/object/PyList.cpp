@@ -17,6 +17,10 @@ std::mutex ListKlass::m_Mutex;
 ListKlass::ListKlass()
 {
     set_name("list");
+}
+
+void ListKlass::InitKlass()
+{
     PyDict *attrs = new PyDict(16);
     attrs->put(new PyString("append"),  new PyFunction(pylist::list_append));
     attrs->put(new PyString("insert"),  new PyFunction(pylist::list_insert));

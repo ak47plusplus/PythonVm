@@ -50,6 +50,8 @@ public:
     void set_attrs(PyDict *attrs_)   { m_Attrs = attrs_;   }
     PyDict *attrs()                  { return m_Attrs;     }
 
+    virtual void InitKlass()              {;}
+
 
     /* virtuals */
 

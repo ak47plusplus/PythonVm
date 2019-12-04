@@ -4,6 +4,7 @@
 #include "PyInteger.hpp"
 #include "PyString.hpp"
 #include "PyList.hpp"
+#include "PyDict.hpp"
 #include "PyFunction.hpp"
 
 #include "Interpreter.hpp"
@@ -18,6 +19,9 @@ void VM::init() NOEXCEPT
     VM::PyTrue = new PyInteger(1);
     VM::PyFalse = new PyInteger(0);
     VM::PyNone = new PyObject();
+
+    ListKlass::get_instance()->InitKlass();
+    DictKlass::get_instance()->InitKlass();
 }
 
 

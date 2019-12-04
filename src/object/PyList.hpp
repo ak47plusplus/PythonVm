@@ -8,6 +8,9 @@
 
 class ListKlass : public Klass {
 public:
+    static ListKlass *get_instance();
+    virtual void InitKlass();
+
     virtual void print(PyObject *x);
     virtual PyObject *len(PyObject *self);
     virtual PyObject *iter(PyObject *self);
@@ -20,7 +23,6 @@ public:
     virtual PyObject *del_subscr(PyObject *lhs, PyObject *rhs);
     virtual PyObject *contains(PyObject *lhs, PyObject *rhs);
 
-    static ListKlass *get_instance();
 private:
     ListKlass();
     static ListKlass *m_Instance;

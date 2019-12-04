@@ -138,6 +138,7 @@ public:
     const MapEntry<K,V> *entries() const {return m_Entries;}
     iterator begin() const;
     iterator end() const;
+    void clear();
 private:
     void expand_capacity();
 private:
@@ -340,6 +341,12 @@ template<typename K, typename V>
 typename Map<K,V>::iterator Map<K,V>::end() const
 {
     return iterator(m_Entries, m_Size);
+}
+
+template<typename K, typename V>
+void Map<K,V>::clear()
+{
+    m_Size = 0; 
 }
 
 #endif

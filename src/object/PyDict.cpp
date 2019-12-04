@@ -1,7 +1,11 @@
 #include "PyDict.hpp"
 #include "PyInteger.hpp"
+#include "PyString.hpp"
+#include "PyList.hpp"
 #include "PyDictIterator.hpp"
-
+#include "PyFunction.hpp"
+#include "ArrayList.hpp"
+#include "VM.hpp"
 #include <iostream>
 #include <cassert>
 
@@ -11,6 +15,13 @@ std::mutex DictKlass::m_Mutex;
 DictKlass::DictKlass()
 {
     set_name("dict");
+}
+
+void DictKlass::InitKlass()
+{
+    PyDict *attrs = new PyDict(8);
+    attrs->put(new PyString("clear"), new PyFunction(pydict::dict_clear));
+    set_attrs(attrs);
 }
 
 DictKlass* DictKlass::get_instance()
@@ -147,3 +158,56 @@ PyDict::~PyDict()
         m_InnerMap = nullptr;
     }
 }
+
+
+namespace pydict
+{
+
+/**
+ * 清空整个Dict.
+ */
+PyObject *dict_clear(FuncArgs args)
+{
+    assert(args && args->size() == 1);
+    PyDict *dict = dynamic_cast<PyDict*>(args->get(0));
+    dict->clear();
+    return VM::PyNone;
+}
+
+/**
+ * 返回key组成的list
+ * Note：Python2返回的是list 但是python3返回的是dict_keys类型,这里只兼容python2
+ */
+PyObject* dict_keys(FuncArgs args)
+{
+    assert(args && args->size() == 1);
+    PyDict *dict = dynamic_cast<PyDict*>(args->get(0));
+    InnerMapPtr innerMap = dict->innerMap();
+    PyList *keys = new PyList();
+    for(auto i = 0; i < innerMap->size(); i++)
+    {
+        keys->append(innerMap->get_key(i));
+    }
+    return keys;
+}
+
+/**
+ * 返回value组成的list
+ * Note：Python2返回的是list 但是python3返回的是dict_keys类型,这里只兼容python2
+ */
+PyObject* dict_values(FuncArgs args)
+{
+    assert(args && args->size() == 1);
+    PyDict *dict = dynamic_cast<PyDict*>(args->get(0));
+    InnerMapPtr innerMap = dict->innerMap();
+    const MapEntry<PyObject*,PyObject*> *entries = innerMap->entries();
+    auto size = innerMap->size();
+    PyList *values = new PyList();
+    for(auto i = 0; i < size; i++)
+    {
+        values->append(entries[i].m_V);
+    }
+    return values;
+}
+
+} // namespace pydict
