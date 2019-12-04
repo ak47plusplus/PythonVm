@@ -18,11 +18,12 @@ DictKlass::DictKlass()
 }
 
 void DictKlass::InitKlass()
-{
+{   
+    /* 初始化dict的内置方法  */
     PyDict *attrs = new PyDict(8);
-    attrs->put(new PyString("clear"),       new PyFunction(pydict::dict_clear));
-    attrs->put(new PyString("dict_keys"),   new PyFunction(pydict::dict_keys));
-    attrs->put(new PyString("dict_values"), new PyFunction(pydict::dict_values));
+    attrs->put(new PyString("clear"),  new PyFunction(pydict::dict_clear));
+    attrs->put(new PyString("keys"),   new PyFunction(pydict::dict_keys));
+    attrs->put(new PyString("values"), new PyFunction(pydict::dict_values));
     set_attrs(attrs);
 }
 
