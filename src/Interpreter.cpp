@@ -460,11 +460,12 @@ void Interpreter::leave_frame()
  */
 void Interpreter::exec_new_frame(PyObject *callable, ArrayList<PyObject*> *funcArgs, int opArg)
 {
+    /* 如果是native函数,直接调用c++写好的函数 */
     if(callable->klass() == NativeFunctionKlass::get_instance())
     {
-        /* 如果是native函数,直接调用c++写好的函数 */
         PUSH(dynamic_cast<PyFunction*>(callable)->native_call(funcArgs));
     }
+    /* 如果是类的成员函数,则需要将该类的对象偷偷设置在参数列表的第一个参数位置 */
     else if(callable->klass() == MethodKlass::get_instance()) {
         PyMethod *method = dynamic_cast<PyMethod*>(callable);
         if(funcArgs == nullptr) {
@@ -474,6 +475,7 @@ void Interpreter::exec_new_frame(PyObject *callable, ArrayList<PyObject*> *funcA
         funcArgs->insert(0, method->owner());
         exec_new_frame(method->func(), funcArgs, opArg);
     }
+    /* 如果是普通的Python函数,则创建一个新的栈帧,并将解释器的所有权交给这个新的栈帧 */
     else {
         Frame *_new_frame = new Frame((PyFunction*)callable, funcArgs, opArg);
         _new_frame->set_caller(m_CurrentFrame);
