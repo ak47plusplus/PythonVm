@@ -467,6 +467,9 @@ void Interpreter::exec_new_frame(PyObject *callable, ArrayList<PyObject*> *funcA
     }
     /* 如果是类的成员函数,则需要将该类的对象偷偷设置在参数列表的第一个参数位置 */
     else if(callable->klass() == MethodKlass::get_instance()) {
+        /* 这个对象请不要放在下面的if里,c++标准并没有规定是否{}就释放其中的栈变量
+         * 具体实现取决于实际的编译器厂商,目前在gcc上会存在问题.
+         */
         ArrayList<PyObject*> selfArg(1);
         PyMethod *method = dynamic_cast<PyMethod*>(callable);
         if(funcArgs == nullptr) {
