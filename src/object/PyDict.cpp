@@ -27,6 +27,7 @@ void DictKlass::InitKlass()
     attrs->put(new PyString("clear"),  new PyFunction(pydict::dict_clear));
     attrs->put(new PyString("keys"),   new PyFunction(pydict::dict_keys));
     attrs->put(new PyString("values"), new PyFunction(pydict::dict_values));
+    attrs->put(new PyString("copy"),   new PyFunction(pydict::dict_copy));
     set_attrs(attrs);
 }
 
