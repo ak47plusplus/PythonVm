@@ -224,7 +224,7 @@ PyObject* dict_copy(FuncArgs args)
     assert(args && args->size() == 1);
     PyDict *src = dynamic_cast<PyDict*>(args->get(0));
     const MapEntry<PyObject*,PyObject*> *srcEntries = src->innerMap()->entries();
-    PyDict *dest = new PyDict(std::max<int>(src->size, 8));
+    PyDict *dest = new PyDict(std::max<int>(src->size(), 8));
     for(auto i = 0; i < src->size(); ++i)
     {
         dest->put(srcEntries[i].m_K, srcEntries[i].m_V);
