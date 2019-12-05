@@ -467,13 +467,13 @@ void Interpreter::exec_new_frame(PyObject *callable, ArrayList<PyObject*> *funcA
     }
     /* 如果是类的成员函数,则需要将该类的对象偷偷设置在参数列表的第一个参数位置 */
     else if(callable->klass() == MethodKlass::get_instance()) {
+        ArrayList<PyObject*> selfArg(1);
         PyMethod *method = dynamic_cast<PyMethod*>(callable);
         if(funcArgs == nullptr) {
-            ArrayList<PyObject*> selfArg(1);
             funcArgs = &selfArg;
         }
         funcArgs->insert(0, method->owner());
-        exec_new_frame(method->func(), funcArgs, opArg);
+        exec_new_frame(method->func(), funcArgs, opArg); // TODO 这里的opArg是否需要+1待定
     }
     /* 如果是普通的Python函数,则创建一个新的栈帧,并将解释器的所有权交给这个新的栈帧 */
     else {
