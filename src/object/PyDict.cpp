@@ -241,6 +241,7 @@ PyObject* dict_fromkeys(FuncArgs args)
         __throw_python_except("fromkeys expected at most 2 arguments, got %d\n", argCount);
     }
     // TODO
+    return VM::PyNone;
 }
 
 } // namespace pydict
