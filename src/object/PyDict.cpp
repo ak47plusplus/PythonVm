@@ -6,8 +6,11 @@
 #include "PyFunction.hpp"
 #include "ArrayList.hpp"
 #include "VM.hpp"
+#include "Core.hpp"
+
 #include <iostream>
 #include <cassert>
+#include <cmath>
 
 DictKlass* DictKlass::m_Instance = nullptr;
 std::mutex DictKlass::m_Mutex;
@@ -211,6 +214,33 @@ PyObject* dict_values(FuncArgs args)
         values->append(entries[i].m_V);
     }
     return values;
+}
+
+/**
+ * 返回一个Dict的浅复制.
+ */
+PyObject* dict_copy(FuncArgs args)
+{
+    assert(args && args->size() == 1);
+    PyDict *src = dynamic_cast<PyDict*>(args->get(0));
+    const MapEntry<PyObject*,PyObject*> *srcEntries = src->innerMap()->entries();
+    PyDict *dest = new PyDict(std::max<int>(src->size, 8));
+    for(auto i = 0; i < src->size(); ++i)
+    {
+        dest->put(srcEntries[i].m_K, srcEntries[i].m_V);
+    }
+    return dest;
+}
+
+PyObject* dict_fromkeys(FuncArgs args)
+{
+    assert(args);
+    auto argCount = args->size();
+    if(argCount != 1 && argCount != 2)
+    {
+        __throw_python_except("fromkeys expected at most 2 arguments, got %d\n", argCount);
+    }
+    // TODO
 }
 
 } // namespace pydict

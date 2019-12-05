@@ -8,6 +8,9 @@
 
 typedef int pc_t;
 
+#define PUBLIC
+#define STATIC
+
 /*
  * Operating System Evaluation
  */

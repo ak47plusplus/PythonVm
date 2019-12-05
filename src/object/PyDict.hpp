@@ -1,6 +1,7 @@
 #ifndef PY_DICT_HPP__
 #define PY_DICT_HPP__
 
+#include "Core.hpp"
 #include "Map.hpp"
 #include "Klass.hpp"
 #include "PyObject.hpp"
@@ -52,7 +53,9 @@ namespace pydict {
     extern PyObject *dict_clear(FuncArgs args);
     extern PyObject* dict_keys(FuncArgs args);
     extern PyObject* dict_values(FuncArgs args);
-    // D.copy()                               #返回D的副本  
+    extern PyObject* dict_copy(FuncArgs args);
+    // TODO static方法暂时未实现 其实只需要一个标志是static,然后调用的时候不传self就可以了.
+    extern STATIC PyObject* dict_fromkeys(FuncArgs args);
     // D.fromkeys(seq[,val])                  #返回从seq中获得的键和被设置为val的值的字典。可做类方法调用  
     // D.get(key[,default])                   #如果D[key]存在，将其返回；否则返回给定的默认值None  
     // D.has_key(key)                         #检查D是否有给定键key  
