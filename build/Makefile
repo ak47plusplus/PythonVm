@@ -366,6 +366,33 @@ src/Main.cpp.s:
 	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/Main.cpp.s
 .PHONY : src/Main.cpp.s
 
+src/Map.o: src/Map.cpp.o
+
+.PHONY : src/Map.o
+
+# target to build an object file
+src/Map.cpp.o:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/Map.cpp.o
+.PHONY : src/Map.cpp.o
+
+src/Map.i: src/Map.cpp.i
+
+.PHONY : src/Map.i
+
+# target to preprocess a source file
+src/Map.cpp.i:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/Map.cpp.i
+.PHONY : src/Map.cpp.i
+
+src/Map.s: src/Map.cpp.s
+
+.PHONY : src/Map.s
+
+# target to generate assembly for a file
+src/Map.cpp.s:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/Map.cpp.s
+.PHONY : src/Map.cpp.s
+
 src/Native.o: src/Native.cpp.o
 
 .PHONY : src/Native.o
@@ -392,195 +419,6 @@ src/Native.s: src/Native.cpp.s
 src/Native.cpp.s:
 	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/Native.cpp.s
 .PHONY : src/Native.cpp.s
-
-src/PyDict.o: src/PyDict.cpp.o
-
-.PHONY : src/PyDict.o
-
-# target to build an object file
-src/PyDict.cpp.o:
-	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/PyDict.cpp.o
-.PHONY : src/PyDict.cpp.o
-
-src/PyDict.i: src/PyDict.cpp.i
-
-.PHONY : src/PyDict.i
-
-# target to preprocess a source file
-src/PyDict.cpp.i:
-	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/PyDict.cpp.i
-.PHONY : src/PyDict.cpp.i
-
-src/PyDict.s: src/PyDict.cpp.s
-
-.PHONY : src/PyDict.s
-
-# target to generate assembly for a file
-src/PyDict.cpp.s:
-	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/PyDict.cpp.s
-.PHONY : src/PyDict.cpp.s
-
-src/PyDouble.o: src/PyDouble.cpp.o
-
-.PHONY : src/PyDouble.o
-
-# target to build an object file
-src/PyDouble.cpp.o:
-	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/PyDouble.cpp.o
-.PHONY : src/PyDouble.cpp.o
-
-src/PyDouble.i: src/PyDouble.cpp.i
-
-.PHONY : src/PyDouble.i
-
-# target to preprocess a source file
-src/PyDouble.cpp.i:
-	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/PyDouble.cpp.i
-.PHONY : src/PyDouble.cpp.i
-
-src/PyDouble.s: src/PyDouble.cpp.s
-
-.PHONY : src/PyDouble.s
-
-# target to generate assembly for a file
-src/PyDouble.cpp.s:
-	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/PyDouble.cpp.s
-.PHONY : src/PyDouble.cpp.s
-
-src/PyFunction.o: src/PyFunction.cpp.o
-
-.PHONY : src/PyFunction.o
-
-# target to build an object file
-src/PyFunction.cpp.o:
-	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/PyFunction.cpp.o
-.PHONY : src/PyFunction.cpp.o
-
-src/PyFunction.i: src/PyFunction.cpp.i
-
-.PHONY : src/PyFunction.i
-
-# target to preprocess a source file
-src/PyFunction.cpp.i:
-	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/PyFunction.cpp.i
-.PHONY : src/PyFunction.cpp.i
-
-src/PyFunction.s: src/PyFunction.cpp.s
-
-.PHONY : src/PyFunction.s
-
-# target to generate assembly for a file
-src/PyFunction.cpp.s:
-	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/PyFunction.cpp.s
-.PHONY : src/PyFunction.cpp.s
-
-src/PyInteger.o: src/PyInteger.cpp.o
-
-.PHONY : src/PyInteger.o
-
-# target to build an object file
-src/PyInteger.cpp.o:
-	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/PyInteger.cpp.o
-.PHONY : src/PyInteger.cpp.o
-
-src/PyInteger.i: src/PyInteger.cpp.i
-
-.PHONY : src/PyInteger.i
-
-# target to preprocess a source file
-src/PyInteger.cpp.i:
-	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/PyInteger.cpp.i
-.PHONY : src/PyInteger.cpp.i
-
-src/PyInteger.s: src/PyInteger.cpp.s
-
-.PHONY : src/PyInteger.s
-
-# target to generate assembly for a file
-src/PyInteger.cpp.s:
-	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/PyInteger.cpp.s
-.PHONY : src/PyInteger.cpp.s
-
-src/PyList.o: src/PyList.cpp.o
-
-.PHONY : src/PyList.o
-
-# target to build an object file
-src/PyList.cpp.o:
-	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/PyList.cpp.o
-.PHONY : src/PyList.cpp.o
-
-src/PyList.i: src/PyList.cpp.i
-
-.PHONY : src/PyList.i
-
-# target to preprocess a source file
-src/PyList.cpp.i:
-	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/PyList.cpp.i
-.PHONY : src/PyList.cpp.i
-
-src/PyList.s: src/PyList.cpp.s
-
-.PHONY : src/PyList.s
-
-# target to generate assembly for a file
-src/PyList.cpp.s:
-	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/PyList.cpp.s
-.PHONY : src/PyList.cpp.s
-
-src/PyObject.o: src/PyObject.cpp.o
-
-.PHONY : src/PyObject.o
-
-# target to build an object file
-src/PyObject.cpp.o:
-	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/PyObject.cpp.o
-.PHONY : src/PyObject.cpp.o
-
-src/PyObject.i: src/PyObject.cpp.i
-
-.PHONY : src/PyObject.i
-
-# target to preprocess a source file
-src/PyObject.cpp.i:
-	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/PyObject.cpp.i
-.PHONY : src/PyObject.cpp.i
-
-src/PyObject.s: src/PyObject.cpp.s
-
-.PHONY : src/PyObject.s
-
-# target to generate assembly for a file
-src/PyObject.cpp.s:
-	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/PyObject.cpp.s
-.PHONY : src/PyObject.cpp.s
-
-src/PyString.o: src/PyString.cpp.o
-
-.PHONY : src/PyString.o
-
-# target to build an object file
-src/PyString.cpp.o:
-	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/PyString.cpp.o
-.PHONY : src/PyString.cpp.o
-
-src/PyString.i: src/PyString.cpp.i
-
-.PHONY : src/PyString.i
-
-# target to preprocess a source file
-src/PyString.cpp.i:
-	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/PyString.cpp.i
-.PHONY : src/PyString.cpp.i
-
-src/PyString.s: src/PyString.cpp.s
-
-.PHONY : src/PyString.s
-
-# target to generate assembly for a file
-src/PyString.cpp.s:
-	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/PyString.cpp.s
-.PHONY : src/PyString.cpp.s
 
 src/PycFileParser.o: src/PycFileParser.cpp.o
 
@@ -636,6 +474,357 @@ src/VM.cpp.s:
 	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/VM.cpp.s
 .PHONY : src/VM.cpp.s
 
+src/object/PyDict.o: src/object/PyDict.cpp.o
+
+.PHONY : src/object/PyDict.o
+
+# target to build an object file
+src/object/PyDict.cpp.o:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyDict.cpp.o
+.PHONY : src/object/PyDict.cpp.o
+
+src/object/PyDict.i: src/object/PyDict.cpp.i
+
+.PHONY : src/object/PyDict.i
+
+# target to preprocess a source file
+src/object/PyDict.cpp.i:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyDict.cpp.i
+.PHONY : src/object/PyDict.cpp.i
+
+src/object/PyDict.s: src/object/PyDict.cpp.s
+
+.PHONY : src/object/PyDict.s
+
+# target to generate assembly for a file
+src/object/PyDict.cpp.s:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyDict.cpp.s
+.PHONY : src/object/PyDict.cpp.s
+
+src/object/PyDictIterator.o: src/object/PyDictIterator.cpp.o
+
+.PHONY : src/object/PyDictIterator.o
+
+# target to build an object file
+src/object/PyDictIterator.cpp.o:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyDictIterator.cpp.o
+.PHONY : src/object/PyDictIterator.cpp.o
+
+src/object/PyDictIterator.i: src/object/PyDictIterator.cpp.i
+
+.PHONY : src/object/PyDictIterator.i
+
+# target to preprocess a source file
+src/object/PyDictIterator.cpp.i:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyDictIterator.cpp.i
+.PHONY : src/object/PyDictIterator.cpp.i
+
+src/object/PyDictIterator.s: src/object/PyDictIterator.cpp.s
+
+.PHONY : src/object/PyDictIterator.s
+
+# target to generate assembly for a file
+src/object/PyDictIterator.cpp.s:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyDictIterator.cpp.s
+.PHONY : src/object/PyDictIterator.cpp.s
+
+src/object/PyDouble.o: src/object/PyDouble.cpp.o
+
+.PHONY : src/object/PyDouble.o
+
+# target to build an object file
+src/object/PyDouble.cpp.o:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyDouble.cpp.o
+.PHONY : src/object/PyDouble.cpp.o
+
+src/object/PyDouble.i: src/object/PyDouble.cpp.i
+
+.PHONY : src/object/PyDouble.i
+
+# target to preprocess a source file
+src/object/PyDouble.cpp.i:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyDouble.cpp.i
+.PHONY : src/object/PyDouble.cpp.i
+
+src/object/PyDouble.s: src/object/PyDouble.cpp.s
+
+.PHONY : src/object/PyDouble.s
+
+# target to generate assembly for a file
+src/object/PyDouble.cpp.s:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyDouble.cpp.s
+.PHONY : src/object/PyDouble.cpp.s
+
+src/object/PyFunction.o: src/object/PyFunction.cpp.o
+
+.PHONY : src/object/PyFunction.o
+
+# target to build an object file
+src/object/PyFunction.cpp.o:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyFunction.cpp.o
+.PHONY : src/object/PyFunction.cpp.o
+
+src/object/PyFunction.i: src/object/PyFunction.cpp.i
+
+.PHONY : src/object/PyFunction.i
+
+# target to preprocess a source file
+src/object/PyFunction.cpp.i:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyFunction.cpp.i
+.PHONY : src/object/PyFunction.cpp.i
+
+src/object/PyFunction.s: src/object/PyFunction.cpp.s
+
+.PHONY : src/object/PyFunction.s
+
+# target to generate assembly for a file
+src/object/PyFunction.cpp.s:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyFunction.cpp.s
+.PHONY : src/object/PyFunction.cpp.s
+
+src/object/PyInteger.o: src/object/PyInteger.cpp.o
+
+.PHONY : src/object/PyInteger.o
+
+# target to build an object file
+src/object/PyInteger.cpp.o:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyInteger.cpp.o
+.PHONY : src/object/PyInteger.cpp.o
+
+src/object/PyInteger.i: src/object/PyInteger.cpp.i
+
+.PHONY : src/object/PyInteger.i
+
+# target to preprocess a source file
+src/object/PyInteger.cpp.i:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyInteger.cpp.i
+.PHONY : src/object/PyInteger.cpp.i
+
+src/object/PyInteger.s: src/object/PyInteger.cpp.s
+
+.PHONY : src/object/PyInteger.s
+
+# target to generate assembly for a file
+src/object/PyInteger.cpp.s:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyInteger.cpp.s
+.PHONY : src/object/PyInteger.cpp.s
+
+src/object/PyList.o: src/object/PyList.cpp.o
+
+.PHONY : src/object/PyList.o
+
+# target to build an object file
+src/object/PyList.cpp.o:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyList.cpp.o
+.PHONY : src/object/PyList.cpp.o
+
+src/object/PyList.i: src/object/PyList.cpp.i
+
+.PHONY : src/object/PyList.i
+
+# target to preprocess a source file
+src/object/PyList.cpp.i:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyList.cpp.i
+.PHONY : src/object/PyList.cpp.i
+
+src/object/PyList.s: src/object/PyList.cpp.s
+
+.PHONY : src/object/PyList.s
+
+# target to generate assembly for a file
+src/object/PyList.cpp.s:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyList.cpp.s
+.PHONY : src/object/PyList.cpp.s
+
+src/object/PyListIterator.o: src/object/PyListIterator.cpp.o
+
+.PHONY : src/object/PyListIterator.o
+
+# target to build an object file
+src/object/PyListIterator.cpp.o:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyListIterator.cpp.o
+.PHONY : src/object/PyListIterator.cpp.o
+
+src/object/PyListIterator.i: src/object/PyListIterator.cpp.i
+
+.PHONY : src/object/PyListIterator.i
+
+# target to preprocess a source file
+src/object/PyListIterator.cpp.i:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyListIterator.cpp.i
+.PHONY : src/object/PyListIterator.cpp.i
+
+src/object/PyListIterator.s: src/object/PyListIterator.cpp.s
+
+.PHONY : src/object/PyListIterator.s
+
+# target to generate assembly for a file
+src/object/PyListIterator.cpp.s:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyListIterator.cpp.s
+.PHONY : src/object/PyListIterator.cpp.s
+
+src/object/PyObject.o: src/object/PyObject.cpp.o
+
+.PHONY : src/object/PyObject.o
+
+# target to build an object file
+src/object/PyObject.cpp.o:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyObject.cpp.o
+.PHONY : src/object/PyObject.cpp.o
+
+src/object/PyObject.i: src/object/PyObject.cpp.i
+
+.PHONY : src/object/PyObject.i
+
+# target to preprocess a source file
+src/object/PyObject.cpp.i:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyObject.cpp.i
+.PHONY : src/object/PyObject.cpp.i
+
+src/object/PyObject.s: src/object/PyObject.cpp.s
+
+.PHONY : src/object/PyObject.s
+
+# target to generate assembly for a file
+src/object/PyObject.cpp.s:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyObject.cpp.s
+.PHONY : src/object/PyObject.cpp.s
+
+src/object/PySlice.o: src/object/PySlice.cpp.o
+
+.PHONY : src/object/PySlice.o
+
+# target to build an object file
+src/object/PySlice.cpp.o:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PySlice.cpp.o
+.PHONY : src/object/PySlice.cpp.o
+
+src/object/PySlice.i: src/object/PySlice.cpp.i
+
+.PHONY : src/object/PySlice.i
+
+# target to preprocess a source file
+src/object/PySlice.cpp.i:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PySlice.cpp.i
+.PHONY : src/object/PySlice.cpp.i
+
+src/object/PySlice.s: src/object/PySlice.cpp.s
+
+.PHONY : src/object/PySlice.s
+
+# target to generate assembly for a file
+src/object/PySlice.cpp.s:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PySlice.cpp.s
+.PHONY : src/object/PySlice.cpp.s
+
+src/object/PyString.o: src/object/PyString.cpp.o
+
+.PHONY : src/object/PyString.o
+
+# target to build an object file
+src/object/PyString.cpp.o:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyString.cpp.o
+.PHONY : src/object/PyString.cpp.o
+
+src/object/PyString.i: src/object/PyString.cpp.i
+
+.PHONY : src/object/PyString.i
+
+# target to preprocess a source file
+src/object/PyString.cpp.i:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyString.cpp.i
+.PHONY : src/object/PyString.cpp.i
+
+src/object/PyString.s: src/object/PyString.cpp.s
+
+.PHONY : src/object/PyString.s
+
+# target to generate assembly for a file
+src/object/PyString.cpp.s:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyString.cpp.s
+.PHONY : src/object/PyString.cpp.s
+
+src/object/PyStringIterator.o: src/object/PyStringIterator.cpp.o
+
+.PHONY : src/object/PyStringIterator.o
+
+# target to build an object file
+src/object/PyStringIterator.cpp.o:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyStringIterator.cpp.o
+.PHONY : src/object/PyStringIterator.cpp.o
+
+src/object/PyStringIterator.i: src/object/PyStringIterator.cpp.i
+
+.PHONY : src/object/PyStringIterator.i
+
+# target to preprocess a source file
+src/object/PyStringIterator.cpp.i:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyStringIterator.cpp.i
+.PHONY : src/object/PyStringIterator.cpp.i
+
+src/object/PyStringIterator.s: src/object/PyStringIterator.cpp.s
+
+.PHONY : src/object/PyStringIterator.s
+
+# target to generate assembly for a file
+src/object/PyStringIterator.cpp.s:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyStringIterator.cpp.s
+.PHONY : src/object/PyStringIterator.cpp.s
+
+src/object/PyTuple.o: src/object/PyTuple.cpp.o
+
+.PHONY : src/object/PyTuple.o
+
+# target to build an object file
+src/object/PyTuple.cpp.o:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyTuple.cpp.o
+.PHONY : src/object/PyTuple.cpp.o
+
+src/object/PyTuple.i: src/object/PyTuple.cpp.i
+
+.PHONY : src/object/PyTuple.i
+
+# target to preprocess a source file
+src/object/PyTuple.cpp.i:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyTuple.cpp.i
+.PHONY : src/object/PyTuple.cpp.i
+
+src/object/PyTuple.s: src/object/PyTuple.cpp.s
+
+.PHONY : src/object/PyTuple.s
+
+# target to generate assembly for a file
+src/object/PyTuple.cpp.s:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyTuple.cpp.s
+.PHONY : src/object/PyTuple.cpp.s
+
+src/object/PyTypeObject.o: src/object/PyTypeObject.cpp.o
+
+.PHONY : src/object/PyTypeObject.o
+
+# target to build an object file
+src/object/PyTypeObject.cpp.o:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyTypeObject.cpp.o
+.PHONY : src/object/PyTypeObject.cpp.o
+
+src/object/PyTypeObject.i: src/object/PyTypeObject.cpp.i
+
+.PHONY : src/object/PyTypeObject.i
+
+# target to preprocess a source file
+src/object/PyTypeObject.cpp.i:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyTypeObject.cpp.i
+.PHONY : src/object/PyTypeObject.cpp.i
+
+src/object/PyTypeObject.s: src/object/PyTypeObject.cpp.s
+
+.PHONY : src/object/PyTypeObject.s
+
+# target to generate assembly for a file
+src/object/PyTypeObject.cpp.s:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyTypeObject.cpp.s
+.PHONY : src/object/PyTypeObject.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -672,36 +861,57 @@ help:
 	@echo "... src/Main.o"
 	@echo "... src/Main.i"
 	@echo "... src/Main.s"
+	@echo "... src/Map.o"
+	@echo "... src/Map.i"
+	@echo "... src/Map.s"
 	@echo "... src/Native.o"
 	@echo "... src/Native.i"
 	@echo "... src/Native.s"
-	@echo "... src/PyDict.o"
-	@echo "... src/PyDict.i"
-	@echo "... src/PyDict.s"
-	@echo "... src/PyDouble.o"
-	@echo "... src/PyDouble.i"
-	@echo "... src/PyDouble.s"
-	@echo "... src/PyFunction.o"
-	@echo "... src/PyFunction.i"
-	@echo "... src/PyFunction.s"
-	@echo "... src/PyInteger.o"
-	@echo "... src/PyInteger.i"
-	@echo "... src/PyInteger.s"
-	@echo "... src/PyList.o"
-	@echo "... src/PyList.i"
-	@echo "... src/PyList.s"
-	@echo "... src/PyObject.o"
-	@echo "... src/PyObject.i"
-	@echo "... src/PyObject.s"
-	@echo "... src/PyString.o"
-	@echo "... src/PyString.i"
-	@echo "... src/PyString.s"
 	@echo "... src/PycFileParser.o"
 	@echo "... src/PycFileParser.i"
 	@echo "... src/PycFileParser.s"
 	@echo "... src/VM.o"
 	@echo "... src/VM.i"
 	@echo "... src/VM.s"
+	@echo "... src/object/PyDict.o"
+	@echo "... src/object/PyDict.i"
+	@echo "... src/object/PyDict.s"
+	@echo "... src/object/PyDictIterator.o"
+	@echo "... src/object/PyDictIterator.i"
+	@echo "... src/object/PyDictIterator.s"
+	@echo "... src/object/PyDouble.o"
+	@echo "... src/object/PyDouble.i"
+	@echo "... src/object/PyDouble.s"
+	@echo "... src/object/PyFunction.o"
+	@echo "... src/object/PyFunction.i"
+	@echo "... src/object/PyFunction.s"
+	@echo "... src/object/PyInteger.o"
+	@echo "... src/object/PyInteger.i"
+	@echo "... src/object/PyInteger.s"
+	@echo "... src/object/PyList.o"
+	@echo "... src/object/PyList.i"
+	@echo "... src/object/PyList.s"
+	@echo "... src/object/PyListIterator.o"
+	@echo "... src/object/PyListIterator.i"
+	@echo "... src/object/PyListIterator.s"
+	@echo "... src/object/PyObject.o"
+	@echo "... src/object/PyObject.i"
+	@echo "... src/object/PyObject.s"
+	@echo "... src/object/PySlice.o"
+	@echo "... src/object/PySlice.i"
+	@echo "... src/object/PySlice.s"
+	@echo "... src/object/PyString.o"
+	@echo "... src/object/PyString.i"
+	@echo "... src/object/PyString.s"
+	@echo "... src/object/PyStringIterator.o"
+	@echo "... src/object/PyStringIterator.i"
+	@echo "... src/object/PyStringIterator.s"
+	@echo "... src/object/PyTuple.o"
+	@echo "... src/object/PyTuple.i"
+	@echo "... src/object/PyTuple.s"
+	@echo "... src/object/PyTypeObject.o"
+	@echo "... src/object/PyTypeObject.i"
+	@echo "... src/object/PyTypeObject.s"
 .PHONY : help
 
 

@@ -13,25 +13,34 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/opt/PythonVm/src/Klass.cpp" "/opt/PythonVm/build/CMakeFiles/tinyPython.dir/src/Klass.cpp.o"
   "/opt/PythonVm/src/LoggerConfig.cpp" "/opt/PythonVm/build/CMakeFiles/tinyPython.dir/src/LoggerConfig.cpp.o"
   "/opt/PythonVm/src/Main.cpp" "/opt/PythonVm/build/CMakeFiles/tinyPython.dir/src/Main.cpp.o"
+  "/opt/PythonVm/src/Map.cpp" "/opt/PythonVm/build/CMakeFiles/tinyPython.dir/src/Map.cpp.o"
   "/opt/PythonVm/src/Native.cpp" "/opt/PythonVm/build/CMakeFiles/tinyPython.dir/src/Native.cpp.o"
-  "/opt/PythonVm/src/PyDict.cpp" "/opt/PythonVm/build/CMakeFiles/tinyPython.dir/src/PyDict.cpp.o"
-  "/opt/PythonVm/src/PyDouble.cpp" "/opt/PythonVm/build/CMakeFiles/tinyPython.dir/src/PyDouble.cpp.o"
-  "/opt/PythonVm/src/PyFunction.cpp" "/opt/PythonVm/build/CMakeFiles/tinyPython.dir/src/PyFunction.cpp.o"
-  "/opt/PythonVm/src/PyInteger.cpp" "/opt/PythonVm/build/CMakeFiles/tinyPython.dir/src/PyInteger.cpp.o"
-  "/opt/PythonVm/src/PyList.cpp" "/opt/PythonVm/build/CMakeFiles/tinyPython.dir/src/PyList.cpp.o"
-  "/opt/PythonVm/src/PyObject.cpp" "/opt/PythonVm/build/CMakeFiles/tinyPython.dir/src/PyObject.cpp.o"
-  "/opt/PythonVm/src/PyString.cpp" "/opt/PythonVm/build/CMakeFiles/tinyPython.dir/src/PyString.cpp.o"
   "/opt/PythonVm/src/PycFileParser.cpp" "/opt/PythonVm/build/CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o"
   "/opt/PythonVm/src/VM.cpp" "/opt/PythonVm/build/CMakeFiles/tinyPython.dir/src/VM.cpp.o"
+  "/opt/PythonVm/src/object/PyDict.cpp" "/opt/PythonVm/build/CMakeFiles/tinyPython.dir/src/object/PyDict.cpp.o"
+  "/opt/PythonVm/src/object/PyDictIterator.cpp" "/opt/PythonVm/build/CMakeFiles/tinyPython.dir/src/object/PyDictIterator.cpp.o"
+  "/opt/PythonVm/src/object/PyDouble.cpp" "/opt/PythonVm/build/CMakeFiles/tinyPython.dir/src/object/PyDouble.cpp.o"
+  "/opt/PythonVm/src/object/PyFunction.cpp" "/opt/PythonVm/build/CMakeFiles/tinyPython.dir/src/object/PyFunction.cpp.o"
+  "/opt/PythonVm/src/object/PyInteger.cpp" "/opt/PythonVm/build/CMakeFiles/tinyPython.dir/src/object/PyInteger.cpp.o"
+  "/opt/PythonVm/src/object/PyList.cpp" "/opt/PythonVm/build/CMakeFiles/tinyPython.dir/src/object/PyList.cpp.o"
+  "/opt/PythonVm/src/object/PyListIterator.cpp" "/opt/PythonVm/build/CMakeFiles/tinyPython.dir/src/object/PyListIterator.cpp.o"
+  "/opt/PythonVm/src/object/PyObject.cpp" "/opt/PythonVm/build/CMakeFiles/tinyPython.dir/src/object/PyObject.cpp.o"
+  "/opt/PythonVm/src/object/PySlice.cpp" "/opt/PythonVm/build/CMakeFiles/tinyPython.dir/src/object/PySlice.cpp.o"
+  "/opt/PythonVm/src/object/PyString.cpp" "/opt/PythonVm/build/CMakeFiles/tinyPython.dir/src/object/PyString.cpp.o"
+  "/opt/PythonVm/src/object/PyStringIterator.cpp" "/opt/PythonVm/build/CMakeFiles/tinyPython.dir/src/object/PyStringIterator.cpp.o"
+  "/opt/PythonVm/src/object/PyTuple.cpp" "/opt/PythonVm/build/CMakeFiles/tinyPython.dir/src/object/PyTuple.cpp.o"
+  "/opt/PythonVm/src/object/PyTypeObject.cpp" "/opt/PythonVm/build/CMakeFiles/tinyPython.dir/src/object/PyTypeObject.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../src"
+  "../src/object"
   "../src/os"
   "../src/cpu"
   "../src/3rd/easylogging++"
+  "/usr/local/include"
   )
 
 # Targets to which this target links.
