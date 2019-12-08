@@ -11,13 +11,13 @@
 class DictKlass : public Klass {
 public:
     static DictKlass* get_instance();
-    virtual void InitKlass();
+    void InitKlass() override;
     virtual void print(PyObject *self);
-    virtual PyObject* len(PyObject *self);
-    virtual PyObject* iter(PyObject *self); // only for key
-    virtual PyObject* subscr(PyObject *self, PyObject *key);
-    virtual PyObject* store_subscr(PyObject *self, PyObject *key, PyObject *value);
-    virtual PyObject* del_subscr(PyObject *self, PyObject *key);
+    PyObject* len(PyObject *self) override;
+    PyObject* iter(PyObject *self) override; // only for key
+    PyObject* subscr(PyObject *self, PyObject *key) override;
+    PyObject* store_subscr(PyObject *self, PyObject *key, PyObject *value) override;
+    PyObject* del_subscr(PyObject *self, PyObject *key) override;
 
 private:
     static DictKlass     *m_Instance;
@@ -29,16 +29,16 @@ class PyDict : public PyObject {
 
 public:
     PyDict();
-    PyDict(int init_cap = 8);
+    explicit PyDict(int init_cap = 8);
     PyDict(const PyDict &rhs) = delete;
     PyDict(PyDict &&rhs) NOEXCEPT;
-    ~PyDict();
+    ~PyDict() override;
     PyDict& operator=(const PyDict &rhs) = delete;
 
     void put(PyObject *first, PyObject *second) { m_InnerMap->put(first, second); }
     PyObject *get(PyObject *key)                { return m_InnerMap->get(key); }
     PyObject *get_key(int idx)                  { return m_InnerMap->get_key(idx); }
-    bool contains(PyObject *target)             { return m_InnerMap->contains_key(target); }
+    bool contains_key(PyObject *target)         { return m_InnerMap->contains_key(target); }
     void del_key(PyObject *key)                 { m_InnerMap->erase(key); }
     void clear()                                { m_InnerMap->clear(); }
     int size() const                            { return m_InnerMap->size();}

@@ -16,22 +16,22 @@ class IntegerKlass : public Klass {
 public:
     static IntegerKlass *get_instance();
 
-    virtual void print(PyObject *x);
+    void print(PyObject *x) override;
 
-    virtual PyObject* add(PyObject *lhs, PyObject *rhs);
-    virtual PyObject* sub(PyObject *lhs, PyObject *rhs);
+    PyObject* add(PyObject *lhs, PyObject *rhs) override;
+    PyObject* sub(PyObject *lhs, PyObject *rhs) override;
     // python的乘法支持int和double运算/ int和str运算
-    virtual PyObject* mul(PyObject *lhs, PyObject *rhs);
+    PyObject* mul(PyObject *lhs, PyObject *rhs) override;
     // python的除法比较坑爹，不是做整除,且两个整数无论是否除尽都是浮点数 3/1 = 3.0  3/2 = 1.5
-    virtual PyObject* div(PyObject *lhs, PyObject *rhs);
-    virtual PyObject* mod(PyObject *lhs, PyObject *rhs);
+    PyObject* div(PyObject *lhs, PyObject *rhs) override;
+    PyObject* mod(PyObject *lhs, PyObject *rhs) override;
 
-    virtual PyObject* greater(PyObject *lhs, PyObject *rhs);
-    virtual PyObject* less(PyObject *lhs, PyObject *rhs);
-    virtual PyObject* equal(PyObject *lhs, PyObject *rhs);
-    virtual PyObject* not_equal(PyObject *lhs, PyObject *rhs);
-    virtual PyObject* ge(PyObject *lhs, PyObject *rhs);
-    virtual PyObject* le(PyObject *lhs, PyObject *rhs);
+    PyObject* greater(PyObject *lhs, PyObject *rhs) override;
+    PyObject* less(PyObject *lhs, PyObject *rhs) override;
+    PyObject* equal(PyObject *lhs, PyObject *rhs) override;
+    PyObject* not_equal(PyObject *lhs, PyObject *rhs) override;
+    PyObject* ge(PyObject *lhs, PyObject *rhs) override;
+    PyObject* le(PyObject *lhs, PyObject *rhs) override;
 
 private:
     IntegerKlass();

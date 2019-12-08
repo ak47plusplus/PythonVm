@@ -5,7 +5,7 @@ class Klass;
 
 class PyObject {
 public:
-    virtual ~PyObject() {}
+    virtual ~PyObject() = default;
 
     Klass* klass()              { return m_Klass;}
     void set_klass(Klass * kls) { m_Klass = kls;}
@@ -32,7 +32,8 @@ public:
     PyObject *subscr(PyObject *rhs);
     PyObject *store_subscr(PyObject *mhs, PyObject *rhs);
     PyObject *del_subscr(PyObject *rhs);
-    PyObject *contains(PyObject *rhs);
+
+    virtual PyObject *contains(PyObject *rhs);
 
     PyObject *getattr(PyObject *attr_name);
 

@@ -35,7 +35,7 @@ StringKlass *StringKlass::get_instance()
 void StringKlass::print(PyObject *x)
 {
     assert(x && x->klass() == static_cast<Klass*>(this));
-    PyString *pyStr = dynamic_cast<PyString*>(x);
+    auto *pyStr = dynamic_cast<PyString*>(x);
     printf("'");
     for(int i = 0; i < pyStr->length(); i++)
     {

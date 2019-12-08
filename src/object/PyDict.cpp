@@ -50,7 +50,7 @@ DictKlass* DictKlass::get_instance()
 void DictKlass::print(PyObject *self)
 {
     assert(self && self->klass() == this);
-    PyDict *dict = dynamic_cast<PyDict*>(self);
+    auto *dict = dynamic_cast<PyDict*>(self);
     auto pMapEntries = dict->innerMap()->entries();
     printf("{");
     for(int i = 0; i < dict->size(); i++)
@@ -85,7 +85,7 @@ PyObject* DictKlass::subscr(PyObject *self, PyObject *key)
 {
     assert(self && self->klass() == this);
     auto *dict = dynamic_cast<PyDict*>(self);
-    if(dict->contains(key))
+    if(dict->contains_key(key))
     {
         return dict->get(key);
     }
@@ -115,7 +115,7 @@ PyObject* DictKlass::del_subscr(PyObject *self, PyObject *key)
 {
     assert(self && self->klass() == this);
     auto *dict = dynamic_cast<PyDict*>(self);
-    if(dict->contains(key))
+    if(dict->contains_key(key))
         dict->del_key(key);
     else 
         __throw_python_except("KeyError \n");

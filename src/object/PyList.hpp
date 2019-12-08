@@ -9,19 +9,19 @@
 class ListKlass : public Klass {
 public:
     static ListKlass *get_instance();
-    virtual void InitKlass();
+    void InitKlass() override;
 
-    virtual void print(PyObject *x);
-    virtual PyObject *len(PyObject *self);
-    virtual PyObject *iter(PyObject *self);
+    void print(PyObject *x) override;
+    PyObject *len(PyObject *self) override;
+    PyObject *iter(PyObject *self) override;
 
-    virtual PyObject* add(PyObject *lhs, PyObject *rhs);
-    virtual PyObject* mul(PyObject *lhs, PyObject *rhs);
+    PyObject* add(PyObject *lhs, PyObject *rhs) override;
+    PyObject* mul(PyObject *lhs, PyObject *rhs) override;
 
-    virtual PyObject *subscr(PyObject *lhs, PyObject *rhs);
-    virtual PyObject *store_subscr(PyObject *lhs, PyObject *mhs, PyObject *rhs);
-    virtual PyObject *del_subscr(PyObject *lhs, PyObject *rhs);
-    virtual PyObject *contains(PyObject *lhs, PyObject *rhs);
+    PyObject *subscr(PyObject *lhs, PyObject *rhs) override;
+    PyObject *store_subscr(PyObject *lhs, PyObject *mhs, PyObject *rhs) override;
+    PyObject *del_subscr(PyObject *lhs, PyObject *rhs) override;
+    PyObject *contains(PyObject *lhs, PyObject *rhs) override;
 
 private:
     ListKlass();
@@ -32,11 +32,11 @@ private:
 class PyList : public PyObject {
 public:
     PyList();
-    PyList(ArrayList<PyObject*> *list);
+    explicit PyList(ArrayList<PyObject*> *list);
     PyList(const PyList &rhs);
-    PyList(PyList &&rhs);
+    PyList(PyList &&rhs) NOEXCEPT;
     PyList& operator=(const PyList &rhs);
-    ~PyList();
+    ~PyList() override;
 
     ArrayList<PyObject*>* inner_list()    { return m_InnerList;}
 

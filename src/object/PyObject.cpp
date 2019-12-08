@@ -112,7 +112,7 @@ PyObject *PyObject::getattr(PyObject *attr_name)
     do{
         if(attrs == nullptr) break;
         target_attr = attrs->get(attr_name);
-    } while(0);
+    } while(false);
     if (target_attr == VM::PyNone)
     {
         __throw_python_except("AttributeError: cucr has no attribute xxx\n");

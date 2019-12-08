@@ -17,16 +17,16 @@ class StringKlass : public Klass
 public:
     static StringKlass *get_instance();
 
-    virtual void print(PyObject *x);
+    void print(PyObject *x) override;
 
     // python的str只能和str加
-    virtual PyObject* add(PyObject *lhs, PyObject *rhs);
+    PyObject* add(PyObject *lhs, PyObject *rhs) override;
 
     // python的str不支持减法
     // virtual PyObject* sub(PyObject *lhs, PyObject *rhs);
 
     // TODO 字符串不能乘以字符串 但是能乘以int 自动翻倍字符串...
-    virtual PyObject* mul(PyObject *lhs, PyObject *rhs);
+    PyObject* mul(PyObject *lhs, PyObject *rhs) override;
 
     // python的str不支持除法
     // virtual PyObject* div(PyObject *lhs, PyObject *rhs);
@@ -35,29 +35,29 @@ public:
     // virtual PyObject* mod(PyObject *lhs, PyObject *rhs);
 
     // greater 只支持str和str比较
-    virtual PyObject* greater(PyObject *lhs, PyObject *rhs);
+    PyObject* greater(PyObject *lhs, PyObject *rhs) override;
 
     // less 只支持str和str比较
-    virtual PyObject* less(PyObject *lhs, PyObject *rhs);
+    PyObject* less(PyObject *lhs, PyObject *rhs) override;
 
     // equal 支持str和任意类型比较
-    virtual PyObject* equal(PyObject *lhs, PyObject *rhs);
+    PyObject* equal(PyObject *lhs, PyObject *rhs) override;
 
     // not equal 支持str和任意类型比较
-    virtual PyObject* not_equal(PyObject *lhs, PyObject *rhs);
+    PyObject* not_equal(PyObject *lhs, PyObject *rhs) override;
 
     // ge 只支持str和str比较
-    virtual PyObject* ge(PyObject *lhs, PyObject *rhs);
+    PyObject* ge(PyObject *lhs, PyObject *rhs) override;
 
     // le 只支持str和str比较
-    virtual PyObject* le(PyObject *lhs, PyObject *rhs);
+    PyObject* le(PyObject *lhs, PyObject *rhs) override;
 
-    virtual PyObject* len(PyObject *x);
-    virtual PyObject* iter(PyObject *self);
+    PyObject* len(PyObject *x) override;
+    PyObject* iter(PyObject *self) override;
 
     // 只支持取下标 不支持下标赋值和删除下标.
-    virtual PyObject* subscr(PyObject *lhs, PyObject* rhs);
-    virtual PyObject* contains(PyObject *lhs, PyObject *rhs);
+    PyObject* subscr(PyObject *lhs, PyObject* rhs) override;
+    PyObject* contains(PyObject *lhs, PyObject *rhs) override;
 
 private:
     StringKlass();
@@ -68,10 +68,10 @@ private:
 class PyString : public PyObject {
 
 public:
-    PyString(const char * str);
-    PyString(const char * str, const int length);
+    explicit PyString(const char * str);
+    PyString(const char * str, int length);
     PyString(const PyString& rhs);
-    ~PyString();
+    ~PyString() override;
     PyString& operator=(const PyString& rhs);
     const char *value() const   { return this->m_Value;}
     int length()        const   { return this->m_Length;}
