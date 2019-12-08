@@ -100,7 +100,7 @@ public:
     // virtual PyObject* getattr(PyObject *lhs, PyObject *rhs);
 private:
     std::string  m_Name;  /* The name of the klass. */
-    PyDict      *m_Attrs{}; /* method and fields are attributes of the klass. */
+    PyDict      *m_Attrs; /* method and fields are attributes of the klass. */
 };
 
 
