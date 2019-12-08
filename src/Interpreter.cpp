@@ -66,7 +66,6 @@ void Interpreter::eval_frame()
     pc_t pc = 0;
     while (m_CurrentFrame->has_more_codes()) {
         uint8_t opCode = m_CurrentFrame->get_op_code();
-        // printf("\n===> start to parse opCode, opCode nbr: %d \n", opCode);
         bool hasArgument = (opCode & 0xff) >= OpCode::HAVE_ARGUMENT;
         int opArg = -1;
         if (hasArgument) {
@@ -192,7 +191,7 @@ void Interpreter::eval_frame()
             case OpCode::FOR_ITER:
                 {
                     v = POP();
-                    Iterator<PyObject*>* it = dynamic_cast<Iterator<PyObject*>*>(v);
+                    auto* it = dynamic_cast<Iterator<PyObject*>*>(v);
                     if(it->has_next())
                     {
                        /*
@@ -263,7 +262,7 @@ void Interpreter::eval_frame()
                 break;
             case OpCode::LOAD_GLOBAL:
                 v = m_CurrentFrame->names()->get(opArg);
-                w = m_CurrentFrame->globals()->get(w);
+                w = m_CurrentFrame->globals()->get(v);
                 if(w != VM::PyNone)
                 {
                     PUSH(w);
@@ -471,7 +470,7 @@ void Interpreter::exec_new_frame(PyObject *callable, ArrayList<PyObject*> *funcA
          * 具体实现取决于实际的编译器厂商,目前在gcc上会存在问题.
          */
         ArrayList<PyObject*> selfArg(1);
-        PyMethod *method = dynamic_cast<PyMethod*>(callable);
+        auto *method = dynamic_cast<PyMethod*>(callable);
         if(funcArgs == nullptr) {
             funcArgs = &selfArg;
         }
@@ -480,8 +479,8 @@ void Interpreter::exec_new_frame(PyObject *callable, ArrayList<PyObject*> *funcA
     }
     /* 如果是普通的Python函数,则创建一个新的栈帧,并将解释器的所有权交给这个新的栈帧 */
     else {
-        Frame *_new_frame = new Frame((PyFunction*)callable, funcArgs, opArg);
-        _new_frame->set_caller(m_CurrentFrame);
-        m_CurrentFrame = _new_frame;
+        auto *newFrame = new Frame((PyFunction*)callable, funcArgs, opArg);
+        newFrame->set_caller(m_CurrentFrame);
+        m_CurrentFrame = newFrame;
     }
 }

@@ -3,10 +3,7 @@
 #include "Panic.hpp"
 
 Klass::Klass()
-{
-}
+= default;
 
 Klass::~Klass()
-{
-    // i think this method have no chance to be invoked.
-}
+= default;

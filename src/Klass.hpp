@@ -73,34 +73,34 @@ public:
     virtual PyObject* len(PyObject *x)
     {
         __throw_python_except("TypeError: object oif type '%s' has no len()\n", m_Name.c_str());
-        return 0;
+        return nullptr;
     }
     virtual PyObject* iter(PyObject *self)
     {
         __throw_python_except("TypeError:%s object is not iterable.\n", m_Name.c_str());
-        return 0;
+        return nullptr;
     }
     virtual PyObject* subscr(PyObject *lhs, PyObject *rhs)
     {
         __throw_python_except("TypeError:%s object is not subscriptable.\n", m_Name.c_str());
-        return 0;
+        return nullptr;
     }
     virtual PyObject* store_subscr(PyObject *lhs, PyObject *mhs, PyObject *rhs)
     {
         __throw_python_except("TypeError:%s object doesn't support item assignment.\n", m_Name.c_str());
-        return 0;
+        return nullptr;
     }
     virtual PyObject* del_subscr(PyObject *lhs, PyObject *rhs)
     {
         __throw_python_except("TypeError:%s object doesn't support item deletion.\n", m_Name.c_str());
-        return 0;
+        return nullptr;
     }
 
     virtual PyObject* contains(PyObject *lhs, PyObject *rhs) { return nullptr;} // 1 in lst
     // virtual PyObject* getattr(PyObject *lhs, PyObject *rhs);
 private:
     std::string  m_Name;  /* The name of the klass. */
-    PyDict      *m_Attrs; /* method and fields are attributes of the klass. */
+    PyDict      *m_Attrs{}; /* method and fields are attributes of the klass. */
 };
 
 
