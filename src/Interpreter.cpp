@@ -469,7 +469,7 @@ void Interpreter::exec_new_frame(PyObject *callable, ArrayList<PyObject*> *funcA
             funcArgs = &selfArg;
         }
         funcArgs->insert(0, method->owner());
-        exec_new_frame(method->func(), funcArgs, opArg);
+        exec_new_frame(method->func(), funcArgs, opArg + 1); // opArg+1应该不影响高八位?
     }
     /* Simple function Call of Python */
     else 

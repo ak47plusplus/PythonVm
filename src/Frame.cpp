@@ -6,6 +6,8 @@
 #include "PyString.hpp"
 #include "PyFunction.hpp"
 
+#include <cassert>
+
 // This method is used by module only.
 Frame::Frame(CodeObject *codes)
 {
@@ -33,8 +35,9 @@ Frame::Frame(CodeObject *codes)
  */
 Frame::Frame(PyFunction *func, ArrayList<PyObject*> *args, int opArg)
 {
-    m_Stack     = new PyList();
+    assert((args != nullptr && opArg != 0) || (args == nullptr && opArg == 0));
 
+    m_Stack     = new PyList();
     m_LoopStack = new ArrayList<Block*>();
     m_Codes     = func->m_FuncCode;
     m_Consts    = m_Codes->m_Consts;
@@ -47,22 +50,85 @@ Frame::Frame(PyFunction *func, ArrayList<PyObject*> *args, int opArg)
 
     m_Pc        = 0;
     m_Caller    = nullptr;
-    
+
+    const int argcnt = m_Codes->m_ArgCount;
+    const int l8b = opArg & 0xff;
+    const int h8b = opArg & 0xff00;
+    int kwPos = argcnt;
+
+    /* Padding the default arguments. */
     if(func->default_args())
     {
         int defaultArgCnt = func->default_args()->size();
         int neededArgCnt    = m_Codes->m_ArgCount;
-        while (defaultArgCnt--) // 默认参数只支持从后往前
+        while (defaultArgCnt--)
         {
             m_FastLocals->set(-- neededArgCnt, func->default_args()->get(defaultArgCnt));
         }
     }
-    if(args)
+    PyList *list = nullptr; /* For Variable parameters */
+    PyDict *dict = nullptr; /* For K-V parameters */
+
+    if(argcnt < l8b)
     {
-        for(auto i = 0; i < args->size(); i++)
+        int i = 0;
+        for(; i < argcnt; i++)
         {
             m_FastLocals->set(i, args->get(i));
         }
+        list = new PyList();
+        for(; i < l8b; i++)
+        {
+            list->push(args->get(i));
+        }
+    }
+    else 
+    {
+        for(int i = 0; i < l8b; i++)
+            m_FastLocals->set(i, args->get(i));
+    }
+
+    for(int i = 0; i < h8b; i++)
+    {
+        /* Don't worry, this is already constrained by the compiler */
+        PyObject *k = args->get(l8b + 2 * i);
+        PyObject *v = args->get(l8b + 2 * i + 1);
+
+        /* If the key matches the element in varnames, the key is not an 
+         * extension key argument, else it was a extension key arguments.
+         */
+        int idx = m_Codes->m_Varnames->index(k);
+        if(idx >= 0)
+        {
+            m_FastLocals->set(idx, v);
+        }
+        else {
+            if(dict == nullptr) dict = new PyDict();
+            dict->put(k, v);
+        }
+    }
+
+    /* Check and Padding VARARGS */
+    if(m_Codes->m_Flag & PyFunction::CO_VARARGS)
+    {
+        if(list == nullptr) list = new PyList();
+        m_FastLocals->set(argcnt, list);
+        kwPos++;
+    }
+    else {
+        if(list != nullptr)
+            __throw_python_except("TypeError: too many parameters was given.\n");
+    }
+
+    /* Check and Padding KEYWORDARGS */
+    if(m_Codes->m_Flag & PyFunction::CO_VARKEYWORDS)
+    {
+        if(dict == nullptr) dict = new PyDict();
+        m_FastLocals->set(kwPos, dict);
+    }
+    else {
+         if(dict != nullptr)
+            __throw_python_except("TypeError: too many keyword parameter was given.\n");
     }
 }
 

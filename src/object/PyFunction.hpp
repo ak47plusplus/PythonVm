@@ -93,6 +93,12 @@ public:
     /* Just Use for the native function */
     PyFunction(NativeFunctionPtr nativeFuncPtr);
     PyObject*                   native_call(ArrayList<PyObject*> *args);
+public:
+    enum CO_FLAGS {
+        CO_VARARGS = 0x4,
+        CO_VARKEYWORDS = 0x8,
+        CO_GENERATOR = 0x20,
+    };
 };
 
 #endif
