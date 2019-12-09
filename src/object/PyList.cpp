@@ -236,7 +236,7 @@ PyList::PyList(const PyList &rhs)
  * 将一个PyList进行移动语义的内部替换.
  * 本方法完成后 原对象内部的ArrayList所有权转移到当前对象中.
  */
-PyList::PyList(PyList &&rhs)
+PyList::PyList(PyList &&rhs) NOEXCEPT
 {
     set_klass(ListKlass::get_instance());
     this->m_InnerList = rhs.m_InnerList;
