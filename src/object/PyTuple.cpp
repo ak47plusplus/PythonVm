@@ -75,7 +75,7 @@ PyTuple::PyTuple(ArrayList<PyObject*> *list)
     set_klass(TupleKlass::get_instance());
 }
 
-PyTuple::PyTuple(PyTuple &&rhs)
+PyTuple::PyTuple(PyTuple &&rhs) NOEXCEPT
 {
     set_klass(TupleKlass::get_instance());
     m_InnerContainer = rhs.m_InnerContainer;
