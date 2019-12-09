@@ -131,7 +131,7 @@ PyDict::PyDict()
 PyDict::PyDict(int init_cap)
 {
     set_klass(DictKlass::get_instance());
-    m_InnerMap = new Map<PyObject*, PyObject*>(8);
+    m_InnerMap = new Map<PyObject*, PyObject*>(init_cap);
 }
 
 // copy一堆指针实际没啥用 没有做DeepCopy

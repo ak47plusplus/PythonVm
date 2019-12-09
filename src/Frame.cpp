@@ -1,44 +1,53 @@
 #include "Frame.hpp"
 #include "VM.hpp"
 #include "Core.hpp"
+#include "PyList.hpp"
+#include "PyDict.hpp"
 #include "PyString.hpp"
 #include "PyFunction.hpp"
 
-// 这个方法仅限于模块使用.
+// This method is used by module only.
 Frame::Frame(CodeObject *codes)
 {
-    m_FastLocals=nullptr;
-    m_Locals    = new Map<PyObject*,PyObject*>();
-    m_Globals   = m_Locals; // 非函数上下文 全局和局部等价
-    m_Stack     = new ArrayList<PyObject*>(codes->m_StackSize);
+    m_Stack     = new PyList();
+
     m_LoopStack = new ArrayList<Block*>();
+    m_Codes     = codes;
     m_Consts    = codes->m_Consts;
     m_Names     = codes->m_Names;
-    m_Codes     = codes;
+    
+    m_Locals    = new PyDict();
+    m_Globals   = m_Locals;     /* In non function context, global and local are equivalent */
+    m_FastLocals= nullptr;
+    m_Closure   = nullptr;
+    
     m_Pc        = 0;
     m_Caller    = nullptr;
 }
 
 /**
- * 根据一个函数对象创建一个用于执行的函数栈帧.
- * @param func  函数体.
- * @param args  调用函数实际传递的参数列表.(如果默认值可能缺省)
- * @param opArg 调用函数实际传递的参数个数.(如果默认值可能缺省)
+ * Create a Frame by a function object.
+ * @param func The function object.
+ * @param args The arguments for the function.
+ * @param opArg The opArg for opCode named CALL_FUNCTION.
  */
 Frame::Frame(PyFunction *func, ArrayList<PyObject*> *args, int opArg)
 {
-    m_Stack     = new ArrayList<PyObject*>();
+    m_Stack     = new PyList();
+
     m_LoopStack = new ArrayList<Block*>();
-    m_Locals    = new Map<PyObject*,PyObject*>();
-    m_Globals   = func->globals();
     m_Codes     = func->m_FuncCode;
     m_Consts    = m_Codes->m_Consts;
     m_Names     = m_Codes->m_Names;
+
+    m_Locals    = new PyDict(8);
+    m_Globals   = func->globals();
+    m_FastLocals= new PyList();
+    m_Closure   = new PyList();
+
     m_Pc        = 0;
     m_Caller    = nullptr;
-
-    // 如果存在默认参数 则先设置默认参数
-    m_FastLocals = new ArrayList<PyObject*>();
+    
     if(func->default_args())
     {
         int defaultArgCnt = func->default_args()->size();
@@ -88,5 +97,5 @@ uint32_t Frame::get_op_arg()
 {
     int lowBit =  m_Codes->m_ByteCodes->value()[m_Pc++] & 0xff;
     int highBit = m_Codes->m_ByteCodes->value()[m_Pc++] & 0xff;
-    return highBit << 8 | lowBit; // opArg只占2个字节的.
+    return highBit << 8 | lowBit;
 }

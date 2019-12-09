@@ -29,7 +29,7 @@ class PyDict : public PyObject {
 
 public:
     PyDict();
-    explicit PyDict(int init_cap = 8);
+    explicit PyDict(int init_cap);
     PyDict(const PyDict &rhs) = delete;
     PyDict(PyDict &&rhs) NOEXCEPT;
     ~PyDict() override;

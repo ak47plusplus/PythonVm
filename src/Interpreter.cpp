@@ -20,7 +20,7 @@
 #include <memory>
 #include <iostream>
 
-#define PUSH(v)           m_CurrentFrame->m_Stack->add((v))
+#define PUSH(v)           m_CurrentFrame->m_Stack->push((v))
 #define POP()             m_CurrentFrame->m_Stack->pop()
 #define TOP()             m_CurrentFrame->m_Stack->top()
 #define STACK_LEVEL()     m_CurrentFrame->m_Stack->size()
@@ -44,9 +44,9 @@ Interpreter& Interpreter::Get()
 Interpreter::Interpreter()
 {
     m_Builtins = new Map<PyObject*, PyObject*>;
-    m_Builtins->put(new PyString("True"), VM::PyTrue);
+    m_Builtins->put(new PyString("True"),  VM::PyTrue);
     m_Builtins->put(new PyString("False"), VM::PyFalse);
-    m_Builtins->put(new PyString("None"), VM::PyNone);
+    m_Builtins->put(new PyString("None"),  VM::PyNone);
 
     // native function
     m_Builtins->put(new PyString("id"),  new PyFunction(native::python_builtins::id));
@@ -356,18 +356,20 @@ void Interpreter::eval_frame()
                 PUSH(func);
                 break;
             case OpCode::CALL_FUNCTION:
-                /*
-                 * 先压入的是函数本身 然后压入的是函数的参数
+                /* 先压入的是函数本身 然后压入的是函数的参数
                  * add(1,2)
                  * LOAD_NAME    0(add)
                  * LOAD_CONST   1(99)
                  * LOAD_CONST   2(1)
                  * CALL_FUNCTION 2
+                 * opArg为2字节,高8位代表键参数的个数,低8位代表位置参数的个数
                  */
                 if(opArg > 0)
                 {
-                    funcArgs = new ArrayList<PyObject*>();
-                    argCount = opArg;
+                    int h8b = opArg & 0xff00;
+                    int l8b = opArg & 0xff;
+                    argCount = 2 * h8b + l8b;
+                    funcArgs = new ArrayList<PyObject*>(argCount);
                     while (argCount--)
                     {
                         funcArgs->set(argCount, POP());
@@ -385,7 +387,6 @@ void Interpreter::eval_frame()
             case OpCode::COMPARE_OP:   // 107
                 w = POP();
                 v = POP();
-                // COMPARE_OP是带有参数的操作码
                 switch (opArg) {
                     case OpCode::GREATER:
                         PUSH(v->greater(w));
@@ -425,9 +426,7 @@ void Interpreter::eval_frame()
 }
 
 /**
- * 销毁当前栈帧.
- * <p>
- * 销毁前需要将当前程序的运行时栈帧设置为被销毁的caller,然后再销毁本身.
+ * Destroy current frame, and switch the current frame to the super.
  */
 void Interpreter::destroy_frame()
 {
@@ -437,9 +436,10 @@ void Interpreter::destroy_frame()
 }
 
 /**
- * 离开当前栈帧
+ * leave current frame and give back the ownership of Interpter to the super frame.
  * <p>
- * 在记录了当前栈帧的返回值后,再销毁当前栈帧,将返回值压入调用者栈帧的栈中.
+ * Record the return value first, then destroy current frame, and push the return value
+ * to the top of the super frame stack.
  */
 void Interpreter::leave_frame()
 {
@@ -448,27 +448,20 @@ void Interpreter::leave_frame()
 }
 
 /**
- * @brief 创建一个新的栈帧 并设置为当前的运行时栈帧.
- * <p>
- * a = 10
- * foo(a)
- * a在主线程运行，随即遇到一个函数调用，则创建一个新的函数栈帧,将当前运行时
- * 栈帧设置为foo函数运行的栈帧.
- * @param callable PyFunction对象
- * @param funcArgs函数的参数列表
+ * Make a new stack frame and takes the ownership of the Interpter.
+ * @param callable The Function Object
+ * @param funcArgs The list of function args.
+ * @param opArg OpCode (CALL_FUNCTION) opArg
  */
 void Interpreter::exec_new_frame(PyObject *callable, ArrayList<PyObject*> *funcArgs, int opArg)
 {
-    /* 如果是native函数,直接调用c++写好的函数 */
+    /* Native function Call. */
     if(callable->klass() == NativeFunctionKlass::get_instance())
     {
         PUSH(dynamic_cast<PyFunction*>(callable)->native_call(funcArgs));
     }
-    /* 如果是类的成员函数,则需要将该类的对象偷偷设置在参数列表的第一个参数位置 */
+    /* Futures Method Call of a Class */
     else if(callable->klass() == MethodKlass::get_instance()) {
-        /* 这个对象请不要放在下面的if里,c++标准并没有规定是否{}就释放其中的栈变量
-         * 具体实现取决于实际的编译器厂商,目前在gcc上会存在问题.
-         */
         ArrayList<PyObject*> selfArg(1);
         auto *method = dynamic_cast<PyMethod*>(callable);
         if(funcArgs == nullptr) {
@@ -477,7 +470,7 @@ void Interpreter::exec_new_frame(PyObject *callable, ArrayList<PyObject*> *funcA
         funcArgs->insert(0, method->owner());
         exec_new_frame(method->func(), funcArgs, opArg); // TODO 这里的opArg是否需要+1待定
     }
-    /* 如果是普通的Python函数,则创建一个新的栈帧,并将解释器的所有权交给这个新的栈帧 */
+    /* Simple function Call of Python */
     else {
         auto *newFrame = new Frame((PyFunction*)callable, funcArgs, opArg);
         newFrame->set_caller(m_CurrentFrame);

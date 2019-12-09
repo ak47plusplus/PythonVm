@@ -42,6 +42,7 @@ public:
 
     int size()     const                  { return m_InnerList->size();}
     void append(PyObject *obj)            { m_InnerList->add(obj);}
+    void push(PyObject *obj)              { m_InnerList->add(obj);}
     PyObject *pop()                       { return m_InnerList->pop();}
     PyObject *get(int index)              { return m_InnerList->get(index);}
     void set(int index, PyObject *obj)    { m_InnerList->set(index, obj);}
