@@ -456,19 +456,19 @@ void Interpreter::leave_frame()
 void Interpreter::exec_new_frame(PyObject *callable, ArrayList<PyObject*> *funcArgs, int opArg)
 {
     /* Native function Call. */
-    if(callable->klass() == NativeFunctionKlass::get_instance())
+    if(PyObject_Klass_Check(callable, NativeFunctionKlass::get_instance()))
     {
         PUSH(dynamic_cast<PyFunction*>(callable)->native_call(funcArgs));
     }
     /* Futures Method Call of a Class */
-    else if(callable->klass() == MethodKlass::get_instance()) {
+    else if(PyObject_Klass_Check(callable,MethodKlass::get_instance())) {
         ArrayList<PyObject*> selfArg(1);
         auto *method = dynamic_cast<PyMethod*>(callable);
         if(funcArgs == nullptr) {
             funcArgs = &selfArg;
         }
         funcArgs->insert(0, method->owner());
-        exec_new_frame(method->func(), funcArgs, opArg); // TODO 这里的opArg是否需要+1待定
+        exec_new_frame(method->func(), funcArgs, opArg);
     }
     /* Simple function Call of Python */
     else {
