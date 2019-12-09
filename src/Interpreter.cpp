@@ -230,7 +230,7 @@ void Interpreter::eval_frame()
                 break;
             case OpCode::DELETE_NAME:
                 v = m_CurrentFrame->names()->get(opArg);
-                m_CurrentFrame->locals()->erase(v);
+                m_CurrentFrame->locals()->del_key(v);
                 break;
             case OpCode::LOAD_NAME:   // 101
                 v = m_CurrentFrame->names()->get(opArg);
