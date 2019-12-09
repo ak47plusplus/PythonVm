@@ -15,6 +15,8 @@ class TupleKlass : public Klass {
 public:
     static TupleKlass *get_instance();
 
+    void print(PyObject *x) override;
+    PyObject* add(PyObject *lhs, PyObject *rhs) override;
 private:
     TupleKlass();
     static TupleKlass *m_Instance;
@@ -24,13 +26,18 @@ private:
 class PyTuple : public PyObject {
 public:
     PyTuple();
-    PyTuple(const PyTuple &rhs);
-    PyTuple(PyTuple &&rhs);
-    ~PyTuple();
+    PyTuple(ArrayList<PyObject*> *list);
+    PyTuple(PyTuple &&rhs) NOEXCEPT;
+    PyTuple(const PyTuple &rhs) = delete;
+    PyTuple& operator=(const PyTuple &rhs) = delete;
+    ~PyTuple() override;
+
+    PyTuple operator+(const PyTuple &rhs);
+    int size()               { return m_InnerContainer->size(); }
+    PyObject* get(int index) { return m_InnerContainer->get(index);}
+    void _add(PyObject *unsafeE) { m_InnerContainer->add(unsafeE); }
 private:
     ArrayList<PyObject*> *m_InnerContainer;
 };
-
-
 
 #endif

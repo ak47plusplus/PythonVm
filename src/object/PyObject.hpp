@@ -41,4 +41,8 @@ private:
     Klass *m_Klass;
 };
 
+
+#define PyObject_NotNullPtr(objPtr) ((objPtr) != nullptr)
+#define PyObject_Klass_Check(objPtr, klsPtr)  (((objPtr) != nullptr) && ((objPtr)->klass()) == klsPtr)
+
 #endif

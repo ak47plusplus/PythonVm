@@ -5,6 +5,7 @@
 #include "PyInteger.hpp"
 #include "PyDouble.hpp"
 #include "PyString.hpp"
+#include "PyTuple.hpp"
 
 #include <cstdio>
 #include <memory>
@@ -119,8 +120,7 @@ ArrayList<PyObject*> *PycFileParser::get_tuple()
                 list->add(this->m_StringTable.get(m_Stream->read_int()));
                 break;
             case '(':
-                // TODO.
-                printf("read (.....\n");
+                list->add(new PyTuple(get_tuple()));
                 break;
             default:
                 __panic("Unrecognized obj type: %c \n", objType);

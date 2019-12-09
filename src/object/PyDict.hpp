@@ -53,7 +53,13 @@ namespace pydict {
     extern PyObject *dict_clear(FuncArgs args);
     extern PyObject* dict_keys(FuncArgs args);
     extern PyObject* dict_values(FuncArgs args);
+    extern PyObject* dict_items(FuncArgs args);     // TODO IMPL.
     extern PyObject* dict_copy(FuncArgs args);
+
+    extern PyObject* dict_iterkeys(FuncArgs args);  // TODO IMPL.
+    extern PyObject* dict_itervalues(FuncArgs args);// TODO IMPL.
+    extern PyObject* dict_iteritems(FuncArgs args); // TODO IMPL.
+
     // TODO static方法暂时未实现 其实只需要一个标志是static,然后调用的时候不传self就可以了.
     extern STATIC PyObject* dict_fromkeys(FuncArgs args);
     // D.fromkeys(seq[,val])                  #返回从seq中获得的键和被设置为val的值的字典。可做类方法调用  

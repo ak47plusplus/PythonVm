@@ -233,6 +233,25 @@ PyObject* dict_copy(FuncArgs args)
     return dest;
 }
 
+PyObject* dict_items(FuncArgs args)
+{
+    return nullptr;
+}
+
+PyObject* dict_iterkeys(FuncArgs args)
+{
+    return nullptr;
+}
+PyObject* dict_itervalues(FuncArgs args)
+{
+    return nullptr;
+}
+PyObject* dict_iteritems(FuncArgs args)
+{
+    return nullptr;
+}
+
+
 PyObject* dict_fromkeys(FuncArgs args)
 {
     assert(args);
