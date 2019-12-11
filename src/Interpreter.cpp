@@ -13,7 +13,7 @@
 #include "PyListIterator.hpp"
 #include "PyDict.hpp"
 #include "PyFunction.hpp"
-
+#include "PyCell.hpp"
 
 #include <mutex>
 #include <cstdio>
@@ -421,6 +421,14 @@ void Interpreter::eval_frame()
                 break;
             case OpCode::STORE_DEREF: // store into cell
                 m_CurrentFrame->m_Closure->set(opArg, POP());
+                break;
+            case OpCode::LOAD_DEREF:
+                v = m_CurrentFrame->m_Closure->get(opArg);
+                if(PyObject_Klass_Check0(v, CellKlass))
+                {
+                    v = ((PyCell*)v)->get();
+                }
+                PUSH(v);
                 break;
             case OpCode::LOAD_CLOSURE:
                 break;
