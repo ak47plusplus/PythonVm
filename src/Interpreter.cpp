@@ -419,6 +419,13 @@ void Interpreter::eval_frame()
                         __panic("Unrecognized compare op arg: %d\n", opArg);
                 }
                 break;
+            case OpCode::STORE_DEREF: // store into cell
+                m_CurrentFrame->m_Closure->set(opArg, POP());
+                break;
+            case OpCode::LOAD_CLOSURE:
+                break;
+            case OpCode::MAKE_CLOSURE:
+                break;
             default:
                 __panic("Unsupported opCode: %d \n", opCode);
         }

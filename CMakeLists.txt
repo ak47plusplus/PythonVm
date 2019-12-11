@@ -45,6 +45,7 @@ set(SOURCES
     src/Native.cpp
     src/ArrayList.cpp
     src/Map.cpp
+    src/object/PyCell.cpp
     src/object/PyObject.cpp
     src/object/PyInteger.cpp
     src/object/PyDouble.cpp
