@@ -11,6 +11,7 @@
 
 #include "PyList.hpp"
 #include "PyDict.hpp"
+#include "PyTuple.hpp"
 
 class PyFunction;
 
@@ -56,7 +57,7 @@ public:
     PyDict                     *m_Locals;      /* Locals */
     PyDict                     *m_Globals;     /* Globals */
     PyList                     *m_FastLocals;  /* FastLocal */
-    PyList                     *m_Closure;     /* Closure */
+    PyTuple                    *m_Closure;     /* Closure */
 
     CodeObject                 *m_Codes;       /* The Code to Run */
     Frame                      *m_Caller;      /* Last Frame */

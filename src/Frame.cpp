@@ -46,7 +46,6 @@ Frame::Frame(PyFunction *func, ArrayList<PyObject*> *args, int opArg)
     m_Locals    = new PyDict(8);
     m_Globals   = func->globals();
     m_FastLocals= new PyList();
-    m_Closure   = new PyList();
 
     m_Pc        = 0;
     m_Caller    = nullptr;
@@ -130,6 +129,12 @@ Frame::Frame(PyFunction *func, ArrayList<PyObject*> *args, int opArg)
          if(dict != nullptr)
             __throw_python_except("TypeError: too many keyword parameter was given.\n");
     }
+
+    // 处理闭包 多层闭包时需要调整闭包变量的顺序
+    m_Closure = func->closure();
+    if(m_Closure == nullptr)
+        m_Closure = new PyTuple();
+
 }
 
 Frame::Frame(){}
