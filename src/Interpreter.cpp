@@ -9,6 +9,7 @@
 #include "PySlice.hpp"
 #include "PyString.hpp"
 #include "PyInteger.hpp"
+#include "PyTuple.hpp"
 #include "PyList.hpp"
 #include "PyListIterator.hpp"
 #include "PyDict.hpp"
@@ -82,6 +83,7 @@ void Interpreter::eval_frame()
         ArrayList<PyObject*> *funcArgs = nullptr;
         ArrayList<PyObject*> *defaultArgs = nullptr;
         PyList *list = nullptr;
+        PyTuple *tuple = nullptr;
         int argCount = 0;
 
         switch (opCode) {
@@ -276,6 +278,17 @@ void Interpreter::eval_frame()
                     break;
                 }
                 PUSH(VM::PyNone);
+                break;
+            case OpCode::BUILD_TUPLE:
+                /* t = (1,2,3)这种在解析字节码的时候就已经生成PyTuple了 这里仅适用于动态生成Tuple
+                 * 譬如函数返回多个值时.
+                 */
+                tuple = new PyTuple();
+                while(opArg--)
+                {
+                    tuple->set(opArg, POP());
+                }
+                PUSH(tuple);
                 break;
             case OpCode::BUILD_LIST:
                 list = new PyList();

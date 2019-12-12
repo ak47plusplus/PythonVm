@@ -35,6 +35,7 @@ public:
     PyTuple operator+(const PyTuple &rhs);
     int size()               { return m_InnerContainer->size(); }
     PyObject* get(int index) { return m_InnerContainer->get(index);}
+    void set(int index, PyObject *obj) { m_InnerContainer->set(index, obj);}
     void _add(PyObject *unsafeE) { m_InnerContainer->add(unsafeE); }
 private:
     ArrayList<PyObject*> *m_InnerContainer;
