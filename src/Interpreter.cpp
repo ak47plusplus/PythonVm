@@ -466,7 +466,7 @@ void Interpreter::EvalFrame()
                 func->set_globals(m_CurrentFrame->globals());
                 // default args
                 if(opArg > 0) {
-                    defaultArgs = new ArrayList<PyObject *, PyObject *>(opArg);
+                    defaultArgs = new ArrayList<PyObject*>(opArg);
                     while (opArg--) {
                         defaultArgs->set(opArg, POP());
                     }
