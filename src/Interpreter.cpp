@@ -216,7 +216,7 @@ void Interpreter::EvalFrame()
                 m_RetValue = POP();
                 if(m_CurrentFrame->is_first_frame())
                     return;
-                leave_frame();
+                LeaveFrame();
                 break;
             case OpCode::LOAD_ATTR:
                 v = POP();

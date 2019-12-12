@@ -2,7 +2,7 @@
 #define PYCELL_HPP_
 
 #include "Klass.hpp"
-#include "PyList.hpp"
+#include "PyTuple.hpp"
 #include "PyObject.hpp"
 
 #include <mutex>
@@ -19,10 +19,10 @@ private:
 class PyCell : public PyObject {
 friend class CellKlass;
 private:
-    PyList *table_; /* Not hold the ownership */
+    PyTuple *table_; /* Not hold the ownership */
     int     index_; 
 public:
-    PyCell(PyList *table, int index);
+    PyCell(PyTuple *table, int index);
     PyObject *get();
 };
 

@@ -32,7 +32,7 @@ public:
     PyTuple& operator=(const PyTuple &rhs) = delete;
     ~PyTuple() override;
 
-    PyTuple operator+(const PyTuple &rhs);
+    // PyTuple operator+(const PyTuple &rhs);
     int size()               { return m_InnerContainer->size(); }
     PyObject* get(int index) { return m_InnerContainer->get(index);}
     void set(int index, PyObject *obj) { m_InnerContainer->set(index, obj);}

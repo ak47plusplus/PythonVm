@@ -23,7 +23,7 @@ CellKlass* CellKlass::get_instance()
     return m_Instance;
 }
 
-PyCell::PyCell(PyList *table, int index)
+PyCell::PyCell(PyTuple *table, int index)
     : table_(table), index_(index)
 {
     set_klass(CellKlass::get_instance());
