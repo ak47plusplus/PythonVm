@@ -55,14 +55,14 @@ Interpreter::Interpreter()
     m_Builtins->put(new PyString("len"), new PyFunction(native::python_builtins::len));
 }
 
-void Interpreter::run(CodeObject *codes)
+void Interpreter::Run(CodeObject *codes)
 {
     m_CurrentFrame = new Frame(codes);
-    eval_frame();
-    destroy_frame();
+    EvalFrame();
+    DestroyFrame();
 }
 
-void Interpreter::eval_frame()
+void Interpreter::EvalFrame()
 {
     pc_t pc = 0;
     while (m_CurrentFrame->has_more_codes()) {
@@ -389,7 +389,7 @@ void Interpreter::eval_frame()
                     }
                 }
                 v = POP();
-                this->exec_new_frame(v, funcArgs, opArg);
+                this->EvalNewFrame(v, funcArgs, opArg);
                 if(funcArgs != nullptr)
                 {
                     delete funcArgs;
@@ -444,6 +444,15 @@ void Interpreter::eval_frame()
                 PUSH(v);
                 break;
             case OpCode::LOAD_CLOSURE:
+                v = m_CurrentFrame->m_Closure->get(opArg);
+                if(v == nullptr)
+                {
+                    
+                }
+                if(PyObject_Klass_Check0(v, CellKlass))
+                    PUSH(v);
+                else
+                    PUSH(new PyCell(m_CurrentFrame->m_Closure, opArg));
                 break;
             case OpCode::MAKE_CLOSURE:
                 break;
@@ -456,7 +465,7 @@ void Interpreter::eval_frame()
 /**
  * Destroy current frame, and switch the current frame to the super.
  */
-void Interpreter::destroy_frame()
+void Interpreter::DestroyFrame()
 {
     Frame *frame_to_destroy = m_CurrentFrame;
     m_CurrentFrame = frame_to_destroy->caller();
@@ -469,9 +478,9 @@ void Interpreter::destroy_frame()
  * Record the return value first, then destroy current frame, and push the return value
  * to the top of the super frame stack.
  */
-void Interpreter::leave_frame()
+void Interpreter::LeaveFrame()
 {
-    this->destroy_frame();
+    this->DestroyFrame();
     PUSH(m_RetValue);
 }
 
@@ -481,7 +490,7 @@ void Interpreter::leave_frame()
  * @param funcArgs The list of function args.
  * @param opArg OpCode (CALL_FUNCTION) opArg
  */
-void Interpreter::exec_new_frame(PyObject *callable, ArrayList<PyObject*> *funcArgs, int opArg)
+void Interpreter::EvalNewFrame(PyObject *callable, ArrayList<PyObject*> *funcArgs, int opArg)
 {
     /* Native function Call. */
     if(PyObject_Klass_Check0(callable, NativeFunctionKlass))
@@ -497,7 +506,7 @@ void Interpreter::exec_new_frame(PyObject *callable, ArrayList<PyObject*> *funcA
             funcArgs = &selfArg;
         }
         funcArgs->insert(0, method->owner());
-        exec_new_frame(method->func(), funcArgs, opArg + 1); // opArg+1应该不影响高八位?
+        EvalNewFrame(method->func(), funcArgs, opArg + 1); // opArg+1应该不影响高八位?
     }
     /* Simple function Call of Python */
     else 

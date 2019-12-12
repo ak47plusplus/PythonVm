@@ -24,13 +24,13 @@ class Interpreter : public boost::noncopyable {
 
 public:
     static Interpreter& Get();
-    void run(CodeObject* codes);
+    void Run(CodeObject* codes);
 private:
     Interpreter();
-    void eval_frame();
-    void exec_new_frame(PyObject *callable, ArrayList<PyObject*> *funcArgs, int opArg);
-    void destroy_frame();
-    void leave_frame();
+    void EvalFrame();
+    void EvalNewFrame(PyObject *callable, ArrayList<PyObject*> *funcArgs, int opArg);
+    void DestroyFrame();
+    void LeaveFrame();
 private:
     /*
      * Here i dont want that just a single instance interpreter object in the vm process.
