@@ -110,6 +110,7 @@ PyFunction::PyFunction(CodeObject *codeObj)
     m_FuncName = codeObj->m_CoName;
     m_Flags    = codeObj->m_Flag;
     m_Globals  = nullptr;
+    m_Closure = nullptr;
     m_DefaultArgs = nullptr;
     set_klass(FunctionKlass::get_instance());
 }
