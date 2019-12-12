@@ -432,7 +432,9 @@ void Interpreter::EvalFrame()
                         __panic("Unrecognized compare op arg: %d\n", opArg);
                 }
                 break;
-            case OpCode::STORE_DEREF: // store into cell
+            case OpCode::STORE_DEREF:
+                // 如果一个变量会被内部函数捕获形成闭包 那么编译成的字节码不是STORE_NAME
+                // 也不是STORE_FAST, 而是STORE_DEREF
                 m_CurrentFrame->m_Closure->set(opArg, POP());
                 break;
             case OpCode::LOAD_DEREF:
@@ -445,16 +447,34 @@ void Interpreter::EvalFrame()
                 break;
             case OpCode::LOAD_CLOSURE:
                 v = m_CurrentFrame->m_Closure->get(opArg);
-                if(v == nullptr)
+                if(v == nullptr) // set cause not nullptr
                 {
-                    
+                    // 说明不是局部变量, 而是在参数中的
+                    v = m_CurrentFrame->get_cell_from_func_arguments(opArg);
+                    m_CurrentFrame->m_Closure->set(opArg, v);
                 }
+                // 这里的判断适用于多层闭包的情况下.
                 if(PyObject_Klass_Check0(v, CellKlass))
                     PUSH(v);
                 else
                     PUSH(new PyCell(m_CurrentFrame->m_Closure, opArg));
                 break;
             case OpCode::MAKE_CLOSURE:
+                v = POP();
+                func = new PyFunction((CodeObject*)v);
+                func->set_closure((PyTuple*)(POP()));
+                func->set_globals(m_CurrentFrame->globals());
+                // default args
+                if(opArg > 0) {
+                    defaultArgs = new ArrayList<PyObject *, PyObject *>(opArg);
+                    while (opArg--) {
+                        defaultArgs->set(opArg, POP());
+                    }
+                    func->set_default_args(defaultArgs); // made copy
+                    delete defaultArgs; // so it can be delete.
+                    defaultArgs = nullptr;
+                }
+                PUSH(func);
                 break;
             default:
                 __panic("Unsupported opCode: %d \n", opCode);

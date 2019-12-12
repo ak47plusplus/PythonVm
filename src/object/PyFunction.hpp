@@ -9,6 +9,7 @@
 #include "ArrayList.hpp"
 #include "PyDict.hpp"
 #include "PyList.hpp"
+#include "PyTuple.hpp"
 
 #include <mutex>
 
@@ -77,7 +78,7 @@ private:
     uint32_t                     m_Flags;
     ArrayList<PyObject*>        *m_DefaultArgs;
     PyDict                      *m_Globals; // 函数所依赖的全局变量表是定义函数对象的时候的，而不是调用函数时候的
-    PyList                      *m_Closure; // 函数所捕获的闭包变量是定义函数对象的时候的，而不是调用函数时候的
+    PyTuple                     *m_Closure; // 函数所捕获的闭包变量是定义函数对象的时候的，而不是调用函数时候的
     NativeFunctionPtr            m_NativeFunctionPtr;
 public:
     PyFunction(CodeObject *codeObj);
@@ -89,7 +90,8 @@ public:
     void                        set_globals(PyDict* gl)     { m_Globals = gl;}
     ArrayList<PyObject*>       *default_args()              { return m_DefaultArgs;}
     void                        set_default_args(ArrayList<PyObject*> *_default_args);
-
+    PyTuple                      *closure()                  {return m_Closure; }
+    void                        set_closure(PyTuple *cls)    { m_Closure = cls; }
     /* Just Use for the native function */
     PyFunction(NativeFunctionPtr nativeFuncPtr);
     PyObject*                   native_call(ArrayList<PyObject*> *args);

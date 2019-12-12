@@ -44,6 +44,8 @@ public:
     bool                       has_more_codes();
     uint8_t                    get_op_code();
     uint32_t                   get_op_arg();
+
+    PyObject*                  get_cell_from_func_arguments(int idx);
 public:
     PyList                     *m_Stack;
     ArrayList<Block*>          *m_LoopStack;

@@ -165,3 +165,25 @@ uint32_t Frame::get_op_arg()
     int highBit = m_Codes->m_ByteCodes->value()[m_Pc++] & 0xff;
     return highBit << 8 | lowBit;
 }
+
+/**
+ * For example:
+ * <pre>
+ * def test(x):
+ *     def say():
+ *          print x
+ *      return say
+ * f = test(3)
+ * f()
+ * </pre>
+ * the x is not the local name, it was a cell var but stored in the func args
+ * @param idx
+ * @return
+ */
+PyObject *Frame::get_cell_from_func_arguments(int idx)
+{
+    PyObject * cellName = m_Codes->m_Cellvars->get(idx);
+    idx = m_Codes->m_Varnames->index(cellName);
+    assert(idx != -1);
+    return m_FastLocals->get(idx);
+}
