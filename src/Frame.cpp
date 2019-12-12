@@ -21,7 +21,7 @@ Frame::Frame(CodeObject *codes)
     m_Locals    = new PyDict();
     m_Globals   = m_Locals;     /* In non function context, global and local are equivalent */
     m_FastLocals= nullptr;
-    m_Closure   = new PyTuple();
+    m_Closure   = nullptr;   // a module do not need the closure.
     
     m_Pc        = 0;
     m_Caller    = nullptr;

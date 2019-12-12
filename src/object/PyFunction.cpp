@@ -121,6 +121,7 @@ PyFunction::PyFunction(Klass *klass)
     m_Globals  = nullptr;
     m_Flags    = 0;
     m_Globals  = nullptr;
+    m_Closure = nullptr;
     m_DefaultArgs = nullptr;
     set_klass(klass);
 }
