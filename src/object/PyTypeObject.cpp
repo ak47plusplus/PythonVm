@@ -3,6 +3,7 @@
 //
 
 #include "PyTypeObject.hpp"
+#include "PyDict.hpp"
 
 std::mutex TypeKlass::m_Mutex;
 TypeKlass* TypeKlass::m_Instance = nullptr;
@@ -10,6 +11,7 @@ TypeKlass* TypeKlass::m_Instance = nullptr;
 TypeKlass::TypeKlass()
 {
     set_name("type");
+    set_attrs(new PyDict());
 }
 
 TypeKlass *TypeKlass::get_instance()

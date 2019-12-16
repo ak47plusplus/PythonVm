@@ -18,6 +18,8 @@ private:
     static std::mutex m_Mutex;
 };
 
+class PyType {
 
+};
 
 #endif //PYTYPEOBJECT_HPP

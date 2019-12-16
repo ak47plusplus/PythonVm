@@ -90,8 +90,8 @@ public:
     void                        set_globals(PyDict* gl)     { m_Globals = gl;}
     ArrayList<PyObject*>       *default_args()              { return m_DefaultArgs;}
     void                        set_default_args(ArrayList<PyObject*> *_default_args);
-    PyTuple                      *closure()                  {return m_Closure; }
-    void                        set_closure(PyTuple *cls)    { m_Closure = cls; }
+    PyTuple                    *closure()                   {return m_Closure; }
+    void                        set_closure(PyTuple *cls)   { m_Closure = cls; }
     /* Just Use for the native function */
     PyFunction(NativeFunctionPtr nativeFuncPtr);
     PyObject*                   native_call(ArrayList<PyObject*> *args);

@@ -1,6 +1,10 @@
 #ifndef PY_OBJECT_HPP
 #define PY_OBJECT_HPP
 
+#define PyObject_NotNullPtr(objPtr) ((objPtr) != nullptr)
+#define PyObject_Klass_Check(objPtr, klsPtr)  (((objPtr) != nullptr) && ((objPtr)->klass()) == klsPtr)
+#define PyObject_Klass_Check0(objPtr, kls)  (((objPtr) != nullptr) && ((objPtr)->klass()) == kls::get_instance())
+
 class Klass;
 
 class PyObject {
@@ -40,10 +44,5 @@ public:
 private:
     Klass *m_Klass;
 };
-
-
-#define PyObject_NotNullPtr(objPtr) ((objPtr) != nullptr)
-#define PyObject_Klass_Check(objPtr, klsPtr)  (((objPtr) != nullptr) && ((objPtr)->klass()) == klsPtr)
-#define PyObject_Klass_Check0(objPtr, kls)  (((objPtr) != nullptr) && ((objPtr)->klass()) == kls::get_instance())
 
 #endif
