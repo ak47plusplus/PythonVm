@@ -15,6 +15,7 @@
 #include "PyDict.hpp"
 #include "PyFunction.hpp"
 #include "PyCell.hpp"
+#include "Python.hpp"
 
 #include <mutex>
 #include <cstdio>

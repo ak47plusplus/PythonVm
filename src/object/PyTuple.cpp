@@ -1,4 +1,5 @@
 #include "PyTuple.hpp"
+#include "Python.hpp"
 
 #include <cstdio>
 #include <cassert>
