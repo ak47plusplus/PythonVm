@@ -1,6 +1,8 @@
 #include "PyInteger.hpp"
 #include "PyDouble.hpp"
 #include "PyString.hpp"
+#include "PyDict.hpp"
+#include "PyTypeObject.hpp"
 #include "VM.hpp"
 #include "Panic.hpp"
 
@@ -11,6 +13,12 @@
 IntegerKlass::IntegerKlass()
 {
     set_name("int");
+}
+
+void IntegerKlass::InitKlass()
+{
+    set_attrs(new PyDict());
+    (new PyTypeObject())->set_own_klass(this);
 }
 
 IntegerKlass* IntegerKlass::m_Instance = nullptr;

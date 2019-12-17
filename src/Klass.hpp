@@ -39,6 +39,7 @@ class PyString;
 class PyObject;
 class PyList;
 class PyDict;
+class PyTypeObject;
 
 class Klass {
 public:
@@ -49,6 +50,9 @@ public:
 
     void set_attrs(PyDict *attrs_)   { m_Attrs = attrs_;   }
     PyDict *attrs()                  { return m_Attrs;     }
+
+    PyTypeObject* type_object()             { return m_TypeObject; }
+    void set_type_object(PyTypeObject *obj) { m_TypeObject = obj; }
 
     virtual void InitKlass()              {;}
 
@@ -99,9 +103,10 @@ public:
     virtual PyObject* contains(PyObject *lhs, PyObject *rhs) { return nullptr;} // 1 in lst
     // virtual PyObject* getattr(PyObject *lhs, PyObject *rhs);
 private:
-    std::string  m_Name;  /* The name of the klass. */
-    PyDict      *m_Attrs; /* method and fields are attributes of the klass. */
+    std::string     m_Name;  /* The name of the klass. */
+    Klass           *m_Super;
+    PyTypeObject    *m_TypeObject;
+    PyDict          *m_Attrs; /* method and fields are attributes of the klass. */
 };
-
 
 #endif

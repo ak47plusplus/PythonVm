@@ -25,6 +25,7 @@ Frame::Frame(CodeObject *codes)
     
     m_Pc        = 0;
     m_Caller    = nullptr;
+    m_Locals->put(new PyString("__name__"), new PyString("__main__"));
 }
 
 /**

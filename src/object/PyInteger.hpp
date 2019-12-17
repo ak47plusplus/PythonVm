@@ -15,6 +15,7 @@
 class IntegerKlass : public Klass {
 public:
     static IntegerKlass *get_instance();
+    void InitKlass() override ;
 
     void print(PyObject *x) override;
 
