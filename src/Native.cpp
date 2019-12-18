@@ -63,7 +63,7 @@ namespace python_builtins {
     {
         assert(args != nullptr);
         int argNum = args->size();
-        if(argNum != 1 || argNum != 3)
+        if(argNum != 1 && argNum != 3)
         {
             __throw_python_except("TypeError: type() takes 1 or 3 arguments\n");
         }
