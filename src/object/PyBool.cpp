@@ -43,11 +43,12 @@ void BoolKlass::print(PyObject *x)
 
 PyBool::PyBool()
 {
+    set_klass(BoolKlass::get_instance());
     m_Value = false;
 }
 
 PyBool::PyBool(bool v)
 :   m_Value(v)
 {
-    
+    set_klass(BoolKlass::get_instance());
 }
