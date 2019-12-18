@@ -17,6 +17,7 @@ TupleKlass::TupleKlass()
 void TupleKlass::InitKlass()
 {
     set_attrs(new PyDict());
+    set_super(ObjectKlass::get_instance());
     (new PyTypeObject())->set_own_klass(this);
 }
 

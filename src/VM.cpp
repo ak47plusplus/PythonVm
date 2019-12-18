@@ -1,4 +1,5 @@
 #include "VM.hpp"
+#include "Python.hpp"
 #include "Native.hpp"
 #include "PyObject.hpp"
 #include "PyInteger.hpp"
@@ -20,8 +21,16 @@ void VM::init() NOEXCEPT
     VM::PyFalse = new PyInteger(0);
     VM::PyNone = new PyObject();
 
+    // type object was dependency circle.
+    Klass *typeKlass = TypeKlass::get_instance();
+    PyTypeObject *pTypeObject = new PyTypeObject();
+    typeKlass->set_type_object(pTypeObject);
+
+    IntegerKlass::get_instance()->InitKlass();
+    DoubleKlass::get_instance()->InitKlass();
     ListKlass::get_instance()->InitKlass();
     DictKlass::get_instance()->InitKlass();
+    StringKlass::get_instance()->InitKlass();
 }
 
 

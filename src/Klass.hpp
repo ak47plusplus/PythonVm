@@ -54,6 +54,9 @@ public:
     PyTypeObject* type_object()             { return m_TypeObject; }
     void set_type_object(PyTypeObject *obj) { m_TypeObject = obj; }
 
+    void set_super(Klass *super_)   { m_Super = super_; }
+    Klass* supper()                 { return m_Super; }
+
     virtual void InitKlass()              {;}
 
 

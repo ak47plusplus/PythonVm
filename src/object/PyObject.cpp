@@ -5,6 +5,28 @@
 #include "PyDict.hpp"
 #include "VM.hpp"
 
+std::unique_ptr<ObjectKlass> ObjectKlass::m_Instance;
+std::mutex ObjectKlass::m_Mutex;
+
+ObjectKlass::ObjectKlass()
+{
+    set_name("object");
+    set_super(nullptr);
+}
+
+ObjectKlass* ObjectKlass::get_instance()
+{
+    if(!m_Instance)
+    {
+        std::lock_guard<std::mutex> lock(m_Mutex);
+        if(!m_Instance)
+        {
+            m_Instance.reset(new ObjectKlass());
+        }
+    }
+    return m_Instance.get();
+}
+
 PyObject *PyObject::id()
 {
     #if __SIZEOF_POINTER__ == 8

@@ -50,6 +50,13 @@ Interpreter::Interpreter()
     m_Builtins->put(new PyString("False"), VM::PyFalse);
     m_Builtins->put(new PyString("None"),  VM::PyNone);
 
+    // set type object
+    m_Builtins->put(new PyString("int"),  IntegerKlass::get_instance()->type_object());
+    m_Builtins->put(new PyString("str"),  StringKlass::get_instance()->type_object());
+    m_Builtins->put(new PyString("list"), ListKlass::get_instance()->type_object());
+    m_Builtins->put(new PyString("dict"), DictKlass::get_instance()->type_object());
+    //m_Builtins->put(new PyString("object"), IntegerKlass::get_instance()->type_object());
+
     // native function
     m_Builtins->put(new PyString("id"),  new PyFunction(native::python_builtins::id));
     m_Builtins->put(new PyString("abs"), new PyFunction(native::python_builtins::abs));

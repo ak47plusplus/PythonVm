@@ -33,6 +33,7 @@ void ListKlass::InitKlass()
     attrs->put(new PyString("sort"),    new PyFunction(pylist::list_sort));
     attrs->put(new PyString("reverse"), new PyFunction(pylist::list_reverse));
     set_attrs(attrs);
+    set_super(ObjectKlass::get_instance());
     // init the type object
     (new PyTypeObject())->set_own_klass(this);
 }

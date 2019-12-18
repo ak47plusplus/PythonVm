@@ -1,7 +1,18 @@
 #ifndef PY_OBJECT_HPP
 #define PY_OBJECT_HPP
 
-class Klass;
+#include "Klass.hpp"
+#include <memory>
+#include <mutex>
+
+class ObjectKlass : public Klass {
+public:
+    static ObjectKlass* get_instance();
+private:
+    static std::unique_ptr<ObjectKlass> m_Instance;
+    static std::mutex m_Mutex;
+    ObjectKlass(){}
+};
 
 class PyObject {
 public:

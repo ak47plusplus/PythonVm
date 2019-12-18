@@ -30,6 +30,7 @@ void DictKlass::InitKlass()
     attrs->put(new PyString("values"), new PyFunction(pydict::dict_values));
     attrs->put(new PyString("copy"),   new PyFunction(pydict::dict_copy));
     set_attrs(attrs);
+    set_super(ObjectKlass::get_instance());
     // init typeobject
     (new PyTypeObject())->set_own_klass(this);
 }
