@@ -1,4 +1,6 @@
 #include "PyNoneType.hpp"
+#include "PyTypeObject.hpp"
+#include "PyDict.hpp"
 
 #include <cassert>
 #include <iostream>
@@ -9,6 +11,13 @@ std::unique_ptr<NoneTypeKlass> NoneTypeKlass::m_Instance;
 NoneTypeKlass::NoneTypeKlass()
 {
     set_name("NoneType");
+}
+
+void NoneTypeKlass::InitKlass()
+{
+    set_attrs(new PyDict());
+    set_super(ObjectKlass::get_instance());
+    (new PyTypeObject())->set_own_klass(this);
 }
 
 void NoneTypeKlass::print(PyObject *x)

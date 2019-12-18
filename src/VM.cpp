@@ -18,10 +18,6 @@ PyObject  * VM::PyNone = nullptr;
 
 void VM::init() NOEXCEPT
 {
-    VM::PyTrue = new PyInteger(1);
-    VM::PyFalse = new PyInteger(0);
-    VM::PyNone = new PyNoneType();
-
     // type klass object之间有相互的循环引用 需要手动设置关系.
     PyTypeObject *typeObjForTypeKlass = new PyTypeObject();
     typeObjForTypeKlass->set_own_klass(TypeKlass::get_instance());
@@ -40,6 +36,10 @@ void VM::init() NOEXCEPT
 
     TypeKlass::get_instance()->set_attrs(new PyDict());
     ObjectKlass::get_instance()->set_attrs(new PyDict());
+
+    VM::PyTrue = new PyInteger(1);
+    VM::PyFalse = new PyInteger(0);
+    VM::PyNone = new PyNoneType();
 }
 
 
