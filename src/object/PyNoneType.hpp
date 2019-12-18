@@ -9,7 +9,7 @@
 
 class NoneTypeKlass : public Klass {
 public:
-    NoneTypeKlass* get_instance();
+    static NoneTypeKlass* get_instance();
     void InitKlass() override;
     void print(PyObject *x) override;
 private:

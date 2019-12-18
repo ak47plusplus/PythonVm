@@ -20,6 +20,19 @@ void NoneTypeKlass::InitKlass()
     (new PyTypeObject())->set_own_klass(this);
 }
 
+NoneTypeKlass* NoneTypeKlass::get_instance()
+{
+    if(!m_Instance)
+    {
+        std::lock_guard<std::mutex> lock(m_Mutex);
+        if(!m_Instance)
+        {
+            m_Instance.reset(new NoneTypeKlass());
+        }
+    }
+    return m_Instance.get();
+}
+
 void NoneTypeKlass::print(PyObject *x)
 {
     assert(x && x->klass() == this);

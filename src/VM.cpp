@@ -33,6 +33,7 @@ void VM::init() NOEXCEPT
     ListKlass::get_instance()->InitKlass();
     DictKlass::get_instance()->InitKlass();
     StringKlass::get_instance()->InitKlass();
+    NoneTypeKlass::get_instance()->InitKlass();
 
     TypeKlass::get_instance()->set_attrs(new PyDict());
     ObjectKlass::get_instance()->set_attrs(new PyDict());
