@@ -13,7 +13,8 @@
 1.请确保先安装cmake,如果没有安装cmake,请执行一下命令安装 <br/>
 $ sudo apt-get install build-essential  <br/>
 $ sudo apt-get install cmake            <br/>
-2.编译 <br/>
+2.本项目需要依赖Boost库 请提前下载编译<br/>
+3.编译 <br/>
 chmod 755 build.sh <br/>
 ./build.sh         <br/>
 

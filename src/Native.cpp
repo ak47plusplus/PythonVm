@@ -61,7 +61,15 @@ namespace python_builtins {
 
     PyObject* type_of(FuncArgs args)
     {
-        return nullptr;
+        assert(args != nullptr);
+        int argNum = args->size();
+        if(argNum != 1 || argNum != 3)
+        {
+            __throw_python_except("TypeError: type() takes 1 or 3 arguments\n");
+        }
+        // TODO 暂不考虑三个参数的情况
+        PyObject *obj = args->get(0);
+        return obj->klass()->type_object();
     }
 
     PyObject* isinstance(FuncArgs args)

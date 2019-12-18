@@ -11,6 +11,7 @@
 #include "PyDict.hpp"
 #include "PyFunction.hpp"
 #include "PyTypeObject.hpp"
+#include "PyNoneType.hpp"
 
 #define PyObject_NotNullPtr(objPtr) ((objPtr) != nullptr)
 #define PyObject_Klass_Check(objPtr, klsPtr)  (((objPtr) != nullptr) && ((objPtr)->klass()) == klsPtr)

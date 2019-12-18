@@ -13,6 +13,7 @@
 #include "PyList.hpp"
 #include "PyListIterator.hpp"
 #include "PyDict.hpp"
+#include "PyNoneType.hpp"
 #include "PyFunction.hpp"
 #include "PyCell.hpp"
 #include "Python.hpp"
@@ -52,6 +53,7 @@ Interpreter::Interpreter()
 
     // set type object
     m_Builtins->put(new PyString("int"),  IntegerKlass::get_instance()->type_object());
+    m_Builtins->put(new PyString("float"), DoubleKlass::get_instance()->type_object());
     m_Builtins->put(new PyString("str"),  StringKlass::get_instance()->type_object());
     m_Builtins->put(new PyString("list"), ListKlass::get_instance()->type_object());
     m_Builtins->put(new PyString("dict"), DictKlass::get_instance()->type_object());
@@ -62,6 +64,7 @@ Interpreter::Interpreter()
     m_Builtins->put(new PyString("abs"),        new PyFunction(native::python_builtins::abs));
     m_Builtins->put(new PyString("len"),        new PyFunction(native::python_builtins::len));
     m_Builtins->put(new PyString("isinstance"), new PyFunction(native::python_builtins::isinstance));
+    m_Builtins->put(new PyString("type"),       new PyFunction(native::python_builtins::type_of));
 }
 
 void Interpreter::Run(CodeObject *codes)
