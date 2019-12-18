@@ -1,6 +1,8 @@
 #include "Map.hpp"
 #include "PyObject.hpp"
 #include "PyInteger.hpp"
+#include "PyNoneType.hpp"
+#include "PyBool.hpp"
 
 // #include <iostream>
 
