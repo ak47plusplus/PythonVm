@@ -9,9 +9,10 @@
 #include "PyTuple.hpp"
 #include "PySlice.hpp"
 #include "PyDict.hpp"
-#include "PyFunction.hpp"
 #include "PyTypeObject.hpp"
 #include "PyNoneType.hpp"
+#include "PyBool.hpp"
+#include "PyFunction.hpp"
 
 #define PyObject_IsNullPtr(objPtr)  ((objPtr) == nullptr)
 #define PyObject_NotNullPtr(objPtr) ((objPtr) != nullptr)

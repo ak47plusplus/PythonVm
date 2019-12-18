@@ -12,8 +12,8 @@
 #include "Interpreter.hpp"
 #include "CodeObject.hpp"
 
-PyInteger  *VM::PyTrue = nullptr;
-PyInteger  *VM::PyFalse = nullptr;
+PyBool  *VM::PyTrue = nullptr;
+PyBool  *VM::PyFalse = nullptr;
 PyNoneType *VM::PyNone = nullptr;
 
 void VM::init() NOEXCEPT
@@ -34,12 +34,13 @@ void VM::init() NOEXCEPT
     DictKlass::get_instance()->InitKlass();
     StringKlass::get_instance()->InitKlass();
     NoneTypeKlass::get_instance()->InitKlass();
+    BoolKlass::get_instance()->InitKlass();
 
     TypeKlass::get_instance()->set_attrs(new PyDict());
     ObjectKlass::get_instance()->set_attrs(new PyDict());
 
-    VM::PyTrue = new PyInteger(1);
-    VM::PyFalse = new PyInteger(0);
+    VM::PyTrue = new PyBool(true);
+    VM::PyFalse = new PyBool(false);
     VM::PyNone = new PyNoneType();
 }
 

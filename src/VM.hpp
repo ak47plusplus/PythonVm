@@ -4,7 +4,7 @@
 #include "Core.hpp"
 #include "CodeObject.hpp"
 
-class PyInteger;
+class PyBool;
 class PyNoneType;
 
 class VM {
@@ -15,8 +15,8 @@ public:
 private:
 
 public:
-    static PyInteger  *PyTrue;
-    static PyInteger  *PyFalse;
+    static PyBool     *PyTrue;
+    static PyBool     *PyFalse;
     static PyNoneType *PyNone;
 };
 
