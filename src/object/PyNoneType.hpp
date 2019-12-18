@@ -21,6 +21,10 @@ private:
 // Single Instance in the python vm.
 struct PyNoneType : public PyObject {
 
+    PyNoneType(){
+        set_klass(NoneTypeKlass::get_instance());
+    }
+    
 };
 
 #endif
