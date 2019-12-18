@@ -12,9 +12,9 @@
 #include "Interpreter.hpp"
 #include "CodeObject.hpp"
 
-PyInteger * VM::PyTrue = nullptr;
-PyInteger * VM::PyFalse = nullptr;
-PyObject  * VM::PyNone = nullptr;
+PyInteger  *VM::PyTrue = nullptr;
+PyInteger  *VM::PyFalse = nullptr;
+PyNoneType *VM::PyNone = nullptr;
 
 void VM::init() NOEXCEPT
 {
