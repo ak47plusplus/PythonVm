@@ -5,6 +5,8 @@
 #include "Core.hpp"
 #include "PyString.hpp"
 #include "PyInteger.hpp"
+#include "PyBool.hpp"
+#include "PyNoneType.hpp"
 #include "CodeObject.hpp"
 #include "ArrayList.hpp"
 #include "FileInputStream.hpp"

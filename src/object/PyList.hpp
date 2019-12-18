@@ -4,6 +4,7 @@
 #include "Klass.hpp"
 #include "PyObject.hpp"
 #include "ArrayList.hpp"
+#include "PyBool.hpp"
 #include "PyNoneType.hpp"
 
 #include <mutex>
