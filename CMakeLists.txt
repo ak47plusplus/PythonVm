@@ -59,6 +59,7 @@ set(SOURCES
     src/object/PyDictIterator.cpp
     src/object/PyTuple.cpp
     src/object/PySlice.cpp
+    src/object/PyNoneType.cpp
     src/object/PyTypeObject.cpp)
 
 # 添加一个可执行文件
