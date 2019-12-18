@@ -1,4 +1,5 @@
 #include "Native.hpp"
+#include "Python.hpp"
 #include "PyFunction.hpp"
 #include "PyInteger.hpp"
 #include "PyString.hpp"
@@ -65,6 +66,23 @@ namespace python_builtins {
 
     PyObject* isinstance(FuncArgs args)
     {
+        assert(args != nullptr);
+        if(args->size() != 2) 
+            __throw_python_except("TypeError: isinstance expected 2 arguments, got %d\n", args->size());
+        PyObject *arg1 = args->get(0);
+        PyObject *arg2 = args->get(1); 
+        if(!PyObject_Klass_Check0(arg2, TypeKlass))
+        {
+            __throw_python_except("TypeError: isinstance arg 2 must be a class, type, or tuple of classes and types\n");
+        }
+        PyTypeObject *typeObj = dynamic_cast<PyTypeObject*>(arg2);
+        Klass *kls = arg1->klass();
+        while (kls != nullptr)
+        {
+            if(kls->type_object() == typeObj) // equals to: kls == typeObj->own_klass()
+                return VM::PyTrue;
+            kls = kls->supper();
+        }
         return VM::PyFalse;
     }
 } // end of namespace python_builtins.

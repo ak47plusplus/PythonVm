@@ -21,16 +21,24 @@ void VM::init() NOEXCEPT
     VM::PyFalse = new PyInteger(0);
     VM::PyNone = new PyObject();
 
-    // type object was dependency circle.
-    Klass *typeKlass = TypeKlass::get_instance();
-    PyTypeObject *pTypeObject = new PyTypeObject();
-    typeKlass->set_type_object(pTypeObject);
+    // type klass object之间有相互的循环引用 需要手动设置关系.
+    PyTypeObject *typeObjForTypeKlass = new PyTypeObject();
+    typeObjForTypeKlass->set_own_klass(TypeKlass::get_instance());
+
+    PyTypeObject *typeObjForObjectKlass = new PyTypeObject();
+    typeObjForObjectKlass->set_own_klass(ObjectKlass::get_instance());
+
+    TypeKlass::get_instance()->set_super(ObjectKlass::get_instance());
+
 
     IntegerKlass::get_instance()->InitKlass();
     DoubleKlass::get_instance()->InitKlass();
     ListKlass::get_instance()->InitKlass();
     DictKlass::get_instance()->InitKlass();
     StringKlass::get_instance()->InitKlass();
+
+    TypeKlass::get_instance()->set_attrs(new PyDict());
+    ObjectKlass::get_instance()->set_attrs(new PyDict());
 }
 
 

@@ -55,12 +55,13 @@ Interpreter::Interpreter()
     m_Builtins->put(new PyString("str"),  StringKlass::get_instance()->type_object());
     m_Builtins->put(new PyString("list"), ListKlass::get_instance()->type_object());
     m_Builtins->put(new PyString("dict"), DictKlass::get_instance()->type_object());
-    //m_Builtins->put(new PyString("object"), IntegerKlass::get_instance()->type_object());
+    m_Builtins->put(new PyString("object"), ObjectKlass::get_instance()->type_object());
 
     // native function
-    m_Builtins->put(new PyString("id"),  new PyFunction(native::python_builtins::id));
-    m_Builtins->put(new PyString("abs"), new PyFunction(native::python_builtins::abs));
-    m_Builtins->put(new PyString("len"), new PyFunction(native::python_builtins::len));
+    m_Builtins->put(new PyString("id"),         new PyFunction(native::python_builtins::id));
+    m_Builtins->put(new PyString("abs"),        new PyFunction(native::python_builtins::abs));
+    m_Builtins->put(new PyString("len"),        new PyFunction(native::python_builtins::len));
+    m_Builtins->put(new PyString("isinstance"), new PyFunction(native::python_builtins::isinstance));
 }
 
 void Interpreter::Run(CodeObject *codes)
