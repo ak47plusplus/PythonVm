@@ -37,7 +37,7 @@ void BoolKlass::print(PyObject *x)
 {
     assert(x && x->klass() == this);
     PyBool *pBool = dynamic_cast<PyBool*>(x);
-    std::cout << pBool->value();
+    std::cout << ((pBool->value()) ? "True" : "False");
     std::fflush(stdout);
 }
 
