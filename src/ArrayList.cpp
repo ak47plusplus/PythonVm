@@ -1,6 +1,8 @@
 #include "ArrayList.hpp"
 #include "PyObject.hpp"
 #include "PyInteger.hpp"
+#include "PyBool.hpp"
+
 #include <stdio.h>
 
 // 模板类 默认all放在hpp
