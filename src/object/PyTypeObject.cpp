@@ -33,7 +33,7 @@ TypeKlass *TypeKlass::get_instance()
     return m_Instance;
 }
 
-TypeKlass::print(PyObject *obj)
+void TypeKlass::print(PyObject *obj)
 {
     assert(obj && obj->klass() == this);
     std::cout << "<type ";
