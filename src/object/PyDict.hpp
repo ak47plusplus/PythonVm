@@ -5,6 +5,7 @@
 #include "Map.hpp"
 #include "Klass.hpp"
 #include "PyObject.hpp"
+#include "PyNoneType.hpp"
 
 #include <mutex>
 
