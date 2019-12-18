@@ -11,7 +11,7 @@ public:
 private:
     static std::unique_ptr<ObjectKlass> m_Instance;
     static std::mutex m_Mutex;
-    ObjectKlass(){}
+    ObjectKlass();
 };
 
 class PyObject {
