@@ -25,7 +25,7 @@ BoolKlass* BoolKlass::get_instance()
     if(!m_Instance)
     {
         std::lock_guard<std::mutex> lock(m_Mutex);
-        if(!m_Mutex)
+        if(!m_Instance)
         {
             m_Instance.reset(new BoolKlass());
         }
