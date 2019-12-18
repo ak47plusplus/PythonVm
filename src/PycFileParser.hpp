@@ -1,6 +1,7 @@
 #ifndef PYC_FILE_PARSER_HPP
 #define PYC_FILE_PARSER_HPP
 
+#include "Python.hpp"
 #include "Core.hpp"
 #include "PyString.hpp"
 #include "PyInteger.hpp"

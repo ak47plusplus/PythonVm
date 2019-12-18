@@ -13,7 +13,9 @@
 #include "PyTypeObject.hpp"
 #include "PyNoneType.hpp"
 
+#define PyObject_IsNullPtr(objPtr)  ((objPtr) == nullptr)
 #define PyObject_NotNullPtr(objPtr) ((objPtr) != nullptr)
+#define PyObject_IsPyNone(objPtr) PyObject_Klass_Check0(objPtr, NoneTypeKlass)
 #define PyObject_Klass_Check(objPtr, klsPtr)  (((objPtr) != nullptr) && ((objPtr)->klass()) == klsPtr)
 #define PyObject_Klass_Check0(objPtr, kls)  (((objPtr) != nullptr) && ((objPtr)->klass()) == kls::get_instance())
 
