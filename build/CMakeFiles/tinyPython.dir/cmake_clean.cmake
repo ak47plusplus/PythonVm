@@ -12,6 +12,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/tinyPython.dir/src/Native.cpp.o"
   "CMakeFiles/tinyPython.dir/src/ArrayList.cpp.o"
   "CMakeFiles/tinyPython.dir/src/Map.cpp.o"
+  "CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.o"
+  "CMakeFiles/tinyPython.dir/src/object/PyCell.cpp.o"
   "CMakeFiles/tinyPython.dir/src/object/PyObject.cpp.o"
   "CMakeFiles/tinyPython.dir/src/object/PyInteger.cpp.o"
   "CMakeFiles/tinyPython.dir/src/object/PyDouble.cpp.o"

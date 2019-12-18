@@ -322,6 +322,27 @@ CMakeFiles/tinyPython.dir/src/CodeObject.cpp.o: ../src/CodeObject.hpp
 CMakeFiles/tinyPython.dir/src/CodeObject.cpp.o: ../src/Core.hpp
 CMakeFiles/tinyPython.dir/src/CodeObject.cpp.o: ../src/VM.hpp
 
+CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.o: ../src/ArrayList.hpp
+CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.o: ../src/CodeObject.hpp
+CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.o: ../src/Core.hpp
+CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.o: ../src/Klass.hpp
+CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.o: ../src/Panic.hpp
+CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.o: ../src/VM.hpp
+CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.o: ../src/ConstantsPool.cpp
+CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.o: ../src/ConstantsPool.hpp
+CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.o: ../src/object/PyObject.hpp
+CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.o: ../src/object/PyString.hpp
+CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.o: /usr/local/include/boost/config.hpp
+CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.o: /usr/local/include/boost/config/no_tr1/utility.hpp
+CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.o: /usr/local/include/boost/config/posix_features.hpp
+CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.o: /usr/local/include/boost/config/select_compiler_config.hpp
+CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.o: /usr/local/include/boost/config/select_platform_config.hpp
+CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.o: /usr/local/include/boost/config/select_stdlib_config.hpp
+CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.o: /usr/local/include/boost/config/suffix.hpp
+CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.o: /usr/local/include/boost/non_type.hpp
+CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.o: /usr/local/include/boost/noncopyable.hpp
+CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.o: /usr/local/include/boost/type.hpp
+
 CMakeFiles/tinyPython.dir/src/FileInputStream.cpp.o: ../src/FileInputStream.cpp
 CMakeFiles/tinyPython.dir/src/FileInputStream.cpp.o: ../src/FileInputStream.hpp
 CMakeFiles/tinyPython.dir/src/FileInputStream.cpp.o: /usr/local/include/boost/config.hpp
@@ -337,9 +358,12 @@ CMakeFiles/tinyPython.dir/src/FileInputStream.cpp.o: /usr/local/include/boost/ty
 
 CMakeFiles/tinyPython.dir/src/Frame.cpp.o: ../src/Klass.hpp
 CMakeFiles/tinyPython.dir/src/Frame.cpp.o: ../src/Panic.hpp
+CMakeFiles/tinyPython.dir/src/Frame.cpp.o: ../src/object/PyDict.hpp
 CMakeFiles/tinyPython.dir/src/Frame.cpp.o: ../src/object/PyFunction.hpp
+CMakeFiles/tinyPython.dir/src/Frame.cpp.o: ../src/object/PyList.hpp
 CMakeFiles/tinyPython.dir/src/Frame.cpp.o: ../src/object/PyObject.hpp
 CMakeFiles/tinyPython.dir/src/Frame.cpp.o: ../src/object/PyString.hpp
+CMakeFiles/tinyPython.dir/src/Frame.cpp.o: ../src/object/PyTuple.hpp
 CMakeFiles/tinyPython.dir/src/Frame.cpp.o: ../src/ArrayList.hpp
 CMakeFiles/tinyPython.dir/src/Frame.cpp.o: ../src/Block.hpp
 CMakeFiles/tinyPython.dir/src/Frame.cpp.o: ../src/CodeObject.hpp
@@ -351,7 +375,9 @@ CMakeFiles/tinyPython.dir/src/Frame.cpp.o: ../src/VM.hpp
 
 CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/Iterator.hpp
 CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/Klass.hpp
+CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/object/PyCell.hpp
 CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/object/PyDict.hpp
+CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/object/PyDouble.hpp
 CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/object/PyFunction.hpp
 CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/object/PyInteger.hpp
 CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/object/PyList.hpp
@@ -359,6 +385,8 @@ CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/object/PyListIterator.hp
 CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/object/PyObject.hpp
 CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/object/PySlice.hpp
 CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/object/PyString.hpp
+CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/object/PyTuple.hpp
+CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/object/PyTypeObject.hpp
 CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/ArrayList.hpp
 CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/Block.hpp
 CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/CodeObject.hpp
@@ -370,6 +398,7 @@ CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/Map.hpp
 CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/Native.hpp
 CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/OpCode.hpp
 CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/Panic.hpp
+CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/Python.hpp
 CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: ../src/VM.hpp
 CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: /usr/local/include/boost/assert.hpp
 CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o: /usr/local/include/boost/cerrno.hpp
@@ -1280,15 +1309,21 @@ CMakeFiles/tinyPython.dir/src/Native.cpp.o: ../src/Core.hpp
 CMakeFiles/tinyPython.dir/src/Native.cpp.o: ../src/Frame.hpp
 CMakeFiles/tinyPython.dir/src/Native.cpp.o: ../src/Klass.hpp
 CMakeFiles/tinyPython.dir/src/Native.cpp.o: ../src/Map.hpp
+CMakeFiles/tinyPython.dir/src/Native.cpp.o: ../src/object/PyDict.hpp
 CMakeFiles/tinyPython.dir/src/Native.cpp.o: ../src/object/PyDouble.hpp
 CMakeFiles/tinyPython.dir/src/Native.cpp.o: ../src/object/PyFunction.hpp
 CMakeFiles/tinyPython.dir/src/Native.cpp.o: ../src/object/PyInteger.hpp
+CMakeFiles/tinyPython.dir/src/Native.cpp.o: ../src/object/PyList.hpp
 CMakeFiles/tinyPython.dir/src/Native.cpp.o: ../src/object/PyObject.hpp
+CMakeFiles/tinyPython.dir/src/Native.cpp.o: ../src/object/PySlice.hpp
 CMakeFiles/tinyPython.dir/src/Native.cpp.o: ../src/object/PyString.hpp
+CMakeFiles/tinyPython.dir/src/Native.cpp.o: ../src/object/PyTuple.hpp
+CMakeFiles/tinyPython.dir/src/Native.cpp.o: ../src/object/PyTypeObject.hpp
 CMakeFiles/tinyPython.dir/src/Native.cpp.o: ../src/ArrayList.hpp
 CMakeFiles/tinyPython.dir/src/Native.cpp.o: ../src/Native.cpp
 CMakeFiles/tinyPython.dir/src/Native.cpp.o: ../src/Native.hpp
 CMakeFiles/tinyPython.dir/src/Native.cpp.o: ../src/Panic.hpp
+CMakeFiles/tinyPython.dir/src/Native.cpp.o: ../src/Python.hpp
 CMakeFiles/tinyPython.dir/src/Native.cpp.o: ../src/VM.hpp
 
 CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o: ../src/Klass.hpp
@@ -1296,6 +1331,7 @@ CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o: ../src/object/PyDouble.hpp
 CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o: ../src/object/PyInteger.hpp
 CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o: ../src/object/PyObject.hpp
 CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o: ../src/object/PyString.hpp
+CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o: ../src/object/PyTuple.hpp
 CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o: ../src/3rd/easylogging++/easylogging++.hpp
 CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o: ../src/ArrayList.hpp
 CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o: ../src/CodeObject.hpp
@@ -1612,16 +1648,21 @@ CMakeFiles/tinyPython.dir/src/VM.cpp.o: ../src/Klass.hpp
 CMakeFiles/tinyPython.dir/src/VM.cpp.o: ../src/Map.hpp
 CMakeFiles/tinyPython.dir/src/VM.cpp.o: ../src/Panic.hpp
 CMakeFiles/tinyPython.dir/src/VM.cpp.o: ../src/object/PyDict.hpp
+CMakeFiles/tinyPython.dir/src/VM.cpp.o: ../src/object/PyDouble.hpp
 CMakeFiles/tinyPython.dir/src/VM.cpp.o: ../src/object/PyFunction.hpp
 CMakeFiles/tinyPython.dir/src/VM.cpp.o: ../src/object/PyInteger.hpp
 CMakeFiles/tinyPython.dir/src/VM.cpp.o: ../src/object/PyList.hpp
 CMakeFiles/tinyPython.dir/src/VM.cpp.o: ../src/object/PyObject.hpp
+CMakeFiles/tinyPython.dir/src/VM.cpp.o: ../src/object/PySlice.hpp
 CMakeFiles/tinyPython.dir/src/VM.cpp.o: ../src/object/PyString.hpp
+CMakeFiles/tinyPython.dir/src/VM.cpp.o: ../src/object/PyTuple.hpp
+CMakeFiles/tinyPython.dir/src/VM.cpp.o: ../src/object/PyTypeObject.hpp
 CMakeFiles/tinyPython.dir/src/VM.cpp.o: ../src/ArrayList.hpp
 CMakeFiles/tinyPython.dir/src/VM.cpp.o: ../src/CodeObject.hpp
 CMakeFiles/tinyPython.dir/src/VM.cpp.o: ../src/Core.hpp
 CMakeFiles/tinyPython.dir/src/VM.cpp.o: ../src/Interpreter.hpp
 CMakeFiles/tinyPython.dir/src/VM.cpp.o: ../src/Native.hpp
+CMakeFiles/tinyPython.dir/src/VM.cpp.o: ../src/Python.hpp
 CMakeFiles/tinyPython.dir/src/VM.cpp.o: ../src/VM.cpp
 CMakeFiles/tinyPython.dir/src/VM.cpp.o: ../src/VM.hpp
 CMakeFiles/tinyPython.dir/src/VM.cpp.o: /usr/local/include/boost/assert.hpp
@@ -1890,6 +1931,19 @@ CMakeFiles/tinyPython.dir/src/VM.cpp.o: /usr/local/include/boost/utility/address
 CMakeFiles/tinyPython.dir/src/VM.cpp.o: /usr/local/include/boost/utility/enable_if.hpp
 CMakeFiles/tinyPython.dir/src/VM.cpp.o: /usr/local/include/boost/version.hpp
 
+CMakeFiles/tinyPython.dir/src/object/PyCell.cpp.o: ../src/ArrayList.hpp
+CMakeFiles/tinyPython.dir/src/object/PyCell.cpp.o: ../src/CodeObject.hpp
+CMakeFiles/tinyPython.dir/src/object/PyCell.cpp.o: ../src/Core.hpp
+CMakeFiles/tinyPython.dir/src/object/PyCell.cpp.o: ../src/Klass.hpp
+CMakeFiles/tinyPython.dir/src/object/PyCell.cpp.o: ../src/Map.hpp
+CMakeFiles/tinyPython.dir/src/object/PyCell.cpp.o: ../src/Panic.hpp
+CMakeFiles/tinyPython.dir/src/object/PyCell.cpp.o: ../src/VM.hpp
+CMakeFiles/tinyPython.dir/src/object/PyCell.cpp.o: ../src/object/PyCell.cpp
+CMakeFiles/tinyPython.dir/src/object/PyCell.cpp.o: ../src/object/PyCell.hpp
+CMakeFiles/tinyPython.dir/src/object/PyCell.cpp.o: ../src/object/PyDict.hpp
+CMakeFiles/tinyPython.dir/src/object/PyCell.cpp.o: ../src/object/PyObject.hpp
+CMakeFiles/tinyPython.dir/src/object/PyCell.cpp.o: ../src/object/PyTuple.hpp
+
 CMakeFiles/tinyPython.dir/src/object/PyDict.cpp.o: ../src/ArrayList.hpp
 CMakeFiles/tinyPython.dir/src/object/PyDict.cpp.o: ../src/Block.hpp
 CMakeFiles/tinyPython.dir/src/object/PyDict.cpp.o: ../src/CodeObject.hpp
@@ -1908,6 +1962,8 @@ CMakeFiles/tinyPython.dir/src/object/PyDict.cpp.o: ../src/object/PyInteger.hpp
 CMakeFiles/tinyPython.dir/src/object/PyDict.cpp.o: ../src/object/PyList.hpp
 CMakeFiles/tinyPython.dir/src/object/PyDict.cpp.o: ../src/object/PyObject.hpp
 CMakeFiles/tinyPython.dir/src/object/PyDict.cpp.o: ../src/object/PyString.hpp
+CMakeFiles/tinyPython.dir/src/object/PyDict.cpp.o: ../src/object/PyTuple.hpp
+CMakeFiles/tinyPython.dir/src/object/PyDict.cpp.o: ../src/object/PyTypeObject.hpp
 
 CMakeFiles/tinyPython.dir/src/object/PyDictIterator.cpp.o: ../src/CodeObject.hpp
 CMakeFiles/tinyPython.dir/src/object/PyDictIterator.cpp.o: ../src/Core.hpp
@@ -1924,12 +1980,15 @@ CMakeFiles/tinyPython.dir/src/object/PyDictIterator.cpp.o: ../src/object/PyObjec
 CMakeFiles/tinyPython.dir/src/object/PyDouble.cpp.o: ../src/CodeObject.hpp
 CMakeFiles/tinyPython.dir/src/object/PyDouble.cpp.o: ../src/Core.hpp
 CMakeFiles/tinyPython.dir/src/object/PyDouble.cpp.o: ../src/Klass.hpp
+CMakeFiles/tinyPython.dir/src/object/PyDouble.cpp.o: ../src/Map.hpp
 CMakeFiles/tinyPython.dir/src/object/PyDouble.cpp.o: ../src/Panic.hpp
 CMakeFiles/tinyPython.dir/src/object/PyDouble.cpp.o: ../src/VM.hpp
+CMakeFiles/tinyPython.dir/src/object/PyDouble.cpp.o: ../src/object/PyDict.hpp
 CMakeFiles/tinyPython.dir/src/object/PyDouble.cpp.o: ../src/object/PyDouble.cpp
 CMakeFiles/tinyPython.dir/src/object/PyDouble.cpp.o: ../src/object/PyDouble.hpp
 CMakeFiles/tinyPython.dir/src/object/PyDouble.cpp.o: ../src/object/PyInteger.hpp
 CMakeFiles/tinyPython.dir/src/object/PyDouble.cpp.o: ../src/object/PyObject.hpp
+CMakeFiles/tinyPython.dir/src/object/PyDouble.cpp.o: ../src/object/PyTypeObject.hpp
 
 CMakeFiles/tinyPython.dir/src/object/PyFunction.cpp.o: ../src/ArrayList.hpp
 CMakeFiles/tinyPython.dir/src/object/PyFunction.cpp.o: ../src/Block.hpp
@@ -1940,23 +1999,29 @@ CMakeFiles/tinyPython.dir/src/object/PyFunction.cpp.o: ../src/Klass.hpp
 CMakeFiles/tinyPython.dir/src/object/PyFunction.cpp.o: ../src/Map.hpp
 CMakeFiles/tinyPython.dir/src/object/PyFunction.cpp.o: ../src/Panic.hpp
 CMakeFiles/tinyPython.dir/src/object/PyFunction.cpp.o: ../src/VM.hpp
+CMakeFiles/tinyPython.dir/src/object/PyFunction.cpp.o: ../src/object/PyDict.hpp
 CMakeFiles/tinyPython.dir/src/object/PyFunction.cpp.o: ../src/object/PyDouble.hpp
 CMakeFiles/tinyPython.dir/src/object/PyFunction.cpp.o: ../src/object/PyFunction.cpp
 CMakeFiles/tinyPython.dir/src/object/PyFunction.cpp.o: ../src/object/PyFunction.hpp
 CMakeFiles/tinyPython.dir/src/object/PyFunction.cpp.o: ../src/object/PyInteger.hpp
+CMakeFiles/tinyPython.dir/src/object/PyFunction.cpp.o: ../src/object/PyList.hpp
 CMakeFiles/tinyPython.dir/src/object/PyFunction.cpp.o: ../src/object/PyObject.hpp
+CMakeFiles/tinyPython.dir/src/object/PyFunction.cpp.o: ../src/object/PyTuple.hpp
 
 CMakeFiles/tinyPython.dir/src/object/PyInteger.cpp.o: ../src/ArrayList.hpp
 CMakeFiles/tinyPython.dir/src/object/PyInteger.cpp.o: ../src/CodeObject.hpp
 CMakeFiles/tinyPython.dir/src/object/PyInteger.cpp.o: ../src/Core.hpp
 CMakeFiles/tinyPython.dir/src/object/PyInteger.cpp.o: ../src/Klass.hpp
+CMakeFiles/tinyPython.dir/src/object/PyInteger.cpp.o: ../src/Map.hpp
 CMakeFiles/tinyPython.dir/src/object/PyInteger.cpp.o: ../src/Panic.hpp
 CMakeFiles/tinyPython.dir/src/object/PyInteger.cpp.o: ../src/VM.hpp
+CMakeFiles/tinyPython.dir/src/object/PyInteger.cpp.o: ../src/object/PyDict.hpp
 CMakeFiles/tinyPython.dir/src/object/PyInteger.cpp.o: ../src/object/PyDouble.hpp
 CMakeFiles/tinyPython.dir/src/object/PyInteger.cpp.o: ../src/object/PyInteger.cpp
 CMakeFiles/tinyPython.dir/src/object/PyInteger.cpp.o: ../src/object/PyInteger.hpp
 CMakeFiles/tinyPython.dir/src/object/PyInteger.cpp.o: ../src/object/PyObject.hpp
 CMakeFiles/tinyPython.dir/src/object/PyInteger.cpp.o: ../src/object/PyString.hpp
+CMakeFiles/tinyPython.dir/src/object/PyInteger.cpp.o: ../src/object/PyTypeObject.hpp
 
 CMakeFiles/tinyPython.dir/src/object/PyList.cpp.o: ../src/ArrayList.hpp
 CMakeFiles/tinyPython.dir/src/object/PyList.cpp.o: ../src/Block.hpp
@@ -1976,6 +2041,8 @@ CMakeFiles/tinyPython.dir/src/object/PyList.cpp.o: ../src/object/PyList.hpp
 CMakeFiles/tinyPython.dir/src/object/PyList.cpp.o: ../src/object/PyListIterator.hpp
 CMakeFiles/tinyPython.dir/src/object/PyList.cpp.o: ../src/object/PyObject.hpp
 CMakeFiles/tinyPython.dir/src/object/PyList.cpp.o: ../src/object/PyString.hpp
+CMakeFiles/tinyPython.dir/src/object/PyList.cpp.o: ../src/object/PyTuple.hpp
+CMakeFiles/tinyPython.dir/src/object/PyList.cpp.o: ../src/object/PyTypeObject.hpp
 
 CMakeFiles/tinyPython.dir/src/object/PyListIterator.cpp.o: ../src/ArrayList.hpp
 CMakeFiles/tinyPython.dir/src/object/PyListIterator.cpp.o: ../src/CodeObject.hpp
@@ -2001,9 +2068,13 @@ CMakeFiles/tinyPython.dir/src/object/PyObject.cpp.o: ../src/VM.hpp
 CMakeFiles/tinyPython.dir/src/object/PyObject.cpp.o: ../src/object/PyDict.hpp
 CMakeFiles/tinyPython.dir/src/object/PyObject.cpp.o: ../src/object/PyFunction.hpp
 CMakeFiles/tinyPython.dir/src/object/PyObject.cpp.o: ../src/object/PyInteger.hpp
+CMakeFiles/tinyPython.dir/src/object/PyObject.cpp.o: ../src/object/PyList.hpp
 CMakeFiles/tinyPython.dir/src/object/PyObject.cpp.o: ../src/object/PyObject.cpp
 CMakeFiles/tinyPython.dir/src/object/PyObject.cpp.o: ../src/object/PyObject.hpp
+CMakeFiles/tinyPython.dir/src/object/PyObject.cpp.o: ../src/object/PyTuple.hpp
 
+CMakeFiles/tinyPython.dir/src/object/PySlice.cpp.o: ../src/Klass.hpp
+CMakeFiles/tinyPython.dir/src/object/PySlice.cpp.o: ../src/Panic.hpp
 CMakeFiles/tinyPython.dir/src/object/PySlice.cpp.o: ../src/object/PyObject.hpp
 CMakeFiles/tinyPython.dir/src/object/PySlice.cpp.o: ../src/object/PySlice.cpp
 CMakeFiles/tinyPython.dir/src/object/PySlice.cpp.o: ../src/object/PySlice.hpp
@@ -2013,14 +2084,17 @@ CMakeFiles/tinyPython.dir/src/object/PyString.cpp.o: ../src/CodeObject.hpp
 CMakeFiles/tinyPython.dir/src/object/PyString.cpp.o: ../src/Core.hpp
 CMakeFiles/tinyPython.dir/src/object/PyString.cpp.o: ../src/Iterator.hpp
 CMakeFiles/tinyPython.dir/src/object/PyString.cpp.o: ../src/Klass.hpp
+CMakeFiles/tinyPython.dir/src/object/PyString.cpp.o: ../src/Map.hpp
 CMakeFiles/tinyPython.dir/src/object/PyString.cpp.o: ../src/Panic.hpp
 CMakeFiles/tinyPython.dir/src/object/PyString.cpp.o: ../src/VM.hpp
+CMakeFiles/tinyPython.dir/src/object/PyString.cpp.o: ../src/object/PyDict.hpp
 CMakeFiles/tinyPython.dir/src/object/PyString.cpp.o: ../src/object/PyDouble.hpp
 CMakeFiles/tinyPython.dir/src/object/PyString.cpp.o: ../src/object/PyInteger.hpp
 CMakeFiles/tinyPython.dir/src/object/PyString.cpp.o: ../src/object/PyObject.hpp
 CMakeFiles/tinyPython.dir/src/object/PyString.cpp.o: ../src/object/PyString.cpp
 CMakeFiles/tinyPython.dir/src/object/PyString.cpp.o: ../src/object/PyString.hpp
 CMakeFiles/tinyPython.dir/src/object/PyString.cpp.o: ../src/object/PyStringIterator.hpp
+CMakeFiles/tinyPython.dir/src/object/PyString.cpp.o: ../src/object/PyTypeObject.hpp
 
 CMakeFiles/tinyPython.dir/src/object/PyStringIterator.cpp.o: ../src/ArrayList.hpp
 CMakeFiles/tinyPython.dir/src/object/PyStringIterator.cpp.o: ../src/CodeObject.hpp
@@ -2035,17 +2109,48 @@ CMakeFiles/tinyPython.dir/src/object/PyStringIterator.cpp.o: ../src/object/PyStr
 CMakeFiles/tinyPython.dir/src/object/PyStringIterator.cpp.o: ../src/object/PyStringIterator.hpp
 
 CMakeFiles/tinyPython.dir/src/object/PyTuple.cpp.o: ../src/ArrayList.hpp
+CMakeFiles/tinyPython.dir/src/object/PyTuple.cpp.o: ../src/Block.hpp
 CMakeFiles/tinyPython.dir/src/object/PyTuple.cpp.o: ../src/CodeObject.hpp
 CMakeFiles/tinyPython.dir/src/object/PyTuple.cpp.o: ../src/Core.hpp
+CMakeFiles/tinyPython.dir/src/object/PyTuple.cpp.o: ../src/Frame.hpp
 CMakeFiles/tinyPython.dir/src/object/PyTuple.cpp.o: ../src/Klass.hpp
+CMakeFiles/tinyPython.dir/src/object/PyTuple.cpp.o: ../src/Map.hpp
 CMakeFiles/tinyPython.dir/src/object/PyTuple.cpp.o: ../src/Panic.hpp
+CMakeFiles/tinyPython.dir/src/object/PyTuple.cpp.o: ../src/Python.hpp
 CMakeFiles/tinyPython.dir/src/object/PyTuple.cpp.o: ../src/VM.hpp
+CMakeFiles/tinyPython.dir/src/object/PyTuple.cpp.o: ../src/object/PyDouble.hpp
+CMakeFiles/tinyPython.dir/src/object/PyTuple.cpp.o: ../src/object/PyFunction.hpp
+CMakeFiles/tinyPython.dir/src/object/PyTuple.cpp.o: ../src/object/PyInteger.hpp
+CMakeFiles/tinyPython.dir/src/object/PyTuple.cpp.o: ../src/object/PyList.hpp
+CMakeFiles/tinyPython.dir/src/object/PyTuple.cpp.o: ../src/object/PySlice.hpp
+CMakeFiles/tinyPython.dir/src/object/PyTuple.cpp.o: ../src/object/PyString.hpp
+CMakeFiles/tinyPython.dir/src/object/PyTuple.cpp.o: ../src/object/PyDict.hpp
 CMakeFiles/tinyPython.dir/src/object/PyTuple.cpp.o: ../src/object/PyObject.hpp
 CMakeFiles/tinyPython.dir/src/object/PyTuple.cpp.o: ../src/object/PyTuple.cpp
 CMakeFiles/tinyPython.dir/src/object/PyTuple.cpp.o: ../src/object/PyTuple.hpp
+CMakeFiles/tinyPython.dir/src/object/PyTuple.cpp.o: ../src/object/PyTypeObject.hpp
 
+CMakeFiles/tinyPython.dir/src/object/PyTypeObject.cpp.o: ../src/ArrayList.hpp
+CMakeFiles/tinyPython.dir/src/object/PyTypeObject.cpp.o: ../src/CodeObject.hpp
+CMakeFiles/tinyPython.dir/src/object/PyTypeObject.cpp.o: ../src/ConstantsPool.hpp
+CMakeFiles/tinyPython.dir/src/object/PyTypeObject.cpp.o: ../src/Core.hpp
 CMakeFiles/tinyPython.dir/src/object/PyTypeObject.cpp.o: ../src/Klass.hpp
+CMakeFiles/tinyPython.dir/src/object/PyTypeObject.cpp.o: ../src/Map.hpp
 CMakeFiles/tinyPython.dir/src/object/PyTypeObject.cpp.o: ../src/Panic.hpp
+CMakeFiles/tinyPython.dir/src/object/PyTypeObject.cpp.o: ../src/VM.hpp
+CMakeFiles/tinyPython.dir/src/object/PyTypeObject.cpp.o: ../src/object/PyString.hpp
+CMakeFiles/tinyPython.dir/src/object/PyTypeObject.cpp.o: ../src/object/PyDict.hpp
+CMakeFiles/tinyPython.dir/src/object/PyTypeObject.cpp.o: ../src/object/PyObject.hpp
 CMakeFiles/tinyPython.dir/src/object/PyTypeObject.cpp.o: ../src/object/PyTypeObject.cpp
 CMakeFiles/tinyPython.dir/src/object/PyTypeObject.cpp.o: ../src/object/PyTypeObject.hpp
+CMakeFiles/tinyPython.dir/src/object/PyTypeObject.cpp.o: /usr/local/include/boost/config.hpp
+CMakeFiles/tinyPython.dir/src/object/PyTypeObject.cpp.o: /usr/local/include/boost/config/no_tr1/utility.hpp
+CMakeFiles/tinyPython.dir/src/object/PyTypeObject.cpp.o: /usr/local/include/boost/config/posix_features.hpp
+CMakeFiles/tinyPython.dir/src/object/PyTypeObject.cpp.o: /usr/local/include/boost/config/select_compiler_config.hpp
+CMakeFiles/tinyPython.dir/src/object/PyTypeObject.cpp.o: /usr/local/include/boost/config/select_platform_config.hpp
+CMakeFiles/tinyPython.dir/src/object/PyTypeObject.cpp.o: /usr/local/include/boost/config/select_stdlib_config.hpp
+CMakeFiles/tinyPython.dir/src/object/PyTypeObject.cpp.o: /usr/local/include/boost/config/suffix.hpp
+CMakeFiles/tinyPython.dir/src/object/PyTypeObject.cpp.o: /usr/local/include/boost/non_type.hpp
+CMakeFiles/tinyPython.dir/src/object/PyTypeObject.cpp.o: /usr/local/include/boost/noncopyable.hpp
+CMakeFiles/tinyPython.dir/src/object/PyTypeObject.cpp.o: /usr/local/include/boost/type.hpp
 

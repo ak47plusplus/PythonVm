@@ -322,6 +322,27 @@ CMakeFiles/tinyPython.dir/src/CodeObject.cpp.o
  /opt/PythonVm/src/CodeObject.hpp
  /opt/PythonVm/src/Core.hpp
  /opt/PythonVm/src/VM.hpp
+CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.o
+ ../src/ArrayList.hpp
+ ../src/CodeObject.hpp
+ ../src/Core.hpp
+ ../src/Klass.hpp
+ ../src/Panic.hpp
+ ../src/VM.hpp
+ /opt/PythonVm/src/ConstantsPool.cpp
+ /opt/PythonVm/src/ConstantsPool.hpp
+ /opt/PythonVm/src/object/PyObject.hpp
+ /opt/PythonVm/src/object/PyString.hpp
+ /usr/local/include/boost/config.hpp
+ /usr/local/include/boost/config/no_tr1/utility.hpp
+ /usr/local/include/boost/config/posix_features.hpp
+ /usr/local/include/boost/config/select_compiler_config.hpp
+ /usr/local/include/boost/config/select_platform_config.hpp
+ /usr/local/include/boost/config/select_stdlib_config.hpp
+ /usr/local/include/boost/config/suffix.hpp
+ /usr/local/include/boost/non_type.hpp
+ /usr/local/include/boost/noncopyable.hpp
+ /usr/local/include/boost/type.hpp
 CMakeFiles/tinyPython.dir/src/FileInputStream.cpp.o
  /opt/PythonVm/src/FileInputStream.cpp
  /opt/PythonVm/src/FileInputStream.hpp
@@ -338,9 +359,12 @@ CMakeFiles/tinyPython.dir/src/FileInputStream.cpp.o
 CMakeFiles/tinyPython.dir/src/Frame.cpp.o
  ../src/Klass.hpp
  ../src/Panic.hpp
+ ../src/object/PyDict.hpp
  ../src/object/PyFunction.hpp
+ ../src/object/PyList.hpp
  ../src/object/PyObject.hpp
  ../src/object/PyString.hpp
+ ../src/object/PyTuple.hpp
  /opt/PythonVm/src/ArrayList.hpp
  /opt/PythonVm/src/Block.hpp
  /opt/PythonVm/src/CodeObject.hpp
@@ -352,7 +376,9 @@ CMakeFiles/tinyPython.dir/src/Frame.cpp.o
 CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o
  ../src/Iterator.hpp
  ../src/Klass.hpp
+ ../src/object/PyCell.hpp
  ../src/object/PyDict.hpp
+ ../src/object/PyDouble.hpp
  ../src/object/PyFunction.hpp
  ../src/object/PyInteger.hpp
  ../src/object/PyList.hpp
@@ -360,6 +386,8 @@ CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o
  ../src/object/PyObject.hpp
  ../src/object/PySlice.hpp
  ../src/object/PyString.hpp
+ ../src/object/PyTuple.hpp
+ ../src/object/PyTypeObject.hpp
  /opt/PythonVm/src/ArrayList.hpp
  /opt/PythonVm/src/Block.hpp
  /opt/PythonVm/src/CodeObject.hpp
@@ -371,6 +399,7 @@ CMakeFiles/tinyPython.dir/src/Interpreter.cpp.o
  /opt/PythonVm/src/Native.hpp
  /opt/PythonVm/src/OpCode.hpp
  /opt/PythonVm/src/Panic.hpp
+ /opt/PythonVm/src/Python.hpp
  /opt/PythonVm/src/VM.hpp
  /usr/local/include/boost/assert.hpp
  /usr/local/include/boost/cerrno.hpp
@@ -1281,15 +1310,21 @@ CMakeFiles/tinyPython.dir/src/Native.cpp.o
  ../src/Frame.hpp
  ../src/Klass.hpp
  ../src/Map.hpp
+ ../src/object/PyDict.hpp
  ../src/object/PyDouble.hpp
  ../src/object/PyFunction.hpp
  ../src/object/PyInteger.hpp
+ ../src/object/PyList.hpp
  ../src/object/PyObject.hpp
+ ../src/object/PySlice.hpp
  ../src/object/PyString.hpp
+ ../src/object/PyTuple.hpp
+ ../src/object/PyTypeObject.hpp
  /opt/PythonVm/src/ArrayList.hpp
  /opt/PythonVm/src/Native.cpp
  /opt/PythonVm/src/Native.hpp
  /opt/PythonVm/src/Panic.hpp
+ /opt/PythonVm/src/Python.hpp
  /opt/PythonVm/src/VM.hpp
 CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o
  ../src/Klass.hpp
@@ -1297,6 +1332,7 @@ CMakeFiles/tinyPython.dir/src/PycFileParser.cpp.o
  ../src/object/PyInteger.hpp
  ../src/object/PyObject.hpp
  ../src/object/PyString.hpp
+ ../src/object/PyTuple.hpp
  /opt/PythonVm/src/3rd/easylogging++/easylogging++.hpp
  /opt/PythonVm/src/ArrayList.hpp
  /opt/PythonVm/src/CodeObject.hpp
@@ -1613,16 +1649,21 @@ CMakeFiles/tinyPython.dir/src/VM.cpp.o
  ../src/Map.hpp
  ../src/Panic.hpp
  ../src/object/PyDict.hpp
+ ../src/object/PyDouble.hpp
  ../src/object/PyFunction.hpp
  ../src/object/PyInteger.hpp
  ../src/object/PyList.hpp
  ../src/object/PyObject.hpp
+ ../src/object/PySlice.hpp
  ../src/object/PyString.hpp
+ ../src/object/PyTuple.hpp
+ ../src/object/PyTypeObject.hpp
  /opt/PythonVm/src/ArrayList.hpp
  /opt/PythonVm/src/CodeObject.hpp
  /opt/PythonVm/src/Core.hpp
  /opt/PythonVm/src/Interpreter.hpp
  /opt/PythonVm/src/Native.hpp
+ /opt/PythonVm/src/Python.hpp
  /opt/PythonVm/src/VM.cpp
  /opt/PythonVm/src/VM.hpp
  /usr/local/include/boost/assert.hpp
@@ -1890,6 +1931,19 @@ CMakeFiles/tinyPython.dir/src/VM.cpp.o
  /usr/local/include/boost/utility/addressof.hpp
  /usr/local/include/boost/utility/enable_if.hpp
  /usr/local/include/boost/version.hpp
+CMakeFiles/tinyPython.dir/src/object/PyCell.cpp.o
+ ../src/ArrayList.hpp
+ ../src/CodeObject.hpp
+ ../src/Core.hpp
+ ../src/Klass.hpp
+ ../src/Map.hpp
+ ../src/Panic.hpp
+ ../src/VM.hpp
+ /opt/PythonVm/src/object/PyCell.cpp
+ /opt/PythonVm/src/object/PyCell.hpp
+ /opt/PythonVm/src/object/PyDict.hpp
+ /opt/PythonVm/src/object/PyObject.hpp
+ /opt/PythonVm/src/object/PyTuple.hpp
 CMakeFiles/tinyPython.dir/src/object/PyDict.cpp.o
  ../src/ArrayList.hpp
  ../src/Block.hpp
@@ -1909,6 +1963,8 @@ CMakeFiles/tinyPython.dir/src/object/PyDict.cpp.o
  /opt/PythonVm/src/object/PyList.hpp
  /opt/PythonVm/src/object/PyObject.hpp
  /opt/PythonVm/src/object/PyString.hpp
+ /opt/PythonVm/src/object/PyTuple.hpp
+ /opt/PythonVm/src/object/PyTypeObject.hpp
 CMakeFiles/tinyPython.dir/src/object/PyDictIterator.cpp.o
  ../src/CodeObject.hpp
  ../src/Core.hpp
@@ -1925,12 +1981,15 @@ CMakeFiles/tinyPython.dir/src/object/PyDouble.cpp.o
  ../src/CodeObject.hpp
  ../src/Core.hpp
  ../src/Klass.hpp
+ ../src/Map.hpp
  ../src/Panic.hpp
  ../src/VM.hpp
+ /opt/PythonVm/src/object/PyDict.hpp
  /opt/PythonVm/src/object/PyDouble.cpp
  /opt/PythonVm/src/object/PyDouble.hpp
  /opt/PythonVm/src/object/PyInteger.hpp
  /opt/PythonVm/src/object/PyObject.hpp
+ /opt/PythonVm/src/object/PyTypeObject.hpp
 CMakeFiles/tinyPython.dir/src/object/PyFunction.cpp.o
  ../src/ArrayList.hpp
  ../src/Block.hpp
@@ -1941,23 +2000,29 @@ CMakeFiles/tinyPython.dir/src/object/PyFunction.cpp.o
  ../src/Map.hpp
  ../src/Panic.hpp
  ../src/VM.hpp
+ /opt/PythonVm/src/object/PyDict.hpp
  /opt/PythonVm/src/object/PyDouble.hpp
  /opt/PythonVm/src/object/PyFunction.cpp
  /opt/PythonVm/src/object/PyFunction.hpp
  /opt/PythonVm/src/object/PyInteger.hpp
+ /opt/PythonVm/src/object/PyList.hpp
  /opt/PythonVm/src/object/PyObject.hpp
+ /opt/PythonVm/src/object/PyTuple.hpp
 CMakeFiles/tinyPython.dir/src/object/PyInteger.cpp.o
  ../src/ArrayList.hpp
  ../src/CodeObject.hpp
  ../src/Core.hpp
  ../src/Klass.hpp
+ ../src/Map.hpp
  ../src/Panic.hpp
  ../src/VM.hpp
+ /opt/PythonVm/src/object/PyDict.hpp
  /opt/PythonVm/src/object/PyDouble.hpp
  /opt/PythonVm/src/object/PyInteger.cpp
  /opt/PythonVm/src/object/PyInteger.hpp
  /opt/PythonVm/src/object/PyObject.hpp
  /opt/PythonVm/src/object/PyString.hpp
+ /opt/PythonVm/src/object/PyTypeObject.hpp
 CMakeFiles/tinyPython.dir/src/object/PyList.cpp.o
  ../src/ArrayList.hpp
  ../src/Block.hpp
@@ -1977,6 +2042,8 @@ CMakeFiles/tinyPython.dir/src/object/PyList.cpp.o
  /opt/PythonVm/src/object/PyListIterator.hpp
  /opt/PythonVm/src/object/PyObject.hpp
  /opt/PythonVm/src/object/PyString.hpp
+ /opt/PythonVm/src/object/PyTuple.hpp
+ /opt/PythonVm/src/object/PyTypeObject.hpp
 CMakeFiles/tinyPython.dir/src/object/PyListIterator.cpp.o
  ../src/ArrayList.hpp
  ../src/CodeObject.hpp
@@ -2002,9 +2069,13 @@ CMakeFiles/tinyPython.dir/src/object/PyObject.cpp.o
  /opt/PythonVm/src/object/PyDict.hpp
  /opt/PythonVm/src/object/PyFunction.hpp
  /opt/PythonVm/src/object/PyInteger.hpp
+ /opt/PythonVm/src/object/PyList.hpp
  /opt/PythonVm/src/object/PyObject.cpp
  /opt/PythonVm/src/object/PyObject.hpp
+ /opt/PythonVm/src/object/PyTuple.hpp
 CMakeFiles/tinyPython.dir/src/object/PySlice.cpp.o
+ ../src/Klass.hpp
+ ../src/Panic.hpp
  /opt/PythonVm/src/object/PyObject.hpp
  /opt/PythonVm/src/object/PySlice.cpp
  /opt/PythonVm/src/object/PySlice.hpp
@@ -2014,14 +2085,17 @@ CMakeFiles/tinyPython.dir/src/object/PyString.cpp.o
  ../src/Core.hpp
  ../src/Iterator.hpp
  ../src/Klass.hpp
+ ../src/Map.hpp
  ../src/Panic.hpp
  ../src/VM.hpp
+ /opt/PythonVm/src/object/PyDict.hpp
  /opt/PythonVm/src/object/PyDouble.hpp
  /opt/PythonVm/src/object/PyInteger.hpp
  /opt/PythonVm/src/object/PyObject.hpp
  /opt/PythonVm/src/object/PyString.cpp
  /opt/PythonVm/src/object/PyString.hpp
  /opt/PythonVm/src/object/PyStringIterator.hpp
+ /opt/PythonVm/src/object/PyTypeObject.hpp
 CMakeFiles/tinyPython.dir/src/object/PyStringIterator.cpp.o
  ../src/ArrayList.hpp
  ../src/CodeObject.hpp
@@ -2036,16 +2110,47 @@ CMakeFiles/tinyPython.dir/src/object/PyStringIterator.cpp.o
  /opt/PythonVm/src/object/PyStringIterator.hpp
 CMakeFiles/tinyPython.dir/src/object/PyTuple.cpp.o
  ../src/ArrayList.hpp
+ ../src/Block.hpp
  ../src/CodeObject.hpp
  ../src/Core.hpp
+ ../src/Frame.hpp
  ../src/Klass.hpp
+ ../src/Map.hpp
  ../src/Panic.hpp
+ ../src/Python.hpp
  ../src/VM.hpp
+ ../src/object/PyDouble.hpp
+ ../src/object/PyFunction.hpp
+ ../src/object/PyInteger.hpp
+ ../src/object/PyList.hpp
+ ../src/object/PySlice.hpp
+ ../src/object/PyString.hpp
+ /opt/PythonVm/src/object/PyDict.hpp
  /opt/PythonVm/src/object/PyObject.hpp
  /opt/PythonVm/src/object/PyTuple.cpp
  /opt/PythonVm/src/object/PyTuple.hpp
+ /opt/PythonVm/src/object/PyTypeObject.hpp
 CMakeFiles/tinyPython.dir/src/object/PyTypeObject.cpp.o
+ ../src/ArrayList.hpp
+ ../src/CodeObject.hpp
+ ../src/ConstantsPool.hpp
+ ../src/Core.hpp
  ../src/Klass.hpp
+ ../src/Map.hpp
  ../src/Panic.hpp
+ ../src/VM.hpp
+ ../src/object/PyString.hpp
+ /opt/PythonVm/src/object/PyDict.hpp
+ /opt/PythonVm/src/object/PyObject.hpp
  /opt/PythonVm/src/object/PyTypeObject.cpp
  /opt/PythonVm/src/object/PyTypeObject.hpp
+ /usr/local/include/boost/config.hpp
+ /usr/local/include/boost/config/no_tr1/utility.hpp
+ /usr/local/include/boost/config/posix_features.hpp
+ /usr/local/include/boost/config/select_compiler_config.hpp
+ /usr/local/include/boost/config/select_platform_config.hpp
+ /usr/local/include/boost/config/select_stdlib_config.hpp
+ /usr/local/include/boost/config/suffix.hpp
+ /usr/local/include/boost/non_type.hpp
+ /usr/local/include/boost/noncopyable.hpp
+ /usr/local/include/boost/type.hpp

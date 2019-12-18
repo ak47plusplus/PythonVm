@@ -369,9 +369,57 @@ CMakeFiles/tinyPython.dir/src/Map.cpp.o.provides: CMakeFiles/tinyPython.dir/src/
 CMakeFiles/tinyPython.dir/src/Map.cpp.o.provides.build: CMakeFiles/tinyPython.dir/src/Map.cpp.o
 
 
+CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.o: CMakeFiles/tinyPython.dir/flags.make
+CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.o: ../src/ConstantsPool.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/PythonVm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.o -c /opt/PythonVm/src/ConstantsPool.cpp
+
+CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/PythonVm/src/ConstantsPool.cpp > CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.i
+
+CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/PythonVm/src/ConstantsPool.cpp -o CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.s
+
+CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.o.requires:
+
+.PHONY : CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.o.requires
+
+CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.o.provides: CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.o.requires
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.o.provides.build
+.PHONY : CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.o.provides
+
+CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.o.provides.build: CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.o
+
+
+CMakeFiles/tinyPython.dir/src/object/PyCell.cpp.o: CMakeFiles/tinyPython.dir/flags.make
+CMakeFiles/tinyPython.dir/src/object/PyCell.cpp.o: ../src/object/PyCell.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/PythonVm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/tinyPython.dir/src/object/PyCell.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tinyPython.dir/src/object/PyCell.cpp.o -c /opt/PythonVm/src/object/PyCell.cpp
+
+CMakeFiles/tinyPython.dir/src/object/PyCell.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tinyPython.dir/src/object/PyCell.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /opt/PythonVm/src/object/PyCell.cpp > CMakeFiles/tinyPython.dir/src/object/PyCell.cpp.i
+
+CMakeFiles/tinyPython.dir/src/object/PyCell.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tinyPython.dir/src/object/PyCell.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /opt/PythonVm/src/object/PyCell.cpp -o CMakeFiles/tinyPython.dir/src/object/PyCell.cpp.s
+
+CMakeFiles/tinyPython.dir/src/object/PyCell.cpp.o.requires:
+
+.PHONY : CMakeFiles/tinyPython.dir/src/object/PyCell.cpp.o.requires
+
+CMakeFiles/tinyPython.dir/src/object/PyCell.cpp.o.provides: CMakeFiles/tinyPython.dir/src/object/PyCell.cpp.o.requires
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyCell.cpp.o.provides.build
+.PHONY : CMakeFiles/tinyPython.dir/src/object/PyCell.cpp.o.provides
+
+CMakeFiles/tinyPython.dir/src/object/PyCell.cpp.o.provides.build: CMakeFiles/tinyPython.dir/src/object/PyCell.cpp.o
+
+
 CMakeFiles/tinyPython.dir/src/object/PyObject.cpp.o: CMakeFiles/tinyPython.dir/flags.make
 CMakeFiles/tinyPython.dir/src/object/PyObject.cpp.o: ../src/object/PyObject.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/PythonVm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/tinyPython.dir/src/object/PyObject.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/PythonVm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/tinyPython.dir/src/object/PyObject.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tinyPython.dir/src/object/PyObject.cpp.o -c /opt/PythonVm/src/object/PyObject.cpp
 
 CMakeFiles/tinyPython.dir/src/object/PyObject.cpp.i: cmake_force
@@ -395,7 +443,7 @@ CMakeFiles/tinyPython.dir/src/object/PyObject.cpp.o.provides.build: CMakeFiles/t
 
 CMakeFiles/tinyPython.dir/src/object/PyInteger.cpp.o: CMakeFiles/tinyPython.dir/flags.make
 CMakeFiles/tinyPython.dir/src/object/PyInteger.cpp.o: ../src/object/PyInteger.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/PythonVm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/tinyPython.dir/src/object/PyInteger.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/PythonVm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/tinyPython.dir/src/object/PyInteger.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tinyPython.dir/src/object/PyInteger.cpp.o -c /opt/PythonVm/src/object/PyInteger.cpp
 
 CMakeFiles/tinyPython.dir/src/object/PyInteger.cpp.i: cmake_force
@@ -419,7 +467,7 @@ CMakeFiles/tinyPython.dir/src/object/PyInteger.cpp.o.provides.build: CMakeFiles/
 
 CMakeFiles/tinyPython.dir/src/object/PyDouble.cpp.o: CMakeFiles/tinyPython.dir/flags.make
 CMakeFiles/tinyPython.dir/src/object/PyDouble.cpp.o: ../src/object/PyDouble.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/PythonVm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/tinyPython.dir/src/object/PyDouble.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/PythonVm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/tinyPython.dir/src/object/PyDouble.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tinyPython.dir/src/object/PyDouble.cpp.o -c /opt/PythonVm/src/object/PyDouble.cpp
 
 CMakeFiles/tinyPython.dir/src/object/PyDouble.cpp.i: cmake_force
@@ -443,7 +491,7 @@ CMakeFiles/tinyPython.dir/src/object/PyDouble.cpp.o.provides.build: CMakeFiles/t
 
 CMakeFiles/tinyPython.dir/src/object/PyString.cpp.o: CMakeFiles/tinyPython.dir/flags.make
 CMakeFiles/tinyPython.dir/src/object/PyString.cpp.o: ../src/object/PyString.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/PythonVm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/tinyPython.dir/src/object/PyString.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/PythonVm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/tinyPython.dir/src/object/PyString.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tinyPython.dir/src/object/PyString.cpp.o -c /opt/PythonVm/src/object/PyString.cpp
 
 CMakeFiles/tinyPython.dir/src/object/PyString.cpp.i: cmake_force
@@ -467,7 +515,7 @@ CMakeFiles/tinyPython.dir/src/object/PyString.cpp.o.provides.build: CMakeFiles/t
 
 CMakeFiles/tinyPython.dir/src/object/PyStringIterator.cpp.o: CMakeFiles/tinyPython.dir/flags.make
 CMakeFiles/tinyPython.dir/src/object/PyStringIterator.cpp.o: ../src/object/PyStringIterator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/PythonVm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/tinyPython.dir/src/object/PyStringIterator.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/PythonVm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/tinyPython.dir/src/object/PyStringIterator.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tinyPython.dir/src/object/PyStringIterator.cpp.o -c /opt/PythonVm/src/object/PyStringIterator.cpp
 
 CMakeFiles/tinyPython.dir/src/object/PyStringIterator.cpp.i: cmake_force
@@ -491,7 +539,7 @@ CMakeFiles/tinyPython.dir/src/object/PyStringIterator.cpp.o.provides.build: CMak
 
 CMakeFiles/tinyPython.dir/src/object/PyFunction.cpp.o: CMakeFiles/tinyPython.dir/flags.make
 CMakeFiles/tinyPython.dir/src/object/PyFunction.cpp.o: ../src/object/PyFunction.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/PythonVm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/tinyPython.dir/src/object/PyFunction.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/PythonVm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/tinyPython.dir/src/object/PyFunction.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tinyPython.dir/src/object/PyFunction.cpp.o -c /opt/PythonVm/src/object/PyFunction.cpp
 
 CMakeFiles/tinyPython.dir/src/object/PyFunction.cpp.i: cmake_force
@@ -515,7 +563,7 @@ CMakeFiles/tinyPython.dir/src/object/PyFunction.cpp.o.provides.build: CMakeFiles
 
 CMakeFiles/tinyPython.dir/src/object/PyList.cpp.o: CMakeFiles/tinyPython.dir/flags.make
 CMakeFiles/tinyPython.dir/src/object/PyList.cpp.o: ../src/object/PyList.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/PythonVm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/tinyPython.dir/src/object/PyList.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/PythonVm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/tinyPython.dir/src/object/PyList.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tinyPython.dir/src/object/PyList.cpp.o -c /opt/PythonVm/src/object/PyList.cpp
 
 CMakeFiles/tinyPython.dir/src/object/PyList.cpp.i: cmake_force
@@ -539,7 +587,7 @@ CMakeFiles/tinyPython.dir/src/object/PyList.cpp.o.provides.build: CMakeFiles/tin
 
 CMakeFiles/tinyPython.dir/src/object/PyListIterator.cpp.o: CMakeFiles/tinyPython.dir/flags.make
 CMakeFiles/tinyPython.dir/src/object/PyListIterator.cpp.o: ../src/object/PyListIterator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/PythonVm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/tinyPython.dir/src/object/PyListIterator.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/PythonVm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/tinyPython.dir/src/object/PyListIterator.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tinyPython.dir/src/object/PyListIterator.cpp.o -c /opt/PythonVm/src/object/PyListIterator.cpp
 
 CMakeFiles/tinyPython.dir/src/object/PyListIterator.cpp.i: cmake_force
@@ -563,7 +611,7 @@ CMakeFiles/tinyPython.dir/src/object/PyListIterator.cpp.o.provides.build: CMakeF
 
 CMakeFiles/tinyPython.dir/src/object/PyDict.cpp.o: CMakeFiles/tinyPython.dir/flags.make
 CMakeFiles/tinyPython.dir/src/object/PyDict.cpp.o: ../src/object/PyDict.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/PythonVm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/tinyPython.dir/src/object/PyDict.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/PythonVm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/tinyPython.dir/src/object/PyDict.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tinyPython.dir/src/object/PyDict.cpp.o -c /opt/PythonVm/src/object/PyDict.cpp
 
 CMakeFiles/tinyPython.dir/src/object/PyDict.cpp.i: cmake_force
@@ -587,7 +635,7 @@ CMakeFiles/tinyPython.dir/src/object/PyDict.cpp.o.provides.build: CMakeFiles/tin
 
 CMakeFiles/tinyPython.dir/src/object/PyDictIterator.cpp.o: CMakeFiles/tinyPython.dir/flags.make
 CMakeFiles/tinyPython.dir/src/object/PyDictIterator.cpp.o: ../src/object/PyDictIterator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/PythonVm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/tinyPython.dir/src/object/PyDictIterator.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/PythonVm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/tinyPython.dir/src/object/PyDictIterator.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tinyPython.dir/src/object/PyDictIterator.cpp.o -c /opt/PythonVm/src/object/PyDictIterator.cpp
 
 CMakeFiles/tinyPython.dir/src/object/PyDictIterator.cpp.i: cmake_force
@@ -611,7 +659,7 @@ CMakeFiles/tinyPython.dir/src/object/PyDictIterator.cpp.o.provides.build: CMakeF
 
 CMakeFiles/tinyPython.dir/src/object/PyTuple.cpp.o: CMakeFiles/tinyPython.dir/flags.make
 CMakeFiles/tinyPython.dir/src/object/PyTuple.cpp.o: ../src/object/PyTuple.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/PythonVm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/tinyPython.dir/src/object/PyTuple.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/PythonVm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/tinyPython.dir/src/object/PyTuple.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tinyPython.dir/src/object/PyTuple.cpp.o -c /opt/PythonVm/src/object/PyTuple.cpp
 
 CMakeFiles/tinyPython.dir/src/object/PyTuple.cpp.i: cmake_force
@@ -635,7 +683,7 @@ CMakeFiles/tinyPython.dir/src/object/PyTuple.cpp.o.provides.build: CMakeFiles/ti
 
 CMakeFiles/tinyPython.dir/src/object/PySlice.cpp.o: CMakeFiles/tinyPython.dir/flags.make
 CMakeFiles/tinyPython.dir/src/object/PySlice.cpp.o: ../src/object/PySlice.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/PythonVm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/tinyPython.dir/src/object/PySlice.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/PythonVm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/tinyPython.dir/src/object/PySlice.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tinyPython.dir/src/object/PySlice.cpp.o -c /opt/PythonVm/src/object/PySlice.cpp
 
 CMakeFiles/tinyPython.dir/src/object/PySlice.cpp.i: cmake_force
@@ -659,7 +707,7 @@ CMakeFiles/tinyPython.dir/src/object/PySlice.cpp.o.provides.build: CMakeFiles/ti
 
 CMakeFiles/tinyPython.dir/src/object/PyTypeObject.cpp.o: CMakeFiles/tinyPython.dir/flags.make
 CMakeFiles/tinyPython.dir/src/object/PyTypeObject.cpp.o: ../src/object/PyTypeObject.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/PythonVm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/tinyPython.dir/src/object/PyTypeObject.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/opt/PythonVm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/tinyPython.dir/src/object/PyTypeObject.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tinyPython.dir/src/object/PyTypeObject.cpp.o -c /opt/PythonVm/src/object/PyTypeObject.cpp
 
 CMakeFiles/tinyPython.dir/src/object/PyTypeObject.cpp.i: cmake_force
@@ -696,6 +744,8 @@ tinyPython_OBJECTS = \
 "CMakeFiles/tinyPython.dir/src/Native.cpp.o" \
 "CMakeFiles/tinyPython.dir/src/ArrayList.cpp.o" \
 "CMakeFiles/tinyPython.dir/src/Map.cpp.o" \
+"CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.o" \
+"CMakeFiles/tinyPython.dir/src/object/PyCell.cpp.o" \
 "CMakeFiles/tinyPython.dir/src/object/PyObject.cpp.o" \
 "CMakeFiles/tinyPython.dir/src/object/PyInteger.cpp.o" \
 "CMakeFiles/tinyPython.dir/src/object/PyDouble.cpp.o" \
@@ -726,6 +776,8 @@ tinyPython: CMakeFiles/tinyPython.dir/src/Frame.cpp.o
 tinyPython: CMakeFiles/tinyPython.dir/src/Native.cpp.o
 tinyPython: CMakeFiles/tinyPython.dir/src/ArrayList.cpp.o
 tinyPython: CMakeFiles/tinyPython.dir/src/Map.cpp.o
+tinyPython: CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.o
+tinyPython: CMakeFiles/tinyPython.dir/src/object/PyCell.cpp.o
 tinyPython: CMakeFiles/tinyPython.dir/src/object/PyObject.cpp.o
 tinyPython: CMakeFiles/tinyPython.dir/src/object/PyInteger.cpp.o
 tinyPython: CMakeFiles/tinyPython.dir/src/object/PyDouble.cpp.o
@@ -746,7 +798,7 @@ tinyPython: /usr/local/lib/libboost_system.so
 tinyPython: /usr/local/lib/libboost_date_time.so
 tinyPython: /usr/lib/x86_64-linux-gnu/libpthread.so
 tinyPython: CMakeFiles/tinyPython.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/opt/PythonVm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Linking CXX executable tinyPython"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/opt/PythonVm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Linking CXX executable tinyPython"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/tinyPython.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -767,6 +819,8 @@ CMakeFiles/tinyPython.dir/requires: CMakeFiles/tinyPython.dir/src/Frame.cpp.o.re
 CMakeFiles/tinyPython.dir/requires: CMakeFiles/tinyPython.dir/src/Native.cpp.o.requires
 CMakeFiles/tinyPython.dir/requires: CMakeFiles/tinyPython.dir/src/ArrayList.cpp.o.requires
 CMakeFiles/tinyPython.dir/requires: CMakeFiles/tinyPython.dir/src/Map.cpp.o.requires
+CMakeFiles/tinyPython.dir/requires: CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.o.requires
+CMakeFiles/tinyPython.dir/requires: CMakeFiles/tinyPython.dir/src/object/PyCell.cpp.o.requires
 CMakeFiles/tinyPython.dir/requires: CMakeFiles/tinyPython.dir/src/object/PyObject.cpp.o.requires
 CMakeFiles/tinyPython.dir/requires: CMakeFiles/tinyPython.dir/src/object/PyInteger.cpp.o.requires
 CMakeFiles/tinyPython.dir/requires: CMakeFiles/tinyPython.dir/src/object/PyDouble.cpp.o.requires

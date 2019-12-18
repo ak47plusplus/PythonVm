@@ -204,6 +204,33 @@ src/CodeObject.cpp.s:
 	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/CodeObject.cpp.s
 .PHONY : src/CodeObject.cpp.s
 
+src/ConstantsPool.o: src/ConstantsPool.cpp.o
+
+.PHONY : src/ConstantsPool.o
+
+# target to build an object file
+src/ConstantsPool.cpp.o:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.o
+.PHONY : src/ConstantsPool.cpp.o
+
+src/ConstantsPool.i: src/ConstantsPool.cpp.i
+
+.PHONY : src/ConstantsPool.i
+
+# target to preprocess a source file
+src/ConstantsPool.cpp.i:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.i
+.PHONY : src/ConstantsPool.cpp.i
+
+src/ConstantsPool.s: src/ConstantsPool.cpp.s
+
+.PHONY : src/ConstantsPool.s
+
+# target to generate assembly for a file
+src/ConstantsPool.cpp.s:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/ConstantsPool.cpp.s
+.PHONY : src/ConstantsPool.cpp.s
+
 src/FileInputStream.o: src/FileInputStream.cpp.o
 
 .PHONY : src/FileInputStream.o
@@ -473,6 +500,33 @@ src/VM.s: src/VM.cpp.s
 src/VM.cpp.s:
 	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/VM.cpp.s
 .PHONY : src/VM.cpp.s
+
+src/object/PyCell.o: src/object/PyCell.cpp.o
+
+.PHONY : src/object/PyCell.o
+
+# target to build an object file
+src/object/PyCell.cpp.o:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyCell.cpp.o
+.PHONY : src/object/PyCell.cpp.o
+
+src/object/PyCell.i: src/object/PyCell.cpp.i
+
+.PHONY : src/object/PyCell.i
+
+# target to preprocess a source file
+src/object/PyCell.cpp.i:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyCell.cpp.i
+.PHONY : src/object/PyCell.cpp.i
+
+src/object/PyCell.s: src/object/PyCell.cpp.s
+
+.PHONY : src/object/PyCell.s
+
+# target to generate assembly for a file
+src/object/PyCell.cpp.s:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyCell.cpp.s
+.PHONY : src/object/PyCell.cpp.s
 
 src/object/PyDict.o: src/object/PyDict.cpp.o
 
@@ -843,6 +897,9 @@ help:
 	@echo "... src/CodeObject.o"
 	@echo "... src/CodeObject.i"
 	@echo "... src/CodeObject.s"
+	@echo "... src/ConstantsPool.o"
+	@echo "... src/ConstantsPool.i"
+	@echo "... src/ConstantsPool.s"
 	@echo "... src/FileInputStream.o"
 	@echo "... src/FileInputStream.i"
 	@echo "... src/FileInputStream.s"
@@ -873,6 +930,9 @@ help:
 	@echo "... src/VM.o"
 	@echo "... src/VM.i"
 	@echo "... src/VM.s"
+	@echo "... src/object/PyCell.o"
+	@echo "... src/object/PyCell.i"
+	@echo "... src/object/PyCell.s"
 	@echo "... src/object/PyDict.o"
 	@echo "... src/object/PyDict.i"
 	@echo "... src/object/PyDict.s"
