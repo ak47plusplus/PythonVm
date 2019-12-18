@@ -7,6 +7,7 @@
 #include "ArrayList.hpp"
 #include "VM.hpp"
 #include "Core.hpp"
+#include "PyTypeObject.hpp"
 
 #include <iostream>
 #include <cassert>
@@ -29,6 +30,8 @@ void DictKlass::InitKlass()
     attrs->put(new PyString("values"), new PyFunction(pydict::dict_values));
     attrs->put(new PyString("copy"),   new PyFunction(pydict::dict_copy));
     set_attrs(attrs);
+    // init typeobject
+    (new PyTypeObject())->set_own_klass(this);
 }
 
 DictKlass* DictKlass::get_instance()

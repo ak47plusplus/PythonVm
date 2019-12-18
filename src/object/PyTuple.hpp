@@ -14,7 +14,7 @@
 class TupleKlass : public Klass {
 public:
     static TupleKlass *get_instance();
-
+    void InitKlass() override;
     void print(PyObject *x) override;
     PyObject* add(PyObject *lhs, PyObject *rhs) override;
 private:

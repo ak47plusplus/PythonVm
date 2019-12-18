@@ -54,7 +54,6 @@ TypeKlass::print(PyObject *obj)
 PyTypeObject::PyTypeObject()
 {
     set_klass(TypeKlass::get_instance());
-    // TODO.
 }
 
 void PyTypeObject::set_own_klass(Klass* klass)

@@ -10,6 +10,7 @@
 class DoubleKlass : public Klass {
 public:
     static DoubleKlass *get_instance();
+    void InitKlass() override ;
 
     virtual void print(PyObject *x);
 

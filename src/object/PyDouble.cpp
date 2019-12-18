@@ -1,11 +1,20 @@
 #include "PyDouble.hpp"
+#include "PyDict.hpp"
+#include "PyTypeObject.hpp"
 #include "VM.hpp"
+
 #include <stdio.h>
 #include <assert.h>
 
 DoubleKlass::DoubleKlass()
 {
     set_name("float");
+}
+
+void DoubleKlass::InitKlass()
+{
+    set_attrs(new PyDict());
+    (new PyTypeObject())->set_own_klass(this);
 }
 
 DoubleKlass *DoubleKlass::m_Instance = nullptr;

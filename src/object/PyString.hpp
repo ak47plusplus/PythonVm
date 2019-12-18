@@ -17,6 +17,8 @@ class StringKlass : public Klass
 public:
     static StringKlass *get_instance();
 
+    void InitKlass() override;
+
     void print(PyObject *x) override;
 
     // python的str只能和str加

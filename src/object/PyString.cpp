@@ -1,7 +1,9 @@
 #include "PyString.hpp"
+#include "PyTypeObject.hpp"
 #include "PyStringIterator.hpp"
 #include "PyInteger.hpp"
 #include "PyDouble.hpp"
+#include "PyDict.hpp"
 #include "Panic.hpp"
 #include "VM.hpp"
 
@@ -13,6 +15,12 @@
 
 StringKlass::StringKlass(){
     set_name("str");
+}
+
+void StringKlass::InitKlass()
+{
+    set_attrs(new PyDict());
+    (new PyTypeObject())->set_own_klass(this);
 }
 
 StringKlass *StringKlass::m_Instance = nullptr;

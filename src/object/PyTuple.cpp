@@ -1,5 +1,7 @@
 #include "PyTuple.hpp"
 #include "Python.hpp"
+#include "PyDict.hpp"
+#include "PyTypeObject.hpp"
 
 #include <cstdio>
 #include <cassert>
@@ -10,6 +12,12 @@ std::mutex  TupleKlass::m_Mutex;
 TupleKlass::TupleKlass()
 {
     set_name("tuple");
+}
+
+void TupleKlass::InitKlass()
+{
+    set_attrs(new PyDict());
+    (new PyTypeObject())->set_own_klass(this);
 }
 
 TupleKlass *TupleKlass::get_instance()
