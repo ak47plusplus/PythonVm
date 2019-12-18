@@ -15,7 +15,7 @@ private:
     static std::mutex     m_Mutex;
     ConstantsPool();
     ~ConstantsPool();
-private:
+public:
     pPyString _MODULE_;
 };
 
