@@ -57,6 +57,7 @@ Interpreter::Interpreter()
     m_Builtins->put(new PyString("int"),  IntegerKlass::get_instance()->type_object());
     m_Builtins->put(new PyString("float"), DoubleKlass::get_instance()->type_object());
     m_Builtins->put(new PyString("str"),  StringKlass::get_instance()->type_object());
+    m_Builtins->put(new PyString("bool"),  BoolKlass::get_instance()->type_object());
     m_Builtins->put(new PyString("list"), ListKlass::get_instance()->type_object());
     m_Builtins->put(new PyString("dict"), DictKlass::get_instance()->type_object());
     m_Builtins->put(new PyString("object"), ObjectKlass::get_instance()->type_object());
