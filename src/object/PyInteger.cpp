@@ -47,13 +47,16 @@ PyObject *IntegerKlass::allocate_instance(Klass::FuncArgs args)
 {
     if(!args || args->size() == 0)
         return new PyInteger(0);
-    else if(args->size() == 2)
+    else if(args->size() == 1)
     {
-        if(!PyObject_Klass_In(args->get(0), Klass_ToKlassPtr(IntegerKlass::get_instance()),
-            DoubleKlass::get_instance()))
+        if(!PyObject_Klass_In(args->get(0), 
+            Klass_ToKlassPtr(IntegerKlass::get_instance()),
+            Klass_ToKlassPtr(DoubleKlass::get_instance()),
+            Klass_ToKlassPtr(StringKlass::get_instance())))
         {
             __throw_python_except("only integer and double are supported.\n");
         }
+        return new PyInteger(99);
     } 
     else 
     {
