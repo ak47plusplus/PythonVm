@@ -14,6 +14,8 @@
 #include "PyBool.hpp"
 #include "PyFunction.hpp"
 
+#define Klass_ToKlassPtr(kls) (dynamic_cast<Klass*>(kls))
+
 #define PyObject_IsNullPtr(objPtr)  ((objPtr) == nullptr)
 #define PyObject_NotNullPtr(objPtr) ((objPtr) != nullptr)
 #define PyObject_IsPyNone(objPtr) PyObject_Klass_Check0(objPtr, NoneTypeKlass)
