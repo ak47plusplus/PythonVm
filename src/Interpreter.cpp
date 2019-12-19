@@ -29,9 +29,11 @@
 #define STACK_LEVEL()     m_CurrentFrame->m_Stack->size()
 #define SET_PC(v)         m_CurrentFrame->set_pc(v)
 
+#ifndef _TRUE_FALSE_NONE_HAS_DEFINED_
 #define TRUE              VM::PyTrue
 #define FALSE             VM::PyFalse
 #define None              VM::PyNone
+#endif
 
 boost::thread_specific_ptr<Interpreter> Interpreter::gs_ThreadLocalInterpreter; /* NOLINT */
 

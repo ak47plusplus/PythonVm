@@ -23,5 +23,6 @@ public:
 #define TRUE    (VM::PyTrue)
 #define FALSE   (VM::PyFalse)
 #define NONE    (VM::PyNone)
+#define _TRUE_FALSE_NONE_HAS_DEFINED_ 1
 
 #endif
