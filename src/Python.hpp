@@ -20,17 +20,17 @@
 #define PyObject_Klass_Check(objPtr, klsPtr)  (((objPtr) != nullptr) && ((objPtr)->klass()) == klsPtr)
 #define PyObject_Klass_Check0(objPtr, kls)  (((objPtr) != nullptr) && ((objPtr)->klass()) == kls::get_instance())
 
-template<typename P, typename... T>
-static inline bool PyObject_Klass_In(P p, T... kls)
-{
-    bool in = false;
-    for(auto x : {args...})
-    {
-        if(p->klass() == x)
-        {
-            in = true;
-        }
-    }
-    return in;
-}
+// template<typename P, typename... T>
+// static inline bool PyObject_Klass_In(P p, T... kls)
+// {
+//     bool in = false;
+//     for(auto x : {args...})
+//     {
+//         if(p->klass() == x)
+//         {
+//             in = true;
+//         }
+//     }
+//     return in;
+// }
 #endif
