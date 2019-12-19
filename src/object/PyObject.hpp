@@ -24,6 +24,7 @@ public:
     void print();
 
     PyObject *id();
+    PyObject* toBool();
 
     PyObject *add(PyObject *rhs);
     PyObject *sub(PyObject *rhs);

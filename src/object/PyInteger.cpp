@@ -70,6 +70,13 @@ void IntegerKlass::print(PyObject *x)
     printf("%d", dynamic_cast<PyInteger*>(x)->value());
 }
 
+PyObject* IntegerKlass::toBool(PyObject *x)
+{
+    assert(x && x->klass() == this);
+    PyInteger * pyInt = dynamic_cast<PyInteger*>(x);
+    return pyInt->value() == 0 ? FALSE : TRUE;
+}
+
 PyObject* IntegerKlass::add(PyObject *lhs, PyObject *rhs)
 {
     assert(lhs && lhs->klass() == static_cast<Klass*>(this));

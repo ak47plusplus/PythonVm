@@ -4,6 +4,7 @@
 #include "PyFunction.hpp"
 #include "PyDict.hpp"
 #include "VM.hpp"
+#include "PyBool.hpp"
 
 std::unique_ptr<ObjectKlass> ObjectKlass::m_Instance;
 std::mutex ObjectKlass::m_Mutex;
@@ -34,6 +35,11 @@ PyObject *PyObject::id()
     #else
         return new PyInteger((int)reinterpret_cast<int32_t>(this));
     #endif
+}
+
+PyObject* PyObject::toBool()
+{
+    return this->m_Klass->toBool(this);
 }
 
 void PyObject::print()

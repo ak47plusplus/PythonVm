@@ -51,6 +51,12 @@ ListKlass *ListKlass::get_instance()
     return m_Instance;
 }
 
+PyObject *ListKlass::toBool(PyObject *x)
+{
+    assert(x && x->klass() == this);
+    return dynamic_cast<PyList*>(x)->size() == 0 ? FALSE : TRUE;
+}
+
 /**
  * @brief 打印一个PyList.
  * 例如: [1,2,"3"]

@@ -20,6 +20,7 @@ public:
     void InitKlass() override;
 
     void print(PyObject *x) override;
+    PyObject *toBool(PyObject *x) override;
 
     // python的str只能和str加
     PyObject* add(PyObject *lhs, PyObject *rhs) override;

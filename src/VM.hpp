@@ -20,4 +20,8 @@ public:
     static PyNoneType *PyNone;
 };
 
+#define TRUE    (VM::PyTrue)
+#define FALSE   (VM::PyFalse)
+#define NONE    (VM::PyNone)
+
 #endif

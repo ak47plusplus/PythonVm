@@ -39,3 +39,9 @@ void NoneTypeKlass::print(PyObject *x)
     std::cout << "None";
     std::fflush(stdout);
 }
+
+PyObject* NoneTypeKlass::toBool(PyObject *x)
+{
+    assert(x && x->klass() == this);
+    return FALSE;
+}

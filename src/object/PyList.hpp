@@ -13,8 +13,8 @@ class ListKlass : public Klass {
 public:
     static ListKlass *get_instance();
     void InitKlass() override;
-
     void print(PyObject *x) override;
+    PyObject *toBool(PyObject *x) override;
     PyObject *len(PyObject *self) override;
     PyObject *iter(PyObject *self) override;
 

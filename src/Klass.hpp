@@ -40,7 +40,6 @@ class PyObject;
 class PyList;
 class PyDict;
 class PyTypeObject;
-
 template<typename T>
 class ArrayList;
 
@@ -68,6 +67,7 @@ public:
     /* virtuals */
 
     virtual void print(PyObject *x)                          {;}
+    virtual PyObject* toBool(PyObject *x);
     virtual PyObject* allocate_instance(Klass::FuncArgs args){return nullptr;}
 
     virtual PyObject* add(PyObject *lhs, PyObject *rhs)      {return nullptr;}

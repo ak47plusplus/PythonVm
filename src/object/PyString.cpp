@@ -40,7 +40,15 @@ StringKlass *StringKlass::get_instance()
     return StringKlass::m_Instance;
 }
 
-// py的字符串里可以包含\0 请勿使用%s打印
+PyObject *StringKlass::toBool(PyObject *x)
+{
+    assert(x && x->klass() == static_cast<Klass*>(this));
+    return dynamic_cast<PyString*>(x)->length() == 0 ? FALSE : TRUE;
+}
+
+/**
+ * PyString could contains \0 and DO NOT use `printf %s` to print its char*.
+ */
 void StringKlass::print(PyObject *x)
 {
     assert(x && x->klass() == static_cast<Klass*>(this));
@@ -53,7 +61,7 @@ void StringKlass::print(PyObject *x)
      printf("'");
 }
 
-// python的str只能和str加
+
 PyObject* StringKlass::add(PyObject *lhs, PyObject *rhs)
 {
     assert(lhs && lhs->klass() == this);

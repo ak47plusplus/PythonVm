@@ -12,6 +12,8 @@ public:
     static BoolKlass * get_instance();
     void InitKlass() override;
     void print(PyObject *x) override;
+    PyObject* toBool(PyObject *x) override;
+    PyObject *allocate_instance(Klass::FuncArgs args) override;
 private:
     BoolKlass();
     static std::unique_ptr<BoolKlass> m_Instance;
@@ -23,6 +25,8 @@ public:
     PyBool();
     explicit PyBool(bool v);
     bool value() { return m_Value; }
+private:
+    
 private:
     bool m_Value;
 };
