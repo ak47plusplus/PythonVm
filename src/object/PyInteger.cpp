@@ -5,6 +5,7 @@
 #include "PyTypeObject.hpp"
 #include "VM.hpp"
 #include "Panic.hpp"
+#include "Python.hpp"
 
 #include <stdio.h>
 #include <math.h>   // fmod
@@ -37,6 +38,27 @@ IntegerKlass* IntegerKlass::get_instance()
     return IntegerKlass::m_Instance;
 }
 
+/**
+ *  a = int()
+ *  b = int(3)
+ *  the typeobject will be called as a function.
+ */
+PyObject *IntegerKlass::allocate_instance(Klass::FuncArgs args)
+{
+    if(!args || args->size() == 0)
+        return new PyInteger(0);
+    else if(args->size() == 2)
+    {
+        if(!PyObject_Klass_In(args->get(0), IntegerKlass::get_instance(), DoubleKlass::get_instance()))
+        {
+            __throw_python_except("only integer and double are supported.\n");
+        }
+    } 
+    else 
+    {
+        __throw_python_except("IntegerKlass::allocate_instance failed\n");
+    }
+}
 
 void IntegerKlass::print(PyObject *x)
 {

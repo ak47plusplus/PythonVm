@@ -40,8 +40,11 @@ class PyObject;
 class PyList;
 class PyDict;
 class PyTypeObject;
+class ArrayList;
 
 class Klass {
+public:
+    using FuncArgs = ArrayList<PyObject*> *;
 public:
     Klass();
     ~Klass();
@@ -63,6 +66,8 @@ public:
     /* virtuals */
 
     virtual void print(PyObject *x)                          {;}
+    virtual PyObject* allocate_instance(Klass::FuncArgs args){return nullptr;}
+
     virtual PyObject* add(PyObject *lhs, PyObject *rhs)      {return nullptr;}
     virtual PyObject* sub(PyObject *lhs, PyObject *rhs)      {return nullptr;}
     virtual PyObject* mul(PyObject *lhs, PyObject *rhs)      {return nullptr;}

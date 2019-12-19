@@ -540,6 +540,12 @@ void Interpreter::EvalNewFrame(PyObject *callable, ArrayList<PyObject*> *funcArg
         funcArgs->insert(0, method->owner());
         EvalNewFrame(method->func(), funcArgs, opArg + 1); // opArg+1应该不影响高八位?
     }
+    /* use TypeObject likes a Function. */
+    else if(PyObject_Klass_Check0(callable, TypeKlass))
+    {
+        PyObject* instance = dynamic_cast<PyTypeObject*>(callable)->own_klass()->allocate_instance(funcArgs);
+        PUSH(instance);
+    }
     /* Simple function Call of Python */
     else 
     {

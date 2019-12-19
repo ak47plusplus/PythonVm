@@ -18,10 +18,10 @@ public:
     void InitKlass() override ;
 
     void print(PyObject *x) override;
+    PyObject* allocate_instance(Klass::FuncArgs args) override;
 
     PyObject* add(PyObject *lhs, PyObject *rhs) override;
     PyObject* sub(PyObject *lhs, PyObject *rhs) override;
-    // python的乘法支持int和double运算/ int和str运算
     PyObject* mul(PyObject *lhs, PyObject *rhs) override;
     // python的除法比较坑爹，不是做整除,且两个整数无论是否除尽都是浮点数 3/1 = 3.0  3/2 = 1.5
     PyObject* div(PyObject *lhs, PyObject *rhs) override;
