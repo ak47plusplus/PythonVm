@@ -24,7 +24,7 @@ template<typename P, typename... T>
 static inline bool PyObject_Klass_In(P p, T... kls)
 {
     bool in = false;
-    for(auto x : {args...})
+    for(auto x : {kls...})
     {
         if(p->klass() == x)
             in = true;
