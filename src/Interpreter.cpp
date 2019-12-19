@@ -16,6 +16,7 @@
 #include "PyNoneType.hpp"
 #include "PyFunction.hpp"
 #include "PyCell.hpp"
+#include "PyBool.hpp"
 #include "Python.hpp"
 
 #include <mutex>
