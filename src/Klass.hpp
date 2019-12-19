@@ -40,6 +40,8 @@ class PyObject;
 class PyList;
 class PyDict;
 class PyTypeObject;
+
+template<typename T>
 class ArrayList;
 
 class Klass {
