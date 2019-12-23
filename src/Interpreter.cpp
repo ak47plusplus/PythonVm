@@ -24,6 +24,19 @@
 #include <memory>
 #include <iostream>
 
+#define NEXT() break
+#define OTHERWISE() \
+    default:
+
+#ifdef DEBUG
+#define OPCODE(opcode)    \
+    case OpCode::opcode: 
+#else
+#define OPCODE(opcode)    \
+    case OpCode::opcode: 
+#endif
+
+
 #define PUSH(v)           m_CurrentFrame->m_Stack->push((v))
 #define POP()             m_CurrentFrame->m_Stack->pop()
 #define TOP()             m_CurrentFrame->m_Stack->top()
