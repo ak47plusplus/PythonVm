@@ -1,4 +1,6 @@
 # PythonVm
+[![](https://img.shields.io/travis/maekawatoshiki/qcc.svg?style=flat-square)](https://travis-ci.org/maekawatoshiki/qcc)
+[![](http://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](./LICENSE)
 
 ### 项目结构
 -build 工程构建目录 <br/>
