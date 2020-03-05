@@ -95,16 +95,30 @@ PySlice.hpp
 ../src/PySlice.hpp
 PyDict.hpp
 ../src/PyDict.hpp
-PyFunction.hpp
-../src/PyFunction.hpp
 PyTypeObject.hpp
 ../src/PyTypeObject.hpp
+PyNoneType.hpp
+../src/PyNoneType.hpp
+PyBool.hpp
+../src/PyBool.hpp
+PyFunction.hpp
+../src/PyFunction.hpp
 
 ../src/VM.hpp
 Core.hpp
 ../src/Core.hpp
 CodeObject.hpp
 ../src/CodeObject.hpp
+
+../src/object/PyBool.hpp
+Klass.hpp
+../src/object/Klass.hpp
+PyObject.hpp
+../src/object/PyObject.hpp
+memory
+-
+mutex
+-
 
 ../src/object/PyCell.hpp
 Klass.hpp
@@ -125,6 +139,10 @@ Klass.hpp
 ../src/object/Klass.hpp
 PyObject.hpp
 ../src/object/PyObject.hpp
+PyBool.hpp
+../src/object/PyBool.hpp
+PyNoneType.hpp
+../src/object/PyNoneType.hpp
 mutex
 -
 
@@ -175,6 +193,10 @@ PyObject.hpp
 ../src/object/PyObject.hpp
 ArrayList.hpp
 ../src/object/ArrayList.hpp
+PyBool.hpp
+../src/object/PyBool.hpp
+PyNoneType.hpp
+../src/object/PyNoneType.hpp
 mutex
 -
 
@@ -185,6 +207,16 @@ PyObject.hpp
 ../src/object/PyObject.hpp
 Iterator.hpp
 ../src/object/Iterator.hpp
+mutex
+-
+
+../src/object/PyNoneType.hpp
+Klass.hpp
+../src/object/Klass.hpp
+PyObject.hpp
+../src/object/PyObject.hpp
+memory
+-
 mutex
 -
 
@@ -217,6 +249,8 @@ PyObject.hpp
 ../src/object/PyObject.hpp
 ArrayList.hpp
 ../src/object/ArrayList.hpp
+PyNoneType.hpp
+../src/object/PyNoneType.hpp
 mutex
 -
 
@@ -379,6 +413,8 @@ PyObject.hpp
 /opt/PythonVm/src/PyObject.hpp
 PyInteger.hpp
 /opt/PythonVm/src/PyInteger.hpp
+PyBool.hpp
+/opt/PythonVm/src/PyBool.hpp
 stdio.h
 -
 
@@ -513,6 +549,8 @@ PyListIterator.hpp
 /opt/PythonVm/src/PyListIterator.hpp
 PyDict.hpp
 /opt/PythonVm/src/PyDict.hpp
+PyNoneType.hpp
+/opt/PythonVm/src/PyNoneType.hpp
 PyFunction.hpp
 /opt/PythonVm/src/PyFunction.hpp
 PyCell.hpp
@@ -547,6 +585,12 @@ PyString.hpp
 /opt/PythonVm/src/PyString.hpp
 Panic.hpp
 /opt/PythonVm/src/Panic.hpp
+VM.hpp
+/opt/PythonVm/src/VM.hpp
+PyBool.hpp
+/opt/PythonVm/src/PyBool.hpp
+PyNoneType.hpp
+/opt/PythonVm/src/PyNoneType.hpp
 
 /opt/PythonVm/src/Klass.hpp
 map
@@ -595,6 +639,10 @@ PyObject.hpp
 /opt/PythonVm/src/PyObject.hpp
 PyInteger.hpp
 /opt/PythonVm/src/PyInteger.hpp
+PyNoneType.hpp
+/opt/PythonVm/src/PyNoneType.hpp
+PyBool.hpp
+/opt/PythonVm/src/PyBool.hpp
 
 /opt/PythonVm/src/Map.hpp
 Core.hpp
@@ -665,12 +713,18 @@ assert.h
 -
 
 /opt/PythonVm/src/PycFileParser.hpp
+Python.hpp
+/opt/PythonVm/src/Python.hpp
 Core.hpp
 /opt/PythonVm/src/Core.hpp
 PyString.hpp
 /opt/PythonVm/src/PyString.hpp
 PyInteger.hpp
 /opt/PythonVm/src/PyInteger.hpp
+PyBool.hpp
+/opt/PythonVm/src/PyBool.hpp
+PyNoneType.hpp
+/opt/PythonVm/src/PyNoneType.hpp
 CodeObject.hpp
 /opt/PythonVm/src/CodeObject.hpp
 ArrayList.hpp
@@ -699,10 +753,14 @@ PySlice.hpp
 /opt/PythonVm/src/PySlice.hpp
 PyDict.hpp
 /opt/PythonVm/src/PyDict.hpp
-PyFunction.hpp
-/opt/PythonVm/src/PyFunction.hpp
 PyTypeObject.hpp
 /opt/PythonVm/src/PyTypeObject.hpp
+PyNoneType.hpp
+/opt/PythonVm/src/PyNoneType.hpp
+PyBool.hpp
+/opt/PythonVm/src/PyBool.hpp
+PyFunction.hpp
+/opt/PythonVm/src/PyFunction.hpp
 
 /opt/PythonVm/src/VM.cpp
 VM.hpp
@@ -723,6 +781,8 @@ PyDict.hpp
 /opt/PythonVm/src/PyDict.hpp
 PyFunction.hpp
 /opt/PythonVm/src/PyFunction.hpp
+PyNoneType.hpp
+/opt/PythonVm/src/PyNoneType.hpp
 Interpreter.hpp
 /opt/PythonVm/src/Interpreter.hpp
 CodeObject.hpp
@@ -733,6 +793,32 @@ Core.hpp
 /opt/PythonVm/src/Core.hpp
 CodeObject.hpp
 /opt/PythonVm/src/CodeObject.hpp
+
+/opt/PythonVm/src/object/PyBool.cpp
+PyBool.hpp
+/opt/PythonVm/src/object/PyBool.hpp
+PyDict.hpp
+/opt/PythonVm/src/object/PyDict.hpp
+PyTypeObject.hpp
+/opt/PythonVm/src/object/PyTypeObject.hpp
+ArrayList.hpp
+/opt/PythonVm/src/object/ArrayList.hpp
+VM.hpp
+/opt/PythonVm/src/object/VM.hpp
+cassert
+-
+iostream
+-
+
+/opt/PythonVm/src/object/PyBool.hpp
+Klass.hpp
+/opt/PythonVm/src/object/Klass.hpp
+PyObject.hpp
+/opt/PythonVm/src/object/PyObject.hpp
+memory
+-
+mutex
+-
 
 /opt/PythonVm/src/object/PyCell.cpp
 PyCell.hpp
@@ -787,6 +873,10 @@ Klass.hpp
 /opt/PythonVm/src/object/Klass.hpp
 PyObject.hpp
 /opt/PythonVm/src/object/PyObject.hpp
+PyBool.hpp
+/opt/PythonVm/src/object/PyBool.hpp
+PyNoneType.hpp
+/opt/PythonVm/src/object/PyNoneType.hpp
 mutex
 -
 
@@ -885,6 +975,8 @@ VM.hpp
 /opt/PythonVm/src/object/VM.hpp
 Panic.hpp
 /opt/PythonVm/src/object/Panic.hpp
+Python.hpp
+/opt/PythonVm/src/object/Python.hpp
 stdio.h
 -
 math.h
@@ -933,6 +1025,10 @@ PyObject.hpp
 /opt/PythonVm/src/object/PyObject.hpp
 ArrayList.hpp
 /opt/PythonVm/src/object/ArrayList.hpp
+PyBool.hpp
+/opt/PythonVm/src/object/PyBool.hpp
+PyNoneType.hpp
+/opt/PythonVm/src/object/PyNoneType.hpp
 mutex
 -
 
@@ -954,6 +1050,28 @@ Iterator.hpp
 mutex
 -
 
+/opt/PythonVm/src/object/PyNoneType.cpp
+PyNoneType.hpp
+/opt/PythonVm/src/object/PyNoneType.hpp
+PyTypeObject.hpp
+/opt/PythonVm/src/object/PyTypeObject.hpp
+PyDict.hpp
+/opt/PythonVm/src/object/PyDict.hpp
+cassert
+-
+iostream
+-
+
+/opt/PythonVm/src/object/PyNoneType.hpp
+Klass.hpp
+/opt/PythonVm/src/object/Klass.hpp
+PyObject.hpp
+/opt/PythonVm/src/object/PyObject.hpp
+memory
+-
+mutex
+-
+
 /opt/PythonVm/src/object/PyObject.cpp
 PyObject.hpp
 /opt/PythonVm/src/object/PyObject.hpp
@@ -967,6 +1085,8 @@ PyDict.hpp
 /opt/PythonVm/src/object/PyDict.hpp
 VM.hpp
 /opt/PythonVm/src/object/VM.hpp
+PyBool.hpp
+/opt/PythonVm/src/object/PyBool.hpp
 
 /opt/PythonVm/src/object/PyObject.hpp
 Klass.hpp
@@ -1059,16 +1179,12 @@ PyObject.hpp
 /opt/PythonVm/src/object/PyObject.hpp
 ArrayList.hpp
 /opt/PythonVm/src/object/ArrayList.hpp
+PyNoneType.hpp
+/opt/PythonVm/src/object/PyNoneType.hpp
 mutex
 -
 
 /opt/PythonVm/src/object/PyTypeObject.cpp
-cassert
--
-iostream
--
-string
--
 VM.hpp
 /opt/PythonVm/src/object/VM.hpp
 ConstantsPool.hpp
@@ -1077,6 +1193,12 @@ PyTypeObject.hpp
 /opt/PythonVm/src/object/PyTypeObject.hpp
 PyDict.hpp
 /opt/PythonVm/src/object/PyDict.hpp
+cassert
+-
+iostream
+-
+string
+-
 
 /opt/PythonVm/src/object/PyTypeObject.hpp
 mutex

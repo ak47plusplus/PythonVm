@@ -19,9 +19,9 @@ Frame::Frame(CodeObject *codes)
     m_Names     = codes->m_Names;
     
     m_Locals    = new PyDict();
-    m_Globals   = m_Locals;     /* In non function context, global and local are equivalent */
-    m_FastLocals= nullptr;
-    m_Closure   = nullptr;   // a module do not need the closure.
+    m_Globals   = m_Locals;    // 在非函数上下文，全局和本地是等价的
+    m_FastLocals= nullptr;	   // 在非函数上下文，不需要FastLocal
+    m_Closure   = nullptr;     // 模块中不需要闭包集合
     
     m_Pc        = 0;
     m_Caller    = nullptr;

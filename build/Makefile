@@ -501,6 +501,33 @@ src/VM.cpp.s:
 	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/VM.cpp.s
 .PHONY : src/VM.cpp.s
 
+src/object/PyBool.o: src/object/PyBool.cpp.o
+
+.PHONY : src/object/PyBool.o
+
+# target to build an object file
+src/object/PyBool.cpp.o:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyBool.cpp.o
+.PHONY : src/object/PyBool.cpp.o
+
+src/object/PyBool.i: src/object/PyBool.cpp.i
+
+.PHONY : src/object/PyBool.i
+
+# target to preprocess a source file
+src/object/PyBool.cpp.i:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyBool.cpp.i
+.PHONY : src/object/PyBool.cpp.i
+
+src/object/PyBool.s: src/object/PyBool.cpp.s
+
+.PHONY : src/object/PyBool.s
+
+# target to generate assembly for a file
+src/object/PyBool.cpp.s:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyBool.cpp.s
+.PHONY : src/object/PyBool.cpp.s
+
 src/object/PyCell.o: src/object/PyCell.cpp.o
 
 .PHONY : src/object/PyCell.o
@@ -717,6 +744,33 @@ src/object/PyListIterator.cpp.s:
 	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyListIterator.cpp.s
 .PHONY : src/object/PyListIterator.cpp.s
 
+src/object/PyNoneType.o: src/object/PyNoneType.cpp.o
+
+.PHONY : src/object/PyNoneType.o
+
+# target to build an object file
+src/object/PyNoneType.cpp.o:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyNoneType.cpp.o
+.PHONY : src/object/PyNoneType.cpp.o
+
+src/object/PyNoneType.i: src/object/PyNoneType.cpp.i
+
+.PHONY : src/object/PyNoneType.i
+
+# target to preprocess a source file
+src/object/PyNoneType.cpp.i:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyNoneType.cpp.i
+.PHONY : src/object/PyNoneType.cpp.i
+
+src/object/PyNoneType.s: src/object/PyNoneType.cpp.s
+
+.PHONY : src/object/PyNoneType.s
+
+# target to generate assembly for a file
+src/object/PyNoneType.cpp.s:
+	$(MAKE) -f CMakeFiles/tinyPython.dir/build.make CMakeFiles/tinyPython.dir/src/object/PyNoneType.cpp.s
+.PHONY : src/object/PyNoneType.cpp.s
+
 src/object/PyObject.o: src/object/PyObject.cpp.o
 
 .PHONY : src/object/PyObject.o
@@ -930,6 +984,9 @@ help:
 	@echo "... src/VM.o"
 	@echo "... src/VM.i"
 	@echo "... src/VM.s"
+	@echo "... src/object/PyBool.o"
+	@echo "... src/object/PyBool.i"
+	@echo "... src/object/PyBool.s"
 	@echo "... src/object/PyCell.o"
 	@echo "... src/object/PyCell.i"
 	@echo "... src/object/PyCell.s"
@@ -954,6 +1011,9 @@ help:
 	@echo "... src/object/PyListIterator.o"
 	@echo "... src/object/PyListIterator.i"
 	@echo "... src/object/PyListIterator.s"
+	@echo "... src/object/PyNoneType.o"
+	@echo "... src/object/PyNoneType.i"
+	@echo "... src/object/PyNoneType.s"
 	@echo "... src/object/PyObject.o"
 	@echo "... src/object/PyObject.i"
 	@echo "... src/object/PyObject.s"

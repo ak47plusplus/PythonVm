@@ -308,6 +308,17 @@ void Interpreter::EvalFrame()
                 }
                 PUSH(VM::PyNone);
                 break;
+			case OpCode::LOAD_LOCALS:
+				// 将当前栈帧的局部变量表压入操作数栈顶   python和java的虚拟机实现相差很大，python试图用dict装下全部
+				PUSH(m_CurrentFrame->locals());
+				break;
+			case OpCode::BUILD_KLASS:
+				v = POP();	// locals
+				u = POP();  // code object
+				w = POP();  // className
+				v = Klass::create_klass(v, u, w);
+				PUSH(v);
+				break;
             case OpCode::BUILD_TUPLE:
                 /* t = (1,2,3)这种在解析字节码的时候就已经生成PyTuple了 这里仅适用于动态生成Tuple
                  * 譬如函数返回多个值时.

@@ -26,6 +26,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/tinyPython.dir/src/object/PyDictIterator.cpp.o"
   "CMakeFiles/tinyPython.dir/src/object/PyTuple.cpp.o"
   "CMakeFiles/tinyPython.dir/src/object/PySlice.cpp.o"
+  "CMakeFiles/tinyPython.dir/src/object/PyNoneType.cpp.o"
+  "CMakeFiles/tinyPython.dir/src/object/PyBool.cpp.o"
   "CMakeFiles/tinyPython.dir/src/object/PyTypeObject.cpp.o"
   "tinyPython.pdb"
   "tinyPython"
