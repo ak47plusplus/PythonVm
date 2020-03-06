@@ -43,7 +43,7 @@ IntegerKlass* IntegerKlass::get_instance()
  *  b = int(3)
  *  the typeobject will be called as a function.
  */
-PyObject *IntegerKlass::allocate_instance(Klass::FuncArgs args)
+PyObject *IntegerKlass::allocate_instance(PyObject *typeObj, Klass::FuncArgs args)
 {
     if(!args || args->size() == 0)
         return new PyInteger(0);

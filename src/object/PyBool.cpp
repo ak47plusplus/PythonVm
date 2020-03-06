@@ -49,7 +49,7 @@ void BoolKlass::print(PyObject *x)
     std::fflush(stdout);
 }
 
-PyObject *BoolKlass::allocate_instance(Klass::FuncArgs args) 
+PyObject *BoolKlass::allocate_instance(PyObject *typeObj, Klass::FuncArgs args)
 {
     if(args == nullptr || args->size() == 0) {
         return FALSE;

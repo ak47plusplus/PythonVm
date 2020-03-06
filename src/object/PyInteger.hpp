@@ -19,7 +19,7 @@ public:
 
     void print(PyObject *x) override;
     PyObject* toBool(PyObject *x) override;
-    PyObject* allocate_instance(Klass::FuncArgs args) override;
+    PyObject* allocate_instance(PyObject *typeObj, Klass::FuncArgs args) override;
 
     PyObject* add(PyObject *lhs, PyObject *rhs) override;
     PyObject* sub(PyObject *lhs, PyObject *rhs) override;

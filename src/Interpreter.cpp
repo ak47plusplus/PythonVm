@@ -312,9 +312,9 @@ void Interpreter::EvalFrame()
 				// 将当前栈帧的局部变量表压入操作数栈顶   python和java的虚拟机实现相差很大，python试图用dict装下全部
 				PUSH(m_CurrentFrame->locals());
 				break;
-			case OpCode::BUILD_KLASS:
+			case OpCode::BUILD_CLASS:
 				v = POP();	// locals
-				u = POP();  // code object
+				u = POP();  // supers tuple.
 				w = POP();  // className
 				v = Klass::create_klass(v, u, w);
 				PUSH(v);
@@ -571,7 +571,7 @@ void Interpreter::EvalNewFrame(PyObject *callable, ArrayList<PyObject*> *funcArg
     /* use TypeObject likes a Function. */
     else if(PyObject_Klass_Check0(callable, TypeKlass))
     {
-        PyObject* instance = dynamic_cast<PyTypeObject*>(callable)->own_klass()->allocate_instance(funcArgs);
+        PyObject* instance = dynamic_cast<PyTypeObject*>(callable)->own_klass()->allocate_instance(callable, funcArgs);
         PUSH(instance);
     }
     /* Simple function Call of Python */

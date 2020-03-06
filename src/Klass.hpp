@@ -47,8 +47,9 @@ class Klass {
 public:
     using FuncArgs = ArrayList<PyObject*> *;
 public:
-    Klass();
-    ~Klass();
+    Klass() = default;
+    ~Klass() = default;
+
     void set_name(const char *name)  { m_Name.assign(name);}
     std::string& name()              { return m_Name;      }
 
@@ -68,12 +69,14 @@ public:
 
     virtual void print(PyObject *x)                          {;}
     virtual PyObject* toBool(PyObject *x);
-    virtual PyObject* allocate_instance(Klass::FuncArgs args){return nullptr;}
+
+	// for the Custom Class we need impl it instead of impl only by the child-class.
+    virtual PyObject* allocate_instance(PyObject *typeObj, Klass::FuncArgs args);
 
     virtual PyObject* add(PyObject *lhs, PyObject *rhs)      {return nullptr;}
     virtual PyObject* sub(PyObject *lhs, PyObject *rhs)      {return nullptr;}
     virtual PyObject* mul(PyObject *lhs, PyObject *rhs)      {return nullptr;}
-    virtual PyObject* div(PyObject *lhs, PyObject *rhs)      {return nullptr;}
+    virtual PyObject* div(PyObject *lhs, PyObject *rhs)      {return nullptr;}d
     virtual PyObject* mod(PyObject *lhs, PyObject *rhs)      {return nullptr;}
 
 
@@ -112,11 +115,14 @@ public:
 
     virtual PyObject* contains(PyObject *lhs, PyObject *rhs) { return nullptr;} // 1 in lst
     // virtual PyObject* getattr(PyObject *lhs, PyObject *rhs);
+
+public:
+    static PyObject* create_klass(PyObject *locals, PyObject *supers, PyObject * className);
 private:
     std::string     m_Name;  /* The name of the klass. */
-    Klass           *m_Super;
-    PyTypeObject    *m_TypeObject;
-    PyDict          *m_Attrs; /* method and fields are attributes of the klass. */
+    Klass           *m_Super{};
+    PyTypeObject    *m_TypeObject{};
+    PyDict          *m_Attrs{}; /* method and fields are attributes of the klass. */
 };
 
 #endif

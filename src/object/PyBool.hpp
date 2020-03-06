@@ -13,7 +13,7 @@ public:
     void InitKlass() override;
     void print(PyObject *x) override;
     PyObject* toBool(PyObject *x) override;
-    PyObject *allocate_instance(Klass::FuncArgs args) override;
+    PyObject *allocate_instance(PyObject *typeObj, Klass::FuncArgs args) override;
 private:
     BoolKlass();
     static std::unique_ptr<BoolKlass> m_Instance;
