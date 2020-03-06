@@ -1,0 +1,11 @@
+D:\CLion2019\bin\cmake\win\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" C:\Users\mzygd\CLionProjects\PythonVm
+CMake Error at D:/CLion2019/bin/cmake/win/share/cmake-3.15/Modules/FindPackageHandleStandardArgs.cmake:137 (message):
+  Could NOT find Boost (missing: Boost_INCLUDE_DIR thread)
+Call Stack (most recent call first):
+  D:/CLion2019/bin/cmake/win/share/cmake-3.15/Modules/FindPackageHandleStandardArgs.cmake:378 (_FPHSA_FAILURE_MESSAGE)
+  D:/CLion2019/bin/cmake/win/share/cmake-3.15/Modules/FindBoost.cmake:2161 (find_package_handle_standard_args)
+  CMakeLists.txt:17 (find_package)
+
+
+-- Configuring incomplete, errors occurred!
+See also "C:/Users/mzygd/CLionProjects/PythonVm/cmake-build-debug/CMakeFiles/CMakeOutput.log".

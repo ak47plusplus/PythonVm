@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="tinyPython"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/Users/mzygd/CLionProjects/PythonVm/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/Qt/Tools/mingw492_32/bin/mingw32-make.exe -f &quot;C:/Users/mzygd/CLionProjects/PythonVm/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="D:/Qt/Tools/mingw492_32/bin/mingw32-make.exe -f &quot;C:/Users/mzygd/CLionProjects/PythonVm/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Qt/Tools/mingw492_32/bin/mingw32-make.exe -f &quot;C:/Users/mzygd/CLionProjects/PythonVm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Qt/Tools/mingw492_32/bin/mingw32-make.exe -f &quot;C:/Users/mzygd/CLionProjects/PythonVm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/mzygd/CLionProjects/PythonVm/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/Qt/Tools/mingw492_32/bin/mingw32-make.exe -f &quot;C:/Users/mzygd/CLionProjects/PythonVm/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="D:/Qt/Tools/mingw492_32/bin/mingw32-make.exe -f &quot;C:/Users/mzygd/CLionProjects/PythonVm/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Qt/Tools/mingw492_32/bin/mingw32-make.exe -f &quot;C:/Users/mzygd/CLionProjects/PythonVm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Qt/Tools/mingw492_32/bin/mingw32-make.exe -f &quot;C:/Users/mzygd/CLionProjects/PythonVm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tinyPython">
+				<Option output="C:/Users/mzygd/CLionProjects/PythonVm/cmake-build-debug/tinyPython.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/mzygd/CLionProjects/PythonVm/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/mzygd/CLionProjects/PythonVm/src"/>
+					<Add directory="C:/Users/mzygd/CLionProjects/PythonVm/src/object"/>
+					<Add directory="C:/Users/mzygd/CLionProjects/PythonVm/src/os"/>
+					<Add directory="C:/Users/mzygd/CLionProjects/PythonVm/src/cpu"/>
+					<Add directory="C:/Users/mzygd/CLionProjects/PythonVm/src/3rd/easylogging++"/>
+					<Add directory="C:/Users/mzygd/Desktop/boost_1_70_0"/>
+					<Add directory="D:/Qt/Tools/mingw492_32/bin/../lib/gcc/i686-w64-mingw32/4.9.2/include"/>
+					<Add directory="D:/Qt/Tools/mingw492_32/bin/../lib/gcc/i686-w64-mingw32/4.9.2/include-fixed"/>
+					<Add directory="D:/Qt/Tools/mingw492_32/bin/../lib/gcc/i686-w64-mingw32/4.9.2/../../../../i686-w64-mingw32/include"/>
+					<Add directory="D:/Qt/Tools/mingw492_32/lib/gcc/../../i686-w64-mingw32/include/c++"/>
+					<Add directory="D:/Qt/Tools/mingw492_32/lib/gcc/../../i686-w64-mingw32/include/c++/i686-w64-mingw32"/>
+					<Add directory="D:/Qt/Tools/mingw492_32/lib/gcc/../../i686-w64-mingw32/include/c++/backward"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/Qt/Tools/mingw492_32/bin/mingw32-make.exe -f &quot;C:/Users/mzygd/CLionProjects/PythonVm/cmake-build-debug/Makefile&quot;  VERBOSE=1 tinyPython"/>
+					<CompileFile command="D:/Qt/Tools/mingw492_32/bin/mingw32-make.exe -f &quot;C:/Users/mzygd/CLionProjects/PythonVm/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Qt/Tools/mingw492_32/bin/mingw32-make.exe -f &quot;C:/Users/mzygd/CLionProjects/PythonVm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Qt/Tools/mingw492_32/bin/mingw32-make.exe -f &quot;C:/Users/mzygd/CLionProjects/PythonVm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tinyPython/fast">
+				<Option output="C:/Users/mzygd/CLionProjects/PythonVm/cmake-build-debug/tinyPython.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/mzygd/CLionProjects/PythonVm/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Users/mzygd/CLionProjects/PythonVm/src"/>
+					<Add directory="C:/Users/mzygd/CLionProjects/PythonVm/src/object"/>
+					<Add directory="C:/Users/mzygd/CLionProjects/PythonVm/src/os"/>
+					<Add directory="C:/Users/mzygd/CLionProjects/PythonVm/src/cpu"/>
+					<Add directory="C:/Users/mzygd/CLionProjects/PythonVm/src/3rd/easylogging++"/>
+					<Add directory="C:/Users/mzygd/Desktop/boost_1_70_0"/>
+					<Add directory="D:/Qt/Tools/mingw492_32/bin/../lib/gcc/i686-w64-mingw32/4.9.2/include"/>
+					<Add directory="D:/Qt/Tools/mingw492_32/bin/../lib/gcc/i686-w64-mingw32/4.9.2/include-fixed"/>
+					<Add directory="D:/Qt/Tools/mingw492_32/bin/../lib/gcc/i686-w64-mingw32/4.9.2/../../../../i686-w64-mingw32/include"/>
+					<Add directory="D:/Qt/Tools/mingw492_32/lib/gcc/../../i686-w64-mingw32/include/c++"/>
+					<Add directory="D:/Qt/Tools/mingw492_32/lib/gcc/../../i686-w64-mingw32/include/c++/i686-w64-mingw32"/>
+					<Add directory="D:/Qt/Tools/mingw492_32/lib/gcc/../../i686-w64-mingw32/include/c++/backward"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/Qt/Tools/mingw492_32/bin/mingw32-make.exe -f &quot;C:/Users/mzygd/CLionProjects/PythonVm/cmake-build-debug/Makefile&quot;  VERBOSE=1 tinyPython/fast"/>
+					<CompileFile command="D:/Qt/Tools/mingw492_32/bin/mingw32-make.exe -f &quot;C:/Users/mzygd/CLionProjects/PythonVm/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Qt/Tools/mingw492_32/bin/mingw32-make.exe -f &quot;C:/Users/mzygd/CLionProjects/PythonVm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Qt/Tools/mingw492_32/bin/mingw32-make.exe -f &quot;C:/Users/mzygd/CLionProjects/PythonVm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Users/mzygd/CLionProjects/PythonVm/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/Qt/Tools/mingw492_32/bin/mingw32-make.exe -f &quot;C:/Users/mzygd/CLionProjects/PythonVm/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="D:/Qt/Tools/mingw492_32/bin/mingw32-make.exe -f &quot;C:/Users/mzygd/CLionProjects/PythonVm/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Qt/Tools/mingw492_32/bin/mingw32-make.exe -f &quot;C:/Users/mzygd/CLionProjects/PythonVm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Qt/Tools/mingw492_32/bin/mingw32-make.exe -f &quot;C:/Users/mzygd/CLionProjects/PythonVm/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/3rd/easylogging++/easylogging++.cpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/3rd/easylogging++/easylogging++.hpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/ArrayList.cpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/ArrayList.hpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/CodeObject.cpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/CodeObject.hpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/FileInputStream.cpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/FileInputStream.hpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/Frame.cpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/Frame.hpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/Interpreter.cpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/Interpreter.hpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/Klass.cpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/Klass.hpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/LoggerConfig.cpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/LoggerConfig.hpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/Main.cpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/Map.cpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/Map.hpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/Native.cpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/Native.hpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/PycFileParser.cpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/PycFileParser.hpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/VM.cpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/VM.hpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/object/PyDict.cpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/object/PyDict.hpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/object/PyDictIterator.cpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/object/PyDictIterator.hpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/object/PyDouble.cpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/object/PyDouble.hpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/object/PyFunction.cpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/object/PyFunction.hpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/object/PyInteger.cpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/object/PyInteger.hpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/object/PyList.cpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/object/PyList.hpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/object/PyListIterator.cpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/object/PyListIterator.hpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/object/PyObject.cpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/object/PyObject.hpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/object/PySlice.cpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/object/PySlice.hpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/object/PyString.cpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/object/PyString.hpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/object/PyStringIterator.cpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/object/PyStringIterator.hpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/object/PyTuple.cpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/src/object/PyTuple.hpp">
+			<Option target="tinyPython"/>
+		</Unit>
+		<Unit filename="C:/Users/mzygd/CLionProjects/PythonVm/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

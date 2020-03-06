@@ -1,0 +1,3 @@
+C:/Users/mzygd/CLionProjects/PythonVm/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/mzygd/CLionProjects/PythonVm/cmake-build-debug/CMakeFiles/tinyPython.dir
+C:/Users/mzygd/CLionProjects/PythonVm/cmake-build-debug/CMakeFiles/edit_cache.dir
